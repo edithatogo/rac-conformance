@@ -1,0 +1,38 @@
+{
+  "conformsTo": "pic-crosswalk/0.1.0",
+  "jurisdictionScope": {"country": "NZ", "domain": "official-information"},
+  "provenance": {"curator": "PIC Track 1", "method": "ai-proposed", "source": "illustrative sample"},
+  "rows": [
+    {
+      "id": "nz-oia/parameter.working_day_limit",
+      "label": "OIA response working-day limit",
+      "kind": "parameter",
+      "dataType": "duration_working_days",
+      "period": "case",
+      "mappings": [{"system": "foi-o", "ref": "working_day_limit", "method": "ai-proposed"}],
+      "sourceRefs": ["Official Information Act 1982 s 15"],
+      "definition": "Maximum working days before a decision must be made and communicated."
+    },
+    {
+      "id": "nz-oia/decision.extension_valid",
+      "label": "OIA extension validity",
+      "kind": "decision",
+      "dataType": "boolean",
+      "period": "case",
+      "mappings": [{"system": "foi-o", "ref": "extension_valid", "method": "ai-proposed"}],
+      "sourceRefs": ["Official Information Act 1982 s 15A"],
+      "definition": "Whether an extension notice is valid under the available case facts."
+    },
+    {
+      "id": "nz-oia/process_step.transfer",
+      "label": "OIA transfer step",
+      "kind": "process_step",
+      "dataType": "date",
+      "period": "case",
+      "mappings": [{"system": "foi-o", "ref": "transfer", "method": "ai-proposed"}],
+      "sourceRefs": ["Official Information Act 1982 s 14"],
+      "definition": "Process step for transferring a request to another agency."
+    }
+  ]
+}
+

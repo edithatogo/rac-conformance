@@ -1,0 +1,38 @@
+{
+  "conformsTo": "pic-crosswalk/0.1.0",
+  "jurisdictionScope": {"country": "US", "program": "SNAP"},
+  "provenance": {"curator": "PIC Track 1", "method": "ai-proposed", "source": "illustrative sample"},
+  "rows": [
+    {
+      "id": "us-snap/variable.gross_income",
+      "label": "SNAP gross monthly income",
+      "kind": "variable",
+      "dataType": "money",
+      "period": "month",
+      "mappings": [{"system": "policyengine-us", "ref": "snap_gross_income", "method": "ai-proposed"}],
+      "sourceRefs": ["7 CFR 273.9"],
+      "definition": "Monthly gross income before SNAP deductions."
+    },
+    {
+      "id": "us-snap/variable.net_income",
+      "label": "SNAP net monthly income",
+      "kind": "variable",
+      "dataType": "money",
+      "period": "month",
+      "mappings": [{"system": "atlanta-fed-prd", "ref": "NetIncome.SNAP", "method": "ai-proposed"}],
+      "sourceRefs": ["7 CFR 273.10(e)"],
+      "definition": "Gross income minus allowable deductions."
+    },
+    {
+      "id": "us-snap/decision.eligible",
+      "label": "SNAP eligibility decision",
+      "kind": "decision",
+      "dataType": "boolean",
+      "period": "month",
+      "mappings": [{"system": "policyengine-us", "ref": "is_snap_eligible", "method": "ai-proposed"}],
+      "sourceRefs": ["7 CFR 273"],
+      "definition": "Whether the household is eligible for SNAP for the period."
+    }
+  ]
+}
+

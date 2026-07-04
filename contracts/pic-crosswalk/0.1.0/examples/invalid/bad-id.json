@@ -1,0 +1,17 @@
+{
+  "conformsTo": "pic-crosswalk/0.1.0",
+  "jurisdictionScope": {"country": "NZ"},
+  "provenance": {"curator": "PIC Track 1", "method": "ai-proposed", "source": "negative test"},
+  "rows": [
+    {
+      "id": "Bad Id",
+      "label": "Bad ID",
+      "kind": "parameter",
+      "dataType": "integer",
+      "mappings": [{"system": "foi-o", "ref": "bad", "method": "ai-proposed"}],
+      "sourceRefs": ["negative"],
+      "definition": "Invalid ID pattern."
+    }
+  ]
+}
+

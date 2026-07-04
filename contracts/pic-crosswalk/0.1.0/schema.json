@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-crosswalk/0.1.0/schema.json",
+  "title": "PIC crosswalk file",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["conformsTo", "jurisdictionScope", "provenance", "rows"],
+  "properties": {
+    "conformsTo": {"const": "pic-crosswalk/0.1.0"},
+    "jurisdictionScope": {
+      "type": "object",
+      "additionalProperties": {"type": "string"},
+      "minProperties": 1
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["curator", "method", "source"],
+      "properties": {
+        "curator": {"type": "string", "minLength": 1},
+        "method": {"type": "string", "enum": ["human-approved", "ai-proposed", "mechanical"]},
+        "source": {"type": "string", "minLength": 1},
+        "notes": {"type": "string"}
+      }
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/row"}
+    }
+  },
+  "$defs": {
+    "picId": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+(/[a-z0-9_-]+)*(\\.[a-z0-9_]+)+$"
+    },
+    "mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "ref", "method"],
+      "properties": {
+        "system": {"type": "string", "minLength": 1},
+        "ref": {"type": "string", "minLength": 1},
+        "method": {"type": "string", "enum": ["human-approved", "ai-proposed", "mechanical"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "kind", "dataType", "mappings", "sourceRefs", "definition"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "label": {"type": "string", "minLength": 1},
+        "kind": {
+          "type": "string",
+          "enum": ["concept", "variable", "parameter", "decision", "evidence", "process_step"]
+        },
+        "dataType": {
+          "$ref": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-semantics/0.1.0/schema.json#/$defs/dataType"
+        },
+        "period": {"type": "string"},
+        "mappings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/mapping"}},
+        "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "definition": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
+

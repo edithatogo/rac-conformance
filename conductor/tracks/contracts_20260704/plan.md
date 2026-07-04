@@ -21,10 +21,10 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
 
 ## Phase 2 — pic-crosswalk and pic-parameters
 
-- [ ] Task: Write `pic-crosswalk` 0.1.0
-    - [ ] Write tests first: valid row set; invalid: bad ID pattern, unknown `kind`, unknown `method`, mapping without `system`
-    - [ ] `SPEC.md` + `schema.json` per spec C2 (row array file with header block `{conformsTo, jurisdictionScope, provenance}`)
-    - [ ] Valid examples: one 3-row `us-snap` sample (mark all mappings `ai-proposed`), one 3-row `nz-oia` sample
+- [x] Task: Write `pic-crosswalk` 0.1.0
+    - [x] Write tests first: valid row set; invalid: bad ID pattern, unknown `kind`, unknown `method`, mapping without `system`
+    - [x] `SPEC.md` + `schema.json` per spec C2 (row array file with header block `{conformsTo, jurisdictionScope, provenance}`)
+    - [x] Valid examples: one 3-row `us-snap` sample (mark all mappings `ai-proposed`), one 3-row `nz-oia` sample
     - **Acceptance:** pytest green; examples validate via schema in CI test
 - [ ] Task: Write `pic-parameters` 0.1.0
     - [ ] Write tests first: overlapping periods rejected; unordered periods rejected; float value rejected; bracket schedule accepted; open-ended `to: null` accepted
