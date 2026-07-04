@@ -21,6 +21,8 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
 
 ## Phase 2 — pic-crosswalk and pic-parameters
 
+> CHECKPOINT (2026-07-05): Phase 2 added `pic-crosswalk/0.1.0` with row-set header, mapping methods, kind constraints, two valid examples, and invalid coverage for bad IDs, kinds, methods, and mappings without systems. `pic-parameters/0.1.0` now supports integer, boolean, string, decimal-string, and bracket schedule values, plus Python period validation for ordering/open-ended/overlap rules. Conductor review fixed decimal-string acceptance in the parameter schema. Validation passed with `PATH=$PWD/.venv/bin:$PATH make check`.
+
 - [x] Task: Write `pic-crosswalk` 0.1.0
     - [x] Write tests first: valid row set; invalid: bad ID pattern, unknown `kind`, unknown `method`, mapping without `system`
     - [x] `SPEC.md` + `schema.json` per spec C2 (row array file with header block `{conformsTo, jurisdictionScope, provenance}`)
@@ -32,7 +34,7 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
     - [x] Valid examples: a simple threshold parameter with two historical periods + sourceRefs; a bracketed schedule parameter
     - [x] Implement period-consistency validation in Python (schema can't express non-overlap): function `validate_parameter_periods(doc) -> list[Error]`
     - **Acceptance:** pytest green incl. period-logic unit tests
-- [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3 — pic-fixtures and pic-traces
 
