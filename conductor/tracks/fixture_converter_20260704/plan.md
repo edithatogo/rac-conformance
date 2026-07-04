@@ -9,8 +9,8 @@ Depends on: contracts_20260704 phases 1–4. Requires network (git clones). If u
     - [x] Clone `policyengine-core` + `policyengine-us`; same analysis
     - [x] Write `converters/fixtures/FORMATS.md`: field-by-field comparison table (OpenFisca vs PolicyEngine vs pic-fixtures), citing loader source files at specific commits
     - **Acceptance:** FORMATS.md cites code permalinks; divergences between dialects explicitly listed
-- [ ] Task: Define supported subset
-    - [ ] Write `SUPPORTED.md` v0.1 from FORMATS.md; get the mandatory constructs from spec §Deliverables 1
+- [x] Task: Define supported subset
+    - [x] Write `SUPPORTED.md` v0.1 from FORMATS.md; get the mandatory constructs from spec §Deliverables 1
     - **Acceptance:** every row says convertible/rejected and why
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
