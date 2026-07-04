@@ -4,10 +4,10 @@ Depends on: contracts_20260704 phases 1–3. Work is staged under `external/foi-
 
 ## Phase 1 — Statute verification and design
 
-- [ ] Task: Verify statutory text
-    - [ ] Fetch current consolidated OIA 1982 text (legislation.govt.nz) for ss 2 (working day definition), 14, 15, 15A, 28; record consolidation date
-    - [ ] Write `external/foi-o/rules/SOURCES.md`: quoted definitions, section refs, consolidation date, and any ambiguity notes (e.g. exact holiday exclusions in the s 2 working-day definition)
-    - [ ] If network unavailable: mark BLOCKED, proceed using placeholders clearly tagged `UNVERIFIED`, and add verification to the `[HUMAN]` review task
+- [x] Task: Verify statutory text
+    - [x] Fetch current consolidated OIA 1982 text (legislation.govt.nz) for ss 2 (working day definition), 14, 15, 15A, 28; record consolidation date
+    - [x] Write `external/foi-o/rules/SOURCES.md`: quoted definitions, section refs, consolidation date, and any ambiguity notes (e.g. exact holiday exclusions in the s 2 working-day definition)
+    - [x] If network unavailable: mark BLOCKED, proceed using placeholders clearly tagged `UNVERIFIED`, and add verification to the `[HUMAN]` review task
     - **Acceptance:** SOURCES.md exists; every rule in spec has a verified (or explicitly UNVERIFIED) citation
 - [ ] Task: Read foi-o conventions
     - [ ] Read foi-o repo: `schemas/json/`, working-day/clock code paths, Pydantic models, test layout, `pyproject` extras
