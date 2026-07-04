@@ -18,9 +18,9 @@ Depends on: contracts_20260704 phases 1–4. Requires network (git clones). If u
 
 ## Phase 2 — Converters (TDD)
 
-- [ ] Task: `openfisca_to_pic` / `pic_to_openfisca`
-    - [ ] Tests first: minimal case; multi-entity case; error-margin → tolerance mapping; unsupported construct raises `UnsupportedConstructError` with file/construct info; round-trip canonical equality
-    - [ ] Implement with YAML normalization helper (sorted keys, decimal-string coercion policy documented)
+- [x] Task: `openfisca_to_pic` / `pic_to_openfisca`
+    - [x] Tests first: minimal case; multi-entity case; error-margin → tolerance mapping; unsupported construct raises `UnsupportedConstructError` with file/construct info; round-trip canonical equality
+    - [x] Implement with YAML normalization helper (sorted keys, decimal-string coercion policy documented)
     - **Acceptance:** pytest green
 - [ ] Task: `policyengine_to_pic` / `pic_to_policyengine`
     - [ ] Same test pattern; reuse shared internals where dialects agree
