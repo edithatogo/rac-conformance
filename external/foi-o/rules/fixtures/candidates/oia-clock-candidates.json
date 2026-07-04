@@ -27,7 +27,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 2, 15, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 2, latest as at 2025-04-05", "OIA 1982 s 15, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.friday_before_public_holiday_transfer",
@@ -47,7 +47,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 2, 14, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 2, latest as at 2025-04-05", "OIA 1982 s 14, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.receipt_during_december_january_shutdown",
@@ -67,7 +67,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 2, 15, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 2, latest as at 2025-04-05", "OIA 1982 s 15, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.receipt_before_december_january_shutdown",
@@ -87,7 +87,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 2, 15, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 2, latest as at 2025-04-05", "OIA 1982 s 15, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.receipt_date_not_provided",
@@ -137,7 +137,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 15, 15A, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 15, latest as at 2025-04-05", "OIA 1982 s 15A, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.extension_large_quantity_notice_within_deadline",
@@ -164,7 +164,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 15, 15A, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 15, latest as at 2025-04-05", "OIA 1982 s 15A, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.extension_consultation_ground",
@@ -191,7 +191,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 15, 15A, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 15, latest as at 2025-04-05", "OIA 1982 s 15A, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.extension_unknown_ground_invalid",
@@ -239,7 +239,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 2, 14, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 2, latest as at 2025-04-05", "OIA 1982 s 14, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.deemed_refusal_after_deadline",
@@ -261,7 +261,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 15, 28, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 15, latest as at 2025-04-05", "OIA 1982 s 28, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.no_deemed_refusal_before_deadline",
@@ -283,7 +283,7 @@
         "interpreterOfRecord": "pending Dylan review",
         "disclaimer": "Candidate fixture; requires human curation before promotion."
       },
-      "sourceRefs": ["OIA 1982 ss 15, 28, latest as at 2025-04-05"]
+      "sourceRefs": ["OIA 1982 s 15, latest as at 2025-04-05", "OIA 1982 s 28, latest as at 2025-04-05"]
     },
     {
       "caseId": "nz-oia/fixture.urgency_with_reasons_is_discretion_point",

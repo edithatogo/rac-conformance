@@ -80,7 +80,7 @@
       "dataType": "boolean",
       "period": "case",
       "mappings": [{"system": "foi-o", "ref": "CoreEvent DecisionCommunicated observed", "method": "ai-proposed"}],
-      "sourceRefs": ["OIA 1982 ss 15, 28, latest as at 2025-04-05"],
+      "sourceRefs": ["OIA 1982 s 15, latest as at 2025-04-05", "OIA 1982 s 28, latest as at 2025-04-05"],
       "definition": "Whether the response or decision has been communicated by the assessment date."
     },
     {
