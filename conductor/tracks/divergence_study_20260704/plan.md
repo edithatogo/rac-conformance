@@ -4,8 +4,8 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
 
 ## Phase 1 — Feasibility and scope lock
 
-- [ ] Task: PRD reconnaissance
-    - [ ] Clone PRD; confirm license/citation terms; document SNAP function entry points, parameter vintages, state coverage, and how BBCE/SUA options are modeled → `studies/snap-divergence/PRD_NOTES.md` (permalinks)
+- [x] Task: PRD reconnaissance
+    - [x] Clone PRD; confirm license/citation terms; document SNAP function entry points, parameter vintages, state coverage, and how BBCE/SUA options are modeled → `studies/snap-divergence/PRD_NOTES.md` (permalinks)
     - **Acceptance:** notes name exact R functions + parameter files for SNAP
 - [ ] Task: PolicyEngine SNAP reconnaissance
     - [ ] Same for `policyengine-us`: SNAP variables, parameters, state options → `PE_NOTES.md`
