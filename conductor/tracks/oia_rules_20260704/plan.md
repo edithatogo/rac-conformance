@@ -23,9 +23,9 @@ Depends on: contracts_20260704 phases 1–3. Work is staged under `external/foi-
     - [x] `working_day_limit` (20), `transfer_limit` (10), `holiday_exclusions` (calendar definition parameter), each with sourceRefs from SOURCES.md, one effective period from current consolidation
     - [x] Validate with `pic-validate`
     - **Acceptance:** validation exits 0
-- [ ] Task: Draft candidate fixtures (agent) 
-    - [ ] ≥12 candidate cases into `rules/fixtures/candidates/`: the four mandatory scenarios from spec D1 plus holiday-boundary, year-boundary, transfer-chain, extension-grounds cases; every case carries `method: ai-proposed` and full provenance stubs
-    - [ ] Validate with `pic-validate`
+- [x] Task: Draft candidate fixtures (agent) 
+    - [x] ≥12 candidate cases into `rules/fixtures/candidates/`: the four mandatory scenarios from spec D1 plus holiday-boundary, year-boundary, transfer-chain, extension-grounds cases; every case carries `method: ai-proposed` and full provenance stubs
+    - [x] Validate with `pic-validate`
     - **Acceptance:** validation exits 0; mandatory scenarios present
 - [ ] Task: [HUMAN] Fixture curation
     - [ ] Dylan reviews candidates against statute/Ombudsman guidance, promotes to `rules/fixtures/`, flips `method`, sets `interpreterOfRecord`
