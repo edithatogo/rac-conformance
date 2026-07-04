@@ -83,7 +83,7 @@ Observed 2026-01-01 candidate-state values from `CountryTaxBenefitSystem().param
 | TX | 1.65 | 5000 | False | False | False |
 | PA | 2.00 | inf | False | False | True |
 | MS | -inf | -inf | False | False | False |
-| KS | -inf | -inf | 0 | 0 | False |
+| KS | -inf | -inf | False | False | False |
 | GA | 1.30 | inf | False | False | False |
 
 Interpretation:
