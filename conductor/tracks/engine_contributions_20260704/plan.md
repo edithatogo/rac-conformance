@@ -13,8 +13,8 @@ Depends on: contracts_20260704 phases 1–3. Requires network + engine installs.
     - [x] Tests first: household SNAP simulation → pic-traces document that passes `pic-validate`; parameterVersions populated; steps ordered by dependency
     - [x] Implement projection in `harness/policyengine_trace/` (here, not upstream yet)
     - **Acceptance:** pytest green; emitted trace validates
-- [ ] Task: Draft upstream issue
-    - [ ] `external/policyengine/SUBMISSION_trace.md`: propose versioned trace export; include the prototype as evidence; PIC as footnote
+- [x] Task: Draft upstream issue
+    - [x] `external/policyengine/SUBMISSION_trace.md`: propose versioned trace export; include the prototype as evidence; PIC as footnote
     - **Acceptance:** draft complete
 - [ ] Task: [HUMAN] Review + submit trace issue
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
