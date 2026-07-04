@@ -1,0 +1,41 @@
+name: Contracts
+
+on:
+  push:
+    paths:
+      - "contracts/**"
+      - "Makefile"
+      - ".github/workflows/contracts.yml"
+  pull_request:
+    paths:
+      - "contracts/**"
+      - "Makefile"
+      - ".github/workflows/contracts.yml"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package
+        run: uv pip install --system -e contracts/tools
+
+      - name: Ruff
+        run: cd contracts/tools && uv run --with ruff ruff check .
+
+      - name: Pytest with coverage
+        run: cd contracts/tools && uv run --with pytest --with pytest-cov pytest --cov=pic_contracts --cov-report=term-missing
+
+      - name: Validate example corpora
+        run: cd contracts/tools && uv run python -m pic_contracts.validate_examples ../../contracts
+

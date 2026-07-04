@@ -63,9 +63,9 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
     - [x] Tests first: value change, new period, removed parameter, unchanged — all reported correctly
     - [x] Implement Markdown + JSON diff output
     - **Acceptance:** pytest green; sample diff committed under `contracts/examples/diffs/`
-- [ ] Task: Wire CI
-    - [ ] GitHub Actions workflow: ruff, pytest with coverage gate ≥80% on tools, `pic-validate` over all `examples/valid` (expect pass) and `examples/invalid` (expect fail)
-    - [ ] Make `make check` run the same gate locally
+- [x] Task: Wire CI
+    - [x] GitHub Actions workflow: ruff, pytest with coverage gate ≥80% on tools, `pic-validate` over all `examples/valid` (expect pass) and `examples/invalid` (expect fail)
+    - [x] Make `make check` run the same gate locally
     - **Acceptance:** workflow file lints (yamllint or actionlint if available); `make check` green locally
 - [ ] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
 

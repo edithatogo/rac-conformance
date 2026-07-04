@@ -6,7 +6,7 @@ lint:
 	cd contracts/tools && uv run --with ruff ruff check .
 
 test:
-	cd contracts/tools && uv run --with pytest pytest
+	cd contracts/tools && uv run --with pytest --with pytest-cov pytest --cov=pic_contracts --cov-report=term-missing
 
 validate-examples:
 	cd contracts/tools && uv run python -m pic_contracts.validate_examples ../../contracts
