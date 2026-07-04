@@ -4,6 +4,8 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
 
 ## Phase 1 — Feasibility and scope lock
 
+> CHECKPOINT (2026-07-05): Phase 1 proves both source surfaces are locally inspectable and executable with the required toolchain (`Rscript 4.6.0`, editable `policyengine-us==1.755.5`). PRD notes identify `function.snapBenefit`, `BenefitsCalculator.FoodandHousing`, `applyBenefitsCalculator.R`, and `snapData`/supporting RData files with permalinks and coverage through rule year 2026. PolicyEngine notes identify SNAP variables, TANF non-cash BBCE parameters, utility parameters, and candidate-state values with permalinks. Scope is locked to `2026-01` for CA, TX, PA, MS, and GA, with annual/monthly, BBCE, asset, utility, and composition asymmetries carried into Phase 2. No fixtures, crosswalk rows, runners, or divergence claims are complete yet.
+
 - [x] Task: PRD reconnaissance
     - [x] Clone PRD; confirm license/citation terms; document SNAP function entry points, parameter vintages, state coverage, and how BBCE/SUA options are modeled → `studies/snap-divergence/PRD_NOTES.md` (permalinks)
     - **Acceptance:** notes name exact R functions + parameter files for SNAP
@@ -13,7 +15,7 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
 - [x] Task: Lock scope
     - [x] Choose states + policy year where both systems have coverage; write `SCOPE.md` with the rationale and known modeling asymmetries going in
     - **Acceptance:** SCOPE.md complete; asymmetries listed (these become expected-divergence hypotheses)
-- [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2 — Crosswalk and fixtures
 
