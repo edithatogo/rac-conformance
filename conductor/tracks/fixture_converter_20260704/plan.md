@@ -34,8 +34,8 @@ Depends on: contracts_20260704 phases 1–4. Requires network (git clones). If u
 
 ## Phase 3 — Real corpus
 
-- [ ] Task: Vendor corpus samples
-    - [ ] Select ≥10 real test files per ecosystem (mix of simple/complex); record source repo, path, commit, license in `corpus/MANIFEST.md`
+- [x] Task: Vendor corpus samples
+    - [x] Select ≥10 real test files per ecosystem (mix of simple/complex); record source repo, path, commit, license in `corpus/MANIFEST.md`
     - **Acceptance:** manifest complete; licenses permit vendoring (both ecosystems are AGPL — vendoring test YAML with attribution is fine for this repo's purpose, note it)
 - [ ] Task: Corpus conversion report
     - [ ] CI job converts corpus, validates outputs with `pic-validate`, emits `corpus/REPORT.md` (converted / rejected-by-construct statistics)
