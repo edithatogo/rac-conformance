@@ -47,8 +47,8 @@ Depends on: contracts_20260704 phases 1–4. Requires network (git clones). If u
 
 ## Phase 4 — Upstream staging
 
-- [ ] Task: Draft submissions
-    - [ ] `external/openfisca/SUBMISSION.md` and `external/policyengine/SUBMISSION.md`: issue text proposing the converter, with corpus statistics; frame as migration/cross-validation utility; PIC as footnote
+- [x] Task: Draft submissions
+    - [x] `external/openfisca/SUBMISSION.md` and `external/policyengine/SUBMISSION.md`: issue text proposing the converter, with corpus statistics; frame as migration/cross-validation utility; PIC as footnote
     - **Acceptance:** both drafts complete
 - [ ] Task: [HUMAN] Open upstream issues (Dylan; one per ecosystem, sequenced — PolicyEngine first given insider standing)
 - [ ] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
