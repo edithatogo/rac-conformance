@@ -1,0 +1,1 @@
+contracts_20260704 phase 4 checkpoint: reference tooling and CI complete; conductor-review found no fixes; PATH=$PWD/.venv/bin:$PATH make check passed with 88.55% coverage.
