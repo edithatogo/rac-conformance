@@ -80,6 +80,7 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
     - **Acceptance:** `pic-validate contracts/examples/nz-oia-clocks/` exits 0
 - [ ] Task: [HUMAN] Fixture review
     - [ ] Dylan verifies the 5 fixtures against the OIA text/Ombudsman guidance, flips `method` to `human-approved`, fills `interpreterOfRecord`
+    > HUMAN-GATE (2026-07-05): Candidate fixtures and `FIXTURE_REVIEW.md` are prepared. Agent must stop here; Dylan must verify dates/interpretation, promote method, and fill interpreter-of-record before release housekeeping or archive.
 - [ ] Task: Release housekeeping
     - [ ] CHANGELOGs for all five contracts at 0.1.0; update `contracts/CONSUMERS.md`; update root README repo-map row for `contracts/` from "to be built" to "v0.1"
     - **Acceptance:** `make check` green; `git log` shows one commit per task
