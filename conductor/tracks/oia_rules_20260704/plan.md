@@ -28,6 +28,7 @@ Depends on: contracts_20260704 phases 1–3. Work is staged under `external/foi-
     - [x] Validate with `pic-validate`
     - **Acceptance:** validation exits 0; mandatory scenarios present
 - [ ] Task: [HUMAN] Fixture curation
+    > HUMAN-GATE (2026-07-04): Candidate fixture and crosswalk artifacts are prepared and validate with `pic-validate`, but promotion is reserved for Dylan. Review packet: `external/foi-o/rules/fixtures/FIXTURE_CURATION.md`.
     - [ ] Dylan reviews candidates against statute/Ombudsman guidance, promotes to `rules/fixtures/`, flips `method`, sets `interpreterOfRecord`
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
