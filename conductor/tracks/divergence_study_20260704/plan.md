@@ -10,8 +10,8 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
 - [x] Task: PolicyEngine SNAP reconnaissance
     - [x] Same for `policyengine-us`: SNAP variables, parameters, state options → `PE_NOTES.md`
     - **Acceptance:** as above
-- [ ] Task: Lock scope
-    - [ ] Choose states + policy year where both systems have coverage; write `SCOPE.md` with the rationale and known modeling asymmetries going in
+- [x] Task: Lock scope
+    - [x] Choose states + policy year where both systems have coverage; write `SCOPE.md` with the rationale and known modeling asymmetries going in
     - **Acceptance:** SCOPE.md complete; asymmetries listed (these become expected-divergence hypotheses)
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
