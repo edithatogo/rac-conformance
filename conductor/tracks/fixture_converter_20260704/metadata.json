@@ -1,0 +1,8 @@
+{
+  "track_id": "fixture_converter_20260704",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-04T11:30:00Z",
+  "updated_at": "2026-07-04T11:30:00Z",
+  "description": "Bidirectional converter between OpenFisca YAML tests, PolicyEngine YAML tests, and PIC fixtures, with round-trip guarantees on a documented supported subset. Tool lives here; upstream PRs staged."
+}

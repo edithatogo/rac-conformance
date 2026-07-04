@@ -1,0 +1,8 @@
+{
+  "track_id": "engine_contributions_20260704",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-04T11:30:00Z",
+  "updated_at": "2026-07-04T11:30:00Z",
+  "description": "Upstream contributions to PolicyEngine/Axiom/OpenFisca: computation-tree trace export contract, missingness-semantics issue with failing cases, and an Axiom-generated-model validation harness."
+}
