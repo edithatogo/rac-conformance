@@ -1,0 +1,13 @@
+{
+  "conformsTo": "pic-parameters/0.1.0",
+  "parameters": [
+    {
+      "id": "us-snap/parameter.float",
+      "label": "Float value",
+      "unit": "USD",
+      "calendar": {"timezone": "America/New_York", "convention": "calendar year"},
+      "values": [{"from": "2026-01-01", "to": null, "value": 10.5, "sourceRefs": ["negative"]}]
+    }
+  ]
+}
+

@@ -26,11 +26,11 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
     - [x] `SPEC.md` + `schema.json` per spec C2 (row array file with header block `{conformsTo, jurisdictionScope, provenance}`)
     - [x] Valid examples: one 3-row `us-snap` sample (mark all mappings `ai-proposed`), one 3-row `nz-oia` sample
     - **Acceptance:** pytest green; examples validate via schema in CI test
-- [ ] Task: Write `pic-parameters` 0.1.0
-    - [ ] Write tests first: overlapping periods rejected; unordered periods rejected; float value rejected; bracket schedule accepted; open-ended `to: null` accepted
-    - [ ] `SPEC.md` + `schema.json` per spec C3, importing `$defs` from pic-semantics
-    - [ ] Valid examples: a simple threshold parameter with two historical periods + sourceRefs; a bracketed schedule parameter
-    - [ ] Implement period-consistency validation in Python (schema can't express non-overlap): function `validate_parameter_periods(doc) -> list[Error]`
+- [x] Task: Write `pic-parameters` 0.1.0
+    - [x] Write tests first: overlapping periods rejected; unordered periods rejected; float value rejected; bracket schedule accepted; open-ended `to: null` accepted
+    - [x] `SPEC.md` + `schema.json` per spec C3, importing `$defs` from pic-semantics
+    - [x] Valid examples: a simple threshold parameter with two historical periods + sourceRefs; a bracketed schedule parameter
+    - [x] Implement period-consistency validation in Python (schema can't express non-overlap): function `validate_parameter_periods(doc) -> list[Error]`
     - **Acceptance:** pytest green incl. period-logic unit tests
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 

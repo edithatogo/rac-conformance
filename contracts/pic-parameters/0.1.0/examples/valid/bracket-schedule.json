@@ -1,0 +1,26 @@
+{
+  "conformsTo": "pic-parameters/0.1.0",
+  "parameters": [
+    {
+      "id": "us-snap/parameter.example_phaseout",
+      "label": "Illustrative SNAP phaseout schedule",
+      "unit": "rate",
+      "calendar": {"timezone": "America/New_York", "convention": "federal fiscal year"},
+      "rounding": {"mode": "floor", "scale": 0},
+      "values": [
+        {
+          "from": "2026-01-01",
+          "to": null,
+          "value": {
+            "brackets": [
+              {"threshold": "0", "rate": "0.00"},
+              {"threshold": "1000.00", "rate": "0.30"}
+            ]
+          },
+          "sourceRefs": ["illustrative Track 1 sample"]
+        }
+      ]
+    }
+  ]
+}
+

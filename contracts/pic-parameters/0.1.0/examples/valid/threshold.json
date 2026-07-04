@@ -1,0 +1,26 @@
+{
+  "conformsTo": "pic-parameters/0.1.0",
+  "parameters": [
+    {
+      "id": "nz-oia/parameter.working_day_limit",
+      "label": "OIA response working-day limit",
+      "unit": "working_days",
+      "calendar": {"timezone": "Pacific/Auckland", "convention": "NZ working days per OIA s 2"},
+      "values": [
+        {
+          "from": "1983-07-01",
+          "to": "1987-03-31",
+          "value": 20,
+          "sourceRefs": ["Official Information Act 1982 s 15 as enacted"]
+        },
+        {
+          "from": "1987-04-01",
+          "to": null,
+          "value": 20,
+          "sourceRefs": ["Official Information Act 1982 s 15 current consolidation"]
+        }
+      ]
+    }
+  ]
+}
+

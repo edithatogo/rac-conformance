@@ -3,6 +3,6 @@
   "type": "feature",
   "status": "in_progress",
   "created_at": "2026-07-04T11:30:00Z",
-  "updated_at": "2026-07-04T16:21:10Z",
+  "updated_at": "2026-07-04T16:23:14Z",
   "description": "Policy Interchange Contracts (PIC) v0.1: concept crosswalk, temporal parameters, test fixtures, decision traces, and missingness/epistemic-status semantics, with reference validator, examples, negative tests, and CI."
 }

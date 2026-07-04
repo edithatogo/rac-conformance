@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-parameters/0.1.0/schema.json",
+  "title": "PIC parameters file",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["conformsTo", "parameters"],
+  "properties": {
+    "conformsTo": {"const": "pic-parameters/0.1.0"},
+    "parameters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/parameter"}
+    }
+  },
+  "$defs": {
+    "picId": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+(/[a-z0-9_-]+)*(\\.[a-z0-9_]+)+$"
+    },
+    "date": {"type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "decimalString": {
+      "$ref": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-semantics/0.1.0/schema.json#/$defs/decimalString"
+    },
+    "schedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brackets"],
+      "properties": {
+        "brackets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["threshold"],
+            "properties": {
+              "threshold": {"$ref": "#/$defs/decimalString"},
+              "rate": {"$ref": "#/$defs/decimalString"},
+              "amount": {"$ref": "#/$defs/decimalString"}
+            },
+            "oneOf": [{"required": ["rate"]}, {"required": ["amount"]}]
+          }
+        }
+      }
+    },
+    "value": {
+      "oneOf": [
+        {"$ref": "#/$defs/decimalString"},
+        {"type": "integer"},
+        {"type": "boolean"},
+        {"type": "string"},
+        {"$ref": "#/$defs/schedule"}
+      ]
+    },
+    "valuePeriod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to", "value", "sourceRefs"],
+      "properties": {
+        "from": {"$ref": "#/$defs/date"},
+        "to": {"anyOf": [{"$ref": "#/$defs/date"}, {"type": "null"}]},
+        "value": {"$ref": "#/$defs/value"},
+        "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "instrument": {"type": "string"}
+      }
+    },
+    "calendar": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timezone", "convention"],
+      "properties": {
+        "timezone": {"type": "string", "minLength": 1},
+        "convention": {"type": "string", "minLength": 1}
+      }
+    },
+    "parameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "values", "calendar"],
+      "oneOf": [{"required": ["unit"]}, {"required": ["currency"]}],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "label": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+        "values": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/valuePeriod"}},
+        "calendar": {"$ref": "#/$defs/calendar"},
+        "rounding": {
+          "$ref": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-semantics/0.1.0/schema.json#/$defs/rounding"
+        }
+      }
+    }
+  }
+}
