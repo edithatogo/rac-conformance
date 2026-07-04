@@ -4,6 +4,8 @@ Depends on: contracts_20260704 phases 1–3. Work is staged under `external/foi-
 
 ## Phase 1 — Statute verification and design
 
+> CHECKPOINT (2026-07-04): Statutory text was verified from New Zealand Legislation for OIA ss 2, 12(3), 14, 15, 15A, and 28, with the source recorded in `external/foi-o/rules/SOURCES.md`. The local `foi-o` checkout was read at commit `f5527950f22a2980339472ccc4e11dbb52cf6c25`; it was dirty, so no upstream files were changed. `external/foi-o/rules/DESIGN.md` names the exact upstream clock/date/model/schema/test paths and the import boundary for a future rules module. Validation: `PATH="$PWD/.venv/bin:$PATH" make check` passed with 33 tests and example validation.
+
 - [x] Task: Verify statutory text
     - [x] Fetch current consolidated OIA 1982 text (legislation.govt.nz) for ss 2 (working day definition), 14, 15, 15A, 28; record consolidation date
     - [x] Write `external/foi-o/rules/SOURCES.md`: quoted definitions, section refs, consolidation date, and any ambiguity notes (e.g. exact holiday exclusions in the s 2 working-day definition)
@@ -13,7 +15,7 @@ Depends on: contracts_20260704 phases 1–3. Work is staged under `external/foi-
     - [x] Read foi-o repo: `schemas/json/`, working-day/clock code paths, Pydantic models, test layout, `pyproject` extras
     - [x] Write `external/foi-o/rules/DESIGN.md`: where the module sits in foi-o's tree, how it aligns with the Mojo-first/Python-fallback contract, naming conventions to follow
     - **Acceptance:** DESIGN.md names exact foi-o paths/modules it integrates with
-- [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2 — Parameters and fixtures
 
