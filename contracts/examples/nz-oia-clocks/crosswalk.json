@@ -1,0 +1,43 @@
+{
+  "conformsTo": "pic-crosswalk/0.1.0",
+  "jurisdictionScope": {"country": "NZ", "domain": "official-information", "package": "nz-oia-clocks"},
+  "provenance": {
+    "curator": "PIC Track 1",
+    "method": "ai-proposed",
+    "source": "Official Information Act 1982 worked example draft",
+    "notes": "Candidate rows for Track 2 foi-o reconciliation."
+  },
+  "rows": [
+    {
+      "id": "nz-oia/variable.receipt_date",
+      "label": "OIA request receipt date",
+      "kind": "variable",
+      "dataType": "date",
+      "period": "case",
+      "mappings": [{"system": "foi-o", "ref": "request.received_at", "method": "ai-proposed"}],
+      "sourceRefs": ["Official Information Act 1982 s 15"],
+      "definition": "Date on which the OIA request is received for response-clock purposes."
+    },
+    {
+      "id": "nz-oia/variable.extension_notice_date",
+      "label": "OIA extension notice date",
+      "kind": "variable",
+      "dataType": "date",
+      "period": "case",
+      "mappings": [{"system": "foi-o", "ref": "event.extension_notified_at", "method": "ai-proposed"}],
+      "sourceRefs": ["Official Information Act 1982 s 15A"],
+      "definition": "Date on which an extension notice is communicated."
+    },
+    {
+      "id": "nz-oia/variable.transfer_notice_date",
+      "label": "OIA transfer notice date",
+      "kind": "variable",
+      "dataType": "date",
+      "period": "case",
+      "mappings": [{"system": "foi-o", "ref": "event.transfer_notified_at", "method": "ai-proposed"}],
+      "sourceRefs": ["Official Information Act 1982 s 14"],
+      "definition": "Date on which a transfer is communicated."
+    }
+  ]
+}
+

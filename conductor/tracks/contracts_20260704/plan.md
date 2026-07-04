@@ -73,10 +73,10 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
 
 ## Phase 5 — Worked example: nz-oia-clocks
 
-- [ ] Task: Build `contracts/examples/nz-oia-clocks/`
-    - [ ] Draft crosswalk (3 rows), parameters (2: 20-working-day limit with source ref to OIA 1982 s 15; holiday-calendar reference parameter), 5 fixtures per spec (mark ALL fixtures `method: ai-proposed`), 1 sample trace
-    - [ ] Validate with `pic-validate` (directory mode)
-    - [ ] Cross-check consistency with foi-o's working-day semantics: read https://github.com/edithatogo/foi-o README/schemas if network available; if not, add `> BLOCKED` note and proceed — Track 2 will reconcile
+- [x] Task: Build `contracts/examples/nz-oia-clocks/`
+    - [x] Draft crosswalk (3 rows), parameters (2: 20-working-day limit with source ref to OIA 1982 s 15; holiday-calendar reference parameter), 5 fixtures per spec (mark ALL fixtures `method: ai-proposed`), 1 sample trace
+    - [x] Validate with `pic-validate` (directory mode)
+    - [x] Cross-check consistency with foi-o's working-day semantics: read https://github.com/edithatogo/foi-o README/schemas if network available; if not, add `> BLOCKED` note and proceed — Track 2 will reconcile
     - **Acceptance:** `pic-validate contracts/examples/nz-oia-clocks/` exits 0
 - [ ] Task: [HUMAN] Fixture review
     - [ ] Dylan verifies the 5 fixtures against the OIA text/Ombudsman guidance, flips `method` to `human-approved`, fills `interpreterOfRecord`

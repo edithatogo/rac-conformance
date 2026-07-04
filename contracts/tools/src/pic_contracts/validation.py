@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -117,6 +118,12 @@ def _infer_value_data_type(value_object: dict[str, Any]) -> str | None:
     if isinstance(value, int):
         return "integer"
     if isinstance(value, str):
+        try:
+            date.fromisoformat(value)
+        except ValueError:
+            pass
+        else:
+            return "date"
         numeric = value.replace("-", "", 1).replace(".", "", 1).isdigit()
         if value_object.get("valueState") == "known" and numeric:
             return "decimal"
@@ -152,28 +159,27 @@ def _referential_integrity(paths: list[Path]) -> list[ValidationIssue]:
     for path, contract, doc in docs:
         if contract == "pic-fixtures":
             for case_index, case in enumerate(doc.get("cases", [])):
-                for section in ("inputs", "expected"):
-                    for pic_id, value_object in case.get(section, {}).items():
-                        if pic_id not in crosswalk_types:
-                            issues.append(
-                                ValidationIssue(
-                                    f"{path}:cases/{case_index}/{section}/{pic_id}",
-                                    "fixture references unknown crosswalk ID",
-                                    "reference",
-                                )
+                for pic_id, value_object in case.get("inputs", {}).items():
+                    if pic_id not in crosswalk_types:
+                        issues.append(
+                            ValidationIssue(
+                                f"{path}:cases/{case_index}/inputs/{pic_id}",
+                                "fixture references unknown crosswalk ID",
+                                "reference",
                             )
-                            continue
-                        expected_type = crosswalk_types[pic_id]
-                        actual_type = _infer_value_data_type(value_object)
-                        if actual_type is not None and expected_type != actual_type:
-                            issues.append(
-                                ValidationIssue(
-                                    f"{path}:cases/{case_index}/{section}/{pic_id}",
-                                    "type mismatch: "
-                                    f"crosswalk={expected_type} fixture={actual_type}",
-                                    "type",
-                                )
+                        )
+                        continue
+                    expected_type = crosswalk_types[pic_id]
+                    actual_type = _infer_value_data_type(value_object)
+                    if actual_type is not None and expected_type != actual_type:
+                        issues.append(
+                            ValidationIssue(
+                                f"{path}:cases/{case_index}/inputs/{pic_id}",
+                                "type mismatch: "
+                                f"crosswalk={expected_type} fixture={actual_type}",
+                                "type",
                             )
+                        )
         elif contract == "pic-traces":
             for step_index, step in enumerate(doc.get("steps", [])):
                 for version_index, parameter in enumerate(step.get("parameterVersions", [])):

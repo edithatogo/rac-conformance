@@ -1,0 +1,36 @@
+{
+  "conformsTo": "pic-parameters/0.1.0",
+  "parameters": [
+    {
+      "id": "nz-oia/parameter.working_day_limit",
+      "label": "OIA decision working-day limit",
+      "unit": "working_days",
+      "calendar": {"timezone": "Pacific/Auckland", "convention": "OIA s 2 working day"},
+      "values": [
+        {
+          "from": "1987-04-01",
+          "to": null,
+          "value": 20,
+          "sourceRefs": ["Official Information Act 1982 s 15"],
+          "instrument": "Official Information Act 1982"
+        }
+      ]
+    },
+    {
+      "id": "nz-oia/parameter.holiday_exclusions",
+      "label": "OIA working-day holiday exclusions",
+      "unit": "calendar_rule",
+      "calendar": {"timezone": "Pacific/Auckland", "convention": "OIA s 2 working day"},
+      "values": [
+        {
+          "from": "2022-04-12",
+          "to": null,
+          "value": "saturday_sunday_waitangi_good_friday_easter_monday_anzac_sovereign_birthday_matariki_labour_dec25_to_jan15",
+          "sourceRefs": ["Official Information Act 1982 s 2"],
+          "instrument": "Te Kāhui o Matariki Public Holiday Act 2022 update to OIA working-day definition"
+        }
+      ]
+    }
+  ]
+}
+

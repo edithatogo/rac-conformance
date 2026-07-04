@@ -149,3 +149,8 @@ def test_directory_catches_crosswalk_fixture_type_mismatch(tmp_path: Path) -> No
 def test_cli_returns_nonzero_on_invalid_file(tmp_path: Path) -> None:
     _write(tmp_path / "bad.json", {"conformsTo": "pic-traces/0.1.0"})
     assert main([str(tmp_path / "bad.json"), "--json"]) == 1
+
+
+def test_nz_oia_clocks_worked_example_validates() -> None:
+    path = Path("../../contracts/examples/nz-oia-clocks")
+    assert validate_path(path).ok
