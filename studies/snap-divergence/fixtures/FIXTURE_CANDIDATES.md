@@ -54,3 +54,9 @@ Current recommendation after Phase 3 runner evidence:
 - 50 agreement cases are recommended for human promotion.
 - 15 divergence cases are held for Phase 4 source-level analysis.
 - Dylan approval is still required before any candidate can become a golden fixture.
+
+Approval record:
+
+- Dylan approved the recommended 50 agreement cases on 2026-07-06.
+- Promoted fixtures: `studies/snap-divergence/fixtures/snap-fy2026-fixtures.json`.
+- Approved-fixture comparison evidence: `studies/snap-divergence/results/comparison-approved-results.jsonl`.

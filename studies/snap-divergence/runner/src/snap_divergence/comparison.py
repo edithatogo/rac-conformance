@@ -95,13 +95,19 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     path.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in rows))
 
 
-def write_report(path: Path, comparisons: list[dict[str, Any]]) -> None:
+def write_report(
+    path: Path,
+    comparisons: list[dict[str, Any]],
+    *,
+    fixture_label: str = "candidate fixtures",
+    evidence_label: str = "candidate",
+) -> None:
     summary = summarize_comparisons(comparisons)
     divergent = [item for item in comparisons if not item["agreement"]]
     lines = [
         "# SNAP Divergence Draft Report",
         "",
-        "This draft is generated from candidate fixtures. It is not a final finding report until fixtures are promoted and divergences are classified.",
+        f"This draft is generated from {fixture_label}. It is not a final finding report until divergences are source-level classified and human-adjudicated.",
         "",
         "## Summary",
         "",
@@ -136,9 +142,9 @@ def write_report(path: Path, comparisons: list[dict[str, Any]]) -> None:
             "",
             "## Evidence",
             "",
-            "- PolicyEngine candidate outputs: `studies/snap-divergence/results/policyengine-candidate-results.jsonl`",
-            "- PRD candidate outputs: `studies/snap-divergence/results/prd-candidate-results.jsonl`",
-            "- Machine-readable comparison rows: `studies/snap-divergence/results/comparison-candidate-results.jsonl`",
+            f"- PolicyEngine {evidence_label} outputs: `studies/snap-divergence/results/policyengine-{evidence_label}-results.jsonl`",
+            f"- PRD {evidence_label} outputs: `studies/snap-divergence/results/prd-{evidence_label}-results.jsonl`",
+            f"- Machine-readable comparison rows: `studies/snap-divergence/results/comparison-{evidence_label}-results.jsonl`",
         ],
     )
     path.write_text("\n".join(lines) + "\n")
@@ -150,11 +156,18 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--prd", type=Path, default=DEFAULT_PRD_RESULTS)
     parser.add_argument("--output", type=Path, default=DEFAULT_COMPARISON_RESULTS)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
+    parser.add_argument("--fixture-label", default="candidate fixtures")
+    parser.add_argument("--evidence-label", default="candidate")
     args = parser.parse_args(argv)
 
     comparisons = compare_result_sets(load_jsonl(args.policyengine), load_jsonl(args.prd))
     write_jsonl(args.output, comparisons)
-    write_report(args.report, comparisons)
+    write_report(
+        args.report,
+        comparisons,
+        fixture_label=args.fixture_label,
+        evidence_label=args.evidence_label,
+    )
     return 0
 
 

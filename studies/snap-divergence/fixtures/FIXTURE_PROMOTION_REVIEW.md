@@ -2,7 +2,7 @@
 
 Track: `divergence_study_20260704`
 
-This packet is generated from candidate fixture comparisons. It is a review aid only; fixture promotion still requires Dylan approval because the candidate corpus was AI-proposed.
+This packet is generated from candidate fixture comparisons. It is a review aid only; fixture promotion is valid only after Dylan approval because the candidate corpus was AI-proposed.
 
 ## Summary
 

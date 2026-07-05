@@ -12,6 +12,7 @@ from snap_divergence.comparison import load_jsonl
 DEFAULT_CANDIDATES = Path("studies/snap-divergence/fixtures/candidates/snap-fy2026-candidates.json")
 DEFAULT_CLASSIFIED_RESULTS = Path("studies/snap-divergence/results/classified-candidate-divergences.jsonl")
 DEFAULT_PACKET = Path("studies/snap-divergence/fixtures/FIXTURE_PROMOTION_REVIEW.md")
+DEFAULT_PROMOTED_FIXTURES = Path("studies/snap-divergence/fixtures/snap-fy2026-fixtures.json")
 
 
 def load_candidates(path: Path) -> dict[str, dict[str, Any]]:
@@ -57,6 +58,59 @@ def summarize_rows(rows: list[dict[str, Any]]) -> dict[str, int]:
     }
 
 
+def build_promoted_fixture_file(
+    candidate_file: dict[str, Any],
+    comparisons: list[dict[str, Any]],
+) -> dict[str, Any]:
+    comparisons_by_case = {comparison["caseId"]: comparison for comparison in comparisons}
+    promoted_cases = []
+    for case in candidate_file["cases"]:
+        comparison = comparisons_by_case[case["caseId"]]
+        if not comparison["agreement"]:
+            continue
+        promoted = dict(case)
+        promoted["expected"] = {
+            "us-snap/decision.eligible": {
+                "value": comparison["prd"]["eligible"],
+                "valueState": "known",
+                "epistemicStatus": "observed",
+            },
+            "us-snap/decision.allotment": {
+                "value": comparison["prd"]["allotment"],
+                "valueState": "known",
+                "epistemicStatus": "observed",
+                "currency": "USD",
+                "tolerance": comparison["tolerance"],
+            },
+        }
+        promoted["provenance"] = {
+            "curator": "Dylan",
+            "method": "human",
+            "source": "USDA FY2026 SNAP standards, official scoped-state SNAP policy/manual URLs, and matching PolicyEngine/PRD runner evidence",
+            "interpreterOfRecord": "Dylan",
+            "disclaimer": "Human-approved fixtures for deterministic differential testing only; not legal advice and not benefits advice.",
+            "notes": "Approved by Dylan on 2026-07-06 from the generated Track 5 promotion review packet. Expected allotment uses the PRD monthly value; PolicyEngine output agrees within the recorded tolerance.",
+        }
+        promoted_cases.append(promoted)
+    return {
+        "conformsTo": candidate_file["conformsTo"],
+        "provenance": {
+            "curator": "Dylan",
+            "method": "human",
+            "source": "USDA FY2026 SNAP standards, official scoped-state SNAP policy/manual URLs, and matching PolicyEngine/PRD runner evidence",
+            "interpreterOfRecord": "Dylan",
+            "disclaimer": "Human-approved SNAP fixtures for deterministic differential testing only; not legal advice and not benefits advice.",
+            "notes": "Promoted by Dylan approval on 2026-07-06 from 50 agreement cases in studies/snap-divergence/fixtures/FIXTURE_PROMOTION_REVIEW.md. Fifteen divergence cases remain held for Phase 4 source-level analysis.",
+        },
+        "cases": promoted_cases,
+    }
+
+
+def write_promoted_fixtures(path: Path, fixtures: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(fixtures, indent=2, sort_keys=False) + "\n")
+
+
 def write_packet(path: Path, rows: list[dict[str, Any]]) -> None:
     summary = summarize_rows(rows)
     recommended = [row for row in rows if row["recommendation"] == "promote"]
@@ -66,7 +120,7 @@ def write_packet(path: Path, rows: list[dict[str, Any]]) -> None:
         "",
         "Track: `divergence_study_20260704`",
         "",
-        "This packet is generated from candidate fixture comparisons. It is a review aid only; fixture promotion still requires Dylan approval because the candidate corpus was AI-proposed.",
+        "This packet is generated from candidate fixture comparisons. It is a review aid only; fixture promotion is valid only after Dylan approval because the candidate corpus was AI-proposed.",
         "",
         "## Summary",
         "",
@@ -127,10 +181,22 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--candidates", type=Path, default=DEFAULT_CANDIDATES)
     parser.add_argument("--classified", type=Path, default=DEFAULT_CLASSIFIED_RESULTS)
     parser.add_argument("--output", type=Path, default=DEFAULT_PACKET)
+    parser.add_argument("--promoted-output", type=Path, default=DEFAULT_PROMOTED_FIXTURES)
+    parser.add_argument("--write-promoted", action="store_true")
     args = parser.parse_args(argv)
 
-    rows = build_promotion_rows(load_candidates(args.candidates), load_jsonl(args.classified))
+    candidate_file = json.loads(args.candidates.read_text())
+    comparisons = load_jsonl(args.classified)
+    rows = build_promotion_rows(
+        {case["caseId"]: case for case in candidate_file["cases"]},
+        comparisons,
+    )
     write_packet(args.output, rows)
+    if args.write_promoted:
+        write_promoted_fixtures(
+            args.promoted_output,
+            build_promoted_fixture_file(candidate_file, comparisons),
+        )
     return 0
 
 

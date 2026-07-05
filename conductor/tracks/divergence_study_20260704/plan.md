@@ -28,9 +28,10 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
     - [x] Extract worked examples from USDA FNS materials + chosen states' policy manuals (cite page/URL per case); AI-propose boundary cases around FPL thresholds, deduction caps, BBCE limits → `fixtures/candidates/`
     - > CHECKPOINT (2026-07-05): Added 65 AI-proposed candidate fixtures at `studies/snap-divergence/fixtures/candidates/snap-fy2026-candidates.json`, covering 13 scenario classes across CA, TX, PA, MS, and GA. Each case cites federal USDA/FNA FY2026 standards plus relevant state manual/policy URLs and keeps eligibility/allotment outputs as `unknown` pending real runner execution and Dylan promotion. Review packet: `studies/snap-divergence/fixtures/FIXTURE_CANDIDATES.md`.
     - **Acceptance:** ≥60 candidates, all provenance-stamped, `pic-validate` green
-- [ ] Task: [HUMAN] Fixture promotion (target ≥40 approved)
+- [x] Task: [HUMAN] Fixture promotion (target ≥40 approved)
     > BLOCKED (2026-07-05): Candidate fixtures intentionally carry `unknown` eligibility/allotment outputs. Promotion to golden fixtures requires runner evidence plus Dylan review; proceed to Phase 3 runners so outputs can be produced for the promotion packet.
     > CHECKPOINT (2026-07-05): Runner evidence is now available and a generated promotion review packet is prepared at `studies/snap-divergence/fixtures/FIXTURE_PROMOTION_REVIEW.md`. It recommends 50 agreement cases for human promotion and holds 15 divergence cases for Phase 4 source-level analysis. Remaining gate: Dylan must approve or edit the recommended promotion set before golden fixtures can be written with `method: human`.
+    > HUMAN-APPROVED (2026-07-06): Dylan approved proceeding with the recommended 50 agreement cases. Promoted fixtures are now in `studies/snap-divergence/fixtures/snap-fy2026-fixtures.json` with `method: human`; the 15 held divergence cases remain candidates for Phase 4 analysis. Fresh approved-fixture evidence is in `results/policyengine-approved-results.jsonl`, `results/prd-approved-results.jsonl`, and `results/comparison-approved-results.jsonl`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3 — Runners (TDD)

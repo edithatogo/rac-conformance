@@ -1,6 +1,6 @@
 # SNAP Divergence Draft Report
 
-This draft is generated from candidate fixtures. It is not a final finding report until fixtures are promoted and divergences are classified.
+This draft is generated from candidate fixtures. It is not a final finding report until divergences are source-level classified and human-adjudicated.
 
 ## Summary
 

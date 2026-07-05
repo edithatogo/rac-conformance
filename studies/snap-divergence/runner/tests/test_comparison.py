@@ -74,3 +74,15 @@ def test_write_report_contains_summary(tmp_path) -> None:
     assert "# SNAP Divergence Draft Report" in report
     assert "| Total cases | 2 |" in report
     assert "| Divergences | 1 |" in report
+
+
+def test_write_report_can_label_approved_fixtures(tmp_path) -> None:
+    comparisons = [compare_pair(_result("a", True, "1"), _result("a", True, "1"))]
+    path = tmp_path / "APPROVED.md"
+
+    write_report(path, comparisons, fixture_label="approved fixtures", evidence_label="approved")
+
+    report = path.read_text()
+    assert "generated from approved fixtures" in report
+    assert "policyengine-approved-results.jsonl" in report
+    assert "comparison-approved-results.jsonl" in report
