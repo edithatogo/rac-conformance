@@ -1,7 +1,7 @@
 # Axiom harness design
 
 Track: `engine_contributions_20260704` phase 3 C-C
-Status: design draft, prototype blocked until Dylan provides Axiom's real generated-model interface
+Status: design draft, public RuleSpec runtime interface documented; prototype still needs Dylan to identify the actual generated-model artifact under test
 
 ## Purpose
 
@@ -51,7 +51,14 @@ The current `policyengine_trace` prototype in this repo already proves a useful 
 
 ## Adapter boundary
 
-The harness should not guess how Axiom exposes generated models. Dylan needs to provide the concrete interface first, because the runner depends on:
+Public Axiom documentation now identifies a generic runtime surface that can be
+targeted without guessing private internals: RuleSpec modules, compiled
+artifacts, and `axiom-rules-engine` CLI/Python request-response models. See
+`external/axiom/PUBLIC_INTERFACE_NOTES.md`.
+
+The harness should still not guess how Dylan's actual Axiom-generated model is
+packaged. Dylan needs to provide the concrete artifact first, because the runner
+depends on:
 
 - how a generated model is instantiated,
 - how a case is executed,
@@ -59,7 +66,9 @@ The harness should not guess how Axiom exposes generated models. Dylan needs to 
 - what the output payload looks like,
 - and whether trace hooks are exposed.
 
-Until that interface is known, only the design draft is in scope.
+Until that artifact boundary is known, implementation should be limited to a
+generic RuleSpec-runtime adapter and stub tests. Any app-specific Axiom wrapper
+must remain out of scope unless Dylan documents it.
 
 ## Report categories
 
@@ -84,5 +93,7 @@ If the harness is reused for policyengine-taxsim overlap cases, the report shoul
 
 ## Future prototype gate
 
-The prototype task remains blocked until Dylan documents the Axiom interface. At that point, the runner can be implemented against a stubbed adapter first and then wired to the real generated model.
-
+The public docs partially unblock a generic RuleSpec-runtime prototype. The
+prototype task remains blocked for Dylan-specific integration until Dylan
+documents which generated artifact should be tested and how it maps onto the
+public RuleSpec/compiled-artifact surface.
