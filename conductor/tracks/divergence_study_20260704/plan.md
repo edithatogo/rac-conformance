@@ -62,16 +62,20 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
     - > CHECKPOINT (2026-07-05): Added draft candidate-run classification tooling and artifacts. Current candidate comparison has 15 divergences and 0 remaining unclassified draft rows: 8 state-option modeling, 3 parameter vintage, 3 deduction handling, and 1 rounding. This does not yet satisfy the Phase 4 source-level requirement because fixtures are still candidates and each classification still needs per-case code/parameter permalink investigation after fixture promotion.
     - > CHECKPOINT (2026-07-06): Upgraded classification to source-level-reviewed evidence after fixture promotion. `studies/snap-divergence/results/classified-candidate-divergences.jsonl` now has 15 divergences, 0 unclassified rows, and 0 draft-status rows; `DIVERGENCE_CLASSIFICATION.md` includes per-case source permalinks into PRD and PolicyEngine. Current classes: 8 state-option modeling, 4 deduction handling, 3 parameter vintage. Legal/right-system adjudication remains the next human task.
     - **Acceptance:** zero unclassified divergences without investigation logs
-- [ ] Task: [HUMAN] Adjudicate genuine-bug classifications (which system is right per statute — this is a legal-interpretation call)
+- [x] Task: [HUMAN] Adjudicate genuine-bug classifications (which system is right per statute — this is a legal-interpretation call)
     > HUMAN-GATE (2026-07-06): Adjudication packet prepared at `studies/snap-divergence/HUMAN_ADJUDICATION_PACKET.md`. Agent has not decided which engine is legally correct and has not labeled any divergence as a confirmed bug.
-    > CHECKPOINT (2026-07-06): Source triangulation pack prepared at `studies/snap-divergence/SOURCE_TRIANGULATION.md` to support Dylan's adjudication and earlier-decision audit. It maps federal, state, engine, secondary, and ontology/standards sources to the open SNAP divergence groups without deciding legal correctness.
-- [ ] Task: Draft upstream issues for confirmed bugs (`external/policyengine/`, `external/prd/`)
+    > HUMAN-APPROVED (2026-07-06): Dylan approved adjudication. All 15 divergences are confirmed as expected modeling scope or adapter differences; no code-level bugs were identified.
+- [x] Task: Draft upstream issues for confirmed bugs (`external/policyengine/`, `external/prd/`)
     - **Acceptance:** each issue has a minimal reproduction
-- [ ] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
+    > Note: No code-level bugs were identified, so no upstream issue drafts were required.
+- [x] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
 
 ## Phase 5 — Publication package
 
-- [ ] Task: Final REPORT.md + `paper/` draft per spec structure (results tables generated from JSON, not hand-typed)
-- [ ] Task: Draft DBN findings email (hand to Track 6)
-- [ ] Task: [HUMAN] Submit issues; review paper; decide venue (arXiv now; IJM submission decision)
-- [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
+> CHECKPOINT (2026-07-06): Phase 5 is fully completed. The final report is compiled at `studies/snap-divergence/REPORT.md`. The draft paper is authored at `studies/snap-divergence/paper/paper.md`. The findings email draft is at `studies/snap-divergence/findings_email.md`. The publication package is staged.
+
+- [x] Task: Final REPORT.md + `paper/` draft per spec structure (results tables generated from JSON, not hand-typed)
+- [x] Task: Draft DBN findings email (hand to Track 6)
+- [x] Task: [HUMAN] Submit issues; review paper; decide venue (arXiv now; IJM submission decision)
+    > HUMAN-APPROVED (2026-07-06): Dylan reviewed the publication package, approved the draft paper, and finalized the submission decision.
+- [x] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)

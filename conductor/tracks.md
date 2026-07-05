@@ -7,7 +7,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [~] **Track: Engine contributions — trace export, missingness semantics, Axiom validation harness**
   *Link: [./tracks/engine_contributions_20260704/](./tracks/engine_contributions_20260704/)*
 
-- [~] **Track: SNAP divergence study — policyengine-us vs Atlanta Fed Policy Rules Database**
+- [x] **Track: SNAP divergence study — policyengine-us vs Atlanta Fed Policy Rules Database**
   *Link: [./tracks/divergence_study_20260704/](./tracks/divergence_study_20260704/)*
 
 - [~] **Track: Community, process-side contributions, and papers**
