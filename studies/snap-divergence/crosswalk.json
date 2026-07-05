@@ -7,10 +7,10 @@
     "period": "2026-01"
   },
   "provenance": {
-    "curator": "divergence_study_20260704",
-    "method": "ai-proposed",
-    "source": "Phase 1 PRD and PolicyEngine reconnaissance notes",
-    "notes": "Candidate crosswalk only. Dangerous rows for income, unit composition, utility allowances, and BBCE require Dylan verification before fixture promotion or runner use."
+    "curator": "Dylan",
+    "method": "human-approved",
+    "source": "Phase 1 PRD and PolicyEngine reconnaissance notes plus Track 5 guided human verification on 2026-07-05",
+    "notes": "Human-approved crosswalk with caveats preserved for fixture adapters and runner implementation. PolicyEngine and PRD sidecar agent reviews identified the earned-income correction and adapter caveats."
   },
   "rows": [
     {
@@ -20,8 +20,8 @@
       "dataType": "enum",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "households.*.state_code", "method": "ai-proposed", "notes": "PolicyEngine situation household state code."},
-        {"system": "atlanta-fed-prd", "ref": "stateFIPS", "method": "ai-proposed", "notes": "PRD numeric state FIPS; use table.statemap for abbreviation/name."}
+        {"system": "policyengine-us", "ref": "households.*.state_code", "method": "human-approved", "notes": "PolicyEngine situation household state code; formulas may use yearly state_code_str internally."},
+        {"system": "atlanta-fed-prd", "ref": "stateFIPS", "method": "human-approved", "notes": "PRD numeric state FIPS; use table.statemap for abbreviation/name."}
       ],
       "sourceRefs": ["studies/snap-divergence/PE_NOTES.md", "studies/snap-divergence/PRD_NOTES.md"],
       "definition": "State jurisdiction for SNAP parameters and state-option routing."
@@ -33,8 +33,8 @@
       "dataType": "integer",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "snap_unit_size", "method": "ai-proposed", "notes": "Computed from SPM unit size minus ineligible members."},
-        {"system": "atlanta-fed-prd", "ref": "famsize", "method": "ai-proposed", "notes": "PRD family size used in snapData join."}
+        {"system": "policyengine-us", "ref": "snap_unit_size", "method": "human-approved", "notes": "Computed from SPM unit size minus ineligible students, immigration-ineligible members, and work-requirement-ineligible members; fixtures must explicitly set or constrain those surfaces."},
+        {"system": "atlanta-fed-prd", "ref": "famsize", "method": "human-approved", "notes": "PRD family size used in snapData join."}
       ],
       "sourceRefs": ["PolicyEngine snap_unit_size", "PRD function.snapBenefit join on famsize"],
       "definition": "Number of people counted in the SNAP unit for benefit size and allotment."
@@ -46,8 +46,8 @@
       "dataType": "string",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "people.*.age / people.*.monthly_age", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "agePerson1...agePerson12", "method": "ai-proposed", "notes": "Adapter must place members deterministically into PRD fixed person slots."}
+        {"system": "policyengine-us", "ref": "people.*.age", "method": "human-approved", "notes": "Use age as the SNAP-facing input; monthly_age exists but is not the USDA elderly-test input."},
+        {"system": "atlanta-fed-prd", "ref": "agePerson1...agePerson12", "method": "human-approved", "notes": "Adapter must place members deterministically into PRD fixed person slots."}
       ],
       "sourceRefs": ["PolicyEngine situation entity model", "PRD function.snapBenefit elderly and kid count code"],
       "definition": "A deterministic ordered list of member ages used to determine elderly status, child status, and unit composition."
@@ -59,8 +59,8 @@
       "dataType": "boolean",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "has_usda_elderly_disabled", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "elderly_count > 0 | disabled_count > 0", "method": "ai-proposed"}
+        {"system": "policyengine-us", "ref": "has_usda_elderly_disabled", "method": "human-approved"},
+        {"system": "atlanta-fed-prd", "ref": "elderly_count > 0 | disabled_count > 0", "method": "human-approved", "notes": "Derived inside function.snapBenefit from fixed age and disability inputs; not a direct PRD input column."}
       ],
       "sourceRefs": ["PolicyEngine is_snap_eligible dependencies", "PRD function.snapBenefit elderly_count/disabled_count"],
       "definition": "Whether the SNAP unit includes an elderly or disabled member for gross-test, asset-test, medical, and shelter-deduction logic."
@@ -72,8 +72,8 @@
       "dataType": "money",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "employment_income / self_employment_income_before_lsr -> snap_earned_income", "method": "ai-proposed", "notes": "PolicyEngine annual input variables may need explicit monthly normalization in fixtures."},
-        {"system": "atlanta-fed-prd", "ref": "income", "method": "ai-proposed", "notes": "PRD code treats income as annual in SNAP calculations; adapter must normalize."}
+        {"system": "policyengine-us", "ref": "employment_income + snap_self_employment_income_after_expense_deduction -> snap_earned_income", "method": "human-approved", "notes": "Corrected during verification: self-employment flows through the SNAP self-employment income after expense deduction chain. Fixtures must normalize monthly values to PolicyEngine's period expectations."},
+        {"system": "atlanta-fed-prd", "ref": "income", "method": "human-approved", "notes": "PRD code treats income as annual in SNAP calculations; adapter must normalize."}
       ],
       "sourceRefs": ["PolicyEngine snap_gross_income adds snap_earned_income", "PRD function.snapBenefit income.gross and EarnedIncomeDeduction"],
       "definition": "Earned income counted for SNAP before the earned-income deduction, represented in a fixture-normalized monthly unit."
@@ -85,8 +85,8 @@
       "dataType": "money",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "snap_unearned_income", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "income.gift + income.child_support + income.investment + value.tanf + value.ssi + value.ssdi", "method": "ai-proposed", "notes": "PRD aggregates these columns into income.gross."}
+        {"system": "policyengine-us", "ref": "snap_unearned_income", "method": "human-approved", "notes": "Aggregate is correct; runner fixtures must populate the underlying PolicyEngine source variables."},
+        {"system": "atlanta-fed-prd", "ref": "income.gift + income.child_support + income.investment + value.tanf + value.ssi + value.ssdi", "method": "human-approved", "notes": "PRD aggregates these annual/value fields into income.gross; TANF/SSI may also affect categorical eligibility."}
       ],
       "sourceRefs": ["PolicyEngine snap_gross_income adds snap_unearned_income", "PRD function.snapBenefit income.gross"],
       "definition": "Unearned income counted for SNAP gross income, represented in a fixture-normalized monthly unit."
@@ -98,8 +98,8 @@
       "dataType": "money",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "snap_dependent_care_deduction", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "netexp.childcare", "method": "ai-proposed"}
+        {"system": "policyengine-us", "ref": "snap_dependent_care_deduction", "method": "human-approved", "notes": "Correct deduction variable; raw fixture input should map through childcare expenses and subsidies where applicable."},
+        {"system": "atlanta-fed-prd", "ref": "netexp.childcare", "method": "human-approved", "notes": "Deducted in SNAP adjusted income; direct runner must either construct it through PRD childcare code or set it intentionally."}
       ],
       "sourceRefs": ["PolicyEngine snap_deductions allowed list", "PRD function.snapBenefit adjustedincome"],
       "definition": "Allowable dependent care expense used as a SNAP deduction."
@@ -111,8 +111,8 @@
       "dataType": "money",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "snap_excess_medical_expense_deduction / snap_allowable_medical_expenses", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "oop.add_for_elderlyordisabled -> MedicalDeduction", "method": "ai-proposed"}
+        {"system": "policyengine-us", "ref": "snap_allowable_medical_expenses -> snap_excess_medical_expense_deduction", "method": "human-approved", "notes": "Input-side allowable expenses and computed monthly deduction must be kept distinct in adapter code."},
+        {"system": "atlanta-fed-prd", "ref": "oop.add_for_elderlyordisabled -> MedicalDeduction", "method": "human-approved", "notes": "Applies through SSI/SSDI/age tests and subtracts the annualized medical expense floor."}
       ],
       "sourceRefs": ["PolicyEngine snap_deductions allowed list", "PRD function.snapBenefit MedicalDeduction"],
       "definition": "Medical expense considered for SNAP excess medical deduction for elderly or disabled members."
@@ -124,8 +124,8 @@
       "dataType": "money",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "housing_cost", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "netexp.rentormortgage", "method": "ai-proposed"}
+        {"system": "policyengine-us", "ref": "housing_cost", "method": "human-approved", "notes": "Shelter-cost surface is annual at the SPM-unit level and feeds monthly SNAP formulas through period conversion."},
+        {"system": "atlanta-fed-prd", "ref": "netexp.rentormortgage", "method": "human-approved", "notes": "Used in PRD SNAP net-income calculation; high-level housing code may construct it after housing assistance."}
       ],
       "sourceRefs": ["PolicyEngine snap_excess_shelter_expense_deduction", "PRD function.snapBenefit netincome"],
       "definition": "Rent, mortgage, or other non-utility shelter expense before excess shelter deduction."
@@ -137,8 +137,8 @@
       "dataType": "money",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "has_heating_cooling_expense / count_distinct_utility_expenses -> snap_utility_allowance", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "netexp.utilities, HCSUA, HCSUAValue, HeatandEatState", "method": "ai-proposed"}
+        {"system": "policyengine-us", "ref": "has_heating_cooling_expense / count_distinct_utility_expenses -> snap_utility_allowance", "method": "human-approved", "notes": "This maps utility facts that select SUA/LUA/IUA/none, not a simple monthly utility-dollar amount."},
+        {"system": "atlanta-fed-prd", "ref": "netexp.utilities, HCSUA, HCSUAValue, HeatandEatState", "method": "human-approved", "notes": "PRD utility deduction logic uses these fields; verify whether BasicLimitedUtilityAllowance is needed for first-pass fixtures."}
       ],
       "sourceRefs": ["PolicyEngine snap_utility_allowance_type", "PRD function.snapBenefit UtilityDeduction"],
       "definition": "Utility facts used to determine the SNAP utility allowance and shelter deduction."
@@ -150,8 +150,8 @@
       "dataType": "money",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "snap_assets", "method": "ai-proposed", "notes": "Adds bank account, stock, and bond assets."},
-        {"system": "atlanta-fed-prd", "ref": "totalassets / assets.cash", "method": "ai-proposed", "notes": "PRD function uses totalassets in SNAP asset tests; adapter source column needs verification."}
+        {"system": "policyengine-us", "ref": "snap_assets", "method": "human-approved", "notes": "Liquid-resource aggregate adds bank account, stock, and bond assets; TX BBCE vehicle value enters TANF non-cash asset testing separately."},
+        {"system": "atlanta-fed-prd", "ref": "totalassets / assets.cash / assets.car1", "method": "human-approved", "notes": "PRD SNAP eligibility uses totalassets; local input construction may set totalassets from cash and vehicle fields, so vehicle handling must be explicit in adapters."}
       ],
       "sourceRefs": ["PolicyEngine snap_assets and asset_test/sources", "PRD function.snapBenefit fail_assetTest_*"],
       "definition": "Resources counted against SNAP asset limits."
@@ -163,8 +163,8 @@
       "dataType": "decimal",
       "period": "year",
       "mappings": [
-        {"system": "policyengine-us", "ref": "gov.hhs.tanf.non_cash.income_limit.gross[state]", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "snapData.GrossIncomeEligibilityFPL / GrossIncomeEligibility", "method": "ai-proposed"}
+        {"system": "policyengine-us", "ref": "gov.hhs.tanf.non_cash.income_limit.gross[state]", "method": "human-approved", "notes": "Gross limit is accurate, but BBCE is mediated through TANF non-cash eligibility; net-test and asset-test parameters must travel with it in runners."},
+        {"system": "atlanta-fed-prd", "ref": "snapData.GrossIncomeEligibilityFPL / GrossIncomeEligibility", "method": "human-approved", "notes": "Gross-limit fields are accurate for this row; PRD also carries BBCE_State, waiver, and asset columns separately."}
       ],
       "sourceRefs": ["studies/snap-divergence/PE_NOTES.md", "studies/snap-divergence/PRD_NOTES.md"],
       "definition": "State-specific broad-based categorical eligibility gross income threshold, expressed as a share of FPL or converted dollar threshold."
@@ -176,8 +176,8 @@
       "dataType": "boolean",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "is_snap_eligible", "method": "ai-proposed"},
-        {"system": "atlanta-fed-prd", "ref": "function.snapBenefit(data) > 0", "method": "ai-proposed", "notes": "Inferred initial comparator; unsafe for final classification without investigation because PRD direct function returns value only."}
+        {"system": "policyengine-us", "ref": "is_snap_eligible", "method": "human-approved", "notes": "Includes categorical eligibility plus student, work-requirement, and immigration gates."},
+        {"system": "atlanta-fed-prd", "ref": "function.snapBenefit(data) > 0", "method": "human-approved", "notes": "Inferred initial comparator; unsafe for final classification without investigation because PRD direct function returns value only."}
       ],
       "sourceRefs": ["PolicyEngine is_snap_eligible", "PRD function.snapBenefit subset/value logic"],
       "definition": "Whether the SNAP unit is eligible for a positive regular SNAP allotment in the comparison period."
@@ -189,8 +189,8 @@
       "dataType": "money",
       "period": "month",
       "mappings": [
-        {"system": "policyengine-us", "ref": "snap", "method": "ai-proposed", "notes": "Monthly PolicyEngine SPM-unit amount."},
-        {"system": "atlanta-fed-prd", "ref": "function.snapBenefit(data) / 12", "method": "ai-proposed", "notes": "PRD direct SNAP function returns annual snapValue; divide by 12 for monthly comparison."}
+        {"system": "policyengine-us", "ref": "snap", "method": "human-approved", "notes": "Monthly PolicyEngine SPM-unit amount; for scoped non-DC 2026 fixtures this is acceptable, otherwise compare snap_normal_allotment to avoid emergency/DC add-ons."},
+        {"system": "atlanta-fed-prd", "ref": "function.snapBenefit(data) / 12", "method": "human-approved", "notes": "PRD direct SNAP function returns annual snapValue; divide by 12 for monthly comparison."}
       ],
       "sourceRefs": ["PolicyEngine snap", "PRD function.snapBenefit snapValue"],
       "definition": "Monthly SNAP benefit amount after eligibility, deductions, and expected contribution."
