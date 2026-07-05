@@ -34,8 +34,9 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
 
 ## Phase 3 — Runners (TDD)
 
-- [ ] Task: PolicyEngine runner
-    - [ ] Tests first: fixture → household situation construction → SNAP outputs → pic-trace (reuse Track 4 projection if available, else outputs only)
+- [x] Task: PolicyEngine runner
+    - [x] Tests first: fixture → household situation construction → SNAP outputs → pic-trace (reuse Track 4 projection if available, else outputs only)
+    - > CHECKPOINT (2026-07-05): Added `snap_divergence.policyengine_runner`, adapter tests, and a CLI. The runner builds PolicyEngine household/SPM/tax/family/marital-unit situations from PIC fixture candidates, calculates `is_snap_eligible` and `snap`, and can project a real SNAP flat trace through Track 4's PIC trace adapter. Evidence: all 65 candidate fixtures ran through `.venv-policyengine`; compact outputs are in `studies/snap-divergence/results/policyengine-candidate-results.jsonl`; a traced smoke for `us-snap/fixture.tx_asset_below_limit` validated as `pic-traces` with 2174 steps.
     - **Acceptance:** runs all approved fixtures
 - [ ] Task: PRD runner
     - [ ] `Rscript` wrapper: JSON in → PRD SNAP functions → JSON out; Python subprocess harness; version-pin the PRD commit

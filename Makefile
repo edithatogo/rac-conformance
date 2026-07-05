@@ -1,6 +1,6 @@
-.PHONY: check lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test
+.PHONY: check lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test
 
-check: lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test
+check: lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test
 
 lint:
 	cd contracts/tools && uv run --with ruff ruff check .
@@ -25,3 +25,9 @@ harness-lint:
 
 harness-test:
 	PYTHONPATH=harness:contracts/tools/src uv run --with pytest --with jsonschema pytest harness/tests
+
+snap-runner-lint:
+	PYTHONPATH=studies/snap-divergence/runner/src:harness:contracts/tools/src uv run --with ruff ruff check studies/snap-divergence/runner/src studies/snap-divergence/runner/tests
+
+snap-runner-test:
+	PYTHONPATH=studies/snap-divergence/runner/src:harness:contracts/tools/src uv run --with pytest --with jsonschema pytest studies/snap-divergence/runner/tests
