@@ -7,5 +7,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [~] **Track: Engine contributions — trace export, missingness semantics, Axiom validation harness**
   *Link: [./tracks/engine_contributions_20260704/](./tracks/engine_contributions_20260704/)*
 
-- [~] **Track: Community, process-side contributions, and papers**
+- [x] **Track: Community, process-side contributions, and papers**
   *Link: [./tracks/community_20260704/](./tracks/community_20260704/)*

@@ -1,0 +1,307 @@
+{
+  "conformsTo": "pic-fixtures/0.1.0",
+  "provenance": {
+    "curator": "Codex Track 5",
+    "method": "ai-proposed",
+    "source": "Triangulation assertions derived from SOURCE_TRIANGULATION.md and cited official source surfaces.",
+    "interpreterOfRecord": "pending Dylan review for contested assertions",
+    "disclaimer": "Machine-readable source assertions for deterministic divergence triage only; not legal advice and not a golden fixture set.",
+    "notes": "Encoded as a PIC fixtures artifact so pic-validate can validate the whole study directory. Assertion payloads live under entities.sourceAssertion."
+  },
+  "cases": [
+    {
+      "caseId": "us-snap/source_assertion.ga_bbce_status",
+      "description": "Georgia implements BBCE for the relevant SNAP surface.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "ga.bbce_status",
+          "jurisdiction": "GA",
+          "topic": "bbce_status",
+          "value": true,
+          "sourceTier": "federal_official_state_option",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.fns.usda.gov/snap/broad-based-categorical-eligibility",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "FNS BBCE chart lists Georgia as a BBCE state."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": ["https://www.fns.usda.gov/snap/broad-based-categorical-eligibility"]
+    },
+    {
+      "caseId": "us-snap/source_assertion.ga_bbce_gross_limit",
+      "description": "Georgia FY2026 BBCE gross income limit is 130 percent FPL for the fixture surface.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "ga.bbce_gross_limit_percent_fpl",
+          "jurisdiction": "GA",
+          "topic": "bbce_gross_limit_percent_fpl",
+          "value": "130",
+          "sourceTier": "state_primary",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://pamms.dhs.ga.gov/dfcs/snap/appendix-a-food-stamp-income-limits/",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "Georgia PAMMS Appendix A provides the FY2026 SNAP gross-income limits."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": ["https://pamms.dhs.ga.gov/dfcs/snap/appendix-a-food-stamp-income-limits/"]
+    },
+    {
+      "caseId": "us-snap/source_assertion.ms_bbce_status",
+      "description": "Mississippi is treated as non-BBCE for the fixture surface.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "ms.bbce_status",
+          "jurisdiction": "MS",
+          "topic": "bbce_status",
+          "value": false,
+          "sourceTier": "state_primary",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.sos.ms.gov/adminsearch/ACCode/00000331c.pdf",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "MDHS manual applies regular SNAP categorical eligibility/resource/income surfaces; FNS BBCE chart does not list Mississippi as a BBCE state."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": [
+        "https://www.sos.ms.gov/adminsearch/ACCode/00000331c.pdf",
+        "https://www.fns.usda.gov/snap/broad-based-categorical-eligibility"
+      ]
+    },
+    {
+      "caseId": "us-snap/source_assertion.ms_gross_limit",
+      "description": "Mississippi FY2026 regular SNAP gross income limit is 130 percent FPL.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "ms.bbce_gross_limit_percent_fpl",
+          "jurisdiction": "MS",
+          "topic": "bbce_gross_limit_percent_fpl",
+          "value": "130",
+          "sourceTier": "state_primary",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.mdhs.ms.gov/help/snap/",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "MDHS SNAP page lists FY2026 income limits effective Oct. 1, 2025."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": ["https://www.mdhs.ms.gov/help/snap/"]
+    },
+    {
+      "caseId": "us-snap/source_assertion.ms_asset_limit",
+      "description": "Mississippi non-elderly/non-disabled SNAP resource limit is 3000 USD for the fixture surface.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "ms.asset_limit_usd",
+          "jurisdiction": "MS",
+          "topic": "asset_limit_usd",
+          "value": "3000.00",
+          "sourceTier": "state_primary",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.sos.ms.gov/adminsearch/ACCode/00000331c.pdf",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "MDHS manual and federal FY2026 source material support the finite resource test for non-BBCE households."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": [
+        "https://www.sos.ms.gov/adminsearch/ACCode/00000331c.pdf",
+        "https://www.usda.gov/sites/default/files/guidance-documents/fns.snap-cola-fy26memo.pdf"
+      ]
+    },
+    {
+      "caseId": "us-snap/source_assertion.ms_phone_only_utility",
+      "description": "Mississippi manual has a phone-only utility allowance surface that requires explicit adapter treatment.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "ms.phone_only_utility_allowance",
+          "jurisdiction": "MS",
+          "topic": "phone_only_utility_allowance",
+          "value": "requires explicit phone-only input",
+          "sourceTier": "state_primary",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.sos.ms.gov/adminsearch/ACCode/00000331c.pdf",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "The fixture must distinguish phone-only utility responsibility from generic utilities and heating/cooling responsibility."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": ["https://www.sos.ms.gov/adminsearch/ACCode/00000331c.pdf"]
+    },
+    {
+      "caseId": "us-snap/source_assertion.pa_bbce_gross_limit",
+      "description": "Pennsylvania FY2026 SNAP gross income guideline is consistent with 200 percent FPL.",
+      "period": "2025-10/2026-10",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "pa.bbce_gross_limit_percent_fpl",
+          "jurisdiction": "PA",
+          "topic": "bbce_gross_limit_percent_fpl",
+          "value": "200",
+          "sourceTier": "state_primary",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.pa.gov/agencies/dhs/resources/snap/snap-income-limits",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-10",
+          "notes": "PA SNAP income limits show household-size gross monthly limits consistent with a 200 percent FPL BBCE surface."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": ["https://www.pa.gov/agencies/dhs/resources/snap/snap-income-limits"]
+    },
+    {
+      "caseId": "us-snap/source_assertion.pa_utility_table_blocked",
+      "description": "Pennsylvania exact utility allowance table still requires manual official-source review.",
+      "period": "2025-10/2026-10",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "pa.utility_allowance_exact_value.blocked",
+          "jurisdiction": "PA",
+          "topic": "source_access",
+          "value": "blocked",
+          "sourceTier": "state_primary",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "blocked",
+          "sourceUrl": "https://services.dpw.state.pa.us/oimpolicymanuals/snap/560_Income_Deductions/560_Appendix_A.htm",
+          "exceptionReason": "blocked official source",
+          "appliesToTopics": ["utility_allowance_exact_value"],
+          "notes": "CLI fetches for PA SNAP Manual 560.8 and Appendix A timed out; exact PA utility value claims must fail closed."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": [
+        "https://services.dpw.state.pa.us/oimpolicymanuals/snap/560_Income_Deductions/560_8_Shelter_Utility_Deduction.htm",
+        "https://services.dpw.state.pa.us/oimpolicymanuals/snap/560_Income_Deductions/560_Appendix_A.htm"
+      ]
+    },
+    {
+      "caseId": "us-snap/source_assertion.tx_bbce_status",
+      "description": "Texas implements BBCE for the relevant SNAP surface.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "tx.bbce_status",
+          "jurisdiction": "TX",
+          "topic": "bbce_status",
+          "value": true,
+          "sourceTier": "federal_official_state_option",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.fns.usda.gov/snap/broad-based-categorical-eligibility",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "FNS BBCE chart lists Texas as BBCE."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": ["https://www.fns.usda.gov/snap/broad-based-categorical-eligibility"]
+    },
+    {
+      "caseId": "us-snap/source_assertion.tx_bbce_gross_limit",
+      "description": "Texas FNS BBCE chart gross income limit is 165 percent FPL.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "tx.bbce_gross_limit_percent_fpl",
+          "jurisdiction": "TX",
+          "topic": "bbce_gross_limit_percent_fpl",
+          "value": "165",
+          "sourceTier": "federal_official_state_option",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.fns.usda.gov/snap/broad-based-categorical-eligibility",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "FNS BBCE chart gives Texas 165 percent FPL gross limit; Texas handbook review remains blocked."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": ["https://www.fns.usda.gov/snap/broad-based-categorical-eligibility"]
+    },
+    {
+      "caseId": "us-snap/source_assertion.tx_asset_limit",
+      "description": "Texas FNS BBCE chart asset limit is 5000 USD with vehicle-value caveats.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "tx.asset_limit_usd",
+          "jurisdiction": "TX",
+          "topic": "asset_limit_usd",
+          "value": "5000.00",
+          "sourceTier": "federal_official_state_option",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "verified",
+          "sourceUrl": "https://www.fns.usda.gov/snap/broad-based-categorical-eligibility",
+          "effectiveStart": "2025-10",
+          "effectiveEnd": "2026-09",
+          "notes": "FNS BBCE chart gives Texas asset surface; Texas handbook review remains blocked for exact treatment."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": ["https://www.fns.usda.gov/snap/broad-based-categorical-eligibility"]
+    },
+    {
+      "caseId": "us-snap/source_assertion.tx_handbook_blocked",
+      "description": "Texas HHSC handbook pages require manual access before confirmed-bug claims.",
+      "period": "2025-10/2026-09",
+      "entities": {
+        "sourceAssertion": {
+          "assertionId": "tx.source_access.handbook_blocked",
+          "jurisdiction": "TX",
+          "topic": "source_access",
+          "value": "blocked",
+          "sourceTier": "state_primary",
+          "reviewStatus": "agent-proposed",
+          "retrievalStatus": "blocked",
+          "sourceUrl": "https://www.hhs.texas.gov/handbooks/texas-works-handbook/b-470-categorically-eligible-households",
+          "exceptionReason": "blocked official source",
+          "appliesToTopics": [
+            "bbce_status",
+            "bbce_gross_limit_percent_fpl",
+            "asset_limit_usd",
+            "utility_allowance_exact_value"
+          ],
+          "notes": "Texas HHSC pages returned access denied to browser and CLI fetches; bug claims must wait for manual official-source access."
+        }
+      },
+      "inputs": {},
+      "expected": {},
+      "sourceRefs": [
+        "https://www.hhs.texas.gov/handbooks/texas-works-handbook/b-470-categorically-eligible-households",
+        "https://www.hhs.texas.gov/handbooks/texas-works-handbook/a-1220-limits",
+        "https://www.hhs.texas.gov/handbooks/texas-works-handbook/c-120-supplemental-nutrition-assistance-program"
+      ]
+    }
+  ]
+}
