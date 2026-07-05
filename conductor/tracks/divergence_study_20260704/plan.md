@@ -24,8 +24,9 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
 - [x] Task: [HUMAN] Crosswalk verification (Dylan; the countable-income and unit-composition rows are the dangerous ones — check definitions in both codebases, not just names)
     - > HUMAN-GATE (2026-07-05): Draft crosswalk is prepared at `studies/snap-divergence/crosswalk.json` with all rows and mappings marked `ai-proposed`. Agent must stop here; Dylan verifies countable-income, unit-composition, BBCE, utility, and annual/monthly rows before fixture curation proceeds.
     - > HUMAN-APPROVED (2026-07-05): Dylan approved proceeding with the agent-review recommendations. Crosswalk provenance and mappings were promoted to `human-approved`; `person_ages` was narrowed to PolicyEngine `people.*.age`; `earned_income_monthly` was corrected to use `employment_income + snap_self_employment_income_after_expense_deduction -> snap_earned_income`; adapter caveats were preserved in row notes.
-- [ ] Task: Curate fixture candidates
-    - [ ] Extract worked examples from USDA FNS materials + chosen states' policy manuals (cite page/URL per case); AI-propose boundary cases around FPL thresholds, deduction caps, BBCE limits → `fixtures/candidates/`
+- [x] Task: Curate fixture candidates
+    - [x] Extract worked examples from USDA FNS materials + chosen states' policy manuals (cite page/URL per case); AI-propose boundary cases around FPL thresholds, deduction caps, BBCE limits → `fixtures/candidates/`
+    - > CHECKPOINT (2026-07-05): Added 65 AI-proposed candidate fixtures at `studies/snap-divergence/fixtures/candidates/snap-fy2026-candidates.json`, covering 13 scenario classes across CA, TX, PA, MS, and GA. Each case cites federal USDA/FNA FY2026 standards plus relevant state manual/policy URLs and keeps eligibility/allotment outputs as `unknown` pending real runner execution and Dylan promotion. Review packet: `studies/snap-divergence/fixtures/FIXTURE_CANDIDATES.md`.
     - **Acceptance:** ≥60 candidates, all provenance-stamped, `pic-validate` green
 - [ ] Task: [HUMAN] Fixture promotion (target ≥40 approved)
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
