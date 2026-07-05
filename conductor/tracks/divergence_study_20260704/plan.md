@@ -38,17 +38,18 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
     - [x] Tests first: fixture → household situation construction → SNAP outputs → pic-trace (reuse Track 4 projection if available, else outputs only)
     - > CHECKPOINT (2026-07-05): Added `snap_divergence.policyengine_runner`, adapter tests, and a CLI. The runner builds PolicyEngine household/SPM/tax/family/marital-unit situations from PIC fixture candidates, calculates `is_snap_eligible` and `snap`, and can project a real SNAP flat trace through Track 4's PIC trace adapter. Evidence: all 65 candidate fixtures ran through `.venv-policyengine`; compact outputs are in `studies/snap-divergence/results/policyengine-candidate-results.jsonl`; a traced smoke for `us-snap/fixture.tx_asset_below_limit` validated as `pic-traces` with 2174 steps.
     - **Acceptance:** runs all approved fixtures
-- [ ] Task: PRD runner
+- [x] Task: PRD runner
     - [x] `Rscript` wrapper: JSON in → PRD SNAP functions → JSON out; Python subprocess harness; version-pin the PRD commit
-    - [ ] Tests: round-trip on 3 hand-checked cases against PRD's own dashboard/examples
-    > BLOCKED (2026-07-05): The local PRD repo includes `projects/TEST.yml` and `output/results_TEST.csv`, but that output is from the high-level `BenefitsCalculator.FoodandHousing` path where `value.snap` is capped by food expense and other orchestration. It is not an isolated `function.snapBenefit` oracle for the direct runner. Runner implementation and 65-case direct-function evidence are complete; the remaining hand-check needs either three isolated PRD SNAP worked examples or a human-approved decision that direct-function smoke plus future PRD/PolicyEngine comparison is sufficient.
+    - [x] Tests: round-trip on 3 hand-checked cases against PRD's own dashboard/examples
+    > HUMAN-APPROVED (2026-07-05): Dylan approved using the direct `function.snapBenefit` smoke plus the 65-case PRD run as sufficient evidence for this runner gate. The local PRD `TEST` output remains noted as a high-level `BenefitsCalculator.FoodandHousing` surface, not an isolated direct-function oracle.
     - > CHECKPOINT (2026-07-05): Added `snap_divergence.prd_runner` plus `runner/R/prd_snap_runner.R`. The Python adapter builds PRD input rows from PIC candidates and invokes `Rscript`; the R bridge loads PRD `benefit.parameters.rdata`, sources upstream `functions/benefits_functions.R`, and calls `function.snapBenefit(data)` directly. Evidence: all 65 candidate fixtures ran through Rscript 4.6.0 against PRD commit `1d8e8674563a7653ec707d18956faa14b016bc5b`; compact outputs are in `studies/snap-divergence/results/prd-candidate-results.jsonl`.
     - **Acceptance:** runs all approved fixtures; hand-check cases match
 - [x] Task: Comparison + report tooling
     - [x] Tests first: agreement stats, divergence classification workflow (each divergence gets a `classification` + `evidence` field, initially `unclassified`), Markdown report generator
     - > CHECKPOINT (2026-07-05): Added `snap_divergence.comparison`, comparison tests, machine-readable JSONL rows, and a generated draft `studies/snap-divergence/REPORT.md`. Candidate-run comparison currently has 65 cases, 50 agreements, 15 divergences, 14 decision-relevant divergences, and 15 unclassified divergences. These are candidate-run findings only until fixture promotion and Phase 4 classification.
     - **Acceptance:** end-to-end run produces draft REPORT.md
-- [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
+    > CHECKPOINT (2026-07-05): Phase 3 now has PolicyEngine and PRD runners plus comparison/report tooling. Both engines execute all 65 candidate fixtures; PolicyEngine evidence is in `results/policyengine-candidate-results.jsonl`, PRD evidence is in `results/prd-candidate-results.jsonl`, comparison rows are in `results/comparison-candidate-results.jsonl`, and draft report counts are 50 agreements, 15 divergences, 14 decision-relevant. Validation: `pic-validate studies/snap-divergence` and `make check` passed.
 
 ## Phase 4 — Analysis
 
