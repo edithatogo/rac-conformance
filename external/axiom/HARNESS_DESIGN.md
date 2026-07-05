@@ -70,6 +70,19 @@ Until that artifact boundary is known, implementation should be limited to a
 generic RuleSpec-runtime adapter and stub tests. Any app-specific Axiom wrapper
 must remain out of scope unless Dylan documents it.
 
+### Candidate public target
+
+`TheAxiomFoundation/rulespec-nz` is a concrete public RuleSpec corpus. It
+contains `format: rulespec/v1` modules and companion `.test.yaml` files under
+`nz/statutes`, `nz/regulations`, and `nz/policies`, plus an oracle index that
+names PolicyEngine NZ, Treasury, `nztaxmicrosim`, and `openfisca-aotearoa`
+comparison references.
+
+If Dylan confirms this is the generated-model surface to test first, the
+prototype can use a local checkout of `rulespec-nz` as the RuleSpec repo root
+and begin with a small module such as `nz/statutes/gst/rate.yaml`, then expand
+to income-tax or benefit modules with stronger cross-engine overlap.
+
 ## Report categories
 
 The divergence report should classify each mismatch at least as:
@@ -95,5 +108,6 @@ If the harness is reused for policyengine-taxsim overlap cases, the report shoul
 
 The public docs partially unblock a generic RuleSpec-runtime prototype. The
 prototype task remains blocked for Dylan-specific integration until Dylan
-documents which generated artifact should be tested and how it maps onto the
-public RuleSpec/compiled-artifact surface.
+documents whether `rulespec-nz`, a particular module inside it, or another
+generated artifact should be tested and how it maps onto the public
+RuleSpec/compiled-artifact surface.

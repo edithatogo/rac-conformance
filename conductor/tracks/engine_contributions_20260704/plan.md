@@ -41,6 +41,7 @@ Depends on: contracts_20260704 phases 1–3. Requires network + engine installs.
 - [ ] Task: [HUMAN] Dylan reviews design and documents Axiom's actual interfaces (what a generated model looks like, how to execute it)
     > BLOCKED (2026-07-06): Dylan has not reviewed the design or documented Axiom's actual interfaces. Agents must not guess Axiom internals.
     > CHECKPOINT (2026-07-06): Public Axiom docs were searched and summarized in `external/axiom/PUBLIC_INTERFACE_NOTES.md`. The public RuleSpec runtime interface is documented enough for a generic RuleSpec/compiled-artifact adapter prototype; Dylan review remains required to confirm whether the actual generated model under test is a RuleSpec file, compiled artifact, repo-backed jurisdiction module, or app-specific wrapper.
+    > CHECKPOINT (2026-07-06): `TheAxiomFoundation/rulespec-nz` was verified as a concrete public RuleSpec corpus at `3c6436b2ecf82dd7a7f7810a406a2695a64af33a`, with `nz/...` RuleSpec modules, companion tests, and oracle references. Remaining human input is now narrower: confirm whether `rulespec-nz` is the intended generated-model surface and choose the first module/test slice.
 - [ ] Task: Prototype harness runner in `harness/axiom/`
     - [ ] Tests first against a stub "generated model" interface defined from Dylan's notes; differential run over PIC fixtures; divergence report output (reuse Track 5 report module if it exists yet, else minimal Markdown reporter)
     - **Acceptance:** pytest green on stub; runbook written for pointing it at a real Axiom model
