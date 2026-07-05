@@ -54,6 +54,7 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
 
 - [ ] Task: Classify every divergence
     - [ ] For each mismatch: trace to code/parameter permalinks in both systems; classify per spec taxonomy; mark decision-relevant subset; unexplained ones get a documented investigation log before any "unknown" label
+    - > CHECKPOINT (2026-07-05): Added draft candidate-run classification tooling and artifacts. Current candidate comparison has 15 divergences and 0 remaining unclassified draft rows: 8 state-option modeling, 3 parameter vintage, 3 deduction handling, and 1 rounding. This does not yet satisfy the Phase 4 source-level requirement because fixtures are still candidates and each classification still needs per-case code/parameter permalink investigation after fixture promotion.
     - **Acceptance:** zero unclassified divergences without investigation logs
 - [ ] Task: [HUMAN] Adjudicate genuine-bug classifications (which system is right per statute — this is a legal-interpretation call)
 - [ ] Task: Draft upstream issues for confirmed bugs (`external/policyengine/`, `external/prd/`)
