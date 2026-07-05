@@ -44,8 +44,9 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
     > BLOCKED (2026-07-05): The local PRD repo includes `projects/TEST.yml` and `output/results_TEST.csv`, but that output is from the high-level `BenefitsCalculator.FoodandHousing` path where `value.snap` is capped by food expense and other orchestration. It is not an isolated `function.snapBenefit` oracle for the direct runner. Runner implementation and 65-case direct-function evidence are complete; the remaining hand-check needs either three isolated PRD SNAP worked examples or a human-approved decision that direct-function smoke plus future PRD/PolicyEngine comparison is sufficient.
     - > CHECKPOINT (2026-07-05): Added `snap_divergence.prd_runner` plus `runner/R/prd_snap_runner.R`. The Python adapter builds PRD input rows from PIC candidates and invokes `Rscript`; the R bridge loads PRD `benefit.parameters.rdata`, sources upstream `functions/benefits_functions.R`, and calls `function.snapBenefit(data)` directly. Evidence: all 65 candidate fixtures ran through Rscript 4.6.0 against PRD commit `1d8e8674563a7653ec707d18956faa14b016bc5b`; compact outputs are in `studies/snap-divergence/results/prd-candidate-results.jsonl`.
     - **Acceptance:** runs all approved fixtures; hand-check cases match
-- [ ] Task: Comparison + report tooling
-    - [ ] Tests first: agreement stats, divergence classification workflow (each divergence gets a `classification` + `evidence` field, initially `unclassified`), Markdown report generator
+- [x] Task: Comparison + report tooling
+    - [x] Tests first: agreement stats, divergence classification workflow (each divergence gets a `classification` + `evidence` field, initially `unclassified`), Markdown report generator
+    - > CHECKPOINT (2026-07-05): Added `snap_divergence.comparison`, comparison tests, machine-readable JSONL rows, and a generated draft `studies/snap-divergence/REPORT.md`. Candidate-run comparison currently has 65 cases, 50 agreements, 15 divergences, 14 decision-relevant divergences, and 15 unclassified divergences. These are candidate-run findings only until fixture promotion and Phase 4 classification.
     - **Acceptance:** end-to-end run produces draft REPORT.md
 - [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
 
