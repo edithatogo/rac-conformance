@@ -73,6 +73,8 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
 
 ## Phase 5 — Worked example: nz-oia-clocks
 
+> CHECKPOINT (2026-07-06): Phase 5 worked example (nz-oia-clocks) has been successfully implemented and validated. The 5 candidate fixtures were adjudicated and promoted to human curation with corrected dates based on statutory OIA s 2 rules and Track 2 reference cases. Release housekeeping is complete, including individual CHANGELOGs for all five contracts, updated CONSUMERS.md, and root README.md. All tests and example validations pass cleanly with 90% contract tools coverage.
+
 - [x] Task: Build `contracts/examples/nz-oia-clocks/`
     - [x] Draft crosswalk (3 rows), parameters (2: 20-working-day limit with source ref to OIA 1982 s 15; holiday-calendar reference parameter), 5 fixtures per spec (mark ALL fixtures `method: ai-proposed`), 1 sample trace
     - [x] Validate with `pic-validate` (directory mode)
@@ -85,7 +87,7 @@ Read `spec.md` first. Follow `conductor/workflow.md` (TDD, one commit per task, 
 - [x] Task: Release housekeeping
     - [x] CHANGELOGs for all five contracts at 0.1.0; update `contracts/CONSUMERS.md`; update root README repo-map row for `contracts/` from "to be built" to "v0.1"
     - **Acceptance:** `make check` green; `git log` shows one commit per task
-- [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
 
 ## Notes for implementing agents
 

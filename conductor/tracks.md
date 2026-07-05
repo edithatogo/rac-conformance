@@ -4,7 +4,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Policy Interchange Contracts (PIC) v0.1 — crosswalk, parameters, fixtures, traces, semantics**
+- [x] **Track: Policy Interchange Contracts (PIC) v0.1 — crosswalk, parameters, fixtures, traces, semantics**
   *Link: [./tracks/contracts_20260704/](./tracks/contracts_20260704/)*
 
 - [~] **Track: OIA statutory rules extraction and typed process→rule coupling (for edithatogo/foi-o)**
