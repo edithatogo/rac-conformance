@@ -9,6 +9,7 @@ This packet is for legal/source-of-truth adjudication. The agent has source-leve
 ## Inputs
 
 - Source-level classification: `studies/snap-divergence/DIVERGENCE_CLASSIFICATION.md`
+- Source triangulation pack: `studies/snap-divergence/SOURCE_TRIANGULATION.md`
 - Machine-readable classified rows: `studies/snap-divergence/results/classified-candidate-divergences.jsonl`
 - Held-case comparison evidence: `studies/snap-divergence/fixtures/FIXTURE_PROMOTION_REVIEW.md`
 - PRD notes: `studies/snap-divergence/PRD_NOTES.md`

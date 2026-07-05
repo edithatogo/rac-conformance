@@ -64,6 +64,7 @@ Depends on: contracts_20260704. Requires network + Python + R. The R requirement
     - **Acceptance:** zero unclassified divergences without investigation logs
 - [ ] Task: [HUMAN] Adjudicate genuine-bug classifications (which system is right per statute — this is a legal-interpretation call)
     > HUMAN-GATE (2026-07-06): Adjudication packet prepared at `studies/snap-divergence/HUMAN_ADJUDICATION_PACKET.md`. Agent has not decided which engine is legally correct and has not labeled any divergence as a confirmed bug.
+    > CHECKPOINT (2026-07-06): Source triangulation pack prepared at `studies/snap-divergence/SOURCE_TRIANGULATION.md` to support Dylan's adjudication and earlier-decision audit. It maps federal, state, engine, secondary, and ontology/standards sources to the open SNAP divergence groups without deciding legal correctness.
 - [ ] Task: Draft upstream issues for confirmed bugs (`external/policyengine/`, `external/prd/`)
     - **Acceptance:** each issue has a minimal reproduction
 - [ ] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
