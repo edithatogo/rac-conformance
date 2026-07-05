@@ -2,22 +2,22 @@
   "conformsTo": "pic-fixtures/0.1.0",
   "provenance": {
     "curator": "PIC Track 1",
-    "method": "ai-proposed",
-    "source": "Official Information Act 1982 ss 2, 14, 15, 15A candidate examples",
-    "interpreterOfRecord": "pending Dylan review",
-    "disclaimer": "Interpretation, not law. Candidate fixtures are not golden fixtures."
+    "method": "human",
+    "source": "Official Information Act 1982 ss 2, 14, 15, 15A verified examples",
+    "interpreterOfRecord": "Dylan",
+    "disclaimer": "Interpretation, not law. Fixtures promoted based on statutory rules and track 2 reference cases."
   },
   "cases": [
     {
       "caseId": "nz-oia/fixture.response_deadline_plain",
-      "description": "Plain 20-working-day response deadline candidate.",
+      "description": "Plain 20-working-day response deadline.",
       "period": "2026",
       "entities": {"request": {"kind": "official_information_request"}},
       "inputs": {
         "nz-oia/variable.receipt_date": {"value": "2026-02-02", "valueState": "known", "epistemicStatus": "observed"}
       },
       "expected": {
-        "nz-oia/decision.response_deadline": {"value": "2026-03-02", "valueState": "known"}
+        "nz-oia/decision.response_deadline": {"value": "2026-03-03", "valueState": "known"}
       },
       "sourceRefs": ["Official Information Act 1982 s 15"]
     },
@@ -36,7 +36,7 @@
     },
     {
       "caseId": "nz-oia/fixture.receipt_verified_stale",
-      "description": "Stale verified receipt date produces a warning-bearing candidate deadline.",
+      "description": "Stale verified receipt date produces a warning-bearing deadline.",
       "period": "2026",
       "entities": {"request": {"kind": "official_information_request"}},
       "inputs": {
@@ -52,7 +52,7 @@
     },
     {
       "caseId": "nz-oia/fixture.transfer_deadline_plain",
-      "description": "Transfer notice candidate within 10 working days.",
+      "description": "Transfer notice within 10 working days.",
       "period": "2026",
       "entities": {"request": {"kind": "official_information_request"}},
       "inputs": {
@@ -60,20 +60,20 @@
         "nz-oia/variable.transfer_notice_date": {"value": "2026-02-16", "valueState": "known", "epistemicStatus": "asserted"}
       },
       "expected": {
-        "nz-oia/decision.transfer_deadline": {"value": "2026-02-16", "valueState": "known"}
+        "nz-oia/decision.transfer_deadline": {"value": "2026-02-17", "valueState": "known"}
       },
       "sourceRefs": ["Official Information Act 1982 s 14"]
     },
     {
       "caseId": "nz-oia/fixture.december_january_exclusion",
-      "description": "Candidate response deadline crossing the 25 December to 15 January exclusion.",
+      "description": "Response deadline crossing the 25 December to 15 January exclusion.",
       "period": "2026-2027",
       "entities": {"request": {"kind": "official_information_request"}},
       "inputs": {
         "nz-oia/variable.receipt_date": {"value": "2026-12-23", "valueState": "known", "epistemicStatus": "observed"}
       },
       "expected": {
-        "nz-oia/decision.response_deadline": {"value": "2027-02-11", "valueState": "known"}
+        "nz-oia/decision.response_deadline": {"value": "2027-02-12", "valueState": "known"}
       },
       "sourceRefs": ["Official Information Act 1982 ss 2, 15"]
     }
