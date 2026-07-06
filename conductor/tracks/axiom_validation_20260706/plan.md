@@ -74,13 +74,18 @@ Depends on: `repo_boundaries_20260706` Phase 1.
 
 ## Phase 4 - External Review Closure
 
-- [ ] Task: Push branch and monitor Actions
-    - [ ] Push only after local `make check` passes.
-    - [ ] Monitor GitHub Actions until green or blocked.
-    - [ ] Apply fixes for agent-addressable failures.
+- [x] Task: Push branch and monitor Actions
+    - [x] Push only after local `make check` passes.
+    - [x] Monitor GitHub Actions until green or blocked.
+    - [x] Apply fixes for agent-addressable failures.
     - **Acceptance:** branch has green Actions or exact blocker.
 - [ ] Task: [HUMAN] Submit or merge upstream Axiom work
     - [ ] Present report, branch, and feedback text to Dylan.
     - [ ] Record submitted/merged URLs or blocker in `external/ADOPTION_STATUS.md`.
     - **Acceptance:** external state is not ambiguous.
+
+> NOTE (2026-07-06): Branch `main` is pushed and GitHub Actions run `28796868138` completed successfully after the local harness fixes.
+> The remaining open item is human submission or merge of the staged upstream Axiom feedback for the KiwiSaver compile blocker.
+> The agent-side work for phase 4 is complete; external state now needs a Dylan action or recorded blocker URL.
+
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - External Review Closure' (Protocol in workflow.md)
