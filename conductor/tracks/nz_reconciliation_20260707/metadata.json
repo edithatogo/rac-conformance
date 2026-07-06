@@ -1,0 +1,8 @@
+{
+  "track_id": "nz_reconciliation_20260707",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-07T00:28:00Z",
+  "updated_at": "2026-07-07T00:28:00Z",
+  "description": "Reconcile NZ personal income tax, ACC earner levies, and KiwiSaver calculations between rulespec-nz and openfisca-aotearoa."
+}

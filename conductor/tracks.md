@@ -34,3 +34,9 @@
 
 - [ ] **Track: Next comparative study selection**
 *Link: [./tracks/comparative_studies_20260706/](./tracks/comparative_studies_20260706/)*
+
+---
+
+- [ ] **Track: NZ RuleSpec vs OpenFisca Aotearoa Reconciliation**
+*Link: [./tracks/nz_reconciliation_20260707/](./tracks/nz_reconciliation_20260707/)*
+
