@@ -4,10 +4,10 @@ Depends on: `repo_boundaries_20260706` Phase 1.
 
 ## Phase 1 - Coverage Selection
 
-- [ ] Task: Audit RuleSpec NZ candidate modules
-    - [ ] Inspect local and upstream `rulespec-nz` for modules with companion tests.
-    - [ ] Rank candidates by source clarity, overlap with PIC concepts, and non-trivial output behavior.
-    - [ ] Record selection in `external/axiom/COVERAGE_PLAN.md`.
+- [x] Task: Audit RuleSpec NZ candidate modules
+    - [x] Inspect local and upstream `rulespec-nz` for modules with companion tests.
+    - [x] Rank candidates by source clarity, overlap with PIC concepts, and non-trivial output behavior.
+    - [x] Record selection in `external/axiom/COVERAGE_PLAN.md`.
     - **Acceptance:** coverage plan names selected and rejected modules with reasons.
 - [ ] Task: Source assertion check
     - [ ] For selected modules, identify source assertions or companion oracle tests.
