@@ -17,35 +17,36 @@ Depends on: `adoption_closure_20260706` Phase 3. Do not start schema edits until
 
 ## Phase 2 - Contract Changes
 
-- [ ] Task: Write tests for selected v0.2 changes
-    - [ ] Add failing schema/validator tests first.
-    - [ ] Add valid and invalid examples for each changed contract.
+- [x] Task: Write tests for selected v0.2 changes (SHA: dce43f8)
+    - [x] Add failing schema/validator tests first.
+    - [x] Add valid and invalid examples for each changed contract.
     - **Acceptance:** tests fail for the intended missing v0.2 behavior before implementation.
-- [ ] Task: Implement v0.2 schemas and validator support
-    - [ ] Add new version directories only for changed contracts.
-    - [ ] Preserve v0.1 validation behavior.
-    - [ ] Update `pic-validate` discovery as needed.
+- [x] Task: Implement v0.2 schemas and validator support
+    - [x] Add new version directories only for changed contracts.
+    - [x] Preserve v0.1 validation behavior.
+    - [x] Update `pic-validate` discovery as needed.
     - **Acceptance:** all contract examples validate or fail as expected.
-- [ ] Task: Write migration notes
-    - [ ] Add changelog entries for each changed contract.
-    - [ ] Add migration examples for breaking changes.
+- [x] Task: Write migration notes
+    - [x] Add changelog entries for each changed contract.
+    - [x] Add migration examples for breaking changes.
     - **Acceptance:** a consumer can tell whether they need to migrate.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Contract Changes' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Contract Changes' (Protocol in workflow.md)
 
 ## Phase 3 - Consumer Validation
 
-- [ ] Task: Validate active consumers
-    - [ ] Run `pic-validate` over `contracts/examples`, `external/foi-o/rules`, `studies/snap-divergence`, and Axiom fixtures.
-    - [ ] Update consumer artifacts only where required.
+- [x] Task: Validate active consumers
+    - [x] Run `pic-validate` over `contracts/examples`, `external/foi-o/rules`, `studies/snap-divergence`, and Axiom fixtures.
+    - [x] Update consumer artifacts only where required.
     - **Acceptance:** active consumers validate cleanly or have explicit migration blockers.
-- [ ] Task: GitHub Actions and PR readiness
-    - [ ] Run `make check`.
-    - [ ] Push branch when authorized.
-    - [ ] Monitor GitHub Actions after push.
-    - [ ] Apply fixes until checks pass or blocker is documented.
+- [x] Task: GitHub Actions and PR readiness
+    - [x] Run `make check`.
+    - [x] Push branch when authorized.
+    - [x] Monitor GitHub Actions after push.
+    - [x] Apply fixes until checks pass or blocker is documented.
     - **Acceptance:** branch has green Actions or exact external blocker.
 - [ ] Task: [HUMAN] Approve v0.2 publication posture
     - [ ] Present feedback ledger, diff, consumer validation, and migration notes.
     - [ ] Dylan decides whether v0.2 is published, deferred, or kept experimental.
     - **Acceptance:** publication status is recorded.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Consumer Validation' (Protocol in workflow.md)
+
