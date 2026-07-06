@@ -37,6 +37,11 @@ At the end of every phase, execute the phase's final meta-task:
 
 Work destined for external repos is **staged in this repo first** under `external/<repo>/…` as patch-ready trees plus a `SUBMISSION.md` (what, why, exact upstream path, draft PR/issue text). Submitting upstream is always a `[HUMAN]` task. This keeps the whole program reviewable and portable inside one archive.
 
+## Repo relevance boundary check policy
+
+Before executing any cross-repo work or copying code/documentation to/from any repository under the `edithatogo` organization, the agent must check `conductor/edithatogo-repo-boundaries.md` to ensure the repository is currently relevant and the type of work matches the allowed boundaries. If the repository is not listed, or entry conditions are not met, the task must be treated as blocked.
+
+
 ## AI usage rules (binding on all agents)
 
 - Allowed: scaffolding, schema drafting, converter code, test *proposals*, documentation, red-teaming, divergence-report explanation.

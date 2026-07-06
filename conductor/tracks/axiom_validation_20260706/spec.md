@@ -15,10 +15,12 @@ The first roadmap produced a working Axiom harness and live RuleSpec NZ smoke ev
 
 ## Non-Functional Requirements
 
+- Restrict repository modifications strictly per `conductor/edithatogo-repo-boundaries.md`.
 - No runtime AI decisions.
 - No inferred mappings at runtime.
 - All money/decimal values remain strings in PIC fixtures.
 - Do not certify legal correctness from RuleSpec output alone.
+
 
 ## Acceptance Criteria
 

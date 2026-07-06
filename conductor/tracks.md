@@ -7,8 +7,8 @@
 
 ---
 
-- [ ] **Track: Repo relevance boundary catalog**
-*Link: [./tracks/repo_boundaries_20260706/](./tracks/repo_boundaries_20260706/)*
+- [x] **Track: Repo relevance boundary catalog**
+*Link: [./archive/repo_boundaries_20260706/](./archive/repo_boundaries_20260706/)*
 
 ---
 

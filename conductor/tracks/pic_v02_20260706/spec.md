@@ -19,6 +19,7 @@ PIC v0.1 exists and validates. PIC v0.2 must not be a speculative standardizatio
 
 ## Non-Functional Requirements
 
+- Restrict repository modifications strictly per `conductor/edithatogo-repo-boundaries.md`.
 - Use TDD for schema and validator changes.
 - Maintain >=80% coverage for `contracts/tools`.
 - Keep examples small and source-backed.
