@@ -1,0 +1,1 @@
+Phase 2 completed after adapter tests, source-backed fixture docs, and runbook updates. make check passed; pic-validate passed in schema-only mode for the new fixtures because the shared fixture directory still contains legacy smoke files with unresolved crosswalk refs.
