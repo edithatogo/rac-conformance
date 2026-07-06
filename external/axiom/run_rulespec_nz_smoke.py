@@ -7,6 +7,7 @@ from pathlib import Path
 from axiom import (
     build_rulespec_nz_acc_earners_levy_adapter,
     build_rulespec_nz_gst_adapter,
+    build_rulespec_nz_individual_income_tax_adapter,
     write_reports,
 )
 from axiom.runner import AxiomCompiledArtifactExecutor, AxiomHarnessRunner
@@ -24,6 +25,10 @@ def main() -> int:
         default="/tmp/rulespec-nz-acc-earners-levy.compiled.json",
     )
     parser.add_argument(
+        "--income-tax-artifact",
+        default="/tmp/rulespec-nz-individual-income-tax.compiled.json",
+    )
+    parser.add_argument(
         "--output-dir",
         default="external/axiom/results/rulespec-nz-live-smoke",
     )
@@ -39,6 +44,11 @@ def main() -> int:
             build_rulespec_nz_acc_earners_levy_adapter(),
             args.acc_artifact,
             Path("external/axiom/fixtures/rulespec-nz-acc-earners-levy-smoke.pic-fixtures.json"),
+        ),
+        (
+            build_rulespec_nz_individual_income_tax_adapter(),
+            args.income_tax_artifact,
+            Path("external/axiom/fixtures/rulespec-nz-individual-income-tax-smoke.pic-fixtures.json"),
         ),
     ]
     results = []

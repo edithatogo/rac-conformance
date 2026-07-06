@@ -37,6 +37,15 @@ RULESPEC_NZ_ACC_EARNERS_LEVY_TARGET = RuleSpecTarget(
 )
 
 
+RULESPEC_NZ_INDIVIDUAL_INCOME_TAX_TARGET = RuleSpecTarget(
+    repo="TheAxiomFoundation/rulespec-nz",
+    repo_commit="3c6436b2ecf82dd7a7f7810a406a2695a64af33a",
+    module_path="nz/statutes/income_tax/schedule_1/individual_income_tax.yaml",
+    test_path="nz/statutes/income_tax/schedule_1/individual_income_tax.test.yaml",
+    module_id="nz:statutes/income_tax/schedule_1/individual_income_tax",
+)
+
+
 RULESPEC_NZ_GST_INPUTS = {
     "nz-gst/variable.gst_exclusive_amount": "nz:statutes/gst/rate#input.gst_exclusive_amount",
     "nz-gst/variable.gst_inclusive_amount": "nz:statutes/gst/rate#input.gst_inclusive_amount",
@@ -77,6 +86,16 @@ RULESPEC_NZ_ACC_EARNERS_LEVY_INPUTS = {
     ),
     "nz-acc/variable.acc_self_employed_invoice_acc_levy_amount": (
         "nz:regulations/acc/earners_levy#input.acc_self_employed_invoice_acc_levy_amount"
+    ),
+}
+
+
+RULESPEC_NZ_INDIVIDUAL_INCOME_TAX_INPUTS = {
+    "nz-income-tax/variable.taxable_income": (
+        "nz:statutes/income_tax/schedule_1/individual_income_tax#input.taxable_income"
+    ),
+    "nz-income-tax/variable.bracket": (
+        "nz:statutes/income_tax/schedule_1/individual_income_tax#input.bracket"
     ),
 }
 
@@ -146,6 +165,19 @@ RULESPEC_NZ_ACC_EARNERS_LEVY_OUTPUTS = {
     ),
     "nz-acc/decision.acc_self_employed_invoice_levy_payable_after_exempt_amount": (
         "nz:regulations/acc/earners_levy#acc_self_employed_invoice_levy_payable_after_exempt_amount"
+    ),
+}
+
+
+RULESPEC_NZ_INDIVIDUAL_INCOME_TAX_OUTPUTS = {
+    "nz-income-tax/decision.individual_income_tax_bracket_thresholds": (
+        "nz:statutes/income_tax/schedule_1/individual_income_tax#individual_income_tax_bracket_thresholds"
+    ),
+    "nz-income-tax/decision.individual_income_tax_bracket_rates": (
+        "nz:statutes/income_tax/schedule_1/individual_income_tax#individual_income_tax_bracket_rates"
+    ),
+    "nz-income-tax/decision.individual_income_tax_before_credits": (
+        "nz:statutes/income_tax/schedule_1/individual_income_tax#individual_income_tax_before_credits"
     ),
 }
 
@@ -261,6 +293,16 @@ def build_rulespec_nz_acc_earners_levy_adapter() -> AxiomRuleSpecAdapter:
         target=RULESPEC_NZ_ACC_EARNERS_LEVY_TARGET,
         input_id_map=RULESPEC_NZ_ACC_EARNERS_LEVY_INPUTS,
         output_id_map=RULESPEC_NZ_ACC_EARNERS_LEVY_OUTPUTS,
+        entity="Person",
+        entity_id="person:1",
+    )
+
+
+def build_rulespec_nz_individual_income_tax_adapter() -> AxiomRuleSpecAdapter:
+    return AxiomRuleSpecAdapter(
+        target=RULESPEC_NZ_INDIVIDUAL_INCOME_TAX_TARGET,
+        input_id_map=RULESPEC_NZ_INDIVIDUAL_INCOME_TAX_INPUTS,
+        output_id_map=RULESPEC_NZ_INDIVIDUAL_INCOME_TAX_OUTPUTS,
         entity="Person",
         entity_id="person:1",
     )

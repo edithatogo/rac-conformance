@@ -1,6 +1,6 @@
 {
   "adapter_failures": 0,
-  "exact_matches": 2,
+  "exact_matches": 3,
   "output_mismatches": 0,
   "results": [
     {
@@ -136,7 +136,51 @@
         "repo_commit": "3c6436b2ecf82dd7a7f7810a406a2695a64af33a",
         "test_path": "nz/regulations/acc/earners_levy.test.yaml"
       }
+    },
+    {
+      "axiom": {
+        "outputs": {
+          "nz-income-tax/decision.individual_income_tax_before_credits": {
+            "currency": "NZD",
+            "value": "1638",
+            "valueState": "known"
+          }
+        },
+        "trace": {
+          "nz-income-tax/decision.individual_income_tax_before_credits": {
+            "dependencies": [],
+            "dtype": "decimal",
+            "id": "nz:statutes/income_tax/schedule_1/individual_income_tax#individual_income_tax_before_credits",
+            "kind": "scalar",
+            "name": "individual_income_tax_before_credits",
+            "source": "Income Tax Act 2007 Schedule 1 part A clause 1",
+            "unit": "NZD",
+            "value": {
+              "kind": "decimal",
+              "value": "1638"
+            }
+          }
+        }
+      },
+      "axiom_error": null,
+      "caseId": "nz-income-tax/fixture.first_bracket_upper_bound",
+      "expected": {
+        "nz-income-tax/decision.individual_income_tax_before_credits": {
+          "currency": "NZD",
+          "value": "1638",
+          "valueState": "known"
+        }
+      },
+      "mismatches": [],
+      "status": "exact_match",
+      "target": {
+        "module_id": "nz:statutes/income_tax/schedule_1/individual_income_tax",
+        "module_path": "nz/statutes/income_tax/schedule_1/individual_income_tax.yaml",
+        "repo": "TheAxiomFoundation/rulespec-nz",
+        "repo_commit": "3c6436b2ecf82dd7a7f7810a406a2695a64af33a",
+        "test_path": "nz/statutes/income_tax/schedule_1/individual_income_tax.test.yaml"
+      }
     }
   ],
-  "total": 2
+  "total": 3
 }

@@ -10,6 +10,7 @@ from axiom import (
     RuleSpecTarget,
     build_rulespec_nz_acc_earners_levy_adapter,
     build_rulespec_nz_gst_adapter,
+    build_rulespec_nz_individual_income_tax_adapter,
     generate_report,
     write_reports,
 )
@@ -77,6 +78,31 @@ ACC_EARNERS_LEVY_CASE = {
     },
     "sourceRefs": [
         "https://github.com/TheAxiomFoundation/rulespec-nz/blob/3c6436b2ecf82dd7a7f7810a406a2695a64af33a/nz/regulations/acc/earners_levy.test.yaml"
+    ],
+}
+
+
+INDIVIDUAL_INCOME_TAX_CASE = {
+    "caseId": "nz-income-tax/fixture.first_bracket_upper_bound",
+    "description": "Individual income tax before credits at the first bracket upper bound.",
+    "period": "2026-04-01/2027-03-31",
+    "entities": {"person": {"type": "Person", "id": "person:1"}},
+    "inputs": {
+        "nz-income-tax/variable.taxable_income": {
+            "value": "15600",
+            "valueState": "known",
+            "currency": "NZD",
+        }
+    },
+    "expected": {
+        "nz-income-tax/decision.individual_income_tax_before_credits": {
+            "value": "1638",
+            "valueState": "known",
+            "currency": "NZD",
+        }
+    },
+    "sourceRefs": [
+        "https://github.com/TheAxiomFoundation/rulespec-nz/blob/3c6436b2ecf82dd7a7f7810a406a2695a64af33a/nz/statutes/income_tax/schedule_1/individual_income_tax.test.yaml"
     ],
 }
 
@@ -212,6 +238,78 @@ def test_acc_earners_levy_runner_exact_match_with_stub_executor() -> None:
     assert result["status"] == "exact_match"
     assert result["mismatches"] == []
     assert result["target"]["module_path"] == "nz/regulations/acc/earners_levy.yaml"
+
+
+def test_build_rulespec_nz_individual_income_tax_request() -> None:
+    adapter = build_rulespec_nz_individual_income_tax_adapter()
+
+    request = adapter.build_compiled_request(INDIVIDUAL_INCOME_TAX_CASE)
+
+    assert adapter.target.module_path == "nz/statutes/income_tax/schedule_1/individual_income_tax.yaml"
+    assert request["dataset"]["inputs"] == [
+        {
+            "name": "nz:statutes/income_tax/schedule_1/individual_income_tax#input.taxable_income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {"start": "2026-04-01", "end": "2027-03-31"},
+            "value": {"kind": "decimal", "value": "15600"},
+        }
+    ]
+    assert request["queries"] == [
+        {
+            "entity_id": "person:1",
+            "period": {
+                "period_kind": "tax_year",
+                "start": "2026-04-01",
+                "end": "2027-03-31",
+            },
+            "outputs": [
+                (
+                    "nz:statutes/income_tax/schedule_1/individual_income_tax#"
+                    "individual_income_tax_before_credits"
+                )
+            ],
+        }
+    ]
+
+
+def test_individual_income_tax_runner_exact_match_with_stub_executor() -> None:
+    runner = AxiomHarnessRunner(adapter=build_rulespec_nz_individual_income_tax_adapter())
+
+    def stub_executor(request: dict[str, Any]) -> dict[str, Any]:
+        return {
+            "metadata": {"requested_mode": "explain", "actual_mode": "explain"},
+            "results": [
+                {
+                    "entity_id": "person:1",
+                    "period": request["queries"][0]["period"],
+                    "outputs": {
+                        (
+                            "nz:statutes/income_tax/schedule_1/individual_income_tax#"
+                            "individual_income_tax_before_credits"
+                        ): {
+                            "kind": "scalar",
+                            "name": "individual_income_tax_before_credits",
+                            "id": (
+                                "nz:statutes/income_tax/schedule_1/individual_income_tax#"
+                                "individual_income_tax_before_credits"
+                            ),
+                            "dtype": "Money",
+                            "unit": "NZD",
+                            "value": {"kind": "decimal", "value": "1638.00"},
+                        },
+                    },
+                }
+            ],
+        }
+
+    result = runner.run_case(INDIVIDUAL_INCOME_TAX_CASE, executor=stub_executor)
+
+    assert result["status"] == "exact_match"
+    assert result["mismatches"] == []
+    assert result["target"]["module_path"] == (
+        "nz/statutes/income_tax/schedule_1/individual_income_tax.yaml"
+    )
 
 
 def test_runner_exact_match_with_stub_executor() -> None:

@@ -47,4 +47,5 @@ Depends on: contracts_20260704 phases 1–3. Requires network + engine installs.
     - **Acceptance:** pytest green on stub; runbook written for pointing it at a real Axiom model
     > FIXUP (2026-07-06): Reworked the prototype to target the approved `rulespec-nz` GST smoke slice directly, using stdlib-only compiled-execution request dictionaries, deterministic stub-executor tests, and a runbook for local `axiom-rules-engine` compiled artifacts. Verified with `make check`.
     > FIXUP (2026-07-06): Built the public `axiom-rules-engine`, compiled `rulespec-nz` GST and ACC modules, and ran the harness against both compiled artifacts. Both live smoke cases returned `exact_match`; evidence is stored under `external/axiom/results/rulespec-nz-live-smoke/`.
+    > FIXUP (2026-07-06): Added the third `rulespec-nz` live slice for individual income tax schedule 1 (`first_bracket_upper_bound`) with deterministic PIC mapping and live smoke fixture.
 - [x] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)

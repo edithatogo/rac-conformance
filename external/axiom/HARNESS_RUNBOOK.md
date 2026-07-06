@@ -88,10 +88,11 @@ PYTHONPATH=harness:contracts/tools/src \
   python external/axiom/run_rulespec_nz_smoke.py
 ```
 
-On 2026-07-06 this produced `exact_match` for both:
+On 2026-07-06 this produced `exact_match` for:
 
 - `nz-gst/fixture.add_and_remove_gst`
 - `nz-acc/fixture.standard_2026_earnings_below_cap`
+- `nz-income-tax/fixture.first_bracket_upper_bound`
 
 The stored report is under `external/axiom/results/rulespec-nz-live-smoke/`.
 
@@ -129,3 +130,18 @@ runner = AxiomHarnessRunner(
 
 For further expansion, add another explicit PIC-to-Axiom ID mapping before
 running a new module. Do not infer mappings at runtime.
+
+The third mapped slice is individual income tax schedule 1:
+
+- module: `nz/statutes/income_tax/schedule_1/individual_income_tax.yaml`
+- companion test: `nz/statutes/income_tax/schedule_1/individual_income_tax.test.yaml`
+- first case: `first_bracket_upper_bound`
+
+Compile it with:
+
+```bash
+AXIOM_RULESPEC_REPO_ROOTS=/path/to/rulespec-nz \
+  /path/to/axiom-rules-engine/target/debug/axiom-rules-engine compile \
+  --program /path/to/rulespec-nz/nz/statutes/income_tax/schedule_1/individual_income_tax.yaml \
+  --output /tmp/rulespec-nz-individual-income-tax.compiled.json
+```
