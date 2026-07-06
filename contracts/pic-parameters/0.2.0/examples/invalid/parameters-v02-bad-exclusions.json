@@ -1,0 +1,25 @@
+{
+  "conformsTo": "pic-parameters/0.2.0",
+  "parameters": [
+    {
+      "id": "nz-oia/parameters.response_limit",
+      "label": "OIA response limit in working days",
+      "unit": "working days",
+      "calendar": {
+        "timezone": "Pacific/Auckland",
+        "convention": "nz-statutes/working-days",
+        "holidayExclusions": "2026-12-25"
+      },
+      "values": [
+        {
+          "from": "2026-01-01",
+          "to": null,
+          "value": 20,
+          "sourceRefs": [
+            "nz:statutes/oia#s15"
+          ]
+        }
+      ]
+    }
+  ]
+}

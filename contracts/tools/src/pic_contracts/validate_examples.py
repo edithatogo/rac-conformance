@@ -10,11 +10,11 @@ from pic_contracts.validation import ValidationIssue, ValidationReport, validate
 
 def validate_example_corpus(root: Path) -> ValidationReport:
     report = ValidationReport()
-    for valid_path in sorted(root.glob("pic-*/0.1.0/examples/valid/*.json")):
+    for valid_path in sorted(root.glob("pic-*/*/examples/valid/*.json")):
         result = validate_file(valid_path)
         if not result.ok:
             report.extend(result.issues)
-    for invalid_path in sorted(root.glob("pic-*/0.1.0/examples/invalid/*.json")):
+    for invalid_path in sorted(root.glob("pic-*/*/examples/invalid/*.json")):
         result = validate_file(invalid_path)
         if result.ok:
             report.add(

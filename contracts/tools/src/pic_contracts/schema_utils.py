@@ -23,7 +23,7 @@ def load_schema(contract: str, version: str = "0.1.0") -> dict[str, Any]:
 
 def schema_registry() -> Registry:
     resources = []
-    for schema_path in CONTRACTS_ROOT.glob("pic-*/0.1.0/schema.json"):
+    for schema_path in CONTRACTS_ROOT.glob("pic-*/*/schema.json"):
         schema = load_json(schema_path)
         if "$id" in schema:
             resources.append((schema["$id"], Resource.from_contents(schema)))

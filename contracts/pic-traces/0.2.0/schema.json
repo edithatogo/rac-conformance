@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-traces/0.2.0/schema.json",
+  "title": "PIC trace file",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "conformsTo",
+    "caseId",
+    "packageRef",
+    "engine",
+    "timestamp",
+    "inputs",
+    "outputs",
+    "steps"
+  ],
+  "properties": {
+    "conformsTo": {"const": "pic-traces/0.2.0"},
+    "caseId": {"$ref": "#/$defs/picId"},
+    "packageRef": {"$ref": "#/$defs/packageRef"},
+    "engine": {"$ref": "#/$defs/engine"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "inputs": {"$ref": "#/$defs/inputValueMap"},
+    "outputs": {"$ref": "#/$defs/valueMap"},
+    "steps": {"type": "array", "items": {"$ref": "#/$defs/step"}}
+  },
+  "$defs": {
+    "picId": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+(/[a-z0-9_-]+)*(\\.[a-z0-9_]+)+$"
+    },
+    "valueObject": {
+      "$ref": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-semantics/0.1.0/schema.json#/$defs/valueObject"
+    },
+    "inputValueObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["valueState"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {"type": "boolean"},
+            {"type": "integer"},
+            {"type": "string"}
+          ]
+        },
+        "valueState": {
+          "$ref": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-semantics/0.1.0/schema.json#/$defs/valueState"
+        },
+        "epistemicStatus": {
+          "$ref": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-semantics/0.1.0/schema.json#/$defs/epistemicStatus"
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "valueOrigin": {
+          "type": "string",
+          "enum": ["explicit", "default"]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["currency"]
+          },
+          "then": {
+            "required": ["value"],
+            "properties": {
+              "value": {
+                "$ref": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-semantics/0.1.0/schema.json#/$defs/decimalString"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "valueMap": {
+      "type": "object",
+      "propertyNames": {"$ref": "#/$defs/picId"},
+      "additionalProperties": {"$ref": "#/$defs/valueObject"}
+    },
+    "inputValueMap": {
+      "type": "object",
+      "propertyNames": {"$ref": "#/$defs/picId"},
+      "additionalProperties": {"$ref": "#/$defs/inputValueObject"}
+    },
+    "packageRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1}
+      }
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "adapter": {"type": "string"}
+      }
+    },
+    "parameterVersion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "effectiveFrom"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "effectiveFrom": {"type": "string", "format": "date"}
+      }
+    },
+    "refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "decision": {"$ref": "#/$defs/picId"},
+        "processStep": {"$ref": "#/$defs/picId"}
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stepId",
+        "kind",
+        "refs",
+        "inputsUsed",
+        "parameterVersions",
+        "result",
+        "sourceRefs"
+      ],
+      "properties": {
+        "stepId": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "enum": ["decision", "process", "evidence_check", "notice"]},
+        "refs": {"$ref": "#/$defs/refs"},
+        "inputsUsed": {"type": "array", "items": {"$ref": "#/$defs/picId"}},
+        "parameterVersions": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/parameterVersion"}
+        },
+        "result": {"$ref": "#/$defs/valueObject"},
+        "sourceRefs": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

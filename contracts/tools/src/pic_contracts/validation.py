@@ -16,8 +16,10 @@ from pic_contracts.schema_utils import load_json, validator_for
 CONFORMS_TO_CONTRACT = {
     "pic-crosswalk/0.1.0": "pic-crosswalk",
     "pic-parameters/0.1.0": "pic-parameters",
+    "pic-parameters/0.2.0": "pic-parameters",
     "pic-fixtures/0.1.0": "pic-fixtures",
     "pic-traces/0.1.0": "pic-traces",
+    "pic-traces/0.2.0": "pic-traces",
 }
 
 
@@ -90,7 +92,11 @@ def validate_file(path: Path) -> ValidationReport:
     if contract is None:
         report.add(ValidationIssue(str(path), "could not detect PIC contract type", "type"))
         return report
-    validator = validator_for(contract)
+    conforms_to = doc.get("conformsTo")
+    version = "0.1.0"
+    if isinstance(conforms_to, str) and "/" in conforms_to:
+        version = conforms_to.split("/")[-1]
+    validator = validator_for(contract, version)
     for error in sorted(validator.iter_errors(doc), key=lambda item: list(item.path)):
         report.add(ValidationIssue(str(path), _format_schema_error(error), "schema"))
     if contract == "pic-parameters":

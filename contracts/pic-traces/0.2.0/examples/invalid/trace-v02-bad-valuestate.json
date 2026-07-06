@@ -1,0 +1,22 @@
+{
+  "conformsTo": "pic-traces/0.2.0",
+  "caseId": "nz-oia/case.test_missingness",
+  "packageRef": {
+    "id": "nz-oia",
+    "version": "1.0.0"
+  },
+  "engine": {
+    "name": "policyengine-core",
+    "version": "1.0.0"
+  },
+  "timestamp": "2026-07-06T12:00:00Z",
+  "inputs": {
+    "nz-oia/input.salary": {
+      "value": 0,
+      "valueState": "known",
+      "valueOrigin": "maybe"
+    }
+  },
+  "outputs": {},
+  "steps": []
+}
