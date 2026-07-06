@@ -1,0 +1,57 @@
+{
+  "conformsTo": "pic-fixtures/0.1.0",
+  "provenance": {
+    "curator": "rulesandprocesses Axiom validation track",
+    "method": "ai-proposed",
+    "source": "TheAxiomFoundation/rulespec-nz KiwiSaver companion tests minimum_rates_2026 and government_contribution_cap_from_threshold",
+    "interpreterOfRecord": "TheAxiomFoundation/rulespec-nz",
+    "disclaimer": "Source-backed candidate fixture for harness expansion; not a promoted legal oracle."
+  },
+  "cases": [
+    {
+      "caseId": "nz-kiwisaver/fixture.minimum_rates_2026",
+      "description": "KiwiSaver minimum contribution rates for 2026.",
+      "period": "2026-04-01/2027-03-31",
+      "entities": {
+        "person": {
+          "type": "Person",
+          "id": "person:1"
+        }
+      },
+      "inputs": {
+        "nz-kiwisaver/variable.kiwisaver_gross_salary_or_wages": {
+          "value": "100000",
+          "valueState": "known",
+          "currency": "NZD"
+        },
+        "nz-kiwisaver/variable.kiwisaver_selected_employee_contribution_rate": {
+          "value": "0.035",
+          "valueState": "known"
+        }
+      },
+      "expected": {
+        "nz-kiwisaver/decision.kiwisaver_employee_minimum_contribution_rate": {
+          "value": "0.035",
+          "valueState": "known"
+        },
+        "nz-kiwisaver/decision.kiwisaver_employer_minimum_contribution_rate": {
+          "value": "0.035",
+          "valueState": "known"
+        },
+        "nz-kiwisaver/decision.kiwisaver_employee_deduction": {
+          "value": "3500",
+          "valueState": "known",
+          "currency": "NZD"
+        },
+        "nz-kiwisaver/decision.kiwisaver_minimum_employer_contribution": {
+          "value": "3500",
+          "valueState": "known",
+          "currency": "NZD"
+        }
+      },
+      "sourceRefs": [
+        "https://github.com/TheAxiomFoundation/rulespec-nz/blob/3c6436b2ecf82dd7a7f7810a406a2695a64af33a/nz/statutes/kiwisaver/contributions.test.yaml"
+      ]
+    }
+  ]
+}

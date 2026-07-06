@@ -1,0 +1,112 @@
+{
+  "conformsTo": "pic-fixtures/0.1.0",
+  "provenance": {
+    "curator": "rulesandprocesses Axiom validation track",
+    "method": "ai-proposed",
+    "source": "TheAxiomFoundation/rulespec-nz New Zealand Superannuation core companion tests",
+    "interpreterOfRecord": "TheAxiomFoundation/rulespec-nz",
+    "disclaimer": "Source-backed candidate fixture for harness expansion; not a promoted legal oracle."
+  },
+  "cases": [
+    {
+      "caseId": "nz-superannuation/fixture.single_living_alone_meets_residence",
+      "description": "New Zealand Superannuation core entitlement with living-alone rate.",
+      "period": "2026-04-01/2027-03-31",
+      "entities": {
+        "person": {
+          "type": "Person",
+          "id": "person:1"
+        }
+      },
+      "inputs": {
+        "nz-superannuation/variable.nz_super_birth_year": {
+          "value": 1959,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_birth_month": {
+          "value": 6,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_single": {
+          "value": true,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_principal_residence_is_qualifying_accommodation": {
+          "value": true,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_shares_residence_with_person_at_least_adult_age": {
+          "value": false,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_all_shared_adults_are_exempt_dependent_children_or_temporary_visitors": {
+          "value": false,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_person_age": {
+          "value": 66,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_elected_weekly_compensation_instead_of_superannuation": {
+          "value": false,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_ordinarily_resident_in_new_zealand_on_application": {
+          "value": true,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_overseas_application_residence_exception_applies": {
+          "value": false,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_resident_present_since_age_20_total_years": {
+          "value": 10,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_resident_present_since_age_20_new_zealand_years": {
+          "value": 10,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_resident_present_since_age_50_total_years": {
+          "value": 5,
+          "valueState": "known"
+        }
+      },
+      "expected": {
+        "nz-superannuation/decision.nz_super_age_threshold": {
+          "value": "65",
+          "valueState": "known"
+        },
+        "nz-superannuation/decision.nz_super_living_alone": {
+          "value": "holds",
+          "valueState": "known"
+        },
+        "nz-superannuation/decision.nz_super_age_requirement": {
+          "value": "holds",
+          "valueState": "known"
+        },
+        "nz-superannuation/decision.nz_super_residential_requirement": {
+          "value": "holds",
+          "valueState": "known"
+        },
+        "nz-superannuation/decision.entitled_to_new_zealand_superannuation": {
+          "value": "holds",
+          "valueState": "known"
+        },
+        "nz-superannuation/decision.nz_super_ordinary_weekly_rate_before_tax": {
+          "value": "647.37",
+          "valueState": "known",
+          "currency": "NZD"
+        },
+        "nz-superannuation/decision.nz_super_weekly_amount_before_tax": {
+          "value": "647.37",
+          "valueState": "known",
+          "currency": "NZD"
+        }
+      },
+      "sourceRefs": [
+        "https://github.com/TheAxiomFoundation/rulespec-nz/blob/3c6436b2ecf82dd7a7f7810a406a2695a64af33a/nz/statutes/new_zealand_superannuation/core.test.yaml"
+      ]
+    }
+  ]
+}

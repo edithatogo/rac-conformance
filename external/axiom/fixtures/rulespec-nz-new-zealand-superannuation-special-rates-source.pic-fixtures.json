@@ -1,0 +1,80 @@
+{
+  "conformsTo": "pic-fixtures/0.1.0",
+  "provenance": {
+    "curator": "rulesandprocesses Axiom validation track",
+    "method": "ai-proposed",
+    "source": "TheAxiomFoundation/rulespec-nz New Zealand Superannuation special-rates companion tests",
+    "interpreterOfRecord": "TheAxiomFoundation/rulespec-nz",
+    "disclaimer": "Source-backed candidate fixture for harness expansion; not a promoted legal oracle."
+  },
+  "cases": [
+    {
+      "caseId": "nz-superannuation/fixture.hospital_reduced_rate_after_thirteen_weeks",
+      "description": "NZ Super special rates when hospital reduced rate applies.",
+      "period": "2026-04-01/2027-03-31",
+      "entities": {
+        "person": {
+          "type": "Person",
+          "id": "person:1"
+        }
+      },
+      "inputs": {
+        "nz-superannuation/variable.nz_super_receives_or_becomes_entitled": {
+          "value": true,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_single": {
+          "value": true,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_in_relationship": {
+          "value": false,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_has_dependent_children": {
+          "value": false,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_patient_in_hospital": {
+          "value": true,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_hospitalisation_weeks": {
+          "value": 14,
+          "valueState": "known"
+        },
+        "nz-superannuation/variable.nz_super_residential_care_funder_pays_contracted_care": {
+          "value": false,
+          "valueState": "known"
+        }
+      },
+      "expected": {
+        "nz-superannuation/decision.nz_super_hospital_unaffected_weeks": {
+          "value": "13",
+          "valueState": "known"
+        },
+        "nz-superannuation/decision.nz_super_hospital_reduced_rate_net_after_tax": {
+          "value": "58.34",
+          "valueState": "known",
+          "currency": "NZD"
+        },
+        "nz-superannuation/decision.nz_super_hospital_rate_population": {
+          "value": "holds",
+          "valueState": "known"
+        },
+        "nz-superannuation/decision.nz_super_hospital_reduced_rate_applies": {
+          "value": "holds",
+          "valueState": "known"
+        },
+        "nz-superannuation/decision.nz_super_hospital_weekly_rate_net_after_tax": {
+          "value": "58.34",
+          "valueState": "known",
+          "currency": "NZD"
+        }
+      },
+      "sourceRefs": [
+        "https://github.com/TheAxiomFoundation/rulespec-nz/blob/3c6436b2ecf82dd7a7f7810a406a2695a64af33a/nz/statutes/new_zealand_superannuation/special_rates.test.yaml"
+      ]
+    }
+  ]
+}

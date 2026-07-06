@@ -27,10 +27,12 @@ Depends on: `repo_boundaries_20260706` Phase 1.
     - [x] Add failing tests for each new PIC-to-RuleSpec ID mapping.
     - [x] Add failure tests for unmapped IDs and bad value states.
     - **Acceptance:** tests fail before implementation and pass after mappings are added.
-- [ ] Task: Add PIC fixture documents
-    - [ ] Add source-backed fixture files under `external/axiom/fixtures/`.
-    - [ ] Validate with `pic-validate`.
+- [x] Task: Add PIC fixture documents
+    - [x] Add source-backed fixture files under `external/axiom/fixtures/`.
+    - [x] Validate with `pic-validate`.
     - **Acceptance:** fixtures validate and preserve oracle independence metadata.
+
+> NOTE (2026-07-06): `pic-validate --no-references external/axiom/fixtures` passes for the new source-backed fixtures; full directory reference checking is blocked by pre-existing smoke fixtures in the same folder that still point at unresolved crosswalk IDs.
 - [ ] Task: Implement deterministic mappings
     - [ ] Extend `harness/axiom` only with explicit mappings.
     - [ ] Update runbook with compile/run commands for each slice.
