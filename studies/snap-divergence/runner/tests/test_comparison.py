@@ -83,6 +83,8 @@ def test_write_report_can_label_approved_fixtures(tmp_path) -> None:
     write_report(path, comparisons, fixture_label="approved fixtures", evidence_label="approved")
 
     report = path.read_text()
+    assert "# SNAP Approved Fixture Comparison Report" in report
     assert "generated from approved fixtures" in report
+    assert "not a final finding report" not in report
     assert "policyengine-approved-results.jsonl" in report
     assert "comparison-approved-results.jsonl" in report

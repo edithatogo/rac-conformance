@@ -104,10 +104,19 @@ def write_report(
 ) -> None:
     summary = summarize_comparisons(comparisons)
     divergent = [item for item in comparisons if not item["agreement"]]
+    if fixture_label == "approved fixtures":
+        title = "# SNAP Approved Fixture Comparison Report"
+        preface = "This comparison report is generated from approved fixtures."
+    else:
+        title = "# SNAP Divergence Draft Report"
+        preface = (
+            f"This draft is generated from {fixture_label}. It is not a final finding report until "
+            "divergences are source-level classified and human-adjudicated."
+        )
     lines = [
-        "# SNAP Divergence Draft Report",
+        title,
         "",
-        f"This draft is generated from {fixture_label}. It is not a final finding report until divergences are source-level classified and human-adjudicated.",
+        preface,
         "",
         "## Summary",
         "",

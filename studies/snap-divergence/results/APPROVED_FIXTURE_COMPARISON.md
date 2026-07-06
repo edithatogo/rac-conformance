@@ -1,6 +1,6 @@
-# SNAP Divergence Draft Report
+# SNAP Approved Fixture Comparison Report
 
-This draft is generated from approved fixtures. It is not a final finding report until divergences are source-level classified and human-adjudicated.
+This comparison report is generated from approved fixtures.
 
 ## Summary
 
