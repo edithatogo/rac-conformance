@@ -1,0 +1,8 @@
+{
+  "track_id": "adoption_closure_20260706",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-06T11:27:26Z",
+  "updated_at": "2026-07-06T11:27:26Z",
+  "description": "Close the evidence-to-adoption loop by turning staged submissions into live upstream references, monitoring CI, applying fixes, and recording merge or external-blocker status."
+}
