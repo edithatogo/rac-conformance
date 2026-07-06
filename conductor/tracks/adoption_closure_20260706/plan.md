@@ -25,12 +25,13 @@ Also depends on `roadmap_release_20260706` Phase 1 for GitHub issue/project sync
 
 ## Phase 2 - Patch-Ready External Bundles
 
-- [ ] Task: Prepare `foi-o` PR bundle
-    - [ ] Confirm local `foi-o` branch status before editing.
-    - [ ] Apply the staged OIA rules module into the `foi-o` checkout or refresh the patch bundle, respecting existing user changes.
-    - [ ] Run `foi-o` tests relevant to the rules module.
-    - [ ] Commit in the external repo only if changes are authorized and scoped.
+- [x] Task: Prepare `foi-o` PR bundle
+    - [x] Confirm local `foi-o` branch status before editing.
+    - [x] Apply the staged OIA rules module into the `foi-o` checkout or refresh the patch bundle, respecting existing user changes.
+    - [x] Run `foi-o` tests relevant to the rules module.
+    - [x] Commit in the external repo only if changes are authorized and scoped. No external commit was needed because the bundle was already present and verified locally.
     - **Acceptance:** PR-ready branch or patch bundle exists; CI/test command output is logged.
+    > CHECKPOINT (2026-07-06): `foi-o` checkout is clean on `main`, the staged OIA rules module already exists under `external/foi-o/`, and `uv run pytest tests/test_oia_rules.py` plus coverage passed in the external repo. The bundle is ready for Dylan's human submission step.
 - [ ] Task: Prepare PolicyEngine/OpenFisca issue and PR follow-through
     - [ ] Verify whether trace, missingness, and converter submissions are already open.
     - [ ] If not open, prepare final issue/PR text and mark `[HUMAN]` submission gate.

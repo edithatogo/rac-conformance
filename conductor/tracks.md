@@ -12,7 +12,7 @@
 
 ---
 
-- [ ] **Track: Adoption closure and external proof**
+- [~] **Track: Adoption closure and external proof**
 *Link: [./tracks/adoption_closure_20260706/](./tracks/adoption_closure_20260706/)*
 
 ---
