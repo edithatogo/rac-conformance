@@ -33,9 +33,9 @@ Depends on: `repo_boundaries_20260706` Phase 1.
     - **Acceptance:** fixtures validate and preserve oracle independence metadata.
 
 > NOTE (2026-07-06): `pic-validate --no-references external/axiom/fixtures` passes for the new source-backed fixtures; full directory reference checking is blocked by pre-existing smoke fixtures in the same folder that still point at unresolved crosswalk IDs.
-- [ ] Task: Implement deterministic mappings
-    - [ ] Extend `harness/axiom` only with explicit mappings.
-    - [ ] Update runbook with compile/run commands for each slice.
+- [x] Task: Implement deterministic mappings
+    - [x] Extend `harness/axiom` only with explicit mappings.
+    - [x] Update runbook with compile/run commands for each slice.
     - **Acceptance:** unit tests and fixture validation pass.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Fixture And Adapter Expansion' (Protocol in workflow.md)
 

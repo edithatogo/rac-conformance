@@ -78,9 +78,9 @@ Statuses are deterministic:
 
 ## Verified live smoke command
 
-The repository includes PIC smoke fixtures and a small runner for the two
-currently mapped `rulespec-nz` slices. After building the engine and compiling
-the two artifacts above, run:
+The repository includes PIC smoke fixtures and a small runner for the mapped
+`rulespec-nz` smoke slices. After building the engine and compiling the three
+artifacts above, run:
 
 ```bash
 PYTHONPATH=harness:contracts/tools/src \
@@ -95,6 +95,110 @@ On 2026-07-06 this produced `exact_match` for:
 - `nz-income-tax/fixture.first_bracket_upper_bound`
 
 The stored report is under `external/axiom/results/rulespec-nz-live-smoke/`.
+
+## Selected validation slices
+
+### KiwiSaver contributions
+
+- module: `nz/statutes/kiwisaver/contributions.yaml`
+- companion test: `nz/statutes/kiwisaver/contributions.test.yaml`
+- first candidate fixture:
+  `external/axiom/fixtures/rulespec-nz-kiwisaver-contributions-source.pic-fixtures.json`
+
+Compile it with:
+
+```bash
+AXIOM_RULESPEC_REPO_ROOTS=/path/to/rulespec-nz \
+  /path/to/axiom-rules-engine/target/debug/axiom-rules-engine compile \
+  --program /path/to/rulespec-nz/nz/statutes/kiwisaver/contributions.yaml \
+  --output /tmp/rulespec-nz-kiwisaver-contributions.compiled.json
+```
+
+Then run it with:
+
+```python
+from axiom import build_rulespec_nz_kiwisaver_contributions_adapter
+
+runner = AxiomHarnessRunner(
+    adapter=build_rulespec_nz_kiwisaver_contributions_adapter(),
+    executor=AxiomCompiledArtifactExecutor(
+        binary_path="/path/to/axiom-rules-engine/target/debug/axiom-rules-engine",
+        artifact_path="/tmp/rulespec-nz-kiwisaver-contributions.compiled.json",
+    ),
+)
+
+results = runner.run_fixtures_file(
+    "external/axiom/fixtures/rulespec-nz-kiwisaver-contributions-source.pic-fixtures.json"
+)
+```
+
+### New Zealand Superannuation core
+
+- module: `nz/statutes/new_zealand_superannuation/core.yaml`
+- companion test: `nz/statutes/new_zealand_superannuation/core.test.yaml`
+- first candidate fixture:
+  `external/axiom/fixtures/rulespec-nz-new-zealand-superannuation-core-source.pic-fixtures.json`
+
+Compile it with:
+
+```bash
+AXIOM_RULESPEC_REPO_ROOTS=/path/to/rulespec-nz \
+  /path/to/axiom-rules-engine/target/debug/axiom-rules-engine compile \
+  --program /path/to/rulespec-nz/nz/statutes/new_zealand_superannuation/core.yaml \
+  --output /tmp/rulespec-nz-new-zealand-superannuation-core.compiled.json
+```
+
+Then run it with:
+
+```python
+from axiom import build_rulespec_nz_new_zealand_superannuation_core_adapter
+
+runner = AxiomHarnessRunner(
+    adapter=build_rulespec_nz_new_zealand_superannuation_core_adapter(),
+    executor=AxiomCompiledArtifactExecutor(
+        binary_path="/path/to/axiom-rules-engine/target/debug/axiom-rules-engine",
+        artifact_path="/tmp/rulespec-nz-new-zealand-superannuation-core.compiled.json",
+    ),
+)
+
+results = runner.run_fixtures_file(
+    "external/axiom/fixtures/rulespec-nz-new-zealand-superannuation-core-source.pic-fixtures.json"
+)
+```
+
+### New Zealand Superannuation special rates
+
+- module: `nz/statutes/new_zealand_superannuation/special_rates.yaml`
+- companion test: `nz/statutes/new_zealand_superannuation/special_rates.test.yaml`
+- first candidate fixture:
+  `external/axiom/fixtures/rulespec-nz-new-zealand-superannuation-special-rates-source.pic-fixtures.json`
+
+Compile it with:
+
+```bash
+AXIOM_RULESPEC_REPO_ROOTS=/path/to/rulespec-nz \
+  /path/to/axiom-rules-engine/target/debug/axiom-rules-engine compile \
+  --program /path/to/rulespec-nz/nz/statutes/new_zealand_superannuation/special_rates.yaml \
+  --output /tmp/rulespec-nz-new-zealand-superannuation-special-rates.compiled.json
+```
+
+Then run it with:
+
+```python
+from axiom import build_rulespec_nz_new_zealand_superannuation_special_rates_adapter
+
+runner = AxiomHarnessRunner(
+    adapter=build_rulespec_nz_new_zealand_superannuation_special_rates_adapter(),
+    executor=AxiomCompiledArtifactExecutor(
+        binary_path="/path/to/axiom-rules-engine/target/debug/axiom-rules-engine",
+        artifact_path="/tmp/rulespec-nz-new-zealand-superannuation-special-rates.compiled.json",
+    ),
+)
+
+results = runner.run_fixtures_file(
+    "external/axiom/fixtures/rulespec-nz-new-zealand-superannuation-special-rates-source.pic-fixtures.json"
+)
+```
 
 ## Expansion path
 
