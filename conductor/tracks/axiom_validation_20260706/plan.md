@@ -13,7 +13,7 @@ Depends on: `repo_boundaries_20260706` Phase 1.
     - [x] For selected modules, identify source assertions or companion oracle tests.
     - [x] Mark any case without source support as smoke-only, not golden.
     - **Acceptance:** no case is promoted as validation without source/oracle evidence.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Coverage Selection' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Coverage Selection' (Protocol in workflow.md)
 
 > CHECKPOINT (2026-07-06): Phase 1 now has a locked coverage plan and explicit source-assertion ledger for the first Axiom validation slices.
 > Confirmed-validation candidates are KiwiSaver contributions and NZ Superannuation, both backed by primary-source anchors plus companion evidence.
