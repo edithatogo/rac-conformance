@@ -17,6 +17,18 @@ PYTHONPATH=demos/service-boundaries/src:external/foi-o/src \
 
 The command prints a JSON response with the calculated OIA response deadline and a minimal trace payload.
 
+## CiviForm-Style Demo
+
+Run the local service-boundary mock against the committed request example:
+
+```sh
+PYTHONPATH=demos/service-boundaries/src:external/foi-o/src \
+  uv run python -m service_boundary_demos.civiform_runner \
+  --input demos/service-boundaries/examples/civiform/request.json
+```
+
+The command prints a PIC-shaped JSON response with the calculated OIA response deadline and a trace summary.
+
 ## What Is Real
 
 - The OIA rules module is the staged `foi-o` rule implementation in `external/foi-o/src`.
@@ -34,8 +46,11 @@ The command prints a JSON response with the calculated OIA response deadline and
 - No real applicant or requester data is used.
 - No secrets, credentials, or live services are required.
 - The service boundary only proves the integration shape and trace output.
+- CiviForm itself is still mocked locally; there is no JVM service, plugin, or production deployment in this track.
+- A real CiviForm integration would need a deliberately chosen boundary, likely an HTTP service call from CiviForm rather than immediate Java rule execution.
 
 ## Next Upstream Path
 
 - Docassemble: a small Python package or interview wrapper that imports the same OIA rules module.
 - CiviForm: a service-boundary mock or plugin proof, depending on whether a Java integration is later justified.
+- CiviForm: the current proof is the local service mock. Java/plugin work is only justified if a later track needs a first-class in-process integration rather than a boundary proof.

@@ -45,9 +45,9 @@ Depends on: `repo_boundaries_20260706` Phase 2 and `adoption_closure_20260706` P
     - [x] Call a PIC-tested rule function.
     - [x] Return a PIC-shaped result and trace summary.
     - **Acceptance:** integration test covers valid and invalid requests.
-- [ ] Task: Document CiviForm path
-    - [ ] State what a real CiviForm integration would require.
-    - [ ] Record whether Java/plugin work is justified.
+- [x] Task: Document CiviForm path
+    - [x] State what a real CiviForm integration would require.
+    - [x] Record whether Java/plugin work is justified.
     - **Acceptance:** README prevents overclaiming production readiness.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - CiviForm-Style Service Mock' (Protocol in workflow.md)
 
