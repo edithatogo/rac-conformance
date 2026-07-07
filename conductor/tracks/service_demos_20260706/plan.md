@@ -13,7 +13,12 @@ Depends on: `repo_boundaries_20260706` Phase 2 and `adoption_closure_20260706` P
     - [x] Add request/response validation tests.
     - [x] Add trace-presence tests.
     - **Acceptance:** tests fail before implementation.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Demo Architecture' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-07): The service-boundary design now names exact Docassemble-style and CiviForm-style demo artifacts under `demos/service-boundaries/`, and the committed examples define both request and response payloads.
+> The shared demo helper exercises the staged OIA rules module, and the new tests cover request validation, response shape, and trace presence.
+> `make check` passed, while the actual README instructions, privacy review, and outreach packet remain deferred to later phases.
+
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Demo Architecture' (Protocol in workflow.md)
 
 ## Phase 2 - OIA/Docassemble Demo
 
