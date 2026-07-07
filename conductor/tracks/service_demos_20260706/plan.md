@@ -68,9 +68,9 @@ Depends on: `repo_boundaries_20260706` Phase 2 and `adoption_closure_20260706` P
     - [x] Include demo tests without requiring external services.
     - [x] Keep fixtures deterministic.
     - **Acceptance:** `make check` passes locally.
-- [ ] Task: Prepare outreach/update packet
-    - [ ] Draft update for DBN/Docassemble/CiviForm only if demo is credible.
-    - [ ] Mark sending/posting as `[HUMAN]`.
+- [x] Task: Prepare outreach/update packet
+    - [x] Draft update for DBN/Docassemble/CiviForm only if demo is credible.
+    - [x] Mark sending/posting as `[HUMAN]`.
     - **Acceptance:** packet is staged or explicitly deferred.
 - [ ] Task: Push branch and monitor GitHub Actions
     - [ ] Push after local green checks.
