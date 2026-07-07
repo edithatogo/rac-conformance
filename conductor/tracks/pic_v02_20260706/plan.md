@@ -13,7 +13,12 @@ Depends on: `adoption_closure_20260706` Phase 3. Do not start schema edits until
     - [x] Draft `contracts/VERSIONING.md` or update `contracts/README.md` with v0.2 scope rules.
     - [x] Decide which contract packages, if any, require v0.2 directories.
     - **Acceptance:** scope has no unbacked ontology/JSON-LD/expression-language additions.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Feedback Ledger' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-07): The feedback ledger now separates active from potential consumers, and the Alaveteli request-state proposal is recorded as deferred evidence rather than v0.2 scope.
+> `contracts/VERSIONING.md` still limits v0.2 upgrades to `pic-traces` and `pic-parameters`; the contract set does not expand into JSON-LD, ontologies, or expression DSLs.
+> `make check` passed at the phase boundary, so the remaining phase work is documentation review and checkpointing only.
+
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Feedback Ledger' (Protocol in workflow.md)
 
 ## Phase 2 - Contract Changes
 
