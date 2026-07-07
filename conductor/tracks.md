@@ -27,7 +27,7 @@
 
 ---
 
-- [ ] **Track: Service-boundary demonstrations**
+- [~] **Track: Service-boundary demonstrations**
 *Link: [./tracks/service_demos_20260706/](./tracks/service_demos_20260706/)*
 
 ---

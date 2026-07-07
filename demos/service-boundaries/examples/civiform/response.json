@@ -1,0 +1,14 @@
+{
+  "result": {
+    "decision_id": "nz-oia/decision.response_deadline",
+    "output": {
+      "value": "2026-07-30",
+      "valueState": "known"
+    }
+  },
+  "trace_summary": {
+    "adapter": "oia_rules",
+    "steps": 3,
+    "explanation": "Service-boundary demo response"
+  }
+}
