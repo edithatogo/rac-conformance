@@ -49,6 +49,11 @@ Depends on: `repo_boundaries_20260706` Phase 2 and `adoption_closure_20260706` P
     - [x] State what a real CiviForm integration would require.
     - [x] Record whether Java/plugin work is justified.
     - **Acceptance:** README prevents overclaiming production readiness.
+
+> CHECKPOINT (2026-07-07): Phase 3 now has both a runnable CiviForm-style CLI mock and a README that states the integration boundary without overclaiming production readiness.
+> The mock accepts the committed JSON request example, returns a PIC-shaped result with trace summary, and the tests cover both the valid example and an invalid-request rejection path.
+> `make check` remains green, and the remaining work is now the phase-4 review, CI wiring, outreach packaging, and release/monitoring tasks.
+
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - CiviForm-Style Service Mock' (Protocol in workflow.md)
 
 ## Phase 4 - CI And External Packaging
