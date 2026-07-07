@@ -14,6 +14,8 @@ from service_boundary_demos.core import (
     validate_civiform_request,
     validate_docassemble_request,
 )
+from service_boundary_demos.civiform_runner import load_request as load_civiform_request
+from service_boundary_demos.civiform_runner import run_civiform_demo
 from service_boundary_demos.docassemble_runner import load_request, run_docassemble_demo
 
 
@@ -95,3 +97,17 @@ def test_docassemble_runner_uses_committed_request_example():
     assert rendered["decision_id"] == "nz-oia/decision.response_deadline"
     assert rendered["output"]["value"] == "2026-07-30"
     assert rendered["trace"]["adapter"] == "docassemble-mock"
+
+
+def test_civiform_runner_uses_committed_request_example():
+    request = load_civiform_request(EXAMPLES / "civiform" / "request.json")
+    rendered = run_civiform_demo(request)
+
+    assert rendered["result"]["decision_id"] == "nz-oia/decision.response_deadline"
+    assert rendered["result"]["output"]["value"] == "2026-07-29"
+    assert rendered["trace_summary"]["adapter"] == "civiform-mock"
+
+
+def test_civiform_runner_rejects_invalid_request():
+    with pytest.raises(Exception):
+        run_civiform_demo({"program": "oia-deadline-demo"})

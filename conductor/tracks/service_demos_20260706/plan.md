@@ -40,10 +40,10 @@ Depends on: `repo_boundaries_20260706` Phase 2 and `adoption_closure_20260706` P
 
 ## Phase 3 - CiviForm-Style Service Mock
 
-- [ ] Task: Implement HTTP or CLI service-boundary mock
-    - [ ] Accept a JSON application payload.
-    - [ ] Call a PIC-tested rule function.
-    - [ ] Return a PIC-shaped result and trace summary.
+- [x] Task: Implement HTTP or CLI service-boundary mock
+    - [x] Accept a JSON application payload.
+    - [x] Call a PIC-tested rule function.
+    - [x] Return a PIC-shaped result and trace summary.
     - **Acceptance:** integration test covers valid and invalid requests.
 - [ ] Task: Document CiviForm path
     - [ ] State what a real CiviForm integration would require.
