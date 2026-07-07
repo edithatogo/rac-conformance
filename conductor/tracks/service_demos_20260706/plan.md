@@ -31,6 +31,11 @@ Depends on: `repo_boundaries_20260706` Phase 2 and `adoption_closure_20260706` P
     - [x] Confirm the rules module does not import unrelated `foi-o` process code.
     - [x] Run relevant OIA tests and `pic-validate`.
     - **Acceptance:** import isolation and validation pass.
+
+> CHECKPOINT (2026-07-07): Phase 2 now has a deterministic Docassemble-style demo runner backed by the staged OIA rules module and a real `foi_o_nz.dates` helper in the demo tree.
+> The regression check confirms the rules import path stays isolated from unrelated process code, and the targeted OIA tests plus `pic-validate` both pass.
+> `make check` also remains green, while the CiviForm mock, privacy/security review, outreach packet, and external packaging work are still deferred to later phases.
+
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - OIA/Docassemble Demo' (Protocol in workflow.md)
 
 ## Phase 3 - CiviForm-Style Service Mock
