@@ -4,10 +4,10 @@ Depends on: `repo_boundaries_20260706` Phase 2 and `adoption_closure_20260706` P
 
 ## Phase 1 - Demo Architecture
 
-- [ ] Task: Confirm demo surfaces
-    - [ ] Re-read `external/docassemble/ASSESSMENT.md` and `external/civiform/ASSESSMENT.md`.
-    - [ ] Select exact local paths for demo artifacts.
-    - [ ] Define request/response JSON examples.
+- [x] Task: Confirm demo surfaces
+    - [x] Re-read `external/docassemble/ASSESSMENT.md` and `external/civiform/ASSESSMENT.md`.
+    - [x] Select exact local paths for demo artifacts.
+    - [x] Define request/response JSON examples.
     - **Acceptance:** `demos/service-boundaries/DESIGN.md` defines both demos and their limits.
 - [ ] Task: Write schema/tests first
     - [ ] Add request/response validation tests.

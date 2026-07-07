@@ -5,8 +5,20 @@
     "valueState": "known"
   },
   "trace": {
-    "adapter": "oia_rules",
-    "steps": 3,
-    "notes": ["Docassemble-style demo boundary"]
+    "adapter": "docassemble-mock",
+    "stepId": "nz-oia/decision.response_deadline",
+    "kind": "decision",
+    "inputsUsed": ["nz-oia/variable.receipt_date"],
+    "parameterVersions": [
+      {
+        "id": "nz-oia/parameter.working_day_limit",
+        "effectiveFrom": "2025-04-05"
+      }
+    ],
+    "result": {
+      "value": "2026-07-30",
+      "valueState": "known"
+    },
+    "sourceRefs": ["OIA 1982 s 2", "OIA 1982 s 15"]
   }
 }
