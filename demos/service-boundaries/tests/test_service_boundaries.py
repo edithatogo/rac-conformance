@@ -14,6 +14,7 @@ from service_boundary_demos.core import (
     validate_civiform_request,
     validate_docassemble_request,
 )
+from service_boundary_demos.docassemble_runner import load_request, run_docassemble_demo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -85,3 +86,12 @@ def test_invalid_requests_are_rejected():
 
     with pytest.raises(Exception):
         validate_civiform_request({"program": "oia-deadline-demo"})
+
+
+def test_docassemble_runner_uses_committed_request_example():
+    request = load_request(EXAMPLES / "docassemble" / "request.json")
+    rendered = run_docassemble_demo(request)
+
+    assert rendered["decision_id"] == "nz-oia/decision.response_deadline"
+    assert rendered["output"]["value"] == "2026-07-30"
+    assert rendered["trace"]["adapter"] == "docassemble-mock"

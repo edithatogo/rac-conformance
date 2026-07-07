@@ -22,10 +22,10 @@ Depends on: `repo_boundaries_20260706` Phase 2 and `adoption_closure_20260706` P
 
 ## Phase 2 - OIA/Docassemble Demo
 
-- [ ] Task: Implement Docassemble-style OIA invocation demo
-    - [ ] Build a small local runner using the staged OIA rules module.
-    - [ ] Include representative interview input and rule result output.
-    - [ ] Add README instructions.
+- [x] Task: Implement Docassemble-style OIA invocation demo
+    - [x] Build a small local runner using the staged OIA rules module.
+    - [x] Include representative interview input and rule result output.
+    - [x] Add README instructions.
     - **Acceptance:** demo test calculates expected OIA deadline and emits trace fields.
 - [ ] Task: Validate no process coupling regression
     - [ ] Confirm the rules module does not import unrelated `foi-o` process code.
