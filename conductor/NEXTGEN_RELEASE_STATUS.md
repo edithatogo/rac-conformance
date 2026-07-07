@@ -36,7 +36,7 @@ Completed prior-track issues [#1](https://github.com/edithatogo/rulesandprocesse
 | `pic_v02_20260706` | [#10](https://github.com/edithatogo/rulesandprocesses/issues/10) | Done | Adoption Phase 3 consumer evidence | `make check`; contract examples and schema tests; GitHub Actions | Consumer compatibility evidence | Completed and archived in `conductor/archive/pic_v02_20260706/`. |
 | `axiom_validation_20260706` | [#11](https://github.com/edithatogo/rulesandprocesses/issues/11) | Todo | Existing Axiom validation artifacts | `make check`; harness regression tests; GitHub Actions | Axiom upstream/source availability where external validation is needed | Expand deterministic RuleSpec NZ fixture/harness coverage. |
 | `service_demos_20260706` | [#12](https://github.com/edithatogo/rulesandprocesses/issues/12) | Todo | Repo-boundary Phase 2; PIC/Axiom artifacts where reused | `make check`; demo tests; GitHub Actions | Dylan demo review; no live secrets or third-party calls | Build local-only service-boundary demo packets. |
-| `comparative_studies_20260706` | [#13](https://github.com/edithatogo/rulesandprocesses/issues/13) | Todo | Adoption and validation evidence for candidate scoring | Candidate evidence validation; later track-specific checks | Dylan study approval before implementation track | Prepare evidence-backed candidate study recommendation. |
+| `comparative_studies_20260706` | [#13](https://github.com/edithatogo/rulesandprocesses/issues/13) | Done | Adoption and validation evidence for candidate scoring | Candidate evidence validation; later track-specific checks | Dylan study approval before implementation track | Completed and archived in `conductor/archive/comparative_studies_20260706/`. |
 
 Certification levels used by this matrix:
 
