@@ -9,8 +9,9 @@ This ledger inventories all concrete feedback, friction points, and feature requ
 | `PIC-REQ-001` | `foi-o` | `external/foi-o/rules/` | Decouple calendar parameters and exclusion limits from engine code. | **approved** | High |
 | `PIC-REQ-002` | `PolicyEngine`, `OpenFisca` | `external/*/SUBMISSION_missingness.md` | Distinguish omitted variables from explicit zeros in traces (`valueState` / `is_input`). | **approved** | High |
 | `PIC-REQ-003` | `DBN` | `external/dbn/EMAIL.md` | Standardize decimal string formats for financial precision. | **approved** | Medium |
-| `PIC-REQ-004` | None (Speculative) | General suggestion | Introduce JSON-LD and semantic web schemas. | **rejected** | Low (No consumer) |
-| `PIC-REQ-005` | None (Speculative) | General suggestion | Add expression evaluation DSL. | **deferred** | Low (No active use case) |
+| `PIC-REQ-004` | `Alaveteli` | `external/alaveteli/SUBMISSION.md` | Expose request-state taxonomy hooks for statutory-clock mapping. | **deferred** | Medium (No active PIC consumer yet) |
+| `PIC-REQ-005` | None (Speculative) | General suggestion | Introduce JSON-LD and semantic web schemas. | **rejected** | Low (No consumer) |
+| `PIC-REQ-006` | None (Speculative) | General suggestion | Add expression evaluation DSL. | **deferred** | Low (No active use case) |
 
 ## Classifications
 
@@ -25,3 +26,7 @@ This ledger inventories all concrete feedback, friction points, and feature requ
 ### PIC-REQ-003: String-based decimals for financial values
 - **Source:** DBN cross-engine comparison harness.
 - **Resolution:** Approved. Keep string representation for money to prevent float errors.
+
+### PIC-REQ-004: Alaveteli request-state hooks
+- **Source:** Alaveteli request-state taxonomy proposal.
+- **Resolution:** Deferred until there is a named consumer that needs the hook in PIC v0.2. The proposal is useful evidence, but it does not justify a schema change by itself.
