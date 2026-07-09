@@ -1,4 +1,7 @@
-**Status (2026-07-09): submitted.** https://github.com/mysociety/alaveteli/issues/9355
+**Status (2026-07-09): submitted + minimal PR.**  
+Issue: https://github.com/mysociety/alaveteli/issues/9355  
+PR: https://github.com/mysociety/alaveteli/pull/9356  
+Implementation notes: `external/alaveteli/IMPLEMENTATION_STATUS.md`
 
 # Alaveteli Upstream Proposal: Request State Taxonomy Mapping
 
