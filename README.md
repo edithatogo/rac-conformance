@@ -27,7 +27,7 @@ This repository began as a ChatGPT-produced review pack for **RaCX** (a proposed
 | `studies/` | Active | SNAP divergence; NZ RuleSpec ↔ OpenFisca Aotearoa reconciliation |
 | `demos/` | Active | Service-boundary mocks + Docassemble OIA clock interview package |
 | `external/` | Active | Staged upstream packets + [`ADOPTION_STATUS.md`](external/ADOPTION_STATUS.md) |
-| `papers/` | Active | Coupling companion paper draft |
+| `papers/` | Active | Coupling companion paper draft; arXiv **deferred**; see [`papers/README.md`](papers/README.md) and [Project 20](https://github.com/users/edithatogo/projects/20) |
 | `conductor/` | Active | Product, workflow, release status; completed tracks in `archive/` |
 | `views/` | Active | Review documents (ChatGPT 00–05; Fable 5 review/pivot 06–07) |
 | `AGENTS.md` | Active | Agent handoff and implementation guide |
