@@ -1,59 +1,76 @@
 # Rules and Processes — policy interchange, conformance, and coupling
 
-This repository began as a ChatGPT-produced review pack for **RaCX** (a proposed "Rules-as-Code Exchange Superset"). It has since been independently reviewed by Claude Fable 5 and **re-scoped from a proposed standard into an evidence-first program of work**: small interchange artifact contracts, real contributions to existing open-source projects (foi-o, PolicyEngine/Axiom, OpenFisca, Alaveteli), a cross-engine divergence study, and papers — with any standard extracted later from exchanges that demonstrably work.
+Evidence-first program for **policy interchange contracts (PIC)**, conformance harnesses, and typed rules/process coupling across OpenFisca, PolicyEngine, Axiom, and process platforms.
 
 **Sequencing principle: evidence → adoption → specification.**
 
+This repository began as a ChatGPT-produced review pack for **RaCX** (a proposed "Rules-as-Code Exchange Superset"). It was independently reviewed and **re-scoped from a proposed standard into working contracts, consumers, studies, and staged upstream contributions** — with any community standard extracted later from exchanges that demonstrably work.
+
+**Program status (2026-07-09):** all registered Conductor tracks are **repo-local complete**. External maintainer monitoring continues via [`external/MAINTAINER_MONITORING.md`](external/MAINTAINER_MONITORING.md).
+
 ## Reading order
 
-1. `views/07_fable5_reassessment_and_pivot.md` — **current strategy** (start here)
-2. `views/06_fable5_independent_review.md` — the full second-opinion review of RaCX
-3. `conductor/product.md` — product definition
-4. `conductor/tracks.md` — the six tracks of work, each with a detailed `spec.md` and `plan.md`
-5. `AGENTS.md` — instructions for AI agents (ChatGPT, Codex, Claude) implementing this repo
+1. [`views/07_fable5_reassessment_and_pivot.md`](views/07_fable5_reassessment_and_pivot.md) — **current strategy** (start here)
+2. [`views/06_fable5_independent_review.md`](views/06_fable5_independent_review.md) — second-opinion review of RaCX
+3. [`conductor/product.md`](conductor/product.md) — product definition
+4. [`conductor/tracks.md`](conductor/tracks.md) — completed tracks (archived under `conductor/archive/`)
+5. [`conductor/NEXTGEN_RELEASE_STATUS.md`](conductor/NEXTGEN_RELEASE_STATUS.md) — release matrix and external gates
+6. [`AGENTS.md`](AGENTS.md) — instructions for AI agents implementing this repo
 
 ## Repository map
 
 | Path | Status | Contents |
 |---|---|---|
-| `conductor/` | **Active** | Conductor context system: product, guidelines, tech stack, workflow, tracks |
-| `contracts/` | **Active (v0.1)** | The interchange artifact contracts: crosswalk, parameters, fixtures, traces |
-| `views/` | Active | Review documents: ChatGPT's views (00–05), Fable 5's review and pivot (06–07) |
+| `contracts/` | **Active (PIC v0.1 / v0.2 work archived)** | Interchange artifact contracts: crosswalk, parameters, fixtures, traces, semantics |
+| `harness/` | Active | Validation / adapter harness |
+| `converters/` | Active | Fixture converters (OpenFisca ↔ PolicyEngine YAML subsets) |
+| `studies/` | Active | SNAP divergence; NZ RuleSpec ↔ OpenFisca Aotearoa reconciliation |
+| `demos/` | Active | Service-boundary demonstrations |
+| `external/` | Active | Staged upstream packets + [`ADOPTION_STATUS.md`](external/ADOPTION_STATUS.md) |
+| `papers/` | Active | Coupling companion paper draft |
+| `conductor/` | Active | Product, workflow, release status; completed tracks in `archive/` |
+| `views/` | Active | Review documents (ChatGPT 00–05; Fable 5 review/pivot 06–07) |
 | `AGENTS.md` | Active | Agent handoff and implementation guide |
-| `project_repo_racx/` | **Design notebook — superseded** | The original conceived RaCX repo; see its `STATUS.md` |
-| `conversation/` | Archive | Visible prompts/outputs from the originating ChatGPT conversation |
-| `source_material/` | Archive | Original Google AI Mode PDF and extractions |
-| `README_PACKAGE.md`, `covering_prompt_for_fable5.md` | Archive | The original review-pack framing |
+| `project_repo_racx/` | **Design notebook — superseded** | Original RaCX sketch; see its `STATUS.md` |
+| `conversation/`, `source_material/`, `README_PACKAGE.md` | Archive | Originating review-pack materials |
 
-## The six tracks (summary)
+## Completed work (summary)
 
-| # | Track | Where the work lands |
-|---|---|---|
-| 1 | Interchange artifact contracts v0.1 | This repo (`contracts/`) |
-| 2 | OIA statutory rules extraction + typed process→rule coupling | `edithatogo/foi-o` (external PR) |
-| 3 | OpenFisca ↔ PolicyEngine test fixture converter | Tool here; PRs upstream |
-| 4 | Engine contributions: traces, missingness, Axiom validation harness | PolicyEngine / Axiom / OpenFisca (issues + PRs) |
-| 5 | SNAP divergence study: policyengine-us vs Atlanta Fed PRD | Study + paper here; issues upstream |
-| 6 | Community, process-side contributions, and papers | DBN CoP, Alaveteli, Docassemble/CiviForm, arXiv |
+Original six tracks plus the next-generation roadmap are archived under [`conductor/archive/`](conductor/archive/). Highlights:
 
-Tracks 1 and 2 are the critical path. Track 1 defines the contracts everything else points back to; Track 2 is the first real consumer.
+| Area | Outcome |
+|---|---|
+| PIC contracts | Schemas, validator, examples, consumer feedback loop |
+| foi-o OIA rules | Merged upstream: [`edithatogo/foi-o#20`](https://github.com/edithatogo/foi-o/pull/20) |
+| Engine contributions | Trace / missingness / converter issues filed on PolicyEngine & OpenFisca |
+| SNAP study | Divergence study scaffolding and candidate fixtures |
+| NZ reconciliation | Certified **engine-gap** (not numeric dual-engine agreement); coverage request [`openfisca-aotearoa#199`](https://github.com/BetterRules/openfisca-aotearoa/issues/199) |
+| Adoption ledger | [`external/ADOPTION_STATUS.md`](external/ADOPTION_STATUS.md) |
 
-## Key constraints (non-negotiable, inherited and confirmed)
+GitHub roadmap parent: [#6](https://github.com/edithatogo/rulesandprocesses/issues/6). Track issues [#7](https://github.com/edithatogo/rulesandprocesses/issues/7)–[#13](https://github.com/edithatogo/rulesandprocesses/issues/13) are closed complete.
+
+## Key constraints (non-negotiable)
 
 - **No runtime AI decisions** for eligibility, payment, refusal, tax, or administrative rights. AI drafts; deterministic code decides; humans certify.
 - **Oracle independence**: golden fixtures are curated by humans from legislation, agency worked examples, or an unrelated implementation — never generated by the same model that wrote the code under test.
 - **Fixtures are interpretations, not law**: every fixture set carries a versioned interpreter-of-record and a non-authoritative disclaimer.
-- **Couple through identifiers, never through embedding**: rules, evidence, process, and evaluation artifacts reference each other by stable ID; they are versioned and owned separately.
+- **Couple through identifiers, never through embedding**: rules, evidence, process, and evaluation artifacts reference each other by stable ID.
 - **No mapping without a consumer**: no standard enters any crosswalk table without a working converter and a named user.
+- **Floats never represent money.** Decimal strings everywhere.
 
 ## Relationship to other repos
 
-- **`edithatogo/foi-o`** (FOI-O NZ): process-heavy testbed; first consumer of the contracts; receives the OIA rules module (Track 2).
-- **PolicyEngine / Axiom / OpenFisca**: rules-heavy testbeds; receive fixture/trace/validation contributions (Tracks 3–5).
-- **Alaveteli (mySociety)**: process-side upstream for foi-o's state model (Track 6).
-- **Adoption ledger**: staged and submitted upstream artifacts are tracked in `external/ADOPTION_STATUS.md` and mirrored in the Conductor adoption track.
+- **`edithatogo/foi-o`**: process-heavy testbed; first PIC consumer (OIA rules module merged).
+- **PolicyEngine / Axiom / OpenFisca**: rules-heavy testbeds; receive fixture/trace/validation contributions.
+- **Alaveteli (mySociety)**: process-side upstream for foi-o's state model.
+- **BetterRules/openfisca-aotearoa**: NZ comparative target; coverage gap documented.
+
+## License and citation
+
+- **License:** [Apache License 2.0](LICENSE)
+- **Cite this repository:** see [`CITATION.cff`](CITATION.cff) (GitHub “Cite this repository” sidebar)
 
 ## Provenance
 
 - `racx_fable_review_pack.zip` (not committed): the original ChatGPT deliverable this repo was extracted from.
-- Git history starts at the baseline import commit; all subsequent changes are documented, reviewed work.
+- Git history starts at the baseline import commit; subsequent changes are documented, reviewed work.

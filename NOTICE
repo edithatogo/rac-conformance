@@ -1,0 +1,14 @@
+# Notice
+
+Rules and Processes
+Copyright 2026 Dylan Mordaunt
+
+This product includes software developed as part of an evidence-first
+policy interchange and conformance program.
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file
+for the full license text.
+
+Third-party corpora, vendored samples, and staged upstream patches under
+`converters/`, `external/`, and `studies/` may carry their own licenses
+and attribution; preserve those notices when redistributing those parts.

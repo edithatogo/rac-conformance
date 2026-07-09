@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata below."
+type: software
+title: "Rules and Processes — policy interchange, conformance, and coupling"
+authors:
+  - family-names: Mordaunt
+    given-names: Dylan
+    alias: edithatogo
+    website: "https://www.researchgate.net/profile/Dylan-Mordaunt-2"
+repository-code: "https://github.com/edithatogo/rulesandprocesses"
+url: "https://github.com/edithatogo/rulesandprocesses"
+abstract: >-
+  Evidence-first program for policy interchange contracts (PIC), conformance
+  harnesses, and typed rules/process coupling across OpenFisca, PolicyEngine,
+  Axiom, and process platforms. Sequenced as evidence → adoption → specification.
+  Includes NZ RuleSpec vs OpenFisca Aotearoa reconciliation (engine-gap finding)
+  and staged upstream contributions.
+keywords:
+  - rules-as-code
+  - policy-interchange
+  - openfisca
+  - policyengine
+  - axiom
+  - conformance
+  - new-zealand
+license: Apache-2.0
+version: "0.2.0"
+date-released: "2026-07-09"

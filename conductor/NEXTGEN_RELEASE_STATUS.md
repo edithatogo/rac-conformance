@@ -34,7 +34,7 @@ Native sub-issues attached to #6:
 | [#11](https://github.com/edithatogo/rulesandprocesses/issues/11) | `axiom_validation_20260706` | `conductor/archive/axiom_validation_20260706/` |
 | [#12](https://github.com/edithatogo/rulesandprocesses/issues/12) | `service_demos_20260706` | `conductor/archive/service_demos_20260706/` |
 | [#13](https://github.com/edithatogo/rulesandprocesses/issues/13) | `comparative_studies_20260706` | `conductor/archive/comparative_studies_20260706/` |
-| *(local)* | `nz_reconciliation_20260707` | `conductor/archive/nz_reconciliation_20260707/` |
+| [#14](https://github.com/edithatogo/rulesandprocesses/issues/14) | `nz_reconciliation_20260707` | `conductor/archive/nz_reconciliation_20260707/` |
 
 Completed prior-track issues [#1](https://github.com/edithatogo/rulesandprocesses/issues/1) through [#5](https://github.com/edithatogo/rulesandprocesses/issues/5) are closed as completed.
 
@@ -49,7 +49,7 @@ Completed prior-track issues [#1](https://github.com/edithatogo/rulesandprocesse
 | `axiom_validation_20260706` | [#11](https://github.com/edithatogo/rulesandprocesses/issues/11) | Done | Axiom artifacts | Harness + Actions | [rulespec-nz#79](https://github.com/TheAxiomFoundation/rulespec-nz/issues/79) open | Monitor #79 |
 | `service_demos_20260706` | [#12](https://github.com/edithatogo/rulesandprocesses/issues/12) | Done | Boundaries / PIC / Axiom | Demo tests | None blocking | Archived |
 | `comparative_studies_20260706` | [#13](https://github.com/edithatogo/rulesandprocesses/issues/13) | Done | Adoption / validation evidence | Study draft validation | Study selection approved | Archived; spawned NZ recon track |
-| `nz_reconciliation_20260707` | *(local track)* | Done | Comparative study selection | `make nz-recon-*` | Certified engine-gap; [openfisca-aotearoa#199](https://github.com/BetterRules/openfisca-aotearoa/issues/199) | Monitor #199; optional future dual-engine track |
+| `nz_reconciliation_20260707` | [#14](https://github.com/edithatogo/rulesandprocesses/issues/14) | Done | Comparative study selection | `make nz-recon-*` | Certified engine-gap; [openfisca-aotearoa#199](https://github.com/BetterRules/openfisca-aotearoa/issues/199) | Monitor #199; optional future dual-engine track |
 
 Certification levels used by this matrix:
 
