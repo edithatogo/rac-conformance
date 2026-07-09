@@ -12,3 +12,7 @@ data/processed/
 .external-repos/
 studies/nz-reconciliation/results/compiled/
 .venv-nz-recon/
+
+.coverage
+**/ .coverage
+**/.coverage
