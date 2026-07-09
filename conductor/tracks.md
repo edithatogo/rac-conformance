@@ -23,7 +23,7 @@
 ---
 
 - [x] **Track: Axiom RuleSpec validation expansion**
-*Link: [./tracks/axiom_validation_20260706/](./tracks/axiom_validation_20260706/)*
+*Link: [./archive/axiom_validation_20260706/](./archive/axiom_validation_20260706/)*
 
 ---
 
