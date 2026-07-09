@@ -10,7 +10,7 @@ Last checked: **2026-07-09** (implementation batch: PRs opened for blockers).
 | PE YAML converter | https://github.com/PolicyEngine/policyengine-core/issues/514 | open | [PR #517](https://github.com/PolicyEngine/policyengine-core/pull/517) docs | Review |
 | OF missingness | https://github.com/openfisca/openfisca-core/issues/1380 | open | [PR #1382](https://github.com/openfisca/openfisca-core/pull/1382) | Review |
 | OF YAML converter | https://github.com/openfisca/openfisca-core/issues/1381 | open | External tool only (comment on issue) | Maintainer direction |
-| Alaveteli state taxonomy | https://github.com/mysociety/alaveteli/issues/9355 | open | TBD / in progress | See IMPLEMENTATION_STATUS |
+| Alaveteli state taxonomy | https://github.com/mysociety/alaveteli/issues/9355 | open | [PR #9356](https://github.com/mysociety/alaveteli/pull/9356) | Review |
 | foi-o OIA rules PR | https://github.com/edithatogo/foi-o/pull/20 | **merged** | Done | None |
 | openfisca-aotearoa coverage | https://github.com/BetterRules/openfisca-aotearoa/issues/199 | open | [PR #200](https://github.com/BetterRules/openfisca-aotearoa/pull/200) | Review |
 | DBN CoP email | `external/dbn/EMAIL.md` | sent | n/a | Monitor |

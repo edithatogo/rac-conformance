@@ -40,4 +40,8 @@ Prioritized blockers and proposals implemented as fork PRs / compile fixes.
 
 ## Alaveteli
 
-- In progress separately (taxonomy hooks).
+| Item | URL |
+|---|---|
+| Issue | https://github.com/mysociety/alaveteli/issues/9355 |
+| PR | https://github.com/mysociety/alaveteli/pull/9356 |
+| Content | Docs + process_clock_metadata theme hook + state roles |
