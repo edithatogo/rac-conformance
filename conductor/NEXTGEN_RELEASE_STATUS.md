@@ -1,6 +1,6 @@
 # Next-generation Roadmap Release Status
 
-Last updated: 2026-07-07.
+Last updated: 2026-07-09.
 
 This file records the GitHub execution ledger for the next-generation roadmap. Local Conductor specs and plans remain the source of truth for requirements and acceptance.
 
