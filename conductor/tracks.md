@@ -37,6 +37,11 @@
 
 ---
 
+- [x] **Track: NZ reconciliation live dual-engine re-run**
+*Link: [./tracks/nz_recon_live_20260709/](./tracks/nz_recon_live_20260709/)*
+
+---
+
 ## Program status (2026-07-09)
 
-All registered Conductor tracks are **complete**. External maintainer monitoring continues via `external/MAINTAINER_MONITORING.md`.
+Conductor tracks complete. Live NZ dual-engine re-run produced **10/17** numeric agreements against local engines. Upstream PR merges and monitoring continue via `external/MAINTAINER_MONITORING.md`.

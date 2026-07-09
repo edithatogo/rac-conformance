@@ -1,0 +1,8 @@
+{
+  "track_id": "nz_recon_live_20260709",
+  "type": "feature",
+  "status": "complete",
+  "created_at": "2026-07-09T02:00:00Z",
+  "updated_at": "2026-07-09T02:30:00Z",
+  "description": "Live dual-engine NZ reconciliation re-run against local RuleSpec patch and OpenFisca Aotearoa PR #200."
+}

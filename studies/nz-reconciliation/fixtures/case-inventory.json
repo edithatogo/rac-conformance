@@ -30,8 +30,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa exposes income_tax__taxable_income and a 2010-vintage individual_income_tax_rate parameter tree, but no variable computes progressive income tax before credits for a taxable-income input. Cannot reconcile RuleSpec individual_income_tax_before_credits.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/income_tax/individual.py; openfisca_aotearoa/parameters/taxes/income_tax/individual_income_tax_rate.yaml"
       },
@@ -67,8 +67,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa exposes income_tax__taxable_income and a 2010-vintage individual_income_tax_rate parameter tree, but no variable computes progressive income tax before credits for a taxable-income input. Cannot reconcile RuleSpec individual_income_tax_before_credits.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/income_tax/individual.py; openfisca_aotearoa/parameters/taxes/income_tax/individual_income_tax_rate.yaml"
       },
@@ -104,8 +104,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa exposes income_tax__taxable_income and a 2010-vintage individual_income_tax_rate parameter tree, but no variable computes progressive income tax before credits for a taxable-income input. Cannot reconcile RuleSpec individual_income_tax_before_credits.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/income_tax/individual.py; openfisca_aotearoa/parameters/taxes/income_tax/individual_income_tax_rate.yaml"
       },
@@ -141,8 +141,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa exposes income_tax__taxable_income and a 2010-vintage individual_income_tax_rate parameter tree, but no variable computes progressive income tax before credits for a taxable-income input. Cannot reconcile RuleSpec individual_income_tax_before_credits.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/income_tax/individual.py; openfisca_aotearoa/parameters/taxes/income_tax/individual_income_tax_rate.yaml"
       },
@@ -177,8 +177,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa exposes income_tax__taxable_income and a 2010-vintage individual_income_tax_rate parameter tree, but no variable computes progressive income tax before credits for a taxable-income input. Cannot reconcile RuleSpec individual_income_tax_before_credits.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/income_tax/individual.py; openfisca_aotearoa/parameters/taxes/income_tax/individual_income_tax_rate.yaml"
       },
@@ -211,8 +211,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -250,8 +250,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -285,8 +285,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -320,8 +320,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -357,8 +357,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -393,8 +393,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -429,8 +429,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -465,8 +465,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -503,8 +503,8 @@
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "openfisca-aotearoa ACC modules model LOPE/weekly compensation eligibility (acc_sched_1__*, acc__earner, etc.), not ACC earners levy rates, caps, or standard/self-employed levy amounts.",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "openfisca_aotearoa/variables/acts/acc/"
       },
@@ -535,12 +535,13 @@
         "commit": "3c6436b2ecf82dd7a7f7810a406a2695a64af33a",
         "testPath": "nz/statutes/kiwisaver/contributions.test.yaml",
         "modulePath": "nz/statutes/kiwisaver/contributions.yaml",
-        "compileStatus": "blocked_yaml_values_shape"
+        "compileStatus": "ok",
+        "compileNote": "Local checkout patched; upstream PR https://github.com/TheAxiomFoundation/rulespec-nz/pull/80"
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "No KiwiSaver contribution variables, parameters, or tests found in openfisca-aotearoa. RuleSpec KiwiSaver compile is also blocked upstream (TheAxiomFoundation/rulespec-nz#79).",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "repo-wide search for kiwisaver (no matches under openfisca_aotearoa/)"
       },
@@ -573,12 +574,13 @@
         "commit": "3c6436b2ecf82dd7a7f7810a406a2695a64af33a",
         "testPath": "nz/statutes/kiwisaver/contributions.test.yaml",
         "modulePath": "nz/statutes/kiwisaver/contributions.yaml",
-        "compileStatus": "blocked_yaml_values_shape"
+        "compileStatus": "ok",
+        "compileNote": "Local checkout patched; upstream PR https://github.com/TheAxiomFoundation/rulespec-nz/pull/80"
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "No KiwiSaver contribution variables, parameters, or tests found in openfisca-aotearoa. RuleSpec KiwiSaver compile is also blocked upstream (TheAxiomFoundation/rulespec-nz#79).",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "repo-wide search for kiwisaver (no matches under openfisca_aotearoa/)"
       },
@@ -607,12 +609,13 @@
         "commit": "3c6436b2ecf82dd7a7f7810a406a2695a64af33a",
         "testPath": "nz/statutes/kiwisaver/contributions.test.yaml",
         "modulePath": "nz/statutes/kiwisaver/contributions.yaml",
-        "compileStatus": "blocked_yaml_values_shape"
+        "compileStatus": "ok",
+        "compileNote": "Local checkout patched; upstream PR https://github.com/TheAxiomFoundation/rulespec-nz/pull/80"
       },
       "openfiscaAotearoa": {
         "repo": "ServiceInnovationLab/openfisca-aotearoa",
-        "status": "engine_gap",
-        "notes": "No KiwiSaver contribution variables, parameters, or tests found in openfisca-aotearoa. RuleSpec KiwiSaver compile is also blocked upstream (TheAxiomFoundation/rulespec-nz#79).",
+        "status": "live_available",
+        "notes": "PR https://github.com/BetterRules/openfisca-aotearoa/pull/200 branch feat/199",
         "classification": "engine_gap",
         "evidence": "repo-wide search for kiwisaver (no matches under openfisca_aotearoa/)"
       },

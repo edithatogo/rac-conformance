@@ -45,3 +45,14 @@ Prioritized blockers and proposals implemented as fork PRs / compile fixes.
 | Issue | https://github.com/mysociety/alaveteli/issues/9355 |
 | PR | https://github.com/mysociety/alaveteli/pull/9356 |
 | Content | Docs + process_clock_metadata theme hook + state roles |
+
+
+## Live dual-engine re-run (2026-07-09)
+
+Local suite (`python -m nz_reconciliation.run_live_suite` on Python 3.11 + OF PR branch):
+
+- **10/17 numeric agreements** (all schedule income tax; standard ACC earners levy; standard KiwiSaver min contributions)
+- Remaining gaps: self-employed ACC / weekly purchase / invoice exempt; Crown KS parameter case
+- OF PR #200 follow-up: clamp KiwiSaver base at zero (negative earnings)
+
+Evidence: `studies/nz-reconciliation/results/LIVE_DUAL_ENGINE_REPORT.md`
