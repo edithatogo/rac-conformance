@@ -26,7 +26,7 @@
 ## Phase 4 - NZ reconciliation paper
 
 - [x] Task: Draft full manuscript from live dual-engine and engine-gap evidence
-- [ ] Task: Generate coverage, agreement, and model-surface figures/tables
+- [x] Task: Generate coverage, agreement, and model-surface figures/tables
 - [x] Task: Build and review the NZ reconciliation submission packet
 - [ ] Task: Conductor - Automated Review and Checkpoint 'NZ reconciliation paper' (Protocol in workflow.md)
 
