@@ -2,6 +2,26 @@
 
 ---
 
+- [~] **Track: Repository rename and identity migration**
+*Link: [./tracks/repo_rename_20260711/](./tracks/repo_rename_20260711/)*
+
+---
+
+- [ ] **Track: GitHub governance and security configuration**
+*Link: [./tracks/github_governance_20260711/](./tracks/github_governance_20260711/)*
+
+---
+
+- [ ] **Track: External adoption completion**
+*Link: [./tracks/external_adoption_20260711/](./tracks/external_adoption_20260711/)*
+
+---
+
+- [ ] **Track: Paper programme completion**
+*Link: [./tracks/papers_completion_20260711/](./tracks/papers_completion_20260711/)*
+
+---
+
 - [x] **Track: Reliability, upstream governance, and publication refinement**
 *Link: [./archive/reliability_publication_20260711/](./archive/reliability_publication_20260711/)*
 
