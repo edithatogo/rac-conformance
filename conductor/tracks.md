@@ -2,8 +2,8 @@
 
 ---
 
-- [~] **Track: Reliability, upstream governance, and publication refinement**
-*Link: [./tracks/reliability_publication_20260711/](./tracks/reliability_publication_20260711/)*
+- [x] **Track: Reliability, upstream governance, and publication refinement**
+*Link: [./archive/reliability_publication_20260711/](./archive/reliability_publication_20260711/)*
 
 ---
 
