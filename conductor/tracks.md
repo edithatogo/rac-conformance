@@ -2,13 +2,13 @@
 
 ---
 
-- [~] **Track: Repository rename and identity migration**
-*Link: [./tracks/repo_rename_20260711/](./tracks/repo_rename_20260711/)*
+- [x] **Track: Repository rename and identity migration**
+*Link: [./archive/repo_rename_20260711/](./archive/repo_rename_20260711/)*
 
 ---
 
-- [ ] **Track: GitHub governance and security configuration**
-*Link: [./tracks/github_governance_20260711/](./tracks/github_governance_20260711/)*
+- [x] **Track: GitHub governance and security configuration**
+*Link: [./archive/github_governance_20260711/](./archive/github_governance_20260711/)*
 
 ---
 
