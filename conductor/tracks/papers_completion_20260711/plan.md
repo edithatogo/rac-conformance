@@ -37,7 +37,7 @@
 ## Phase 4.5 - Final local QA and review packet
 
 - [x] Task: Run final manuscript, citation, artifact, and link QA across all three packages
-- [x] Task: Normalize paper issue hierarchy and record the NZ paper as a child work item of this track
+- [x] Task: Normalize paper issue hierarchy and record the NZ reconciliation paper as a child work item of this track
 - [x] Task: Conductor - Automated Review and Checkpoint 'Final local QA and review packet' (Protocol in workflow.md)
 
 Acceptance: `make check` passes; all three packets identify their evidence roots,
@@ -48,7 +48,7 @@ claims submission or acceptance without human evidence.
 > CHECKPOINT (2026-07-11): Final `make check` passed across repository audit,
 paper artifacts, contracts, converters, harnesses, both study runners, and demos.
 The three paper packets are locally prepared and remain submission-deferred.
-Issue #17 was superseded by the unified paper programme issue #24; publication
+Issue #17 was superseded by the unified paper program issue #24; publication
 authorization remains a human gate.
 
 ## Phase 5 - Human submission gates

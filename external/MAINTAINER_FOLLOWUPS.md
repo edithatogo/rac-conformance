@@ -22,8 +22,8 @@ contribution.
 2. Include the exact local evidence path and the current upstream URL.
 3. Request one concrete action only: workflow approval, review, signing, scope
    decision, or merge disposition.
-4. Refresh `UPSTREAM_PR_AUDIT.md` and `MAINTAINER_MONITORING.md` only after
-   URL evidence exists.
+4. Refresh `external/UPSTREAM_PR_AUDIT.md` and
+   `external/MAINTAINER_MONITORING.md` only after URL evidence exists.
 5. Keep Project 19 status `In Progress` until each contribution has a terminal
    disposition.
 
