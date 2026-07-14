@@ -32,6 +32,9 @@ Depends on: `pic_process_profile_20260714` Phase 2.
 6. Select a comparison case using source completeness, public decision records,
    comparable indication, temporal alignment, and licensing criteria.
 7. Produce deterministic candidate fixtures and traces with independent review.
+8. Consume the optional adverse-incident post-market safety handoff only where an
+   official source supports monitoring or reassessment. Consumption must preserve
+   privacy purpose, provenance, uncertainty, and human decision ownership.
 
 ## Non-Functional Requirements
 
@@ -51,6 +54,8 @@ Depends on: `pic_process_profile_20260714` Phase 2.
   while preserving documented differences.
 - Tests reject false equivalence, jurisdiction leakage, stale decisions,
   confidential-data inference, and unsupported causal claims.
+- Cross-domain tests reject patient-level incident data and any inference that a
+  safety signal determines regulatory, funding, restriction, or access outcomes.
 - Every promoted fixture has a human-certified source spine.
 - `make check` passes.
 

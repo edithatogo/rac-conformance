@@ -43,6 +43,10 @@ date, retrieval time, and digest where licensing and access permit.
 5. Produce only synthetic de-identified fixtures and traces.
 6. Compare national consistency claims with regional implementation without
    treating policy variation as error by default.
+7. Define an optional privacy-preserving post-market safety-signal output for
+   cross-domain research. It may contain public or appropriately de-identified
+   aggregate provenance but never patient-level incident content or inferred
+   product causation.
 
 ## Non-Functional Requirements
 
@@ -60,6 +64,8 @@ date, retrieval time, and digest where licensing and access permit.
 - Synthetic fixtures exercise at least the six required exception/pathway cases.
 - The resolver fails closed where authority, effective date, or local policy is
   missing or conflicting.
+- Any cross-domain safety handoff validates permitted purpose, aggregation state,
+  jurisdiction, authority, and human review before it can be consumed.
 - Human reviewers see only contested assertions, interpretive mappings, and
   exception cases.
 - `make check` and process-profile validation pass.

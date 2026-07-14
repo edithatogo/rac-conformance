@@ -88,6 +88,19 @@ continuing human communication and learning process; regulator approval and
 public funding are separate authority chains; and Camunda can test orchestration,
 timers, incidents, and migration but cannot establish legal or policy correctness.
 
+## Cross-domain health handoff
+
+The two health demonstrators remain separate authority and data domains, but may
+share a narrowly typed post-market safety handoff. A public, aggregate, or
+appropriately de-identified safety signal may reference an adverse-event learning
+artifact and initiate a regulator-monitoring, HTA-reassessment, restriction, or
+human-review event where an official source supports that route.
+
+The handoff MUST NOT carry patient-level incident data, infer causation, infer a
+regulatory or funding outcome, or treat a local disclosure process as evidence
+that a medicine is unsafe. It records provenance, permitted purpose, aggregation
+state, source authority, applicable jurisdiction, and human review status.
+
 ## Version gates
 
 ### v0.3 - Process profile foundation
