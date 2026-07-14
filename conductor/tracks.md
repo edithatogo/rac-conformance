@@ -4,7 +4,7 @@
 Track ID: `citation_zenodo_mirroring_20260714`
 *Link: [./tracks/citation_zenodo_mirroring_20260714/](./tracks/citation_zenodo_mirroring_20260714/)*
 
-- [ ] **Track: FOI process citation and Zenodo mirroring**
+- [x] **Track: FOI process citation and Zenodo mirroring**
 Track ID: `foi_process_citation_mirroring_20260714`
 GitHub issue: [edithatogo/foi-process#7](https://github.com/edithatogo/foi-process/issues/7)
 *Link: [./tracks/foi_process_citation_mirroring_20260714/](./tracks/foi_process_citation_mirroring_20260714/)*
