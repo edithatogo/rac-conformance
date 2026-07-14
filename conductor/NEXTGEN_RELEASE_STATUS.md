@@ -8,9 +8,9 @@ This file records the GitHub execution ledger for the next-generation roadmap. L
 
 **Decision: keep external monitoring open.**
 
-Publication decision: keep the coupling and SNAP papers deferred until the
-next `foi-o` release is available; update both papers after that release and
-submit only with Dylan's explicit authorization.
+Publication decision: keep the coupling, SNAP, and NZ reconciliation papers
+deferred until the next `foi-o` release is available; update all three papers
+after that release and submit only with Dylan's explicit authorization.
 
 - **Repo-local roadmap work:** complete (`make check` green; non-final tracks archived with evidence).
 - **External adoption:** every staged GitHub target has a durable URL in `external/ADOPTION_STATUS.md`.
