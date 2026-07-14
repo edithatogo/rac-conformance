@@ -22,6 +22,11 @@
 
 ---
 
+- [ ] **Track: Govern and synchronize the focused Freedom of Information programme in GitHub Project 14**
+*Link: [./tracks/foi_programme_governance_20260714/](./tracks/foi_programme_governance_20260714/)*
+
+---
+
 - [x] **Track: Reliability, upstream governance, and publication refinement**
 *Link: [./archive/reliability_publication_20260711/](./archive/reliability_publication_20260711/)*
 

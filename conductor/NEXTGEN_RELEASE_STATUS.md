@@ -1,12 +1,16 @@
 # Next-generation Roadmap Release Status
 
-Last updated: 2026-07-09.
+Last updated: 2026-07-14.
 
 This file records the GitHub execution ledger for the next-generation roadmap. Local Conductor specs and plans remain the source of truth for requirements and acceptance.
 
 ## Release decision (2026-07-09)
 
 **Decision: keep external monitoring open.**
+
+Publication decision: keep the coupling, SNAP, and NZ reconciliation papers
+deferred until the next `foi-o` release is available; update all three papers
+after that release and submit only with Dylan's explicit authorization.
 
 - **Repo-local roadmap work:** complete (`make check` green; non-final tracks archived with evidence).
 - **External adoption:** every staged GitHub target has a durable URL in `external/ADOPTION_STATUS.md`.

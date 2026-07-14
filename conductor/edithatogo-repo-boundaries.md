@@ -1,6 +1,6 @@
 # edithatogo Repository Boundaries
 
-Last checked: 2026-07-06.
+Last checked: 2026-07-14.
 
 This document limits which `edithatogo` repositories are in scope for the next-generation rules/process roadmap. It is intentionally conservative: a repository enters active scope only when a track has a named consumer, a concrete integration surface, and repo-local evidence to support the work.
 
@@ -16,18 +16,19 @@ This document limits which `edithatogo` repositories are in scope for the next-g
 | Repository | Relevance | Boundary |
 |---|---|---|
 | `edithatogo/rac-conformance` | Primary roadmap, contracts, harnesses, studies, papers, and conductor coordination. | All roadmap planning lives here first. |
-| `edithatogo/foi-o` | First active PIC consumer and process-heavy proof for OIA statutory-clock rules. | Relevant for OIA rules PR, fixture CI, trace integration, and rule/process invocation. Do not alter non-OIA workflows unless a future track names them. |
+| `edithatogo/foi-o` | First active PIC consumer and process-heavy proof for OIA statutory-clock rules; now planning versioned NZ empirical and Australian jurisdiction profiles. | Relevant for OIA rules, fixture/trace integration, optional PIC-compatible profile artifacts, release evidence, and the paper-update trigger. FOI-O remains authoritative for its profile design and does not depend on PIC at runtime. |
+| `edithatogo/legislation` | Jurisdiction-neutral legal-source manifests for NZ and Australian source packs. | Relevant for pinned, bitemporal legal-source identifiers, versions, rights, and digests. It supplies evidence manifests, not runtime legal decisions. |
 | `edithatogo/rulespec-nz` | Public NZ RuleSpec corpus used for Axiom validation slices. | Relevant for PIC fixture mappings and Axiom/RuleSpec differential harness work. Do not treat as a general source of legal truth without source assertions. |
 | `edithatogo/axiom-rules-engine` | Runtime surface for RuleSpec execution and traces. | Relevant for harness integration, trace/export behavior, and upstream issue/PR feedback. |
-| `edithatogo/fyi-archive` | Source corpus backing `foi-o` and OIA process evidence. | Relevant only for OIA process-state examples, regression fixtures, and evidence sampling. |
+| `edithatogo/fyi-archive` | Immutable source corpus backing `foi-o` NZ and Australian process evidence. | Relevant for public-example manifests, process-state evidence, regression candidates, and empirical sampling. Derived candidates must not overwrite raw archive records. |
 | `edithatogo/fyi-cli` | Operational companion to FOI/FYI workflows. | Relevant only if a track needs user-facing request workflow or local operator proof. |
 | `edithatogo/corpus-legislation-nz` | NZ legislation corpus source that may support verified source assertions. | Relevant for source retrieval/citation support, not for runtime legal decisions. |
+| `edithatogo/nlp-policy-nz` | Ontology-pinned extraction consumer for the versioned FOI-O contract. | Relevant for candidate extraction and delta evaluation only; cannot certify legal mappings, gold fixtures, or outcomes. |
 
 ## Potentially Relevant With A Named Consumer
 
 | Repository | Possible Use | Entry Condition |
 |---|---|---|
-| `edithatogo/nlp-policy-nz` | Policy text extraction and source triage. | A track needs repeatable source discovery or citation extraction. |
 | `edithatogo/corpus-nz-hansard` | Legislative debate/background corpus. | A track needs legislative-history context; not for controlling rule assertions. |
 | `edithatogo/corpus-cases-medilegal-nz` | Tribunal/case-law style evidence patterns. | A future health/legal rules track needs adjudication-pattern evidence. |
 | `edithatogo/reimbursement-atlas` | Health-funding policy calculations and evidence-readiness patterns. | A health-funding rules/process case study is explicitly selected. |

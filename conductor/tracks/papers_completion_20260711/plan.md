@@ -51,11 +51,32 @@ The three paper packets are locally prepared and remain submission-deferred.
 Issue #17 was superseded by the unified paper program issue #24; publication
 authorization remains a human gate.
 
+> DECISION (2026-07-14): Keep the papers deferred until the next `foi-o`
+release is available. After that release, update the papers and submit only
+after Dylan's explicit authorization.
+
+## Phase 4.75 - FOI-O release-triggered paper refresh
+
+GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
+
+- [ ] Task: Verify the immutable `foi-o` release tag, commit SHA, contract and
+      schema versions, capability matrix, migrations, and reproducibility commands.
+- [ ] Task: Import the release-evidence bundle containing tests, fixtures,
+      provenance, empirical results, exception summaries, and known limitations.
+- [ ] Task: Diff release evidence against manuscript claims and regenerate all
+      affected tables, figures, citations, methods, results, and limitations.
+- [ ] Task: Run paper-artifact QA and prepare a human submission approval packet.
+- [ ] Task: Conductor - Automated Review and Checkpoint 'FOI-O release-triggered paper refresh' (Protocol in workflow.md)
+
+> BLOCKED (2026-07-14): This phase begins only after `foi-o` publishes the next
+immutable release and its release-evidence bundle. Publication remains
+human-authorized after the refresh.
+
 ## Phase 5 - Human submission gates
 
 - [ ] Task: [HUMAN] Approve final authorship, affiliations, target venues, and disclosure text
 - [ ] Task: [HUMAN] Authorize each arXiv or journal submission
-- [ ] Task: Record submission identifiers or continued deferral
+- [x] Task: Record submission identifiers or continued deferral
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Human submission gates' (Protocol in workflow.md)
 
 > BLOCKED (2026-07-11): Submission decisions require Dylan's explicit authorship, venue, disclosure, and submit authorization. Agents may prepare packets and evidence but may not submit.
