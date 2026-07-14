@@ -1,0 +1,92 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "process": {
+    "id": "adverse-incidents/near-miss",
+    "version": "0.1.0-candidate",
+    "jurisdiction": "NZ"
+  },
+  "case": {
+    "id": "case:adverse-incidents/near-miss",
+    "synthetic": true
+  },
+  "states": [
+    {
+      "id": "state:near-miss:detected",
+      "kind": "observed"
+    },
+    {
+      "id": "state:near-miss:review",
+      "kind": "proposed"
+    },
+    {
+      "id": "state:near-miss:closed",
+      "kind": "proposed"
+    }
+  ],
+  "events": [
+    {
+      "id": "event:near-miss:detected",
+      "kind": "observed",
+      "stateId": "state:near-miss:detected",
+      "occurredAt": "2026-07-01T00:00:00Z",
+      "observedAt": "2026-07-01T00:00:00Z",
+      "actorId": "person:synthetic-reviewer-near-miss"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "transition:near-miss:review",
+      "fromStateId": "state:near-miss:detected",
+      "toStateId": "state:near-miss:review",
+      "eventId": "event:near-miss:detected"
+    }
+  ],
+  "actors": [
+    {
+      "id": "person:synthetic-reviewer-near-miss",
+      "kind": "person",
+      "label": "Synthetic human reviewer"
+    }
+  ],
+  "humanTasks": [
+    {
+      "id": "task:near-miss:review",
+      "kind": "human_review",
+      "actorId": "person:synthetic-reviewer-near-miss",
+      "stateId": "state:near-miss:review"
+    },
+    {
+      "id": "task:near-miss:participation-support",
+      "kind": "human_decision",
+      "actorId": "person:synthetic-reviewer-near-miss",
+      "stateId": "state:near-miss:review"
+    },
+    {
+      "id": "task:near-miss:unresolved-questions",
+      "kind": "human_review",
+      "actorId": "person:synthetic-reviewer-near-miss",
+      "stateId": "state:near-miss:review"
+    }
+  ],
+  "sourceAssertions": [
+    {
+      "id": "assertion:nz-hqsc-national-adverse-events-policy-2023:near-miss",
+      "authorityClass": "national_policy",
+      "reviewerState": "agent-proposed",
+      "sourceStatus": "current",
+      "effectiveFrom": "2023-07-01",
+      "effectiveTo": null,
+      "jurisdiction": "NZ",
+      "sourceRef": "https://www.hqsc.govt.nz/resources/resource-library/national-adverse-event-policy-2023/",
+      "controlling": false,
+      "interpretationState": "uninterpreted"
+    }
+  ],
+  "traceLinks": [
+    {
+      "id": "trace-link:near-miss",
+      "traceConformsTo": "pic-traces/0.1.0",
+      "traceRef": "urn:sha256:d5c29bb7b20982aa88ae63e332ffe969ce451f2acd54046b74cde5073d85660f"
+    }
+  ]
+}

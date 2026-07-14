@@ -1,0 +1,92 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "process": {
+    "id": "adverse-incidents/harm",
+    "version": "0.1.0-candidate",
+    "jurisdiction": "NZ"
+  },
+  "case": {
+    "id": "case:adverse-incidents/harm",
+    "synthetic": true
+  },
+  "states": [
+    {
+      "id": "state:harm:detected",
+      "kind": "observed"
+    },
+    {
+      "id": "state:harm:review",
+      "kind": "proposed"
+    },
+    {
+      "id": "state:harm:closed",
+      "kind": "proposed"
+    }
+  ],
+  "events": [
+    {
+      "id": "event:harm:detected",
+      "kind": "observed",
+      "stateId": "state:harm:detected",
+      "occurredAt": "2026-07-01T00:00:00Z",
+      "observedAt": "2026-07-01T00:00:00Z",
+      "actorId": "person:synthetic-reviewer-harm"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "transition:harm:review",
+      "fromStateId": "state:harm:detected",
+      "toStateId": "state:harm:review",
+      "eventId": "event:harm:detected"
+    }
+  ],
+  "actors": [
+    {
+      "id": "person:synthetic-reviewer-harm",
+      "kind": "person",
+      "label": "Synthetic human reviewer"
+    }
+  ],
+  "humanTasks": [
+    {
+      "id": "task:harm:review",
+      "kind": "human_review",
+      "actorId": "person:synthetic-reviewer-harm",
+      "stateId": "state:harm:review"
+    },
+    {
+      "id": "task:harm:participation-support",
+      "kind": "human_decision",
+      "actorId": "person:synthetic-reviewer-harm",
+      "stateId": "state:harm:review"
+    },
+    {
+      "id": "task:harm:unresolved-questions",
+      "kind": "human_review",
+      "actorId": "person:synthetic-reviewer-harm",
+      "stateId": "state:harm:review"
+    }
+  ],
+  "sourceAssertions": [
+    {
+      "id": "assertion:nz-hdc-code-consumers-rights:harm",
+      "authorityClass": "regulation",
+      "reviewerState": "agent-proposed",
+      "sourceStatus": "current",
+      "effectiveFrom": "1996-07-01",
+      "effectiveTo": null,
+      "jurisdiction": "NZ",
+      "sourceRef": "https://www.hdc.org.nz/your-rights/about-the-code/code-of-health-and-disability-services-consumers-rights/",
+      "controlling": false,
+      "interpretationState": "uninterpreted"
+    }
+  ],
+  "traceLinks": [
+    {
+      "id": "trace-link:harm",
+      "traceConformsTo": "pic-traces/0.1.0",
+      "traceRef": "urn:sha256:7ecfaae29a86de6c3e66f6eb0d56be8a13602dd59b7174e6d89bdbeb80739d66"
+    }
+  ]
+}

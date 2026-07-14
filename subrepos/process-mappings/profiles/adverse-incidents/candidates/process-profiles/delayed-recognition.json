@@ -1,0 +1,92 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "process": {
+    "id": "adverse-incidents/delayed-recognition",
+    "version": "0.1.0-candidate",
+    "jurisdiction": "AU"
+  },
+  "case": {
+    "id": "case:adverse-incidents/delayed-recognition",
+    "synthetic": true
+  },
+  "states": [
+    {
+      "id": "state:delayed-recognition:detected",
+      "kind": "observed"
+    },
+    {
+      "id": "state:delayed-recognition:review",
+      "kind": "proposed"
+    },
+    {
+      "id": "state:delayed-recognition:closed",
+      "kind": "proposed"
+    }
+  ],
+  "events": [
+    {
+      "id": "event:delayed-recognition:detected",
+      "kind": "observed",
+      "stateId": "state:delayed-recognition:detected",
+      "occurredAt": "2026-07-01T00:00:00Z",
+      "observedAt": "2026-07-01T00:00:00Z",
+      "actorId": "person:synthetic-reviewer-delayed-recognition"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "transition:delayed-recognition:review",
+      "fromStateId": "state:delayed-recognition:detected",
+      "toStateId": "state:delayed-recognition:review",
+      "eventId": "event:delayed-recognition:detected"
+    }
+  ],
+  "actors": [
+    {
+      "id": "person:synthetic-reviewer-delayed-recognition",
+      "kind": "person",
+      "label": "Synthetic human reviewer"
+    }
+  ],
+  "humanTasks": [
+    {
+      "id": "task:delayed-recognition:review",
+      "kind": "human_review",
+      "actorId": "person:synthetic-reviewer-delayed-recognition",
+      "stateId": "state:delayed-recognition:review"
+    },
+    {
+      "id": "task:delayed-recognition:participation-support",
+      "kind": "human_decision",
+      "actorId": "person:synthetic-reviewer-delayed-recognition",
+      "stateId": "state:delayed-recognition:review"
+    },
+    {
+      "id": "task:delayed-recognition:unresolved-questions",
+      "kind": "human_review",
+      "actorId": "person:synthetic-reviewer-delayed-recognition",
+      "stateId": "state:delayed-recognition:review"
+    }
+  ],
+  "sourceAssertions": [
+    {
+      "id": "assertion:au-open-disclosure-framework-2026:delayed-recognition",
+      "authorityClass": "guidance",
+      "reviewerState": "agent-proposed",
+      "sourceStatus": "current",
+      "effectiveFrom": "2026-06-25",
+      "effectiveTo": null,
+      "jurisdiction": "AU",
+      "sourceRef": "https://www.safetyandquality.gov.au/resources/australian-open-disclosure-framework-better-communication-better-care",
+      "controlling": false,
+      "interpretationState": "uninterpreted"
+    }
+  ],
+  "traceLinks": [
+    {
+      "id": "trace-link:delayed-recognition",
+      "traceConformsTo": "pic-traces/0.1.0",
+      "traceRef": "urn:sha256:9b53da827509aa62d82033b4690b42e94d807e5c81faf60e13e266d05c61c133"
+    }
+  ]
+}

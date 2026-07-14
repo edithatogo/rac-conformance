@@ -66,11 +66,12 @@ during the repository incubation governed by
 
 ## Phase 3 - Synthetic Demonstrator and Review
 
-- [ ] Task: Build synthetic candidate fixture corpus
-    - [ ] Include culturally responsive participation and support options without asserting substantive adequacy automatically.
-    - [ ] Include expected parallel pathways and explicit unresolved questions.
-    - [ ] Run process-profile validation and trace generation.
+- [x] Task: Build synthetic candidate fixture corpus
+    - [x] Include culturally responsive participation and support options without asserting substantive adequacy automatically.
+    - [x] Include expected parallel pathways and explicit unresolved questions.
+    - [x] Run process-profile validation and trace generation.
     - **Acceptance:** no fixture contains real or plausibly re-identifiable event data.
+    - Evidence: `candidates/process-profiles/`, `tools/generate_adverse_incident_fixtures.py`, and `contracts/tools/tests/test_adverse_incident_fixtures.py`.
 - [ ] Task: [HUMAN] Certify contested assertions and interpretation boundaries
     - [ ] Present resolver exceptions, controlling-source assertions, and proposed process differences only.
     - [ ] Record approval, rejection, limits, or further-source requirements.
