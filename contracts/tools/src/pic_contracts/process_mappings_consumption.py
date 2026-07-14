@@ -13,6 +13,9 @@ from pic_contracts.validation import validate_file
 _CONTRACT = "pic-process-profile/0.1.0"
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
+_PINNED_SOURCE = re.compile(
+    r"^https://github\.com/edithatogo/foi-o/(?:blob|tree)/[0-9a-f]{40}/.+$"
+)
 
 
 @dataclass(frozen=True)
@@ -112,6 +115,14 @@ def validate_consumption(manifest_path: Path, root: Path) -> ConsumptionReport:
             _rooted(root, relative, errors, "evidence source")
         else:
             errors.append("evidence source paths must be strings")
+
+    portable_sources = document.get("portableEvidenceSources")
+    if not isinstance(portable_sources, list) or not portable_sources:
+        errors.append("portableEvidenceSources must be a non-empty list")
+        portable_sources = []
+    for source in portable_sources:
+        if not isinstance(source, str) or not _PINNED_SOURCE.fullmatch(source):
+            errors.append("portable evidence sources must be pinned FOI-O blob/tree URLs")
 
     return ConsumptionReport(
         not errors,

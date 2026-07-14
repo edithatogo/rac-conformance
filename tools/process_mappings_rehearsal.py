@@ -83,7 +83,7 @@ def run_rehearsal(root: Path, report_path: Path, *, require_clean: bool = True) 
             {"id": "dependency-updates", "status": "deferred", "detail": "destination dependency policy must be configured after cutover"},
             {"id": "issue-migration", "status": "drafted", "detail": "migration packet preserves parent issue cross-references"},
             {"id": "source-reference-portability", "status": "pass", "detail": "FOI-O profile references use pinned durable locators"},
-            {"id": "parent-consumption-evidence", "status": "deferred", "detail": "parent-only consumption manifest retains local evidence paths"},
+            {"id": "parent-consumption-evidence", "status": "pass", "detail": "parent manifest retains local paths and pinned portable locators"},
             {"id": "remote-creation", "status": "deferred", "detail": "explicit human cutover gate required"},
             {"id": "rollback", "status": "defined", "detail": "retain parent subtree until hosted clone and checks pass"},
         ]
