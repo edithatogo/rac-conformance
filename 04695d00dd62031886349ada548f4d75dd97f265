@@ -1,0 +1,1 @@
+Conductor and PR review (2026-07-15): Added explicit license boundary, immutable foi-process commit pin with negative tests, verified Zenodo evidence, explicit track dependency, and absolute #50 link. Full make check passed in a clean worktree.
