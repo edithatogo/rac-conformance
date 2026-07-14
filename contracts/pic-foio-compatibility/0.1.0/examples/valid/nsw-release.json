@@ -8,7 +8,12 @@
     "capabilityManifestSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
     "migrationCatalogueSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
   },
-  "picPackages": ["pic-crosswalk/0.1.0", "pic-fixtures/0.1.0"],
+  "picPackages": ["pic-crosswalk/0.1.0", "pic-fixtures/0.1.0", "pic-parameters/0.2.0", "pic-traces/0.2.0"],
+  "picArtifacts": [
+    {"kind": "fixture", "contract": "pic-fixtures/0.1.0", "artifactUri": "https://raw.githubusercontent.com/edithatogo/rac-conformance/8888888888888888888888888888888888888888/contracts/pic-fixtures/0.1.0/examples/valid/plain.json", "sha256": "8181818181818181818181818181818181818181818181818181818181818181", "jurisdiction": "AU-NSW", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z", "evidenceReferenceIds": ["evidence-nsw-1"]},
+    {"kind": "parameters", "contract": "pic-parameters/0.2.0", "artifactUri": "https://raw.githubusercontent.com/edithatogo/rac-conformance/8888888888888888888888888888888888888888/contracts/pic-parameters/0.2.0/examples/valid/parameters-v02-exclusions.json", "sha256": "8282828282828282828282828282828282828282828282828282828282828282", "jurisdiction": "AU-NSW", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z", "evidenceReferenceIds": ["evidence-nsw-1"]},
+    {"kind": "trace", "contract": "pic-traces/0.2.0", "artifactUri": "https://raw.githubusercontent.com/edithatogo/rac-conformance/8888888888888888888888888888888888888888/contracts/pic-traces/0.2.0/examples/valid/trace-v02-missingness.json", "sha256": "8383838383838383838383838383838383838383838383838383838383838383", "jurisdiction": "AU-NSW", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z", "evidenceReferenceIds": ["evidence-nsw-1"]}
+  ],
   "jurisdiction": {"id": "AU-NSW", "profileId": "foi-o-au-nsw", "profileVersion": "0.1.0", "calendarId": "nsw-public-holidays", "calendarVersion": "1.0.0", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z"},
   "legislation": {"repository": "edithatogo/legislation", "revision": "2222222222222222222222222222222222222222", "id": "nsw-gipa-source-pack/0.1.0", "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
   "archive": {

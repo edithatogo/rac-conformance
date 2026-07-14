@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 
@@ -101,10 +101,91 @@ def validate_file(path: Path) -> ValidationReport:
     validator = validator_for(contract, version)
     for error in sorted(validator.iter_errors(doc), key=lambda item: list(item.path)):
         report.add(ValidationIssue(str(path), _format_schema_error(error), "schema"))
+    if contract == "pic-foio-compatibility" and report.ok:
+        report.extend(_compatibility_semantics(path, doc))
     if contract == "pic-parameters":
         for error in validate_parameter_periods(doc):
             report.add(ValidationIssue(f"{path}:{error.path}", error.message, "period"))
     return report
+
+
+def _compatibility_semantics(path: Path, doc: dict[str, Any]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    jurisdiction = doc["jurisdiction"]
+    declared_packages = set(doc["picPackages"])
+    evidence_ids = set(doc["governance"]["evidenceAssertionIds"])
+
+    applicable_at = datetime.fromisoformat(jurisdiction["applicableAt"].replace("Z", "+00:00"))
+    observed_at = datetime.fromisoformat(jurisdiction["observedAt"].replace("Z", "+00:00"))
+    if observed_at < applicable_at:
+        issues.append(
+            ValidationIssue(str(path), "observation time precedes applicable time", "time")
+        )
+
+    matching_profiles = [
+        profile
+        for profile in doc["foioRelease"]["profiles"]
+        if profile["id"] == jurisdiction["profileId"]
+    ]
+    if not matching_profiles or matching_profiles[0]["jurisdiction"] != jurisdiction["id"]:
+        issues.append(
+            ValidationIssue(
+                str(path),
+                "FOI-O profile jurisdiction does not match envelope",
+                "jurisdiction",
+            )
+        )
+    elif matching_profiles[0]["version"] != jurisdiction["profileVersion"]:
+        issues.append(
+            ValidationIssue(
+                str(path), "FOI-O profile version does not match envelope", "version"
+            )
+        )
+
+    for index, artifact in enumerate(doc["picArtifacts"]):
+        location = f"{path}:picArtifacts/{index}"
+        if artifact["contract"] not in declared_packages:
+            issues.append(
+                ValidationIssue(
+                    location,
+                    "artifact contract is not declared in picPackages",
+                    "reference",
+                )
+            )
+        if artifact["jurisdiction"] != jurisdiction["id"]:
+            issues.append(
+                ValidationIssue(
+                    location,
+                    "artifact jurisdiction does not match release envelope",
+                    "jurisdiction",
+                )
+            )
+        if artifact["applicableAt"] != jurisdiction["applicableAt"]:
+            issues.append(
+                ValidationIssue(
+                    location,
+                    "artifact applicable time does not match release envelope",
+                    "time",
+                )
+            )
+        if artifact["observedAt"] != jurisdiction["observedAt"]:
+            issues.append(
+                ValidationIssue(
+                    location,
+                    "artifact observation time does not match release envelope",
+                    "time",
+                )
+            )
+        unknown_evidence = set(artifact["evidenceReferenceIds"]) - evidence_ids
+        if unknown_evidence:
+            issues.append(
+                ValidationIssue(
+                    location,
+                    "artifact references undeclared evidence assertions",
+                    "reference",
+                )
+            )
+    return issues
 
 
 def _json_files(path: Path) -> list[Path]:

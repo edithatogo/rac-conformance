@@ -9,3 +9,10 @@ Mutable revisions such as `main` and `latest` are forbidden. FOI-O epistemic,
 review, extraction, certification, and promotion states remain separate from
 PIC value states. Model-derived records cannot be certified or promoted to gold;
 gold promotion requires an independent oracle and adjudicated or approved review.
+
+`picArtifacts` wraps one fixture, parameter set, and trace without changing the
+underlying PIC contracts. Every wrapper carries the contract version, immutable
+artifact coordinate and digest, jurisdiction, applicable and observation times,
+and evidence references. The deterministic validator requires those values to
+match the release envelope and rejects evidence references not declared by the
+governance assertion ledger.

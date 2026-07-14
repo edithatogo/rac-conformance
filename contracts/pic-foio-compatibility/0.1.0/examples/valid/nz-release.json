@@ -8,7 +8,12 @@
     "capabilityManifestSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
     "migrationCatalogueSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
   },
-  "picPackages": ["pic-crosswalk/0.1.0", "pic-fixtures/0.1.0", "pic-traces/0.2.0"],
+  "picPackages": ["pic-crosswalk/0.1.0", "pic-fixtures/0.1.0", "pic-parameters/0.2.0", "pic-traces/0.2.0"],
+  "picArtifacts": [
+    {"kind": "fixture", "contract": "pic-fixtures/0.1.0", "artifactUri": "https://raw.githubusercontent.com/edithatogo/rac-conformance/7777777777777777777777777777777777777777/contracts/pic-fixtures/0.1.0/examples/valid/plain.json", "sha256": "7171717171717171717171717171717171717171717171717171717171717171", "jurisdiction": "NZ", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z", "evidenceReferenceIds": ["evidence-1"]},
+    {"kind": "parameters", "contract": "pic-parameters/0.2.0", "artifactUri": "https://raw.githubusercontent.com/edithatogo/rac-conformance/7777777777777777777777777777777777777777/contracts/pic-parameters/0.2.0/examples/valid/parameters-v02-exclusions.json", "sha256": "7272727272727272727272727272727272727272727272727272727272727272", "jurisdiction": "NZ", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z", "evidenceReferenceIds": ["evidence-1"]},
+    {"kind": "trace", "contract": "pic-traces/0.2.0", "artifactUri": "https://raw.githubusercontent.com/edithatogo/rac-conformance/7777777777777777777777777777777777777777/contracts/pic-traces/0.2.0/examples/valid/trace-v02-missingness.json", "sha256": "7373737373737373737373737373737373737373737373737373737373737373", "jurisdiction": "NZ", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z", "evidenceReferenceIds": ["evidence-1"]}
+  ],
   "jurisdiction": {"id": "NZ", "profileId": "foi-o-nz", "profileVersion": "2.0.0", "calendarId": "nz-public-holidays", "calendarVersion": "1.0.0", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z"},
   "legislation": {"repository": "edithatogo/legislation", "revision": "2222222222222222222222222222222222222222", "id": "nz-oia-source-pack/1.0.0", "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
   "archive": {

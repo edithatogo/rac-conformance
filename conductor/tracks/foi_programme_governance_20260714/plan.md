@@ -56,7 +56,7 @@
       jurisdiction-profile, and calendar versions and content digests.
 - [x] Task: Define a lossless governance crosswalk that keeps FOI-O epistemic,
       review, extraction, and certification axes separate from PIC `valueState`.
-- [ ] Task: Extend or wrap PIC fixtures, parameters, and traces with common
+- [x] Task: Extend or wrap PIC fixtures, parameters, and traces with common
       jurisdiction, applicable-time, observation-time, and evidence-reference
       metadata without creating a FOI-O runtime dependency on PIC.
 - [x] Task: Write valid examples and at least three negative examples covering
