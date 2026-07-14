@@ -33,10 +33,13 @@ Phase 1 and establishes the implementation home required by
     - [x] Add `foi-process` as a current implementation/evidence consumer and the incubator as a provisional repository home.
     - [x] Update tracks #40-#43 with exact normative and implementation paths.
     - **Acceptance:** local and GitHub dependency graphs agree and no existing repository is repurposed ambiguously.
-- [ ] Task: Define released-contract consumption and compatibility tests
-    - [ ] Pin the process-profile contract version or commit consumed from `rac-conformance`.
-    - [ ] Validate profiles against upstream schemas without copying normative definitions.
-    - [ ] Add compatibility-matrix and provenance checks for FOI-O and foi-process inputs.
+- [x] Task: Define released-contract consumption and compatibility tests
+    - [x] Pin the process-profile contract version or commit consumed from `rac-conformance`.
+    - [x] Validate profiles against upstream schemas without copying normative definitions.
+    - [x] Add compatibility-matrix and provenance checks for FOI-O and foi-process inputs.
+    - Evidence: `subrepos/process-mappings/contracts/consumption.json`,
+      `contracts/tools/src/pic_contracts/process_mappings_consumption.py`, and
+      `contracts/tools/tests/test_process_mappings_consumption.py`.
     - **Acceptance:** drift is detected deterministically and cannot silently fork PIC or FOI semantics.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Parent Integration and Contract Discipline' (Protocol in workflow.md)
 
