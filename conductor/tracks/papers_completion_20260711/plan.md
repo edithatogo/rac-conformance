@@ -61,6 +61,11 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 
 - [ ] Task: Verify the immutable `foi-o` release tag, commit SHA, contract and
       schema versions, capability matrix, migrations, and reproducibility commands.
+
+> BLOCKED (2026-07-14): `edithatogo/foi-o` has no published immutable release;
+> GitHub issue #31 remains open with `external-gate`, `human-gate`, and
+> `publication` labels. No release tag, commit pin, or evidence bundle may be
+> inferred or fabricated.
 - [ ] Task: Import the release-evidence bundle containing tests, fixtures,
       provenance, empirical results, exception summaries, and known limitations.
 - [ ] Task: Diff release evidence against manuscript claims and regenerate all
@@ -71,6 +76,23 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 > BLOCKED (2026-07-14): This phase begins only after `foi-o` publishes the next
 immutable release and its release-evidence bundle. Publication remains
 human-authorized after the refresh.
+
+## Phase 4.8 - Programme citation and mirror reconciliation
+
+- [x] Task: Add or correct `CITATION.cff` metadata for every included FOI
+      programme repository and tool.
+- [x] Task: Add the shared version/Zenodo/Hugging Face mirror manifest and
+      ledger rows, including Alaveteli's source-intelligence-only boundary.
+- [ ] Task: [HUMAN] Publish each tagged release to Zenodo and replace pending
+      statuses with verified version and concept DOIs.
+- [ ] Task: [HUMAN] Pin the Hugging Face dataset repository, revision, and
+      digest for the exact archive-derived layer used in the manuscripts.
+- [ ] Task: Run the citation validator and live DOI audit before the release
+      refresh checkpoint.
+
+> CHECKPOINT (2026-07-14): Local CFF and manuscript-register work is complete.
+> `fyi-archive` has a verified version DOI; all other included release mirrors
+> remain explicit human publication gates rather than fabricated citations.
 
 ## Phase 5 - Human submission gates
 
