@@ -17,7 +17,9 @@
 
 > BLOCKED (2026-07-14): Remaining upstream actions require maintainer-only
 > workflow approval/review, Axiom signing credentials, or upstream merge
-> authority. No contributor-controlled change can clear these external gates.
+> authority. PolicyEngine maintainers have now provided constructive comments
+> on #515-#517, but hosted checks remain held pending fork workflow approval;
+> upstream follow-up must remain staged here and cannot be pushed by this repo.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Review response' (Protocol in workflow.md)
 
 > BLOCKED (2026-07-11): Remaining work requires upstream maintainer workflow approval/review and an Axiom signing key. No contributor-controlled fix can clear these external gates.
