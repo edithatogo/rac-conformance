@@ -33,12 +33,13 @@ during the repository incubation governed by
 
 ## Phase 2 - Process Mapping and Triangulation
 
-- [ ] Task: Draft process-profile candidates
-    - [ ] Store candidate mappings under `subrepos/process-mappings/profiles/adverse-incidents/candidates/`.
-    - [ ] Model detection through closure with stable IDs and explicit human tasks.
-    - [ ] Model open communication as a continuing relational process, not a one-time notification flag.
-    - [ ] Link reporting, complaints, review, disclosure, and improvement as related but distinct processes.
+- [x] Task: Draft process-profile candidates
+    - [x] Store candidate mappings under `subrepos/process-mappings/profiles/adverse-incidents/candidates/`.
+    - [x] Model detection through closure with stable IDs and explicit human tasks.
+    - [x] Model open communication as a continuing relational process, not a one-time notification flag.
+    - [x] Link reporting, complaints, review, disclosure, and improvement as related but distinct processes.
     - **Acceptance:** all mappings are `agent-proposed` until source and human review gates pass.
+    - Evidence: `subrepos/process-mappings/profiles/adverse-incidents/candidates/CANDIDATE_MAPPINGS.json` and `SOURCE_ASSERTIONS.json`.
 - [ ] Task: Implement deterministic source triangulation
     - [ ] Require controlling primary-source support for normative obligation labels.
     - [ ] Resolve national/regional overlays by jurisdiction, authority, effective date, and applicability.
