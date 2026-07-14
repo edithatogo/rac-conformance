@@ -35,6 +35,19 @@ A standard may be *extracted* from these working exchanges later. It is explicit
 4. Publish the rules/process coupling companion paper (arXiv; target International Journal of Microsimulation or equivalent).
 5. Only after 1–4: assess whether to formalize the contracts as a community standard via the DBN CoP.
 
+## Current maturity phase
+
+The original goals above established the evidence-first 0.x programme. The v1
+programme is defined in `V1_ROADMAP.md` and MUST preserve that sequencing. It
+adds a platform-neutral process profile, adverse-incident/open-disclosure and
+medicine-regulatory/payer pathway evidence, an optional Camunda portability
+adapter, engineering hardening, and independent implementation validation.
+
+RaC Conformance 1.0 is a compatibility and evidence commitment, not a claim that
+the project is a legal, clinical, funding, or standards authority. General
+release requires at least one qualifying implementation outside repositories
+controlled by the maintainer.
+
 ## Success metrics
 
 - An external maintainer merges a contribution that consumes a contract from this repo.

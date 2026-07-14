@@ -100,10 +100,72 @@ Track ID: `foi_programme_quality_and_spacy_20260714`
 
 ---
 
-## Program status (2026-07-09)
+- [ ] **Track: Define the RaC Conformance v1 foundation and governance contract**
+Track ID: `v1_foundation_20260714`
+GitHub issue: [#39](https://github.com/edithatogo/rac-conformance/issues/39)
+*Link: [./tracks/v1_foundation_20260714/](./tracks/v1_foundation_20260714/)*
 
-All in-scope Conductor tracks for this program are **complete/archived**.
-arXiv submissions **deferred**; papers ledger: https://github.com/users/edithatogo/projects/20
-External monitoring: `external/MAINTAINER_MONITORING.md`.
-Local product follow-through: `edithatogo/foi-o` PRs #20/#21 merged.
-Fork SoT: `external/FORK_LOCAL_STATUS.md`. fyi-cli integration deferred: `external/fyi-cli/INTEGRATION_NOTES.md`.
+---
+
+- [ ] **Track: Define the platform-neutral PIC process profile**
+Track ID: `pic_process_profile_20260714`
+GitHub issue: [#40](https://github.com/edithatogo/rac-conformance/issues/40)
+*Link: [./tracks/pic_process_profile_20260714/](./tracks/pic_process_profile_20260714/)*
+
+---
+
+- [ ] **Track: Map adverse-incident management and open disclosure**
+Track ID: `adverse_incident_open_disclosure_20260714`
+GitHub issue: [#41](https://github.com/edithatogo/rac-conformance/issues/41)
+*Link: [./tracks/adverse_incident_open_disclosure_20260714/](./tracks/adverse_incident_open_disclosure_20260714/)*
+
+---
+
+- [ ] **Track: Compare medicine regulatory and payer pathways**
+Track ID: `health_technology_pathways_20260714`
+GitHub issue: [#42](https://github.com/edithatogo/rac-conformance/issues/42)
+*Link: [./tracks/health_technology_pathways_20260714/](./tracks/health_technology_pathways_20260714/)*
+
+---
+
+- [ ] **Track: Prove PIC process portability with Camunda 8**
+Track ID: `camunda_portability_20260714`
+GitHub issue: [#43](https://github.com/edithatogo/rac-conformance/issues/43)
+*Link: [./tracks/camunda_portability_20260714/](./tracks/camunda_portability_20260714/)*
+
+---
+
+- [ ] **Track: Harden RaC Conformance engineering and supply chain for v1**
+Track ID: `v1_engineering_hardening_20260714`
+GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44)
+*Link: [./tracks/v1_engineering_hardening_20260714/](./tracks/v1_engineering_hardening_20260714/)*
+
+---
+
+- [ ] **Track: Obtain independent v1 validation and adoption evidence**
+Track ID: `v1_independent_validation_20260714`
+GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45)
+*Link: [./tracks/v1_independent_validation_20260714/](./tracks/v1_independent_validation_20260714/)*
+
+---
+
+- [ ] **Track: Qualify and release RaC Conformance v1.0**
+Track ID: `v1_release_20260714`
+GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46)
+*Link: [./tracks/v1_release_20260714/](./tracks/v1_release_20260714/)*
+
+---
+
+## Program status (2026-07-14)
+
+The original evidence-first and v0.2 implementation roadmap is
+**complete/archived**. Existing citation, external-adoption, paper, and FOI
+governance gates remain active above. The v1 evidence and maturity roadmap is now
+registered as issues #38-#46 and the eight tracks below; none is represented as
+started or complete.
+
+arXiv submissions remain **deferred**; papers ledger:
+https://github.com/users/edithatogo/projects/20. External monitoring remains in
+`external/MAINTAINER_MONITORING.md`. Fork source of truth remains
+`external/FORK_LOCAL_STATUS.md`; fyi-cli integration remains deferred in
+`external/fyi-cli/INTEGRATION_NOTES.md`.

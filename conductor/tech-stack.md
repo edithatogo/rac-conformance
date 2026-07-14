@@ -15,6 +15,7 @@
 | CI | GitHub Actions | Validate contracts, run reference validator on examples, run tests |
 | Serialization | Plain JSON (canonical), YAML accepted at import boundaries | OpenFisca/PolicyEngine test/parameter files are YAML |
 | JSON-LD | **Optional overlay only** — deferred; no `@context` required by any contract in v0.1 | Review decision (views/06 §5) |
+| Optional process adapter | Camunda 8 BPMN + official Camunda Process Test, Java 17+ test module | v1 portability evidence only; exact versions must be pinned by `camunda_portability_20260714`; never a PIC core dependency |
 
 ## External surfaces this project writes against
 
@@ -26,6 +27,7 @@
 | OpenFisca (`openfisca-core`, country packages) | Python, YAML parameters and YAML tests, Web API with `/trace` | Fixture converter target |
 | Atlanta Fed Policy Rules Database | **R** + RData parameters | Divergence study requires an R runner (`Rscript`) or a Python re-implementation of their published functions — see Track 5 spec for the decision |
 | Alaveteli | Ruby on Rails | Track 6 contributions are data/spec-level (state taxonomies), not Ruby code, unless trivial |
+| Camunda 8 | BPMN, optional DMN/FEEL, job workers/connectors, Camunda Process Test | Optional adapter only. Keep substantive deterministic rules behind typed service/worker boundaries and human judgement in user tasks. Do not use token simulation or AI judge assertions as conformance evidence. |
 
 ## Environment assumptions for agents
 

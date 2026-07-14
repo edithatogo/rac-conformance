@@ -1,0 +1,8 @@
+{
+  "track_id": "pic_process_profile_20260714",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-14T13:26:13Z",
+  "updated_at": "2026-07-14T13:26:13Z",
+  "description": "Define and validate a platform-neutral PIC process profile for states, events, timers, human tasks, rule calls, evidence, authority, and traces."
+}

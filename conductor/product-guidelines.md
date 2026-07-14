@@ -19,12 +19,15 @@
 3. **Fixtures are interpretations, not law.** Every fixture file carries `interpreterOfRecord` and a disclaimer field.
 4. **No mapping without a consumer.** No crosswalk or export target is added without a working converter and a named user.
 5. **Upstream etiquette.** Contributions to other repos solve that repo's problem in that repo's idiom; the contracts are referenced in a "format" footnote, never as the headline. Never open more than one unresolved proposal per upstream repo at a time.
+6. **Health-process safety.** Use public or appropriately licensed sources and synthetic cases only. Never automate clinical causation, harm severity, disclosure content, market authorisation, reimbursement, or patient-level access judgements. Conformance proves artifact behavior within scope; it does not certify care, legal compliance, or funding correctness.
+7. **Authority separation.** Regulators, HTA bodies, payers, service-funding bodies, ministers/delegates, and post-market authorities retain distinct roles. A shared process concept never implies equivalent authority or decision criteria.
 
 ## Versioning and change control
 
 - Contracts use semantic versioning independently of each other (`pic-fixtures/0.2.0` may ship while `pic-traces` stays at 0.1.x).
 - Breaking changes require: a CHANGELOG entry, a migration note, and confirmation that all known consumers have been notified (tracked in `contracts/CONSUMERS.md`).
 - Spec changes move at human-review speed regardless of how fast an agent can draft them.
+- Platform adapters such as Camunda version independently and remain optional; they cannot make BPMN, DMN, FEEL, Java, or a workflow runtime a PIC core dependency.
 
 ## Licensing
 

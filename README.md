@@ -6,7 +6,7 @@ Evidence-first program for **policy interchange contracts (PIC)**, conformance h
 
 This repository began as a ChatGPT-produced review pack for **RaCX** (a proposed "Rules-as-Code Exchange Superset"). It was independently reviewed and **re-scoped from a proposed standard into working contracts, consumers, studies, and staged upstream contributions** — with any community standard extracted later from exchanges that demonstrably work.
 
-**Program status (2026-07-09):** all registered Conductor tracks are **repo-local complete**. External maintainer monitoring continues via [`external/MAINTAINER_MONITORING.md`](external/MAINTAINER_MONITORING.md).
+**Program status (2026-07-14):** the original evidence-first and v0.2 implementation tracks are **repo-local complete**. External maintainer and publication gates remain open, and the planned v1 evidence/maturity tracks are registered in [`conductor/tracks.md`](conductor/tracks.md).
 
 ## Reading order
 
@@ -15,6 +15,7 @@ This repository began as a ChatGPT-produced review pack for **RaCX** (a proposed
 3. [`conductor/product.md`](conductor/product.md) — product definition
 4. [`conductor/tracks.md`](conductor/tracks.md) — tracks (mostly archived; see active closeout if any)
 5. [`conductor/NEXTGEN_RELEASE_STATUS.md`](conductor/NEXTGEN_RELEASE_STATUS.md) — release matrix and external gates
+6. [`conductor/V1_ROADMAP.md`](conductor/V1_ROADMAP.md) — evidence, process-domain, portability, hardening, and independent-adoption gates for 1.0
 6. [`AGENTS.md`](AGENTS.md) — instructions for AI agents implementing this repo
 
 ## Repository map

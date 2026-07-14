@@ -30,9 +30,9 @@ This document limits which `edithatogo` repositories are in scope for the next-g
 | Repository | Possible Use | Entry Condition |
 |---|---|---|
 | `edithatogo/corpus-nz-hansard` | Legislative debate/background corpus. | A track needs legislative-history context; not for controlling rule assertions. |
-| `edithatogo/corpus-cases-medilegal-nz` | Tribunal/case-law style evidence patterns. | A future health/legal rules track needs adjudication-pattern evidence. |
-| `edithatogo/reimbursement-atlas` | Health-funding policy calculations and evidence-readiness patterns. | A health-funding rules/process case study is explicitly selected. |
-| `edithatogo/mchs` | IHACPA/NWAU/microcosting rules and connector work. | A track targets health-service funding conformance or Power Platform integration. |
+| `edithatogo/corpus-cases-medilegal-nz` | Tribunal/case-law style evidence patterns. | `adverse_incident_open_disclosure_20260714` identifies a public, controlling adjudication-pattern question that policy and legislation do not resolve; case material remains interpretation evidence, not a runtime oracle. |
+| `edithatogo/reimbursement-atlas` | Health-funding policy calculations and evidence-readiness patterns. | `health_technology_pathways_20260714` identifies an exact reusable source, evidence, or comparison artifact and records provenance; do not duplicate its product scope here. |
+| `edithatogo/mchs` | IHACPA/NWAU/microcosting rules and connector work. | `health_technology_pathways_20260714` or `camunda_portability_20260714` identifies an exact service-funding or orchestration consumer; no general code sharing by adjacency. |
 | `edithatogo/gtpcnz` | Primary-care funding architecture model. | A track targets Aotearoa funding rules or policy-simulation evidence. |
 | `edithatogo/healthpoint-rs` | FHIR/API service-boundary patterns. | A track needs health API integration or service-boundary lessons. |
 | `edithatogo/api-standards` | API governance precedent. | A track defines service/API profile for PIC rule runners. |
@@ -67,3 +67,8 @@ These are not `edithatogo` repositories but remain relevant to the roadmap:
 - Alaveteli/mySociety.
 - Docassemble.
 - CiviForm.
+- Camunda 8, limited to the optional process-profile portability adapter and
+  deterministic test surface in `camunda_portability_20260714`.
+- Official health authorities used as source owners, including Te Tāhū Hauora,
+  HDC, Medsafe, Pharmac, TGA, PBAC/PBS, MSAC/MBS, NICE/MHRA, and FDA. These are
+  evidence sources or external authorities, not presumed software adopters.

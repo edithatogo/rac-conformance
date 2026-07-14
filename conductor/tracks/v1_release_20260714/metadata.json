@@ -1,0 +1,8 @@
+{
+  "track_id": "v1_release_20260714",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-14T13:26:13Z",
+  "updated_at": "2026-07-14T13:26:13Z",
+  "description": "Qualify, publish, verify, and close the RaC Conformance v1.0 release after all technical, independent, external, and human gates pass."
+}
