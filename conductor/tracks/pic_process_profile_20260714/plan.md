@@ -68,4 +68,7 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
     - [x] Update consumer and compatibility matrices.
     - **Acceptance:** all gates pass or exact external/human blockers are recorded.
     - **Evidence:** `contracts/process-profile/COMPATIBILITY.md`, `contracts/CONSUMERS.md`, candidate corpus tests, and full `make check` provide the current compatibility boundary; human mapping certification remains open.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - FOI-O Baseline Validation' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - FOI-O Baseline Validation' (Protocol in workflow.md)
+    - **Review:** Phase 3 review found no candidate promotion or source-authority leakage; all mappings remain agent-proposed and the compatibility matrix records the human certification boundary.
+
+> CHECKPOINT (2026-07-15): The FOI candidate corpus covers receipt, statutory deadline, transfer, extension, refusal-review, and human-review exception concepts with stable IDs, source references, and explicit loss. `make check` passes and `contracts/process-profile/COMPATIBILITY.md` records candidate-compatible versus unimplemented consumers. **BLOCKED on [HUMAN] certification:** controlling FOI-O mappings and any fixture promotion require Dylan's review of primary-source assertions and exceptions.
