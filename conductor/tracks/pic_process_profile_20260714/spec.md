@@ -9,7 +9,14 @@ administrative processes invoke deterministic rules and produce auditable traces
 The contract must be implementable without FOI-O, BPMN, Camunda, or a new
 ontology.
 
-Depends on: `v1_foundation_20260714` Phase 1.
+Depends on: `v1_foundation_20260714` Phase 1 and the incubation boundary in
+`process_mappings_repository_20260714`.
+
+Normative schemas, validators, and conformance tests remain under
+`contracts/process-profile/` and `contracts/tools/` in `rac-conformance`.
+Source-backed domain profiles and compatibility datasets live under
+`subrepos/process-mappings/profiles/` during incubation and move only through
+the approved repository cutover.
 
 ## Functional Requirements
 
@@ -24,6 +31,8 @@ Depends on: `v1_foundation_20260714` Phase 1.
 6. Define deterministic projection into and out of platform traces without
    claiming lossless equivalence.
 7. Map FOI-O as the baseline consumer and publish documented loss or exceptions.
+8. Consume foi-process traces or OCEL projections only as pinned implementation
+   evidence; FOI-O remains authoritative for FOI semantics.
 
 ## Non-Functional Requirements
 

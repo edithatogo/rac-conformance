@@ -11,6 +11,10 @@ the platform-neutral contract and Camunda is neither normative nor required.
 
 Depends on: `pic_process_profile_20260714` and one certified process demonstrator.
 
+Implementation home: optional BPMN, adapter, and platform-test artifacts live
+under `subrepos/process-mappings/adapters/camunda/`. Normative PIC schemas and
+platform-neutral conformance remain in `rac-conformance`.
+
 ## Functional Requirements
 
 1. Record an architecture decision selecting a pinned supported Camunda 8 test
@@ -33,7 +37,7 @@ Depends on: `pic_process_profile_20260714` and one certified process demonstrato
 - No AI judge assertions, runtime LLMs, or token simulation as conformance proof.
 - Avoid committing runtime state, credentials, proprietary images, or generated
   reports that cannot be reproduced.
-- Keep the adapter isolated under `demos/camunda/` or another approved boundary.
+- Keep the adapter isolated under `subrepos/process-mappings/adapters/camunda/`.
 
 ## Acceptance Criteria
 

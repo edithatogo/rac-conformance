@@ -16,7 +16,7 @@ This repository began as a ChatGPT-produced review pack for **RaCX** (a proposed
 4. [`conductor/tracks.md`](conductor/tracks.md) — tracks (mostly archived; see active closeout if any)
 5. [`conductor/NEXTGEN_RELEASE_STATUS.md`](conductor/NEXTGEN_RELEASE_STATUS.md) — release matrix and external gates
 6. [`conductor/V1_ROADMAP.md`](conductor/V1_ROADMAP.md) — evidence, process-domain, portability, hardening, and independent-adoption gates for 1.0
-6. [`AGENTS.md`](AGENTS.md) — instructions for AI agents implementing this repo
+7. [`AGENTS.md`](AGENTS.md) — instructions for AI agents implementing this repo
 
 ## Repository map
 
@@ -28,6 +28,7 @@ This repository began as a ChatGPT-produced review pack for **RaCX** (a proposed
 | `studies/` | Active | SNAP divergence; NZ RuleSpec ↔ OpenFisca Aotearoa reconciliation |
 | `demos/` | Active | Service-boundary mocks + Docassemble OIA clock interview package |
 | `external/` | Active | Staged upstream packets + [`ADOPTION_STATUS.md`](external/ADOPTION_STATUS.md) |
+| `subrepos/process-mappings/` | **Non-canonical incubator** | Proposed standalone home for source-backed process profiles and optional platform adapters; extraction requires the human gate in [#50](https://github.com/edithatogo/rac-conformance/issues/50) |
 | `papers/` | Active | Coupling companion paper draft; arXiv **deferred**; see [`papers/README.md`](papers/README.md) and [Project 20](https://github.com/users/edithatogo/projects/20) |
 | `conductor/` | Active | Product, workflow, release status; completed tracks in `archive/` |
 | `views/` | Active | Review documents (ChatGPT 00–05; Fable 5 review/pivot 06–07) |
@@ -62,6 +63,8 @@ GitHub roadmap parent: [#6](https://github.com/edithatogo/rac-conformance/issues
 ## Relationship to other repos
 
 - **`edithatogo/foi-o`**: process-heavy testbed; first PIC consumer (OIA rules module merged).
+- **`edithatogo/foi-process`**: deterministic FOI event/replay/OCEL implementation and operational evidence consumer; not the generic mapping authority.
+- **Proposed `edithatogo/process-mappings`**: incubating under `subrepos/process-mappings/`; future home for source-backed profiles and optional platform adapters after an explicit cutover.
 - **PolicyEngine / Axiom / OpenFisca**: rules-heavy testbeds; receive fixture/trace/validation contributions.
 - **Alaveteli (mySociety)**: process-side upstream for foi-o's state model.
 - **BetterRules/openfisca-aotearoa**: NZ comparative target; coverage gap documented.

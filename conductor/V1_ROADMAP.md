@@ -16,14 +16,32 @@ PIC remains a platform-neutral interchange and conformance layer. FOI-O remains
 the first process-heavy consumer. The next evidence programme adds:
 
 1. a normative process profile that can be implemented without FOI-O or BPMN;
-2. an adverse-incident and open-disclosure demonstrator combining policy, law,
+2. a separately governed process-mappings repository for source-backed domain
+   profiles and optional platform adapters;
+3. an adverse-incident and open-disclosure demonstrator combining policy, law,
    human judgement, national guidance, and regional implementation;
-3. a regulator-to-payer pathway comparison that preserves institutional roles;
-4. a Camunda adapter proving that the process profile is portable to an
+4. a regulator-to-payer pathway comparison that preserves institutional roles;
+5. a Camunda adapter proving that the process profile is portable to an
    enterprise orchestration platform;
-5. engineering, security, compatibility, and release hardening; and
-6. validation by at least one implementation outside repositories controlled by
+6. engineering, security, compatibility, and release hardening; and
+7. validation by at least one implementation outside repositories controlled by
    the project maintainer.
+
+## Repository architecture
+
+- `rac-conformance` owns normative PIC contracts, validators, conformance
+  harnesses, qualification, and release evidence.
+- `process-mappings` is incubated under `subrepos/process-mappings/` and is the
+  proposed home for source-backed profiles, jurisdiction overlays, synthetic
+  candidate scenarios, and optional platform adapters.
+- `foi-o` owns FOI semantics and jurisdiction profiles.
+- `foi-process` owns deterministic FOI event/replay/OCEL/process-intelligence
+  implementation and supplies operational evidence to the FOI compatibility
+  profile.
+
+The incubator does not become a standalone canonical repository until the human
+cutover gate in [#50](https://github.com/edithatogo/rac-conformance/issues/50).
+After extraction, two writable sources of truth are prohibited.
 
 ## Authority boundaries
 
@@ -141,14 +159,15 @@ state, source authority, applicable jurisdiction, and human review status.
 ## Track dependency graph
 
 1. `v1_foundation_20260714` ([#39](https://github.com/edithatogo/rac-conformance/issues/39))
-2. `pic_process_profile_20260714` ([#40](https://github.com/edithatogo/rac-conformance/issues/40)) depends on 1
-3. `adverse_incident_open_disclosure_20260714` ([#41](https://github.com/edithatogo/rac-conformance/issues/41)) depends on 2
-4. `health_technology_pathways_20260714` ([#42](https://github.com/edithatogo/rac-conformance/issues/42)) depends on 2
-5. `camunda_portability_20260714` ([#43](https://github.com/edithatogo/rac-conformance/issues/43)) depends on 2 and one certified demonstrator
-6. `v1_engineering_hardening_20260714` ([#44](https://github.com/edithatogo/rac-conformance/issues/44)) depends on 2 and may run alongside 3-5
-7. `v1_independent_validation_20260714` ([#45](https://github.com/edithatogo/rac-conformance/issues/45)) depends on stable release-candidate
-   artifacts from 3-6 and complements `external_adoption_20260711`
-8. `v1_release_20260714` ([#46](https://github.com/edithatogo/rac-conformance/issues/46)) depends on 1-7 and all applicable human/external gates
+2. `process_mappings_repository_20260714` ([#50](https://github.com/edithatogo/rac-conformance/issues/50)) depends on 1 and establishes the profile implementation home
+3. `pic_process_profile_20260714` ([#40](https://github.com/edithatogo/rac-conformance/issues/40)) depends on 1 and uses the home established by 2
+4. `adverse_incident_open_disclosure_20260714` ([#41](https://github.com/edithatogo/rac-conformance/issues/41)) depends on 3
+5. `health_technology_pathways_20260714` ([#42](https://github.com/edithatogo/rac-conformance/issues/42)) depends on 3
+6. `camunda_portability_20260714` ([#43](https://github.com/edithatogo/rac-conformance/issues/43)) depends on 3 and one certified demonstrator
+7. `v1_engineering_hardening_20260714` ([#44](https://github.com/edithatogo/rac-conformance/issues/44)) depends on 3 and may run alongside 4-6
+8. `v1_independent_validation_20260714` ([#45](https://github.com/edithatogo/rac-conformance/issues/45)) depends on stable release-candidate
+   artifacts from 4-7 and complements `external_adoption_20260711`
+9. `v1_release_20260714` ([#46](https://github.com/edithatogo/rac-conformance/issues/46)) depends on 1-8 and all applicable human/external gates
 
 ## Evidence and publication posture
 

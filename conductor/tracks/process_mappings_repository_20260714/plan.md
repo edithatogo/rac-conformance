@@ -28,10 +28,10 @@ Phase 1 and establishes the implementation home required by
 
 ## Phase 2 - Parent Integration and Contract Discipline
 
-- [ ] Task: Wire parent roadmap and repository boundaries
-    - [ ] Insert this track between the v1 foundation and process-profile implementation.
-    - [ ] Add `foi-process` as a current implementation/evidence consumer and the incubator as a provisional repository home.
-    - [ ] Update tracks #40-#43 with exact normative and implementation paths.
+- [x] Task: Wire parent roadmap and repository boundaries
+    - [x] Insert this track between the v1 foundation and process-profile implementation.
+    - [x] Add `foi-process` as a current implementation/evidence consumer and the incubator as a provisional repository home.
+    - [x] Update tracks #40-#43 with exact normative and implementation paths.
     - **Acceptance:** local and GitHub dependency graphs agree and no existing repository is repurposed ambiguously.
 - [ ] Task: Define released-contract consumption and compatibility tests
     - [ ] Pin the process-profile contract version or commit consumed from `rac-conformance`.

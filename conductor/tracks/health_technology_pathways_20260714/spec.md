@@ -17,6 +17,11 @@ specific case requires human approval after a source-readiness assessment.
 
 Depends on: `pic_process_profile_20260714` Phase 2.
 
+Implementation home: source manifests, authority matrices, candidate mappings,
+and synthetic comparison scenarios live under
+`subrepos/process-mappings/profiles/health-technology/`. Normative PIC schemas
+and conformance behavior remain in `rac-conformance`.
+
 ## Functional Requirements
 
 1. Create an authority/function matrix for NZ, Australia, UK, and US pathways.

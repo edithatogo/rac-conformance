@@ -112,6 +112,13 @@ GitHub issue: [#39](https://github.com/edithatogo/rac-conformance/issues/39)
 
 ---
 
+- [ ] **Track: Incubate and extract the process-mappings repository**
+Track ID: `process_mappings_repository_20260714`
+GitHub issue: [#50](https://github.com/edithatogo/rac-conformance/issues/50)
+*Link: [./tracks/process_mappings_repository_20260714/](./tracks/process_mappings_repository_20260714/)*
+
+---
+
 - [ ] **Track: Define the platform-neutral PIC process profile**
 Track ID: `pic_process_profile_20260714`
 GitHub issue: [#40](https://github.com/edithatogo/rac-conformance/issues/40)
@@ -166,8 +173,8 @@ GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46)
 The original evidence-first and v0.2 implementation roadmap is
 **complete/archived**. Existing citation, external-adoption, paper, and FOI
 governance gates remain active above. The v1 evidence and maturity roadmap is now
-registered as issues #38-#46 and the eight tracks below; none is represented as
-started or complete.
+registered as issues #38-#46 and #50 and the nine tracks below; none is
+represented as started or complete.
 
 arXiv submissions remain **deferred**; papers ledger:
 https://github.com/users/edithatogo/projects/20. External monitoring remains in

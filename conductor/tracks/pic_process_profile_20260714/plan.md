@@ -2,6 +2,11 @@
 
 GitHub issue: [#40](https://github.com/edithatogo/rac-conformance/issues/40). Depends on [#39](https://github.com/edithatogo/rac-conformance/issues/39) Phase 1.
 
+Repository home: normative contract work remains in
+`contracts/process-profile/` and `contracts/tools/`; source-backed profile data
+is implemented under `subrepos/process-mappings/profiles/` during incubation
+under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
+
 ## Phase 1 - Consumer and Semantic Inventory
 
 - [ ] Task: Inventory process concepts from real consumers
@@ -41,6 +46,7 @@ GitHub issue: [#40](https://github.com/edithatogo/rac-conformance/issues/40). De
     - [ ] Map state, event, statutory-clock, transfer, extension, refusal, and review traces by stable identifier.
     - [ ] Record unsupported or lossy mappings explicitly.
     - [ ] Keep AI-drafted mappings in candidates pending human review.
+    - [ ] Implement profile data under `subrepos/process-mappings/profiles/foi/` and consume pinned foi-process exports only as execution evidence.
     - **Acceptance:** the corpus validates and does not alter FOI-O runtime authority.
 - [ ] Task: [HUMAN] Certify controlling FOI-O mappings
     - [ ] Present only contested source assertions and mapping exceptions.

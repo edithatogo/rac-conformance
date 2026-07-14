@@ -2,9 +2,14 @@
 
 GitHub issue: [#41](https://github.com/edithatogo/rac-conformance/issues/41). Depends on [#40](https://github.com/edithatogo/rac-conformance/issues/40) Phase 2.
 
+Implementation home: `subrepos/process-mappings/profiles/adverse-incidents/`
+during the repository incubation governed by
+[#50](https://github.com/edithatogo/rac-conformance/issues/50).
+
 ## Phase 1 - Source and Authority Spine
 
 - [ ] Task: Build versioned primary-source manifest
+    - [ ] Store the profile source ledger under `subrepos/process-mappings/profiles/adverse-incidents/sources/`.
     - [ ] Pin current NZ national policy, HDC guidance/Code basis, Australian national framework/standard, and NSW directives/guidance.
     - [ ] Record issuer, jurisdiction, authority type, applicability, effective date, supersession, retrieval time, rights, and digest.
     - [ ] Mark blocked or ambiguous documents explicitly; do not substitute secondary summaries.
@@ -19,6 +24,7 @@ GitHub issue: [#41](https://github.com/edithatogo/rac-conformance/issues/41). De
 ## Phase 2 - Process Mapping and Triangulation
 
 - [ ] Task: Draft process-profile candidates
+    - [ ] Store candidate mappings under `subrepos/process-mappings/profiles/adverse-incidents/candidates/`.
     - [ ] Model detection through closure with stable IDs and explicit human tasks.
     - [ ] Model open communication as a continuing relational process, not a one-time notification flag.
     - [ ] Link reporting, complaints, review, disclosure, and improvement as related but distinct processes.

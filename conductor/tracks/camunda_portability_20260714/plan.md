@@ -2,6 +2,10 @@
 
 GitHub issue: [#43](https://github.com/edithatogo/rac-conformance/issues/43). Depends on [#40](https://github.com/edithatogo/rac-conformance/issues/40) and one certified demonstrator from [#41](https://github.com/edithatogo/rac-conformance/issues/41) or [#42](https://github.com/edithatogo/rac-conformance/issues/42).
 
+Implementation home: `subrepos/process-mappings/adapters/camunda/` during the
+repository incubation governed by
+[#50](https://github.com/edithatogo/rac-conformance/issues/50).
+
 ## Phase 1 - Architecture and Reproducibility
 
 - [ ] Task: Record Camunda adapter architecture decision
@@ -10,6 +14,7 @@ GitHub issue: [#43](https://github.com/edithatogo/rac-conformance/issues/43). De
     - [ ] Define rule-worker, human-task, trace, error, credential, and data boundaries.
     - **Acceptance:** the decision explains why Camunda is optional and identifies unsupported assumptions.
 - [ ] Task: Scaffold reproducible adapter test module
+    - [ ] Create the module under `subrepos/process-mappings/adapters/camunda/` without adding Java, Docker, or Camunda dependencies to PIC core.
     - [ ] Pin Java/build/Testcontainers/Camunda dependencies and container images.
     - [ ] Add offline-friendly dependency and image documentation.
     - [ ] Add a smoke test and CI job that can be disabled only with an explicit environment reason.

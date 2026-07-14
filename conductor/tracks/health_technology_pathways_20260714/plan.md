@@ -2,6 +2,10 @@
 
 GitHub issue: [#42](https://github.com/edithatogo/rac-conformance/issues/42). Depends on [#40](https://github.com/edithatogo/rac-conformance/issues/40) Phase 2.
 
+Implementation home: `subrepos/process-mappings/profiles/health-technology/`
+during the repository incubation governed by
+[#50](https://github.com/edithatogo/rac-conformance/issues/50).
+
 ## Phase 1 - Authority and Source Architecture
 
 - [ ] Task: Build regulator, HTA, payer, and service-funding authority matrix
@@ -10,6 +14,7 @@ GitHub issue: [#42](https://github.com/edithatogo/rac-conformance/issues/42). De
     - [ ] Mark non-equivalent and absent functions explicitly.
     - **Acceptance:** automated checks reject FDA-as-payer, MBS-as-medicine-regulator, and other false-equivalence assertions.
 - [ ] Task: Build versioned primary-source manifests
+    - [ ] Store source ledgers under `subrepos/process-mappings/profiles/health-technology/sources/`.
     - [ ] Pin current official process manuals, legislation or regulations where needed, application guidance, and public decision-record formats.
     - [ ] Record effective date, retrieval time, version, supersession, rights, and digest.
     - [ ] Record inaccessible confidential stages as unavailable rather than filling gaps.
@@ -45,6 +50,7 @@ GitHub issue: [#42](https://github.com/edithatogo/rac-conformance/issues/42). De
     - [ ] Add negative tests for jurisdiction, authority, indication, date, confidentiality, and causal-claim leakage.
     - **Acceptance:** tests fail before profile implementation.
 - [ ] Task: Implement two regulator-to-funder jurisdiction profiles
+    - [ ] Store candidate mappings and scenarios under `subrepos/process-mappings/profiles/health-technology/candidates/` until certification.
     - [ ] Use the shared process profile with jurisdiction-owned extensions only where consumed.
     - [ ] Generate deterministic normalized traces and a documented difference report.
     - [ ] Keep all proposed outcomes in candidates pending certification.

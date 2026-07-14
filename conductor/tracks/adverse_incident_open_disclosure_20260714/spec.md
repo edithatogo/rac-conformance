@@ -13,6 +13,10 @@ common principles and jurisdictional implementation variation.
 
 Depends on: `pic_process_profile_20260714` Phase 2.
 
+Implementation home: source manifests, candidate mappings, and synthetic
+scenarios live under `subrepos/process-mappings/profiles/adverse-incidents/`.
+Normative PIC schemas and conformance behavior remain in `rac-conformance`.
+
 ## Primary Source Spine
 
 - Te Tāhū Hauora, *Healing, learning and improving from harm: National adverse
@@ -77,3 +81,5 @@ date, retrieval time, and digest where licensing and access permit.
 - Replacing incident-management, complaints, insurer, regulator, or clinical
   record systems.
 - Publishing personal or confidential evidence.
+- Making this profile, rather than the controlling authority, a source of law,
+  policy, clinical judgement, or organisational compliance.

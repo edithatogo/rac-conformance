@@ -17,6 +17,7 @@ This document limits which `edithatogo` repositories are in scope for the next-g
 |---|---|---|
 | `edithatogo/rac-conformance` | Primary roadmap, contracts, harnesses, studies, papers, and conductor coordination. | All roadmap planning lives here first. |
 | `edithatogo/foi-o` | First active PIC consumer and process-heavy proof for OIA statutory-clock rules; now planning versioned NZ empirical and Australian jurisdiction profiles. | Relevant for OIA rules, fixture/trace integration, optional PIC-compatible profile artifacts, release evidence, and the paper-update trigger. FOI-O remains authoritative for its profile design and does not depend on PIC at runtime. |
+| `edithatogo/foi-process` | Deterministic FOI event sourcing, replay, projection, OCEL/process-mining integration, and operational evidence. | Relevant as an implementation consumer and evidence source for the FOI compatibility profile. FOI-O remains the semantic authority; foi-process is not the domain-neutral mapping repository and never becomes a runtime dependency of `rac-conformance`. Citation/release work remains tracked in `foi_process_citation_mirroring_20260714`. |
 | `edithatogo/legislation` | Jurisdiction-neutral legal-source manifests for NZ and Australian source packs. | Relevant for pinned, bitemporal legal-source identifiers, versions, rights, and digests. It supplies evidence manifests, not runtime legal decisions. |
 | `edithatogo/rulespec-nz` | Public NZ RuleSpec corpus used for Axiom validation slices. | Relevant for PIC fixture mappings and Axiom/RuleSpec differential harness work. Do not treat as a general source of legal truth without source assertions. |
 | `edithatogo/axiom-rules-engine` | Runtime surface for RuleSpec execution and traces. | Relevant for harness integration, trace/export behavior, and upstream issue/PR feedback. |
@@ -29,6 +30,7 @@ This document limits which `edithatogo` repositories are in scope for the next-g
 
 | Repository | Possible Use | Entry Condition |
 |---|---|---|
+| Proposed `edithatogo/process-mappings` | Standalone home for source-backed process profiles, jurisdiction overlays, synthetic candidate scenarios, and optional platform adapters. | Incubate only under `subrepos/process-mappings/` through #50. Create/cut over the remote only after the human gate, extraction rehearsal, standalone CI, governance, and single-source-of-truth checks pass. |
 | `edithatogo/corpus-nz-hansard` | Legislative debate/background corpus. | A track needs legislative-history context; not for controlling rule assertions. |
 | `edithatogo/corpus-cases-medilegal-nz` | Tribunal/case-law style evidence patterns. | `adverse_incident_open_disclosure_20260714` identifies a public, controlling adjudication-pattern question that policy and legislation do not resolve; case material remains interpretation evidence, not a runtime oracle. |
 | `edithatogo/reimbursement-atlas` | Health-funding policy calculations and evidence-readiness patterns. | `health_technology_pathways_20260714` identifies an exact reusable source, evidence, or comparison artifact and records provenance; do not duplicate its product scope here. |
