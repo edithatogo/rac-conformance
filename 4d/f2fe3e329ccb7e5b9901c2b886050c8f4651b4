@@ -1,0 +1,1 @@
+Conductor task: Implement process-profile schemas and validator\nEvidence: process-profile/0.1.0 schema and examples; 57 contract tests; full make check passed.\nCompleted: 2026-07-15
