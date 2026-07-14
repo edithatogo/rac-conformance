@@ -1,0 +1,1 @@
+Verification: FOI_PROGRAMME_REPO_ROOT=/tmp/rac-process-consumption make check passed on 2026-07-15. Added deterministic contract pin, schema digest, source-manifest, evidence-path, and example validation; no network access or remote repository creation.
