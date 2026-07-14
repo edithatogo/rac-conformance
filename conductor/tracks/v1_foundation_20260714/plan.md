@@ -5,18 +5,21 @@ GitHub issue: [#39](https://github.com/edithatogo/rac-conformance/issues/39).
 ## Phase 1 - Product Boundary
 
 - [x] Task: Define v1 normative and optional surfaces
-    - [ ] Inventory every public schema, CLI, library, generated artifact, study interface, and adapter.
-    - [ ] Classify each as core, optional profile, jurisdiction profile, adapter, experimental, or internal.
-    - [ ] Record explicit v1 non-goals and prohibited claims.
+    - [x] Inventory every public schema, CLI, library, generated artifact, study interface, and adapter.
+    - [x] Classify each as core, optional profile, jurisdiction profile, adapter, experimental, or internal.
+    - [x] Record explicit v1 non-goals and prohibited claims.
     - **Acceptance:** every public surface has one owner, stability class, and support posture.
     - **Evidence:** `docs/V1_SCOPE.md` inventories the current contracts, tools, profiles, adapters, studies, demos, generated artifacts, and internal materials, with explicit v1 non-goals and prohibited claims.
 - [x] Task: Define conformance levels and evidence semantics
-    - [ ] Separate syntactic, semantic, execution, trace, source, and independently certified conformance.
-    - [ ] Define pass, fail, blocked, exception, and not-applicable states.
-    - [ ] Prohibit legal, clinical, funding, and standards-body claims from conformance badges.
+    - [x] Separate syntactic, semantic, execution, trace, source, and independently certified conformance.
+    - [x] Define pass, fail, blocked, exception, and not-applicable states.
+    - [x] Prohibit legal, clinical, funding, and standards-body claims from conformance badges.
     - **Acceptance:** each level has deterministic tests and required evidence.
     - **Evidence:** `docs/V1_CONFORMANCE.md` defines the six cumulative levels, five machine-readable evidence states, independence requirements, required evidence, and prohibited claims.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Product Boundary' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Product Boundary' (Protocol in workflow.md)
+    - **Review:** Phase 1 review found and fixed stale unchecked sub-items in this plan; no scope or implementation defect remained.
+
+> CHECKPOINT (2026-07-15): `docs/V1_SCOPE.md` classifies the current public and internal surfaces, assigns owners and support postures, and records v1 non-goals. `docs/V1_CONFORMANCE.md` defines cumulative syntactic, semantic, execution, trace, source, and independently certified levels plus deterministic evidence states. Full `make check` passed after both documentation tasks. External adoption, source certification, human certification, and publication gates remain separate and are not claimed by this phase.
 
 ## Phase 2 - Lifecycle Policies
 
