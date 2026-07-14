@@ -76,6 +76,8 @@ during the repository incubation governed by
     - [ ] Present resolver exceptions, controlling-source assertions, and proposed process differences only.
     - [ ] Record approval, rejection, limits, or further-source requirements.
     - **Acceptance:** human review is focused and every promoted assertion has an auditable decision.
+    - Prepared artifact: `subrepos/process-mappings/profiles/adverse-incidents/HUMAN_REVIEW_PACKET.md`.
+    - **HUMAN GATE READY:** Dylan must certify or reject the queued assertions and exceptions before promotion or Phase 3 closure.
 - [ ] Task: Publish comparative findings and limitations
     - [ ] Distinguish source fact, interpretation, executable behavior, variation, and unresolved exception.
     - [ ] Document portability implications for the process profile and Camunda study.
