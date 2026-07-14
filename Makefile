@@ -1,12 +1,15 @@
-.PHONY: check audit audit-test paper-artifacts paper-artifacts-write lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
+.PHONY: check audit audit-test release-gates-check paper-artifacts paper-artifacts-write lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
 
-check: audit audit-test paper-artifacts lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
+check: audit audit-test release-gates-check paper-artifacts lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
 
 audit:
 	PYTHONPATH=. uv run python -m tools.repo_audit
 
 audit-test:
 	PYTHONPATH=. uv run --with pytest --with pyyaml pytest tools/tests
+
+release-gates-check:
+	PYTHONPATH=. uv run python -m tools.release_gates conductor/v1-release-gates.json --as-of 2026-07-15
 
 paper-artifacts:
 	PYTHONPATH=. uv run python -m tools.paper_artifacts --check
