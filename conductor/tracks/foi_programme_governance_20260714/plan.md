@@ -73,13 +73,14 @@
 > artifacts, and no GitHub release or release PR currently exists.
 - [x] Task: Require independent-oracle review before generated FOI-O candidates
       can be promoted to PIC golden fixtures or approved crosswalk rows.
-- [ ] Task: Produce a machine-readable release-evidence bundle for the papers
+- [x] Task: Produce a machine-readable release-evidence bundle for the papers
       track, including immutable Hugging Face dataset coordinates for derived
       `fyi-archive` outputs.
 - [ ] Task: Conductor - User Manual Verification 'FOI-O to PIC compatibility profile' (Protocol in workflow.md)
 
 > CHECKPOINT (2026-07-14): The optional compatibility manifest, lossless governance
 > boundary, two valid examples, three negative examples, validator registration,
-> and candidate compatibility matrix are present and tested locally. PIC wrapping,
-> independent-oracle promotion, immutable release evidence, and human verification
+> PIC artifact wrappers, fail-closed oracle promotion, offline bundle checks, and
+> a machine-readable papers handoff are present and tested locally. The live
+> published-artifact exercise, independent human review, and manual verification
 > remain open.

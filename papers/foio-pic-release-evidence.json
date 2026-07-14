@@ -1,0 +1,56 @@
+{
+  "schema_version": "foio-pic-release-evidence.v1.0.0",
+  "as_of": "2026-07-14",
+  "status": "blocked_pending_foio_v2_release",
+  "foio": {
+    "repository": "https://github.com/edithatogo/foi-o",
+    "observed_main_revision": "b42e631b6c68e841ff4843f15dc2ae984cd956f1",
+    "required_release": "v2.0.0",
+    "published_release": null,
+    "release_evidence_issue": "https://github.com/edithatogo/foi-o/issues/27",
+    "blocker": "V2 artifacts exist on main, but no immutable V2 release or release PR is published."
+  },
+  "pic": {
+    "repository": "https://github.com/edithatogo/rac-conformance",
+    "contract_revision": "7e7d36bbc640f99252e7ae1dd1ffc5f3ede64539",
+    "compatibility_contract": "pic-foio-compatibility/0.1.0",
+    "schema_sha256": "295fd487b700739676cee716499b12683747441b9196114c44e30dfad7cba639",
+    "matrix_sha256": "dffea2cd3112bdf46221a5a642a835b9b93f1471ae8a8b23c8af5d98eb6962ab",
+    "offline_validator": "pic-foio-check",
+    "matrix_status": "blocked_no_published_release"
+  },
+  "dependencies": {
+    "fyi_archive": {
+      "repository": "https://github.com/edithatogo/fyi-archive",
+      "observed_main_revision": "70d58d5358b433d42d7fc8e6d7a7a6d6916697d7"
+    },
+    "nlp_policy_nz": {
+      "repository": "https://github.com/edithatogo/nlp-policy-nz",
+      "observed_default_branch": "master",
+      "observed_revision": "fbf6ceb3c6c6cb64a2a625c06ebca6941f1e03e9"
+    },
+    "legislation": {
+      "repository": "https://github.com/edithatogo/legislation",
+      "release": "v1.2.0",
+      "release_revision": "7b4ce728706269fbe4febfc12142e1c7577f4978"
+    }
+  },
+  "derived_dataset": {
+    "platform": "huggingface",
+    "repository": "edithatogo/fyi-archive-nz",
+    "revision": "fc27bfa471c598a31d975cfa2b603b1a11408e55",
+    "artifact_path": "manifests/latest_manifest.parquet",
+    "artifact_sha256": "fd5f54be6b94390dce93b4662fc393c855d87569ff70eaf5411c365d0cbca678",
+    "publisher_source_revision": "c55e23389f0c3b865edc2defe9ade4c469e047eb",
+    "provenance_status": "pinned_with_exceptions",
+    "exceptions": [
+      "The dataset card declares requests and authorities splits absent from the pinned repository tree.",
+      "Publisher provenance records a dirty source checkout."
+    ]
+  },
+  "promotion_gate": {
+    "status": "pending_independent_oracle_review",
+    "rule": "Generated fixtures and crosswalk rows cannot be promoted without an independent reviewer and immutable review evidence."
+  },
+  "manuscript_boundary": "This bundle records pinned available evidence and explicit blockers; it is not evidence of a FOI-O V2 release, compatibility pass, independent-oracle approval, or publication."
+}

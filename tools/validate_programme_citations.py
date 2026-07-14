@@ -30,6 +30,7 @@ def main() -> int:
         "rac-conformance",
         "alaveteli",
         "foi-programme-quality-evidence",
+        "foio-pic-release-evidence",
     }
     assert {item["id"] for item in data["artifacts"]} == expected
     for item in data["artifacts"]:
