@@ -18,12 +18,14 @@
 > BLOCKED (2026-07-14): Remaining upstream actions require maintainer-only
 > workflow approval/review, Axiom signing credentials, or upstream merge
 > authority. No contributor-controlled change can clear these external gates.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Review response' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Review response' (Protocol in workflow.md)
 
 > BLOCKED (2026-07-11): Remaining work requires upstream maintainer workflow approval/review and an Axiom signing key. No contributor-controlled fix can clear these external gates.
 
 ## Phase 3 - Adoption closeout
 
-- [ ] Task: Record merged, declined, superseded, or externally blocked disposition for every contribution
-- [ ] Task: Update Project 19 and repository ledgers from URL evidence
+- [x] Task: Record merged, declined, superseded, or externally blocked disposition for every contribution
+- [x] Task: Update Project 19 and repository ledgers from URL evidence
+
+> CHECKPOINT (2026-07-14): Every staged contribution now has an explicit disposition in `external/ADOPTION_STATUS.md`. Project 19 issue #23 remains In Progress, matching unresolved external gates; no Project status or local ledger entry is treated as upstream acceptance.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Adoption closeout' (Protocol in workflow.md)
