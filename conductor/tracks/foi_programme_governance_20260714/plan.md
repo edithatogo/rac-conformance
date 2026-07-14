@@ -18,11 +18,22 @@
 
 ## Phase 2: Item synchronization
 
-- [ ] Task: Add current FOI programme issues to Project 14 without removing
+- [x] Task: Add current FOI programme issues to Project 14 without removing
       their dedicated Project membership.
 - [ ] Task: Add dependency and jurisdiction metadata where Project fields support it.
-- [ ] Task: Verify issue state and Project status against local Conductor plans.
+- [x] Task: Verify issue state and Project status against local Conductor plans.
 - [ ] Task: Conductor - User Manual Verification 'Item synchronization' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-14): Project 14 contains the current FOI-O #23/#24,
+> rac-conformance #30, fyi-archive #187/#188, nlp-policy-nz #100/#101, and
+> legislation #62 items; the paper release gate rac-conformance #31 was added.
+> Their current Project status is `Todo`, matching the local plans. Project 14
+> exposes no custom dependency or jurisdiction fields beyond repository,
+> labels, parent issue, and status, so no unsupported metadata was invented.
+
+> BLOCKED (2026-07-14): Dependency and jurisdiction metadata cannot be added
+> through the existing Project 14 field model without a deliberate project
+> schema change and human governance decision.
 
 ## Phase 3: Durable governance
 
