@@ -7,6 +7,13 @@ Phase 1 and establishes the implementation home required by
 
 ## Phase 1 - Incubator Boundary and Scaffold
 
+> CHECKPOINT (2026-07-14): The tracked, non-canonical incubator now defines
+> standalone product, safety, source, repository, and Conductor boundaries and
+> contains explicit empty homes for the three initial profiles and Camunda
+> adapter. It contains no nested Git repository, substantive mapping, runtime
+> dependency, or remote/canonical claim. `make check` passed. Contract
+> consumption and extraction remain deferred to later phases and human gates.
+
 - [x] Task: Establish the tracked incubator boundary
     - [x] Add standalone product, repository-boundary, status, safety, and source-governance documents.
     - [x] State that the subtree is non-canonical, contains no nested `.git`, and cannot be published independently before cutover.
@@ -17,7 +24,7 @@ Phase 1 and establishes the implementation home required by
     - [x] Add source, schema-reference, and test boundaries without claiming mappings are implemented.
     - [x] Prohibit real health data, inferred confidential facts, and AI-certified controlling evidence.
     - **Acceptance:** the scaffold is empty of substantive mappings but ready for independently reviewable track outputs.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Incubator Boundary and Scaffold' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Incubator Boundary and Scaffold' (Protocol in workflow.md)
 
 ## Phase 2 - Parent Integration and Contract Discipline
 
