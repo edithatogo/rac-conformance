@@ -1,0 +1,1 @@
+Verification: FOI_PROGRAMME_REPO_ROOT=/tmp/rac-process-consumption make check passed on 2026-07-15. Extraction rehearsal report records 22 tracked files, source commit/tree, license digest, local clone and link checks, and remote creation deferred.
