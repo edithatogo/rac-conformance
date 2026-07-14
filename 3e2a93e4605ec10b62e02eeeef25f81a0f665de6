@@ -1,0 +1,1 @@
+Full make check passed after stale-status fix: 9 tools tests, 37 contract tests, 25 converter tests, 20 harness tests, 33 snap tests, 16 NZ tests, 6 service tests, 2 docassemble tests.
