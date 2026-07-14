@@ -82,7 +82,8 @@ def run_rehearsal(root: Path, report_path: Path, *, require_clean: bool = True) 
             {"id": "local-installation", "status": "not-applicable", "detail": "incubator contains no installable runtime package"},
             {"id": "dependency-updates", "status": "deferred", "detail": "destination dependency policy must be configured after cutover"},
             {"id": "issue-migration", "status": "drafted", "detail": "migration packet preserves parent issue cross-references"},
-            {"id": "source-reference-portability", "status": "deferred", "detail": "parent-local FOI-O evidence paths need durable destination references"},
+            {"id": "source-reference-portability", "status": "pass", "detail": "FOI-O profile references use pinned durable locators"},
+            {"id": "parent-consumption-evidence", "status": "deferred", "detail": "parent-only consumption manifest retains local evidence paths"},
             {"id": "remote-creation", "status": "deferred", "detail": "explicit human cutover gate required"},
             {"id": "rollback", "status": "defined", "detail": "retain parent subtree until hosted clone and checks pass"},
         ]
