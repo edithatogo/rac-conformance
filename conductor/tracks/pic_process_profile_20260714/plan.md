@@ -15,11 +15,12 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
     - [x] Reject ontology, BPMN, and workflow-engine concepts with no current consumer.
     - **Acceptance:** every proposed field has a named consumer and evidence artifact.
     - **Evidence:** `contracts/process-profile/CONSUMER_INVENTORY.md` records six current consumers, evidence paths, field cardinality/time/failure semantics, and explicit exclusions.
-- [ ] Task: Define authority and source-assertion model
-    - [ ] Distinguish law, regulation, national policy, regional policy, guidance, interpretation, and runtime observation.
-    - [ ] Define `agent-proposed`, `human-approved`, and official-primary assertion states.
-    - [ ] Define fail-closed behavior for blocked, stale, conflicting, or missing-effective-date sources.
+- [x] Task: Define authority and source-assertion model
+    - [x] Distinguish law, regulation, national policy, regional policy, guidance, interpretation, and runtime observation.
+    - [x] Define `agent-proposed`, `human-approved`, and official-primary assertion states.
+    - [x] Define fail-closed behavior for blocked, stale, conflicting, or missing-effective-date sources.
     - **Acceptance:** controlling assertions cannot be inferred from secondary-only evidence.
+    - **Evidence:** `contracts/process-profile/AUTHORITY_MODEL.md` defines authority classes, required assertion fields, controlling eligibility, and explicit fail-closed dispositions.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Consumer and Semantic Inventory' (Protocol in workflow.md)
 
 ## Phase 2 - Contract and Validator
