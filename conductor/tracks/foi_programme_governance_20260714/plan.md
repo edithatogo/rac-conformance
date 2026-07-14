@@ -26,15 +26,15 @@
 
 ## Phase 4: FOI-O to PIC compatibility profile
 
-- [ ] Task: Specify a machine-readable release-handshake manifest that pins
+- [x] Task: Specify a machine-readable release-handshake manifest that pins
       FOI-O, PIC, legislation, archive, Hugging Face dataset, NLP pipeline,
       jurisdiction-profile, and calendar versions and content digests.
-- [ ] Task: Define a lossless governance crosswalk that keeps FOI-O epistemic,
+- [x] Task: Define a lossless governance crosswalk that keeps FOI-O epistemic,
       review, extraction, and certification axes separate from PIC `valueState`.
 - [ ] Task: Extend or wrap PIC fixtures, parameters, and traces with common
       jurisdiction, applicable-time, observation-time, and evidence-reference
       metadata without creating a FOI-O runtime dependency on PIC.
-- [ ] Task: Write valid examples and at least three negative examples covering
+- [x] Task: Write valid examples and at least three negative examples covering
       digest mismatch, cross-jurisdiction leakage, and incompatible legislative
       or calendar versions before implementing schema validation.
 - [ ] Task: Implement offline validation and a release compatibility matrix,
@@ -46,3 +46,9 @@
       track, including immutable Hugging Face dataset coordinates for derived
       `fyi-archive` outputs.
 - [ ] Task: Conductor - User Manual Verification 'FOI-O to PIC compatibility profile' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-14): The optional compatibility manifest, lossless governance
+> boundary, two valid examples, three negative examples, validator registration,
+> and candidate compatibility matrix are present and tested locally. PIC wrapping,
+> independent-oracle promotion, immutable release evidence, and human verification
+> remain open.

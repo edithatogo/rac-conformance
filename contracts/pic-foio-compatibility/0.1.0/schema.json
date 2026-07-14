@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/rac-conformance/contracts/pic-foio-compatibility/0.1.0/schema.json",
+  "title": "PIC FOI-O compatibility manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["conformsTo", "foioRelease", "picPackages", "jurisdiction", "legislation", "archive", "governance", "artifactSha256"],
+  "properties": {
+    "conformsTo": {"const": "pic-foio-compatibility/0.1.0"},
+    "foioRelease": {"$ref": "#/$defs/foioRelease"},
+    "picPackages": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^pic-[a-z-]+/[0-9]+\\.[0-9]+\\.[0-9]+$"}},
+    "jurisdiction": {"$ref": "#/$defs/jurisdiction"},
+    "legislation": {"$ref": "#/$defs/repositoryArtifact"},
+    "archive": {"$ref": "#/$defs/archive"},
+    "nlpPipeline": {"$ref": "#/$defs/nlpPipeline"},
+    "governance": {"$ref": "#/$defs/governance"},
+    "artifactSha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "semver": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "immutableRevision": {"type": "string", "minLength": 7, "not": {"enum": ["main", "master", "latest", "HEAD"]}},
+    "foioRelease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "commitSha", "coreOntology", "profiles", "capabilityManifestSha256", "migrationCatalogueSha256"],
+      "properties": {
+        "tag": {"type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "commitSha": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+        "coreOntology": {"$ref": "#/$defs/versionedArtifact"},
+        "profiles": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/profile"}},
+        "capabilityManifestSha256": {"$ref": "#/$defs/sha256"},
+        "migrationCatalogueSha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "versionedArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "sha256"],
+      "properties": {"id": {"type": "string", "minLength": 1}, "version": {"$ref": "#/$defs/semver"}, "sha256": {"$ref": "#/$defs/sha256"}}
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "sha256", "jurisdiction"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"$ref": "#/$defs/semver"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "jurisdiction": {"type": "string", "pattern": "^[A-Z]{2}(?:-[A-Z0-9]{1,3})?$"}
+      }
+    },
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "profileId", "profileVersion", "calendarId", "calendarVersion", "applicableAt", "observedAt"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[A-Z]{2}(?:-[A-Z0-9]{1,3})?$"},
+        "profileId": {"type": "string", "pattern": "^foi-o-[a-z]{2}(?:-[a-z0-9]+)*$"},
+        "profileVersion": {"$ref": "#/$defs/semver"},
+        "calendarId": {"type": "string", "minLength": 1},
+        "calendarVersion": {"$ref": "#/$defs/semver"},
+        "applicableAt": {"type": "string", "format": "date-time"},
+        "observedAt": {"type": "string", "format": "date-time"}
+      }
+    },
+    "repositoryArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "revision", "id", "sha256"],
+      "properties": {
+        "repository": {"type": "string", "minLength": 1},
+        "revision": {"$ref": "#/$defs/immutableRevision"},
+        "id": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw", "derived"],
+      "properties": {
+        "raw": {"$ref": "#/$defs/repositoryArtifact"},
+        "derived": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["platform", "repository", "revision", "configuration", "split", "sha256"],
+          "properties": {
+            "platform": {"const": "huggingface"},
+            "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+            "revision": {"$ref": "#/$defs/immutableRevision"},
+            "configuration": {"type": "string", "minLength": 1},
+            "split": {"type": "string", "minLength": 1},
+            "sha256": {"$ref": "#/$defs/sha256"}
+          }
+        }
+      }
+    },
+    "nlpPipeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "revision", "pipelineVersion", "modelId", "modelRevision"],
+      "properties": {
+        "repository": {"type": "string", "minLength": 1},
+        "revision": {"$ref": "#/$defs/immutableRevision"},
+        "pipelineVersion": {"$ref": "#/$defs/semver"},
+        "modelId": {"type": "string", "minLength": 1},
+        "modelRevision": {"$ref": "#/$defs/immutableRevision"}
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["epistemicStatus", "reviewStatus", "extractionMethod", "certificationStatus", "promotionState", "independentOracle", "evidenceAssertionIds"],
+      "properties": {
+        "epistemicStatus": {"enum": ["observed", "inferred", "asserted", "certified", "unknown"]},
+        "reviewStatus": {"enum": ["unreviewed", "single_reviewed", "dual_reviewed", "adjudicated", "approved", "rejected"]},
+        "extractionMethod": {"enum": ["imported_metadata", "deterministic_rule", "statistical_model", "language_model", "human_annotation", "official_source_import"]},
+        "certificationStatus": {"enum": ["not_certified", "certified"]},
+        "promotionState": {"enum": ["candidate", "gold"]},
+        "independentOracle": {"type": "boolean"},
+        "evidenceAssertionIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "allOf": [
+        {"if": {"properties": {"promotionState": {"const": "gold"}}}, "then": {"properties": {"independentOracle": {"const": true}, "reviewStatus": {"enum": ["adjudicated", "approved"]}}}},
+        {"if": {"properties": {"extractionMethod": {"enum": ["statistical_model", "language_model"]}}}, "then": {"properties": {"certificationStatus": {"const": "not_certified"}, "promotionState": {"const": "candidate"}}}}
+      ]
+    }
+  }
+}

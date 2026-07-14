@@ -1,0 +1,21 @@
+{
+  "conformsTo": "pic-foio-compatibility/0.1.0",
+  "foioRelease": {
+    "tag": "v2.0.0",
+    "commitSha": "1111111111111111111111111111111111111111",
+    "coreOntology": {"id": "foi-o", "version": "2.0.0", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "profiles": [{"id": "foi-o-nz", "version": "2.0.0", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "jurisdiction": "NZ"}],
+    "capabilityManifestSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "migrationCatalogueSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "picPackages": ["pic-crosswalk/0.1.0", "pic-fixtures/0.1.0", "pic-traces/0.2.0"],
+  "jurisdiction": {"id": "NZ", "profileId": "foi-o-nz", "profileVersion": "2.0.0", "calendarId": "nz-public-holidays", "calendarVersion": "1.0.0", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z"},
+  "legislation": {"repository": "edithatogo/legislation", "revision": "2222222222222222222222222222222222222222", "id": "nz-oia-source-pack/1.0.0", "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+  "archive": {
+    "raw": {"repository": "edithatogo/fyi-archive", "revision": "3333333333333333333333333333333333333333", "id": "fyi-archive-nz/2026-07", "sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"},
+    "derived": {"platform": "huggingface", "repository": "edithatogo/fyi-archive-nz", "revision": "4444444444444444444444444444444444444444", "configuration": "default", "split": "train", "sha256": "abababababababababababababababababababababababababababababababab"}
+  },
+  "nlpPipeline": {"repository": "edithatogo/nlp-policy-nz", "revision": "5555555555555555555555555555555555555555", "pipelineVersion": "0.1.0", "modelId": "candidate-ner", "modelRevision": "6666666666666666666666666666666666666666"},
+  "governance": {"epistemicStatus": "inferred", "reviewStatus": "unreviewed", "extractionMethod": "language_model", "certificationStatus": "not_certified", "promotionState": "candidate", "independentOracle": false, "evidenceAssertionIds": ["evidence-1"]},
+  "artifactSha256": "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
+}

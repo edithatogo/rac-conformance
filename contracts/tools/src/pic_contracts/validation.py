@@ -20,6 +20,7 @@ CONFORMS_TO_CONTRACT = {
     "pic-fixtures/0.1.0": "pic-fixtures",
     "pic-traces/0.1.0": "pic-traces",
     "pic-traces/0.2.0": "pic-traces",
+    "pic-foio-compatibility/0.1.0": "pic-foio-compatibility",
 }
 
 
@@ -67,6 +68,7 @@ def detect_contract(doc: dict[str, Any], path: Path | None = None) -> str | None
                 "pic-parameters",
                 "pic-fixtures",
                 "pic-traces",
+                "pic-foio-compatibility",
             }:
                 return part
     return None

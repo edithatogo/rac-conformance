@@ -11,6 +11,7 @@ Policy Interchange Contracts (PIC) are small, versioned JSON artifact contracts 
 | `pic-parameters` | `0.1.0` | Time-versioned parameter values, including bracket schedules, with source references. |
 | `pic-fixtures` | `0.1.0` | Engine-neutral test fixtures with value-state-aware inputs and expected outputs. |
 | `pic-traces` | `0.1.0` | Case-level decision traces and trace-equivalence claims. |
+| `pic-foio-compatibility` | `0.1.0` | Content-addressed FOI-O release, jurisdiction, legislation, archive/Hugging Face, NLP, and governance handshake. |
 
 ## Ground Rules
 
@@ -32,4 +33,3 @@ Run the full local gate from the repository root:
 ```sh
 make check
 ```
-

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "pic-foio-compatibility-matrix.v0.1.0",
+  "entries": [
+    {"foioCore": "2.0.0", "profile": "foi-o-nz@2.0.0", "picCompatibility": ["pic-crosswalk@0.1.0", "pic-fixtures@0.1.0", "pic-traces@0.2.0"], "status": "candidate", "evidence": "examples/valid/nz-release.json"},
+    {"foioCore": "2.0.0", "profile": "foi-o-au-nsw@0.1.0", "picCompatibility": ["pic-crosswalk@0.1.0", "pic-fixtures@0.1.0"], "status": "candidate", "evidence": "examples/valid/nsw-release.json"}
+  ],
+  "releaseRule": "Only entries with immutable revisions, matching content digests, and independent review may be promoted beyond candidate."
+}

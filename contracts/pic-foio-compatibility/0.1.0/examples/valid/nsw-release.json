@@ -1,0 +1,21 @@
+{
+  "conformsTo": "pic-foio-compatibility/0.1.0",
+  "foioRelease": {
+    "tag": "v2.0.0",
+    "commitSha": "1111111111111111111111111111111111111111",
+    "coreOntology": {"id": "foi-o", "version": "2.0.0", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "profiles": [{"id": "foi-o-au-nsw", "version": "0.1.0", "sha256": "1212121212121212121212121212121212121212121212121212121212121212", "jurisdiction": "AU-NSW"}],
+    "capabilityManifestSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "migrationCatalogueSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "picPackages": ["pic-crosswalk/0.1.0", "pic-fixtures/0.1.0"],
+  "jurisdiction": {"id": "AU-NSW", "profileId": "foi-o-au-nsw", "profileVersion": "0.1.0", "calendarId": "nsw-public-holidays", "calendarVersion": "1.0.0", "applicableAt": "2026-06-01T00:00:00Z", "observedAt": "2026-07-14T00:00:00Z"},
+  "legislation": {"repository": "edithatogo/legislation", "revision": "2222222222222222222222222222222222222222", "id": "nsw-gipa-source-pack/0.1.0", "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+  "archive": {
+    "raw": {"repository": "edithatogo/fyi-archive", "revision": "3333333333333333333333333333333333333333", "id": "fyi-archive-au-nsw/2026-07", "sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"},
+    "derived": {"platform": "huggingface", "repository": "edithatogo/fyi-archive-au-nsw", "revision": "4444444444444444444444444444444444444444", "configuration": "default", "split": "train", "sha256": "abababababababababababababababababababababababababababababababab"}
+  },
+  "nlpPipeline": {"repository": "edithatogo/nlp-policy-nz", "revision": "5555555555555555555555555555555555555555", "pipelineVersion": "0.1.0", "modelId": "candidate-ner", "modelRevision": "6666666666666666666666666666666666666666"},
+  "governance": {"epistemicStatus": "observed", "reviewStatus": "dual_reviewed", "extractionMethod": "deterministic_rule", "certificationStatus": "not_certified", "promotionState": "candidate", "independentOracle": false, "evidenceAssertionIds": ["evidence-nsw-1"]},
+  "artifactSha256": "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
+}
