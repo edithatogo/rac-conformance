@@ -21,7 +21,16 @@ def repository_root(artifact_id: str) -> Path:
 def main() -> int:
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assert data["schema_version"] == "1.0"
-    expected = {"foi-o", "fyi-cli", "fyi-archive", "nlp-policy-nz", "legislation", "rac-conformance", "alaveteli"}
+    expected = {
+        "foi-o",
+        "fyi-cli",
+        "fyi-archive",
+        "nlp-policy-nz",
+        "legislation",
+        "rac-conformance",
+        "alaveteli",
+        "foi-programme-quality-evidence",
+    }
     assert {item["id"] for item in data["artifacts"]} == expected
     for item in data["artifacts"]:
         if item["zenodo_status"] == "verified_published_version":
@@ -29,7 +38,15 @@ def main() -> int:
         if item["zenodo_status"] == "published_record_version_mismatch":
             assert item["zenodo_doi"], item["id"]
             assert item["zenodo_record_version"] != item["version"], item["id"]
-        if item["kind"] != "upstream_workflow_intelligence":
+        huggingface = item.get("huggingface_target")
+        if isinstance(huggingface, dict):
+            assert len(huggingface["revision"]) == 40, item["id"]
+            assert len(huggingface["artifact_sha256"]) == 64, item["id"]
+            if huggingface["status"] == "pinned_with_provenance_exception":
+                assert huggingface["exceptions"], item["id"]
+        if item["kind"] == "release_evidence":
+            assert (ROOT / item["artifact_path"]).is_file(), item["id"]
+        elif item["kind"] != "upstream_workflow_intelligence":
             citation_path = repository_root(item["id"]) / item["citation_file"]
             assert citation_path.is_file(), (
                 f"{item['id']}: missing {citation_path}; check "

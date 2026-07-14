@@ -87,6 +87,14 @@ human-authorized after the refresh.
       statuses with verified version and concept DOIs.
 - [ ] Task: [HUMAN] Pin the Hugging Face dataset repository, revision, and
       digest for the exact archive-derived layer used in the manuscripts.
+
+> CANDIDATE PIN (2026-07-15): `edithatogo/fyi-archive-nz` revision
+> `fc27bfa471c598a31d975cfa2b603b1a11408e55`, artifact
+> `manifests/latest_manifest.parquet`, SHA-256
+> `fd5f54be6b94390dce93b4662fc393c855d87569ff70eaf5411c365d0cbca678`.
+> Human certification remains open because the publisher provenance records a
+> dirty source checkout and the declared dataset splits are absent from the
+> pinned tree.
 - [x] Task: Run the citation validator and live DOI audit before the release
       refresh checkpoint.
 
