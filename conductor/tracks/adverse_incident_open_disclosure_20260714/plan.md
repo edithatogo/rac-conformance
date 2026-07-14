@@ -50,4 +50,9 @@ GitHub issue: [#41](https://github.com/edithatogo/rac-conformance/issues/41). De
     - [ ] Distinguish source fact, interpretation, executable behavior, variation, and unresolved exception.
     - [ ] Document portability implications for the process profile and Camunda study.
     - **Acceptance:** findings make no organisational-compliance, legal-advice, or clinical-safety claim.
+- [ ] Task: Define privacy-preserving post-market safety handoff
+    - [ ] Specify the minimum public or appropriately de-identified aggregate event, provenance, authority, jurisdiction, permitted-purpose, and review fields.
+    - [ ] Reject patient-level content, inferred causation, and uncertified downstream action.
+    - [ ] Add valid and negative examples without making the handoff mandatory for incident workflows.
+    - **Acceptance:** the handoff schema and examples validate and strictly exclude patient-level data, causal inference, and uncertified downstream action.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Synthetic Demonstrator and Review' (Protocol in workflow.md)
