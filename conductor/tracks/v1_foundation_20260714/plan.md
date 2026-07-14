@@ -53,8 +53,9 @@ GitHub issue: [#39](https://github.com/edithatogo/rac-conformance/issues/39).
     - [x] Integrate validation into `make check`.
     - **Acceptance:** local success cannot convert external or human gates to pass.
     - **Evidence:** `conductor/v1-release-gates.json` is validated by `tools/release_gates.py` and the `release-gates-check` Make target; the manifest retains external and human gates as `blocked`.
-- [ ] Task: Reconcile existing programme gates
-    - [ ] Link FOI-O release, external adoption, papers, Zenodo, and governance items without duplicating their source-of-truth plans.
-    - [ ] Update Project 19 from the local manifest.
+- [x] Task: Reconcile existing programme gates
+    - [x] Link FOI-O release, external adoption, papers, Zenodo, and governance items without duplicating their source-of-truth plans.
+    - [x] Update Project 19 from the local manifest.
     - **Acceptance:** no existing gate is silently weakened or counted twice.
+    - **Evidence:** `conductor/v1-release-gates.json` links gate records to FOI-O #27, RaC #23/#31/#33/#30, and leaves their source-of-truth statuses authoritative; Track #39 is In Progress in Project 19.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Release Gate Control Plane' (Protocol in workflow.md)

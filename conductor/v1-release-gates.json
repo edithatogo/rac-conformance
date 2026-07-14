@@ -17,6 +17,7 @@
       "category": "external-release",
       "status": "pass",
       "dependencies": ["foi-o-27"],
+      "source": "https://github.com/edithatogo/foi-o/issues/27",
       "observed_at": "2026-07-15",
       "evidence": [{"url": "https://github.com/edithatogo/foi-o/releases/tag/v0.8.1", "digest": "git:d24ae6f9f2d9488052969f633d91eff4a9a47f58", "observed_at": "2026-07-15"}]
     },
@@ -26,6 +27,7 @@
       "category": "external-evidence",
       "status": "blocked",
       "dependencies": ["foi-o-27"],
+      "source": "https://github.com/edithatogo/foi-o/issues/27",
       "reason_code": "external_release_evidence_bundle_pending",
       "next_action": "Complete foi-o issue 27 with capabilities, migrations, tests, fixtures, provenance, empirical results, exceptions, and limitations.",
       "observed_at": "2026-07-15"
@@ -36,6 +38,7 @@
       "category": "adoption",
       "status": "blocked",
       "dependencies": ["independent-consumer"],
+      "source": "https://github.com/edithatogo/rac-conformance/issues/23",
       "reason_code": "independent_adoption_not_verified",
       "next_action": "Obtain an independent consumer report or maintainer-certified external adoption evidence.",
       "observed_at": "2026-07-15"
@@ -46,6 +49,7 @@
       "category": "human",
       "status": "blocked",
       "dependencies": ["foio-release-evidence-bundle"],
+      "source": "https://github.com/edithatogo/rac-conformance/issues/31",
       "reason_code": "paper_refresh_waits_for_release_evidence",
       "next_action": "Refresh manuscripts and figures after the foi-o release-evidence bundle is complete.",
       "observed_at": "2026-07-15"
@@ -56,6 +60,7 @@
       "category": "human",
       "status": "blocked",
       "dependencies": ["human-deposit"],
+      "source": "https://github.com/edithatogo/rac-conformance/issues/33",
       "reason_code": "human_deposit_required",
       "next_action": "Deposit the RaC Conformance release to Zenodo and record the verified version and concept DOIs.",
       "observed_at": "2026-07-15"
@@ -66,6 +71,7 @@
       "category": "governance",
       "status": "pass",
       "dependencies": ["v1-foundation-track"],
+      "source": "https://github.com/edithatogo/rac-conformance/issues/30",
       "observed_at": "2026-07-15",
       "evidence": [{"url": "https://github.com/edithatogo/rac-conformance/tree/main/docs", "observed_at": "2026-07-15"}]
     }
