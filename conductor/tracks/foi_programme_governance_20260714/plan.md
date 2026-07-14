@@ -30,7 +30,8 @@
 > legislation #62 items; the paper release gate rac-conformance #31 was added.
 > Their current Project status is `Todo`, matching the local plans. Project 14
 > now provides jurisdiction, repository role, dependency, evidence status,
-> human gate, and delivery status fields; all 18 allowlisted items have values.
+> human gate, and delivery status fields; all 19 allowlisted items have values,
+> including delivery PR #36.
 > Prepared review surface: `HUMAN_VERIFICATION_PACKET.md` section 2.
 
 ## Phase 3: Durable governance
@@ -45,8 +46,9 @@
 > `tools/validate_project14_allowlist.py`. Against the live Project 14 export,
 > the checker initially found all 18 required items and 67 extra historical
 > items. The historical items were removed from Project 14 only, preserving
-> their source issues and dedicated-project memberships. The live board now
-> passes the exact allowlist with zero missing, extra, or stale items.
+> their source issues and dedicated-project memberships. Delivery PR #36 was
+> subsequently added as the nineteenth required item. The live board now passes
+> the exact allowlist with zero missing, extra, or stale items.
 > Prepared review surface: `HUMAN_VERIFICATION_PACKET.md` section 3.
 
 > REVIEW (2026-07-14): Added stale-status detection and four passing unit tests.

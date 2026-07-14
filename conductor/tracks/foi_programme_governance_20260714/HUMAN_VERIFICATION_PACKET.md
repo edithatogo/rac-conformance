@@ -32,7 +32,7 @@ python tools/validate_project14_allowlist.py --items /tmp/project14.json \
   --allowlist conductor/tracks/foi_programme_governance_20260714/project14-allowlist.json
 ```
 
-The last verified result contained all 18 required items, no missing, extra, or
+The last verified result contained all 19 required items, no missing, extra, or
 stale issue/PR items, and values for jurisdiction, repository role, dependency,
 evidence status, human gate, and delivery status. Dedicated repository Project
 memberships were not removed.

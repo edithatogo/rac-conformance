@@ -19,7 +19,8 @@
     "edithatogo/nlp-policy-nz#101",
     "edithatogo/legislation#62",
     "edithatogo/rac-conformance#30",
-    "edithatogo/rac-conformance#31"
+    "edithatogo/rac-conformance#31",
+    "edithatogo/rac-conformance#36"
   ],
   "allowed_repositories": [
     "edithatogo/foi-o",
