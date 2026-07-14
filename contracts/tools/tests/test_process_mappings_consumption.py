@@ -41,3 +41,13 @@ def test_pinned_contract_examples_are_valid(relative: str) -> None:
     report = validate_consumption(MANIFEST, ROOT)
 
     assert relative in report.validated_examples
+
+
+def test_portable_evidence_sources_are_immutable() -> None:
+    document = json.loads(MANIFEST.read_text(encoding="utf-8"))
+
+    assert document["portableEvidenceSources"]
+    assert all(
+        "/447920b9bb72830f2c8490ee40bdcd73c5eedb4a/" in source
+        for source in document["portableEvidenceSources"]
+    )
