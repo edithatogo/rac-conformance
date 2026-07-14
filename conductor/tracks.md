@@ -1,5 +1,9 @@
 # Project Tracks
 
+- [~] **Track: Citation and Zenodo mirroring**
+Track ID: `citation_zenodo_mirroring_20260714`
+*Link: [./tracks/citation_zenodo_mirroring_20260714/](./tracks/citation_zenodo_mirroring_20260714/)*
+
 ---
 
 - [x] **Track: Repository rename and identity migration**
