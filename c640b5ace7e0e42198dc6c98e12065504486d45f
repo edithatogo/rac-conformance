@@ -1,0 +1,1 @@
+Conductor task: Write release-gate manifest tests\nTDD evidence: targeted pytest failed before validator implementation with ModuleNotFoundError for tools.release_gates, as required by the task.\nCompleted: 2026-07-15
