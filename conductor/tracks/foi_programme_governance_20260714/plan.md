@@ -23,3 +23,26 @@
 - [ ] Task: Run repository quality gates and Conductor review.
 - [ ] Task: Archive only after live Project evidence is recorded.
 - [ ] Task: Conductor - User Manual Verification 'Durable governance' (Protocol in workflow.md)
+
+## Phase 4: FOI-O to PIC compatibility profile
+
+- [ ] Task: Specify a machine-readable release-handshake manifest that pins
+      FOI-O, PIC, legislation, archive, Hugging Face dataset, NLP pipeline,
+      jurisdiction-profile, and calendar versions and content digests.
+- [ ] Task: Define a lossless governance crosswalk that keeps FOI-O epistemic,
+      review, extraction, and certification axes separate from PIC `valueState`.
+- [ ] Task: Extend or wrap PIC fixtures, parameters, and traces with common
+      jurisdiction, applicable-time, observation-time, and evidence-reference
+      metadata without creating a FOI-O runtime dependency on PIC.
+- [ ] Task: Write valid examples and at least three negative examples covering
+      digest mismatch, cross-jurisdiction leakage, and incompatible legislative
+      or calendar versions before implementing schema validation.
+- [ ] Task: Implement offline validation and a release compatibility matrix,
+      then exercise both repositories against pinned published artifacts rather
+      than checkout-relative paths.
+- [ ] Task: Require independent-oracle review before generated FOI-O candidates
+      can be promoted to PIC golden fixtures or approved crosswalk rows.
+- [ ] Task: Produce a machine-readable release-evidence bundle for the papers
+      track, including immutable Hugging Face dataset coordinates for derived
+      `fyi-archive` outputs.
+- [ ] Task: Conductor - User Manual Verification 'FOI-O to PIC compatibility profile' (Protocol in workflow.md)
