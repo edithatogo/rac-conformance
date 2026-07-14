@@ -52,12 +52,13 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
 
 ## Phase 3 - FOI-O Baseline Validation
 
-- [ ] Task: Build FOI-O compatibility profile and candidate corpus
-    - [ ] Map state, event, statutory-clock, transfer, extension, refusal, and review traces by stable identifier.
-    - [ ] Record unsupported or lossy mappings explicitly.
-    - [ ] Keep AI-drafted mappings in candidates pending human review.
-    - [ ] Implement profile data under `subrepos/process-mappings/profiles/foi/` and consume pinned foi-process exports only as execution evidence.
+- [x] Task: Build FOI-O compatibility profile and candidate corpus
+    - [x] Map state, event, statutory-clock, transfer, extension, refusal, and review traces by stable identifier.
+    - [x] Record unsupported or lossy mappings explicitly.
+    - [x] Keep AI-drafted mappings in candidates pending human review.
+    - [x] Implement profile data under `subrepos/process-mappings/profiles/foi/` and consume pinned foi-process exports only as execution evidence.
     - **Acceptance:** the corpus validates and does not alter FOI-O runtime authority.
+    - **Evidence:** `subrepos/process-mappings/profiles/foi/PROFILE_CANDIDATES.json` and `SOURCE_MANIFEST.json` contain candidate-only mappings, explicit loss, unsupported cases, and pinned contract provenance.
 - [ ] Task: [HUMAN] Certify controlling FOI-O mappings
     - [ ] Present only contested source assertions and mapping exceptions.
     - [ ] Record approval, rejection, or required changes per assertion.
