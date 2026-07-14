@@ -71,7 +71,7 @@
 > exercise cannot pass until `edithatogo/foi-o` publishes a V2 release: the
 > existing `v0.8.0` tag lacks the V2 manifest/codebook/capability/migration
 > artifacts, and no GitHub release or release PR currently exists.
-- [ ] Task: Require independent-oracle review before generated FOI-O candidates
+- [x] Task: Require independent-oracle review before generated FOI-O candidates
       can be promoted to PIC golden fixtures or approved crosswalk rows.
 - [ ] Task: Produce a machine-readable release-evidence bundle for the papers
       track, including immutable Hugging Face dataset coordinates for derived

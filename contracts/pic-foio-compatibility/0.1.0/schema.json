@@ -4,7 +4,7 @@
   "title": "PIC FOI-O compatibility manifest",
   "type": "object",
   "additionalProperties": false,
-  "required": ["conformsTo", "foioRelease", "picPackages", "picArtifacts", "jurisdiction", "legislation", "archive", "governance", "artifactSha256"],
+  "required": ["conformsTo", "foioRelease", "picPackages", "picArtifacts", "jurisdiction", "legislation", "archive", "governance", "promotionRecords", "artifactSha256"],
   "properties": {
     "conformsTo": {"const": "pic-foio-compatibility/0.1.0"},
     "foioRelease": {"$ref": "#/$defs/foioRelease"},
@@ -24,6 +24,7 @@
     "archive": {"$ref": "#/$defs/archive"},
     "nlpPipeline": {"$ref": "#/$defs/nlpPipeline"},
     "governance": {"$ref": "#/$defs/governance"},
+    "promotionRecords": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/promotionRecord"}},
     "artifactSha256": {"$ref": "#/$defs/sha256"}
   },
   "$defs": {
@@ -149,6 +150,39 @@
       "allOf": [
         {"if": {"properties": {"promotionState": {"const": "gold"}}}, "then": {"properties": {"independentOracle": {"const": true}, "reviewStatus": {"enum": ["adjudicated", "approved"]}}}},
         {"if": {"properties": {"extractionMethod": {"enum": ["statistical_model", "language_model"]}}}, "then": {"properties": {"certificationStatus": {"const": "not_certified"}, "promotionState": {"const": "candidate"}}}}
+      ]
+    },
+    "promotionRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidateId", "candidateKind", "sourceArtifactSha256", "requestedPromotion", "status", "independentOfProducer", "reviewer", "reviewEvidenceUri"],
+      "properties": {
+        "candidateId": {"type": "string", "minLength": 1},
+        "candidateKind": {"enum": ["fixture", "crosswalk_row"]},
+        "sourceArtifactSha256": {"$ref": "#/$defs/sha256"},
+        "requestedPromotion": {"enum": ["gold_fixture", "human_approved_crosswalk"]},
+        "status": {"enum": ["pending_oracle_review", "approved", "rejected"]},
+        "independentOfProducer": {"type": "boolean"},
+        "reviewer": {"type": ["string", "null"]},
+        "reviewEvidenceUri": {"type": ["string", "null"], "format": "uri"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "approved"}}, "required": ["status"]},
+          "then": {
+            "properties": {
+              "independentOfProducer": {"const": true},
+              "reviewer": {"type": "string", "minLength": 1},
+              "reviewEvidenceUri": {"type": "string", "format": "uri", "pattern": "^(?:https://|urn:sha256:).+"}
+            }
+          },
+          "else": {
+            "properties": {
+              "reviewer": {"type": "null"},
+              "reviewEvidenceUri": {"type": "null"}
+            }
+          }
+        }
       ]
     }
   }

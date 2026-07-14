@@ -40,3 +40,32 @@ def test_wrapper_rejects_time_and_evidence_drift(tmp_path) -> None:
     report = validate_file(path)
     assert not report.ok
     assert {issue.code for issue in report.issues} == {"reference", "time"}
+
+
+def test_generated_candidate_cannot_self_approve(tmp_path) -> None:
+    document = copy.deepcopy(load_json(BASE / "valid" / "nz-release.json"))
+    promotion = document["promotionRecords"][0]
+    promotion["status"] = "approved"
+    promotion["reviewer"] = "producing-agent"
+    promotion["reviewEvidenceUri"] = "urn:sha256:" + "9" * 64
+    path = tmp_path / "self-approved.json"
+    path.write_text(json.dumps(document), encoding="utf-8")
+    errors = list(validator_for("pic-foio-compatibility").iter_errors(document))
+    assert errors
+    assert any("independentOfProducer" in list(error.absolute_path) for error in errors)
+
+
+def test_gold_requires_approved_promotion_records(tmp_path) -> None:
+    document = copy.deepcopy(load_json(BASE / "valid" / "nsw-release.json"))
+    document["governance"].update(
+        {
+            "promotionState": "gold",
+            "independentOracle": True,
+            "reviewStatus": "approved",
+        }
+    )
+    path = tmp_path / "unreviewed-gold.json"
+    path.write_text(json.dumps(document), encoding="utf-8")
+    report = validate_file(path)
+    assert not report.ok
+    assert any(issue.code == "promotion" for issue in report.issues)

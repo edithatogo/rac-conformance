@@ -185,6 +185,30 @@ def _compatibility_semantics(path: Path, doc: dict[str, Any]) -> list[Validation
                     "reference",
                 )
             )
+    for index, promotion in enumerate(doc["promotionRecords"]):
+        location = f"{path}:promotionRecords/{index}"
+        expected_promotion = {
+            "fixture": "gold_fixture",
+            "crosswalk_row": "human_approved_crosswalk",
+        }[promotion["candidateKind"]]
+        if promotion["requestedPromotion"] != expected_promotion:
+            issues.append(
+                ValidationIssue(
+                    location,
+                    "candidate kind and requested promotion do not match",
+                    "promotion",
+                )
+            )
+    if doc["governance"]["promotionState"] == "gold" and any(
+        record["status"] != "approved" for record in doc["promotionRecords"]
+    ):
+        issues.append(
+            ValidationIssue(
+                str(path),
+                "gold promotion requires every candidate promotion record to be approved",
+                "promotion",
+            )
+        )
     return issues
 
 

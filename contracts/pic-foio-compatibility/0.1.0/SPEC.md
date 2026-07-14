@@ -22,3 +22,8 @@ bundle stores each PIC artifact under `artifacts/<sha256>` and retains its
 immutable publication URI in the wrapper. The compatibility matrix must report
 an absent FOI-O release as blocked; a synthetic contract example is not release
 evidence and cannot produce a `passed` row.
+
+Every generated fixture or crosswalk candidate also carries a promotion record.
+Approval requires a reviewer independent of the producer and immutable review
+evidence. Pending or rejected records cannot be represented as promoted gold
+fixtures, and candidate-kind/requested-promotion mismatches fail validation.

@@ -22,5 +22,9 @@
   },
   "nlpPipeline": {"repository": "edithatogo/nlp-policy-nz", "revision": "5555555555555555555555555555555555555555", "pipelineVersion": "0.1.0", "modelId": "candidate-ner", "modelRevision": "6666666666666666666666666666666666666666"},
   "governance": {"epistemicStatus": "inferred", "reviewStatus": "unreviewed", "extractionMethod": "language_model", "certificationStatus": "not_certified", "promotionState": "candidate", "independentOracle": false, "evidenceAssertionIds": ["evidence-1"]},
+  "promotionRecords": [
+    {"candidateId": "nz-generated-fixture-1", "candidateKind": "fixture", "sourceArtifactSha256": "7171717171717171717171717171717171717171717171717171717171717171", "requestedPromotion": "gold_fixture", "status": "pending_oracle_review", "independentOfProducer": false, "reviewer": null, "reviewEvidenceUri": null},
+    {"candidateId": "nz-generated-crosswalk-1", "candidateKind": "crosswalk_row", "sourceArtifactSha256": "7474747474747474747474747474747474747474747474747474747474747474", "requestedPromotion": "human_approved_crosswalk", "status": "pending_oracle_review", "independentOfProducer": false, "reviewer": null, "reviewEvidenceUri": null}
+  ],
   "artifactSha256": "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
 }
