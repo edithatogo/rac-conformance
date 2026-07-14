@@ -5,6 +5,11 @@ issue #33. This is a preparation artifact, not evidence that a deposit exists.
 
 ## Before publishing
 
+> Verification (2026-07-14): the configured `rac-conformance` remote does not
+> currently advertise `refs/tags/v0.2.0`. The maintainer must create or publish
+> that immutable release before Zenodo deposition; no release SHA is inferred
+> locally.
+
 1. Create or verify the GitHub release/tag matching `CITATION.cff` version
    `0.2.0` and confirm the release archive contains the contracts, harnesses,
    studies, FOI programme quality register, and manuscript evidence ledger.
