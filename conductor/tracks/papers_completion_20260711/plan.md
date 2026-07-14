@@ -62,10 +62,12 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 - [ ] Task: Verify the immutable `foi-o` release tag, commit SHA, contract and
       schema versions, capability matrix, migrations, and reproducibility commands.
 
-> BLOCKED (2026-07-14): `edithatogo/foi-o` has no published immutable release;
-> GitHub issue #31 remains open with `external-gate`, `human-gate`, and
-> `publication` labels. No release tag, commit pin, or evidence bundle may be
-> inferred or fabricated.
+> EVIDENCE UPDATE (2026-07-15): `edithatogo/foi-o` has now published immutable
+> release `v0.8.1` at commit
+> `d24ae6f9f2d9488052969f633d91eff4a9a47f58`. The release is recorded in the
+> programme citation ledger with verified Zenodo DOIs. The release-evidence
+> bundle required by `foi-o#27` is still absent, so no empirical results,
+> migrations, fixtures, or limitations may be inferred from the release alone.
 - [ ] Task: Import the release-evidence bundle containing tests, fixtures,
       provenance, empirical results, exception summaries, and known limitations.
 - [ ] Task: Diff release evidence against manuscript claims and regenerate all
@@ -73,9 +75,9 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 - [ ] Task: Run paper-artifact QA and prepare a human submission approval packet.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'FOI-O release-triggered paper refresh' (Protocol in workflow.md)
 
-> BLOCKED (2026-07-14): This phase begins only after `foi-o` publishes the next
-immutable release and its release-evidence bundle. Publication remains
-human-authorized after the refresh.
+> BLOCKED (2026-07-15): The immutable release trigger is satisfied, but this
+> phase remains blocked until `foi-o#27` publishes the release-evidence bundle.
+> Publication remains human-authorized after the refresh.
 
 ## Phase 4.8 - Programme citation and mirror reconciliation
 
