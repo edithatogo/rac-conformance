@@ -1,0 +1,1 @@
+Conductor tasks: Publish compatibility and migration policy; publish support, maintenance, and security policy\nEvidence: docs/V1_COMPATIBILITY.md and docs/V1_SUPPORT_SECURITY.md; FOI_PROGRAMME_REPO_ROOT=/Volumes/PortableSSD/GitHub make check passed.\nCompleted: 2026-07-15
