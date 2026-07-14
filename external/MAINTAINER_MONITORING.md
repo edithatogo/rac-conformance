@@ -1,6 +1,6 @@
 # Maintainer response monitoring
 
-Last checked: **2026-07-14** (Alaveteli proposal and PR closed without merge; local Dependabot PR #27 is current repository maintenance; rulespec-nz signing still external).
+Last checked: **2026-07-14** (Alaveteli proposal and PR closed without merge; local Dependabot PR #27 is merged; rulespec-nz signing still external).
 
 Bot / author-only comments do **not** count as maintainer replies.
 
@@ -31,7 +31,7 @@ Bot / author-only comments do **not** count as maintainer replies.
 | SNAP arXiv packet | `studies/snap-divergence/paper/ARXIV_SUBMISSION.md` | **Deferred** ([#16](https://github.com/edithatogo/rac-conformance/issues/16)) | Prepare only |
 | Unified papers project | https://github.com/users/edithatogo/projects/20 | Active | Ledger for pending/completed preprints |
 
-| Dependabot CodeQL v4 update | https://github.com/edithatogo/rac-conformance/pull/27 | Open; all checks pass; review required | Independent approval, then merge |
+| Dependabot CodeQL v4 update | https://github.com/edithatogo/rac-conformance/pull/27 | **Merged**; all required checks passed | None |
 
 ## Protocol
 

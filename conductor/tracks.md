@@ -12,7 +12,7 @@
 
 ---
 
-- [ ] **Track: External adoption completion**
+- [~] **Track: External adoption completion**
 *Link: [./tracks/external_adoption_20260711/](./tracks/external_adoption_20260711/)*
 
 ---
