@@ -1,0 +1,1 @@
+make check passed: repository audit, 37 contract tests, 25 converter tests, 20 harness tests, 33 snap-divergence tests, 16 NZ reconciliation tests, and 6 service-boundary tests.
