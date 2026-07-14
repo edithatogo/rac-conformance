@@ -9,17 +9,21 @@ owns generic source-backed profiles and adapters.
 
 ## Phase 1 - Upstream Citation and Release Readiness
 
-- [ ] Task: Prepare citation metadata in foi-process
-    - [ ] Add and validate `CITATION.cff` against repository identity, authorship, license, and release metadata.
-    - [ ] Document the integration-consumer boundary without claiming normative FOI or PIC ownership.
+- [x] Task: Prepare citation metadata in foi-process
+    - [x] Add and validate `CITATION.cff` against repository identity, authorship, license, and release metadata.
+    - [x] Document the integration-consumer boundary without claiming normative FOI or PIC ownership.
     - **Acceptance:** citation validation passes and metadata matches the repository's actual release target.
-    - > BLOCKED (2026-07-14): Upstream repository work is tracked in issue #7; no `CITATION.cff` is present in the current release surface.
-- [ ] Task: [HUMAN] Authorize and publish an immutable foi-process release
-    - [ ] Review the release commit, changelog, citation metadata, and version.
-    - [ ] Publish the approved tag and record immutable commit/tag evidence.
+- [x] Task: [HUMAN] Authorize and publish an immutable foi-process release
+    - [x] Review the release commit, changelog, citation metadata, and version.
+    - [x] Publish the approved tag and record immutable commit/tag evidence.
     - **Acceptance:** a public immutable release exists and its tag resolves to the approved commit.
-    - > BLOCKED (2026-07-14): No version tag exists; release publication requires upstream maintainer authorization.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Upstream Citation and Release Readiness' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Upstream Citation and Release Readiness' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-14): Upstream release `v0.1.0` is public and resolves to
+> commit `2e635115f61e24d2e109d868119024a5591cce00`. `CITATION.cff` records the
+> repository, Apache-2.0 license, version `0.1.0`, and release date. Hosted
+> `contracts`, `dependency-policy`, `feature-matrix`, and both Rust checks passed.
+> Programme ledger mirroring and Zenodo DOI verification remain open in Phase 2.
 
 ## Phase 2 - Programme Mirror and Preservation Evidence
 
