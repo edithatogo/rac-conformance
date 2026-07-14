@@ -12,6 +12,12 @@
 > re-extraction, Zenodo/Hugging Face pins, and manuscript submission as explicit
 > boundaries rather than overstating readiness.
 
+> FINAL CHECKPOINT (2026-07-14): `make check` passed on Python 3.14.6 across
+> repository audit, 10 tool tests, paper artifacts, PIC schemas/examples,
+> converters, harnesses, SNAP/NZ runners, service-boundary tests, and the
+> Docassemble OIA clock demo. External publication and next-release
+> re-extraction gates remain human/deferred.
+
 ## Child tracks
 
 - `foi-o`: `maximal_quality_profile_20260714` ([issue #36](https://github.com/edithatogo/foi-o/issues/36))
