@@ -46,11 +46,12 @@ during the repository incubation governed by
     - [x] Emit exception reasons for blocked source, conflict, missing date, underspecified local procedure, and secondary-only evidence.
     - **Acceptance:** every mapping receives a proposed disposition or explicit exception without case-name-coded rules.
     - Evidence: `tools/adverse_incident_triangulation.py`.
-- [ ] Task: Write mapping and resolver tests
-    - [ ] Cover harm, near miss, delayed recognition, disputed facts, parallel complaint, and blocked-source cases.
-    - [ ] Verify agent-only assertions cannot become certified obligations.
-    - [ ] Verify jurisdiction and effective-date leakage fails.
+- [x] Task: Write mapping and resolver tests
+    - [x] Cover harm, near miss, delayed recognition, disputed facts, parallel complaint, and blocked-source cases.
+    - [x] Verify agent-only assertions cannot become certified obligations.
+    - [x] Verify jurisdiction and effective-date leakage fails.
     - **Acceptance:** tests fail before implementation and pass after deterministic resolver work.
+    - Evidence: `contracts/tools/tests/test_adverse_incident_triangulation.py` and `results/triangulated-candidates.json`.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Process Mapping and Triangulation' (Protocol in workflow.md)
 
 ## Phase 3 - Synthetic Demonstrator and Review
