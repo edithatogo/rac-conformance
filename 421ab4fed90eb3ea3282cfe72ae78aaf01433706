@@ -1,0 +1,1 @@
+Conductor review (2026-07-14): Added explicit incubation/extraction licensing guidance and required a 40-character lowercase hexadecimal commit pin for integration releases. Targeted tests passed; programme citation validation passed for 10 artifacts; make check passed.
