@@ -105,10 +105,10 @@ Track ID: `foi_programme_quality_and_spacy_20260714`
 
 ---
 
-- [ ] **Track: Define the RaC Conformance v1 foundation and governance contract**
+- [x] **Track: Define the RaC Conformance v1 foundation and governance contract**
 Track ID: `v1_foundation_20260714`
 GitHub issue: [#39](https://github.com/edithatogo/rac-conformance/issues/39)
-*Link: [./tracks/v1_foundation_20260714/](./tracks/v1_foundation_20260714/)*
+*Archived link: [./archive/v1_foundation_20260714/](./archive/v1_foundation_20260714/)*
 
 ---
 
