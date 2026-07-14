@@ -1,0 +1,1 @@
+Release verification: gh release list --repo edithatogo/foi-o returned no releases. Issue #31 is open and externally gated.
