@@ -160,7 +160,7 @@ state, source authority, applicable jurisdiction, and human review status.
 
 1. `v1_foundation_20260714` ([#39](https://github.com/edithatogo/rac-conformance/issues/39))
 2. `process_mappings_repository_20260714` ([#50](https://github.com/edithatogo/rac-conformance/issues/50)) depends on 1 and establishes the profile implementation home
-3. `pic_process_profile_20260714` ([#40](https://github.com/edithatogo/rac-conformance/issues/40)) depends on 1 and uses the home established by 2
+3. `pic_process_profile_20260714` ([#40](https://github.com/edithatogo/rac-conformance/issues/40)) depends on 1 and 2
 4. `adverse_incident_open_disclosure_20260714` ([#41](https://github.com/edithatogo/rac-conformance/issues/41)) depends on 3
 5. `health_technology_pathways_20260714` ([#42](https://github.com/edithatogo/rac-conformance/issues/42)) depends on 3
 6. `camunda_portability_20260714` ([#43](https://github.com/edithatogo/rac-conformance/issues/43)) depends on 3 and one certified demonstrator

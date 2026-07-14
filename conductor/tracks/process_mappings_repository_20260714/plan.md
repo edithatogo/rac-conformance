@@ -8,7 +8,7 @@ Phase 1 and establishes the implementation home required by
 ## Phase 1 - Incubator Boundary and Scaffold
 
 > CHECKPOINT (2026-07-14): The tracked, non-canonical incubator now defines
-> standalone product, safety, source, repository, and Conductor boundaries and
+> standalone product, safety, source, licensing, repository, and Conductor boundaries and
 > contains explicit empty homes for the three initial profiles and Camunda
 > adapter. It contains no nested Git repository, substantive mapping, runtime
 > dependency, or remote/canonical claim. `make check` passed. Contract

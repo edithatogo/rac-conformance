@@ -9,6 +9,16 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "papers/zenodo/foi-programme-mirror-manifest.json"
 
 
+def validate_commit_pin(item: dict[str, object]) -> None:
+    """Require immutable commit evidence for integration release artifacts."""
+    if item["kind"] != "software_and_integration":
+        return
+    commit = item.get("commit")
+    assert isinstance(commit, str), item["id"]
+    assert len(commit) == 40, item["id"]
+    assert all(character in "0123456789abcdef" for character in commit), item["id"]
+
+
 def repository_root(artifact_id: str) -> Path:
     """Resolve a sibling checkout without assuming a developer's filesystem."""
     if artifact_id == "rac-conformance":
@@ -35,6 +45,7 @@ def main() -> int:
     }
     assert {item["id"] for item in data["artifacts"]} == expected
     for item in data["artifacts"]:
+        validate_commit_pin(item)
         if item["zenodo_status"] == "verified_published_version":
             assert item["zenodo_doi"], item["id"]
         if item["zenodo_status"] == "published_record_version_mismatch":
