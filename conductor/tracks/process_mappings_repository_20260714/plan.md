@@ -12,10 +12,10 @@ Phase 1 and establishes the implementation home required by
     - [x] State that the subtree is non-canonical, contains no nested `.git`, and cannot be published independently before cutover.
     - [x] Define `rac-conformance`, `foi-o`, `foi-process`, and `process-mappings` responsibilities.
     - **Acceptance:** an implementer can determine where every normative, semantic, execution, evidence, and mapping artifact belongs.
-- [ ] Task: Scaffold domain and adapter homes
-    - [ ] Create explicit homes for FOI compatibility, adverse incidents/open disclosure, health-technology pathways, and Camunda adapters.
-    - [ ] Add source, schema-reference, and test boundaries without claiming mappings are implemented.
-    - [ ] Prohibit real health data, inferred confidential facts, and AI-certified controlling evidence.
+- [x] Task: Scaffold domain and adapter homes
+    - [x] Create explicit homes for FOI compatibility, adverse incidents/open disclosure, health-technology pathways, and Camunda adapters.
+    - [x] Add source, schema-reference, and test boundaries without claiming mappings are implemented.
+    - [x] Prohibit real health data, inferred confidential facts, and AI-certified controlling evidence.
     - **Acceptance:** the scaffold is empty of substantive mappings but ready for independently reviewable track outputs.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Incubator Boundary and Scaffold' (Protocol in workflow.md)
 
