@@ -18,6 +18,12 @@
 > Docassemble OIA clock demo. External publication and next-release
 > re-extraction gates remain human/deferred.
 
+> REVIEW (2026-07-14): Revalidated the JSON evidence register and reran
+> `make check`; all audit, schema, converter, harness, study, service-boundary,
+> and Docassemble gates passed on Python 3.14.6. No corrective code or evidence
+> changes were required. Remaining type, dependency, re-extraction, and
+> publication gates are accurately recorded as deferred.
+
 ## Child tracks
 
 - `foi-o`: `maximal_quality_profile_20260714` ([issue #36](https://github.com/edithatogo/foi-o/issues/36))
