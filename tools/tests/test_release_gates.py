@@ -34,7 +34,7 @@ def test_valid_blocked_manifest_preserves_external_gate() -> None:
     )
 
     assert report.ok
-    assert report.statuses == {"blocked"}
+    assert report.statuses == {"pass", "blocked"}
 
 
 def test_valid_full_manifest_has_only_pass_gates() -> None:

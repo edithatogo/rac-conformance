@@ -47,11 +47,12 @@ GitHub issue: [#39](https://github.com/edithatogo/rac-conformance/issues/39).
     - [x] Add valid blocked and fully satisfied examples.
     - **Acceptance:** tests fail before validator implementation.
     - **Evidence:** `tools/tests/test_release_gates.py` and its six JSON fixtures define the required red/green corpus; the targeted test run failed before `tools.release_gates` existed.
-- [ ] Task: Implement machine-readable v1 gate manifest and validator
-    - [ ] Record gate owner, dependencies, evidence URLs/digests, observation time, and status.
-    - [ ] Produce a deterministic human-readable report.
-    - [ ] Integrate validation into `make check`.
+- [x] Task: Implement machine-readable v1 gate manifest and validator
+    - [x] Record gate owner, dependencies, evidence URLs/digests, observation time, and status.
+    - [x] Produce a deterministic human-readable report.
+    - [x] Integrate validation into `make check`.
     - **Acceptance:** local success cannot convert external or human gates to pass.
+    - **Evidence:** `conductor/v1-release-gates.json` is validated by `tools/release_gates.py` and the `release-gates-check` Make target; the manifest retains external and human gates as `blocked`.
 - [ ] Task: Reconcile existing programme gates
     - [ ] Link FOI-O release, external adoption, papers, Zenodo, and governance items without duplicating their source-of-truth plans.
     - [ ] Update Project 19 from the local manifest.
