@@ -6,7 +6,7 @@
 - [x] Task: Reproduce each contributor-controlled test surface and record versions
 - [x] Task: Conductor - Automated Review and Checkpoint 'Evidence refresh' (Protocol in workflow.md)
 
-> CHECKPOINT (2026-07-11): All seven PRs remain open and mergeable. PolicyEngine #515-#517 have no upstream check rollup and require maintainer workflow approval. OpenFisca #1382, Alaveteli #9356, and OpenFisca Aotearoa #200 remain review-required with empty check rollups. RuleSpec NZ #80 is mergeable; quality/roadmap/shard checks pass but validation fails because the changed KiwiSaver source lacks a signed generated manifest. Local branch evidence and upstream URLs are recorded in `external/UPSTREAM_PR_AUDIT.md` and `external/MAINTAINER_MONITORING.md`.
+> CHECKPOINT (2026-07-14): Alaveteli #9355 and PR #9356 are now closed without merge; all recorded checks passed before closure and no maintainer rationale is visible. PolicyEngine #515-#517, OpenFisca #1382, RuleSpec NZ #80, and OpenFisca Aotearoa #200 remain open with the previously recorded maintainer, workflow, CI, or signing gates. Local repository maintenance PR #27 is open with all checks passing and requires independent approval. Ledgers were refreshed in `external/UPSTREAM_PR_AUDIT.md` and `external/MAINTAINER_MONITORING.md`.
 
 ## Phase 2 - Review response
 

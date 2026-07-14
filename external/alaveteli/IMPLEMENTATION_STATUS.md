@@ -1,6 +1,6 @@
 # Alaveteli #9355 — implementation status
 
-**Date:** 2026-07-09  
+**Date:** 2026-07-14  
 **Upstream issue:** https://github.com/mysociety/alaveteli/issues/9355  
 **Upstream PR:** https://github.com/mysociety/alaveteli/pull/9356  
 **Issue comment:** https://github.com/mysociety/alaveteli/issues/9355#issuecomment-4920684381  
@@ -9,6 +9,11 @@
 ## Outcome
 
 Opened a **minimal, reviewable PR** against `mysociety/alaveteli` `develop` (not a core rewrite).
+
+The upstream issue and PR were closed on 2026-07-13 without merge. The visible
+issue and PR comments were all authored by `edithatogo`; no Alaveteli
+maintainer comment explaining the closure was posted before either item closed.
+All recorded upstream checks passed before closure.
 
 ### Delivered
 
@@ -32,6 +37,5 @@ Opened a **minimal, reviewable PR** against `mysociety/alaveteli` `develop` (not
 
 ## Next actions (human / maintainer)
 
-- [ ] Monitor PR #9356 for review feedback.
-- [ ] If maintainers want docs-only, drop the Ruby hook commits and keep `doc/REQUEST-STATES.md`.
-- [ ] If maintainers want persistence, follow up with optional `jsonb` column feeding the same `process_clock_metadata` method.
+- [x] Record the closed-without-merge outcome and absence of maintainer rationale.
+- [ ] Reopen or resubmit only if an Alaveteli maintainer requests a revised proposal.
