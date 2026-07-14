@@ -13,6 +13,13 @@ Status: working ledger for the paper-completion track. Every manuscript claim mu
 | SRC-FNS-01 | https://www.fns.usda.gov/snap/eligibility | SNAP programme eligibility context | SNAP | Official federal source; state options require separate sources |
 | SRC-RULESPEC-01 | https://github.com/TheAxiomFoundation/rulespec-nz | RuleSpec source and upstream compile gate | NZ reconciliation | Commit and manifest state are part of reproducibility |
 | SRC-OF-AO-01 | https://github.com/BetterRules/openfisca-aotearoa | OpenFisca Aotearoa source and coverage boundary | NZ reconciliation | Package revision and dependency compatibility must be recorded |
+| SW-FOIO-01 | https://github.com/edithatogo/foi-o; `CITATION.cff`; v0.8.0 | FOI-O ontology, schemas, V2 extraction contract, and process model | All FOI papers | Cite the exact release tag and SHA; Zenodo DOI is pending human deposit |
+| SW-FYICLI-01 | https://github.com/edithatogo/fyi-cli; `CITATION.cff`; v1.1.0 | Capture client used to obtain FYI request records | Coupling, archive methods | Cite the exact release tag and SHA; Zenodo DOI is pending human deposit |
+| DATA-FYIARCHIVE-01 | https://github.com/edithatogo/fyi-archive; `CITATION.cff`; v0.11.1 | Immutable archive/orchestration and WARC/WACZ distribution layer | Coupling, archive methods | DOI `10.5281/zenodo.21338285` resolves to published Zenodo record version `0.1.0`, not current repository version `0.11.1`; a matching deposit remains a human gate; HF revision and digest must also be pinned |
+| SW-NLP-NZ-01 | https://github.com/edithatogo/nlp-policy-nz; `CITATION.cff`; v0.1.0 | NLP/NER adapter and derived annotation pipeline | Coupling, archive methods | Cite exact release tag and SHA; Zenodo and Hugging Face revisions remain human-gated |
+| SW-LEGISLATION-01 | https://github.com/edithatogo/legislation; `CITATION.cff`; v1.2.0 | Authoritative NZ/Australian legislation retrieval provider | Legal methods and jurisdiction profiles | Cite exact release tag and SHA; Zenodo DOI is pending human deposit |
+| SW-RAC-01 | https://github.com/edithatogo/rac-conformance; `CITATION.cff`; v0.2.0 | Policy-interchange conformance and evidence harness | Methods and reproducibility | Cite exact release tag and SHA; Zenodo DOI is pending human deposit |
+| SRC-ALAVETELI-01 | https://github.com/mysociety/alaveteli | Upstream workflow/source intelligence for public FOI request registers | Archive methods | Read-only workflow precedent only; not presented as an included implementation or dataset |
 
 ## Claim rules
 

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Version-pinned citation and Zenodo mirror register for the FOI manuscript programme.",
+  "as_of": "2026-07-14",
+  "human_gate": "A pending record is not a claim that a Zenodo deposit exists; publish and verify the tagged release before manuscript submission.",
+  "artifacts": [
+    {"id":"foi-o","kind":"software","repository":"https://github.com/edithatogo/foi-o","version":"0.8.0","tag":"v0.8.0","citation_file":"CITATION.cff","zenodo_status":"pending_human_deposit","zenodo_doi":null},
+    {"id":"fyi-cli","kind":"software","repository":"https://github.com/edithatogo/fyi-cli","version":"1.1.0","tag":"v1.1.0","citation_file":"CITATION.cff","zenodo_status":"pending_human_deposit","zenodo_doi":null},
+    {"id":"fyi-archive","kind":"dataset_orchestration","repository":"https://github.com/edithatogo/fyi-archive","version":"0.11.1","tag":"v0.11.1","citation_file":"CITATION.cff","zenodo_status":"published_record_version_mismatch","zenodo_doi":"10.5281/zenodo.21338285","zenodo_record_version":"0.1.0","zenodo_concept_doi":"10.5281/zenodo.21338284","huggingface_target":"pending_revision_pin"},
+    {"id":"nlp-policy-nz","kind":"software_and_derived_data","repository":"https://github.com/edithatogo/nlp-policy-nz","version":"0.1.0","tag":"v0.1.0","citation_file":"CITATION.cff","zenodo_status":"pending_human_deposit","zenodo_doi":null,"huggingface_target":"pending_revision_pin"},
+    {"id":"legislation","kind":"software_and_source_provider","repository":"https://github.com/edithatogo/legislation","version":"1.2.0","tag":"v1.2.0","citation_file":"CITATION.cff","zenodo_status":"pending_human_deposit","zenodo_doi":null},
+    {"id":"rac-conformance","kind":"software_and_evidence","repository":"https://github.com/edithatogo/rac-conformance","version":"0.2.0","tag":"v0.2.0","citation_file":"CITATION.cff","zenodo_status":"pending_human_deposit","zenodo_doi":null},
+    {"id":"alaveteli","kind":"upstream_workflow_intelligence","repository":"https://github.com/mysociety/alaveteli","version":null,"tag":null,"citation_file":null,"zenodo_status":"not_applicable_upstream_source","zenodo_doi":null}
+  ]
+}

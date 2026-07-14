@@ -1,5 +1,13 @@
 # Project Tracks
 
+- [~] **Track: Citation and Zenodo mirroring**
+Track ID: `citation_zenodo_mirroring_20260714`
+*Link: [./tracks/citation_zenodo_mirroring_20260714/](./tracks/citation_zenodo_mirroring_20260714/)*
+
+- [ ] **Track: FOI programme quality and spaCy evaluation**
+Track ID: `foi_programme_quality_and_spacy_20260714`
+*Link: [./tracks/foi_programme_quality_and_spacy_20260714/](./tracks/foi_programme_quality_and_spacy_20260714/)*
+
 ---
 
 - [x] **Track: Repository rename and identity migration**
@@ -12,7 +20,7 @@
 
 ---
 
-- [ ] **Track: External adoption completion**
+- [~] **Track: External adoption completion**
 *Link: [./tracks/external_adoption_20260711/](./tracks/external_adoption_20260711/)*
 
 ---
@@ -22,7 +30,7 @@
 
 ---
 
-- [ ] **Track: Govern and synchronize the focused Freedom of Information programme in GitHub Project 14**
+- [~] **Track: Govern and synchronize the focused Freedom of Information programme in GitHub Project 14**
 *Link: [./tracks/foi_programme_governance_20260714/](./tracks/foi_programme_governance_20260714/)*
 
 ---

@@ -2,27 +2,55 @@
 
 ## Phase 1: Umbrella definition
 
-- [ ] Task: Update Project 14 title documentation, description, repository roles,
+- [x] Task: Update Project 14 title documentation, description, repository roles,
       inclusion filters, and status semantics.
-- [ ] Task: Add navigation anchors for every in-scope repository and dedicated Project.
-- [ ] Task: Define FOI-only filters for multi-purpose repositories.
+- [x] Task: Add navigation anchors for every in-scope repository and dedicated Project.
+- [x] Task: Define FOI-only filters for multi-purpose repositories.
 - [ ] Task: Conductor - User Manual Verification 'Umbrella definition' (Protocol in workflow.md)
+
+> BLOCKED (2026-07-14): Manual verification requires Dylan to confirm the
+> live Project 14 title, scope, repository boundaries, and navigation anchors.
+
+> CHECKPOINT (2026-07-14): Live Project 14 documentation at
+> `https://github.com/users/edithatogo/projects/14` already contains the
+> approved title, all seven repository roles and boundaries, FOI-only scope
+> rules, status semantics, and navigation anchors for dedicated boards.
 
 ## Phase 2: Item synchronization
 
-- [ ] Task: Add current FOI programme issues to Project 14 without removing
+- [x] Task: Add current FOI programme issues to Project 14 without removing
       their dedicated Project membership.
 - [ ] Task: Add dependency and jurisdiction metadata where Project fields support it.
-- [ ] Task: Verify issue state and Project status against local Conductor plans.
+- [x] Task: Verify issue state and Project status against local Conductor plans.
 - [ ] Task: Conductor - User Manual Verification 'Item synchronization' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-14): Project 14 contains the current FOI-O #23/#24,
+> rac-conformance #30, fyi-archive #187/#188, nlp-policy-nz #100/#101, and
+> legislation #62 items; the paper release gate rac-conformance #31 was added.
+> Their current Project status is `Todo`, matching the local plans. Project 14
+> exposes no custom dependency or jurisdiction fields beyond repository,
+> labels, parent issue, and status, so no unsupported metadata was invented.
+
+> BLOCKED (2026-07-14): Dependency and jurisdiction metadata cannot be added
+> through the existing Project 14 field model without a deliberate project
+> schema change and human governance decision.
 
 ## Phase 3: Durable governance
 
-- [ ] Task: Document or implement a repeatable item-level sync with FOI-only allowlists.
-- [ ] Task: Add drift checks for missing, stale, or unrelated Project 14 items.
-- [ ] Task: Run repository quality gates and Conductor review.
+- [x] Task: Document or implement a repeatable item-level sync with FOI-only allowlists.
+- [x] Task: Add drift checks for missing, stale, or unrelated Project 14 items.
+- [x] Task: Run repository quality gates and Conductor review.
 - [ ] Task: Archive only after live Project evidence is recorded.
 - [ ] Task: Conductor - User Manual Verification 'Durable governance' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-15): Added `project14-allowlist.json` and
+> `tools/validate_project14_allowlist.py`. Against the live Project 14 export,
+> the checker found all 18 required items and 67 extra historical items. The
+> extras are reported for human triage; no automatic deletion or status rewrite
+> is authorized.
+
+> REVIEW (2026-07-15): Added stale-status detection and four passing unit tests.
+> Full `make check` passed after the checker integration.
 
 ## Phase 4: FOI-O to PIC compatibility profile
 

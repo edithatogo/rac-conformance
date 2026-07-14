@@ -1,0 +1,33 @@
+{
+  "project": 14,
+  "expected_status": "Todo",
+  "required_items": [
+    "edithatogo/foi-o#23",
+    "edithatogo/foi-o#24",
+    "edithatogo/foi-o#25",
+    "edithatogo/foi-o#26",
+    "edithatogo/foi-o#27",
+    "edithatogo/foi-o#28",
+    "edithatogo/foi-o#29",
+    "edithatogo/foi-o#30",
+    "edithatogo/foi-o#31",
+    "edithatogo/foi-o#32",
+    "edithatogo/foi-o#33",
+    "edithatogo/fyi-archive#187",
+    "edithatogo/fyi-archive#188",
+    "edithatogo/nlp-policy-nz#100",
+    "edithatogo/nlp-policy-nz#101",
+    "edithatogo/legislation#62",
+    "edithatogo/rac-conformance#30",
+    "edithatogo/rac-conformance#31"
+  ],
+  "allowed_repositories": [
+    "edithatogo/foi-o",
+    "edithatogo/fyi-archive",
+    "edithatogo/nlp-policy-nz",
+    "edithatogo/legislation",
+    "edithatogo/rac-conformance",
+    "edithatogo/fyi-cli",
+    "edithatogo/alaveteli"
+  ]
+}
