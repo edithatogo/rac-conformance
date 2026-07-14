@@ -1,0 +1,1 @@
+Mainline reconciliation (2026-07-15): Integrated verified foi-process Zenodo version DOI 10.5281/zenodo.21359526 and concept DOI 10.5281/zenodo.21359525 while preserving the immutable release commit pin and phased Conductor evidence. Full make check passed.
