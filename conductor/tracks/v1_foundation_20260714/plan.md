@@ -29,11 +29,12 @@ GitHub issue: [#39](https://github.com/edithatogo/rac-conformance/issues/39).
     - [x] Define deprecation notice periods and migration-artifact requirements.
     - **Acceptance:** representative compatible and breaking changes are classified by tests.
     - **Evidence:** `docs/V1_COMPATIBILITY.md` defines independent package versioning, serialization and identifier stability, CLI compatibility, deprecation periods, and migration artifacts.
-- [ ] Task: Publish support, maintenance, and security policy
-    - [ ] Define supported Python/platform versions and maintenance windows.
-    - [ ] Define vulnerability intake, embargo, patch, and end-of-support behavior.
-    - [ ] Define maintainer succession and release authority.
+- [x] Task: Publish support, maintenance, and security policy
+    - [x] Define supported Python/platform versions and maintenance windows.
+    - [x] Define vulnerability intake, embargo, patch, and end-of-support behavior.
+    - [x] Define maintainer succession and release authority.
     - **Acceptance:** policies have named owners and observable response targets.
+    - **Evidence:** `docs/V1_SUPPORT_SECURITY.md` defines the tested baseline, maintenance window, private vulnerability intake, response targets, patch workflow, and succession rules.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Lifecycle Policies' (Protocol in workflow.md)
 
 ## Phase 3 - Release Gate Control Plane
