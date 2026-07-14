@@ -53,6 +53,11 @@ GitHub issue: [#42](https://github.com/edithatogo/rac-conformance/issues/42). De
     - [ ] Model PBAC/PBS and MSAC/MBS coordination only if the approved case requires it.
     - [ ] Otherwise record `not_applicable` with evidence and do not create speculative mappings.
     - **Acceptance:** MBS work has a concrete consumer and case or remains absent.
+- [ ] Task: Implement optional post-market safety handoff consumer
+    - [ ] Accept only the validated public or appropriately de-identified aggregate signal contract from the adverse-incident track.
+    - [ ] Route to monitoring, evidence review, or human reassessment only where a controlling official source supports that route.
+    - [ ] Preserve uncertainty and prohibit causal, regulatory, funding, restriction, and patient-access outcome inference.
+    - **Acceptance:** negative tests reject patient-level data, purpose mismatch, wrong jurisdiction, stale authority, and deterministic outcome inference.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Executable Comparative Profiles' (Protocol in workflow.md)
 
 ## Phase 4 - Certification and Findings
