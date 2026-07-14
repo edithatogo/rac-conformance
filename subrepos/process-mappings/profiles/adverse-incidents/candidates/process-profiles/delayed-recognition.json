@@ -31,6 +31,14 @@
       "occurredAt": "2026-07-01T00:00:00Z",
       "observedAt": "2026-07-01T00:00:00Z",
       "actorId": "person:synthetic-reviewer-delayed-recognition"
+    },
+    {
+      "id": "event:delayed-recognition:review-closed",
+      "kind": "certified_human",
+      "stateId": "state:delayed-recognition:closed",
+      "occurredAt": "2026-07-03T00:00:00Z",
+      "observedAt": "2026-07-03T00:00:00Z",
+      "actorId": "person:synthetic-reviewer-delayed-recognition"
     }
   ],
   "transitions": [
@@ -39,6 +47,12 @@
       "fromStateId": "state:delayed-recognition:detected",
       "toStateId": "state:delayed-recognition:review",
       "eventId": "event:delayed-recognition:detected"
+    },
+    {
+      "id": "transition:delayed-recognition:closed",
+      "fromStateId": "state:delayed-recognition:review",
+      "toStateId": "state:delayed-recognition:closed",
+      "eventId": "event:delayed-recognition:review-closed"
     }
   ],
   "actors": [
@@ -56,7 +70,7 @@
       "stateId": "state:delayed-recognition:review"
     },
     {
-      "id": "task:delayed-recognition:participation-support",
+      "id": "task:delayed-recognition:culturally-responsive-participation-support",
       "kind": "human_decision",
       "actorId": "person:synthetic-reviewer-delayed-recognition",
       "stateId": "state:delayed-recognition:review"
@@ -86,7 +100,7 @@
     {
       "id": "trace-link:delayed-recognition",
       "traceConformsTo": "pic-traces/0.1.0",
-      "traceRef": "urn:sha256:9b53da827509aa62d82033b4690b42e94d807e5c81faf60e13e266d05c61c133"
+      "traceRef": "urn:sha256:b0da44900e4ed02b1e2e17f0a152502168356806fe90ddea151e0cde07cf086c"
     }
   ]
 }

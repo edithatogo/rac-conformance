@@ -31,6 +31,14 @@
       "occurredAt": "2026-07-01T00:00:00Z",
       "observedAt": "2026-07-01T00:00:00Z",
       "actorId": "person:synthetic-reviewer-disputed-facts"
+    },
+    {
+      "id": "event:disputed-facts:review-closed",
+      "kind": "certified_human",
+      "stateId": "state:disputed-facts:closed",
+      "occurredAt": "2026-07-03T00:00:00Z",
+      "observedAt": "2026-07-03T00:00:00Z",
+      "actorId": "person:synthetic-reviewer-disputed-facts"
     }
   ],
   "transitions": [
@@ -39,6 +47,12 @@
       "fromStateId": "state:disputed-facts:detected",
       "toStateId": "state:disputed-facts:review",
       "eventId": "event:disputed-facts:detected"
+    },
+    {
+      "id": "transition:disputed-facts:closed",
+      "fromStateId": "state:disputed-facts:review",
+      "toStateId": "state:disputed-facts:closed",
+      "eventId": "event:disputed-facts:review-closed"
     }
   ],
   "actors": [
@@ -56,7 +70,7 @@
       "stateId": "state:disputed-facts:review"
     },
     {
-      "id": "task:disputed-facts:participation-support",
+      "id": "task:disputed-facts:culturally-responsive-participation-support",
       "kind": "human_decision",
       "actorId": "person:synthetic-reviewer-disputed-facts",
       "stateId": "state:disputed-facts:review"
@@ -86,7 +100,7 @@
     {
       "id": "trace-link:disputed-facts",
       "traceConformsTo": "pic-traces/0.1.0",
-      "traceRef": "urn:sha256:aacb2648d798f7238046c95e3f270c2c6cf73c2218c943e2e5a11ee97bb07c1a"
+      "traceRef": "urn:sha256:017fa67162ee078b3fa3bf97116da71aed9551c268300143cecf6e17e415a29e"
     }
   ]
 }

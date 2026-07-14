@@ -21,6 +21,10 @@
     {
       "id": "state:parallel-complaint:closed",
       "kind": "proposed"
+    },
+    {
+      "id": "state:parallel-complaint:parallel-pathway",
+      "kind": "proposed"
     }
   ],
   "events": [
@@ -31,6 +35,14 @@
       "occurredAt": "2026-07-01T00:00:00Z",
       "observedAt": "2026-07-01T00:00:00Z",
       "actorId": "person:synthetic-reviewer-parallel-complaint"
+    },
+    {
+      "id": "event:parallel-complaint:review-closed",
+      "kind": "certified_human",
+      "stateId": "state:parallel-complaint:closed",
+      "occurredAt": "2026-07-03T00:00:00Z",
+      "observedAt": "2026-07-03T00:00:00Z",
+      "actorId": "person:synthetic-reviewer-parallel-complaint"
     }
   ],
   "transitions": [
@@ -38,6 +50,18 @@
       "id": "transition:parallel-complaint:review",
       "fromStateId": "state:parallel-complaint:detected",
       "toStateId": "state:parallel-complaint:review",
+      "eventId": "event:parallel-complaint:detected"
+    },
+    {
+      "id": "transition:parallel-complaint:closed",
+      "fromStateId": "state:parallel-complaint:review",
+      "toStateId": "state:parallel-complaint:closed",
+      "eventId": "event:parallel-complaint:review-closed"
+    },
+    {
+      "id": "transition:parallel-complaint:parallel-pathway",
+      "fromStateId": "state:parallel-complaint:review",
+      "toStateId": "state:parallel-complaint:parallel-pathway",
       "eventId": "event:parallel-complaint:detected"
     }
   ],
@@ -56,7 +80,7 @@
       "stateId": "state:parallel-complaint:review"
     },
     {
-      "id": "task:parallel-complaint:participation-support",
+      "id": "task:parallel-complaint:culturally-responsive-participation-support",
       "kind": "human_decision",
       "actorId": "person:synthetic-reviewer-parallel-complaint",
       "stateId": "state:parallel-complaint:review"
@@ -86,7 +110,7 @@
     {
       "id": "trace-link:parallel-complaint",
       "traceConformsTo": "pic-traces/0.1.0",
-      "traceRef": "urn:sha256:2b5164d46f77c76ab4f88231e59eca302c2689041e712ffa02a7aa5e87430812"
+      "traceRef": "urn:sha256:a31f31f9c8e31c9078ef9e6c56a80c3400c5f33e9f994440bdeea9992f40ac77"
     }
   ]
 }

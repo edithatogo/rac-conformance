@@ -31,6 +31,14 @@
       "occurredAt": "2026-07-01T00:00:00Z",
       "observedAt": "2026-07-01T00:00:00Z",
       "actorId": "person:synthetic-reviewer-harm"
+    },
+    {
+      "id": "event:harm:review-closed",
+      "kind": "certified_human",
+      "stateId": "state:harm:closed",
+      "occurredAt": "2026-07-03T00:00:00Z",
+      "observedAt": "2026-07-03T00:00:00Z",
+      "actorId": "person:synthetic-reviewer-harm"
     }
   ],
   "transitions": [
@@ -39,6 +47,12 @@
       "fromStateId": "state:harm:detected",
       "toStateId": "state:harm:review",
       "eventId": "event:harm:detected"
+    },
+    {
+      "id": "transition:harm:closed",
+      "fromStateId": "state:harm:review",
+      "toStateId": "state:harm:closed",
+      "eventId": "event:harm:review-closed"
     }
   ],
   "actors": [
@@ -56,7 +70,7 @@
       "stateId": "state:harm:review"
     },
     {
-      "id": "task:harm:participation-support",
+      "id": "task:harm:culturally-responsive-participation-support",
       "kind": "human_decision",
       "actorId": "person:synthetic-reviewer-harm",
       "stateId": "state:harm:review"
@@ -86,7 +100,7 @@
     {
       "id": "trace-link:harm",
       "traceConformsTo": "pic-traces/0.1.0",
-      "traceRef": "urn:sha256:7ecfaae29a86de6c3e66f6eb0d56be8a13602dd59b7174e6d89bdbeb80739d66"
+      "traceRef": "urn:sha256:6650a71513c7a5303868d437899bd37034c8b60297223047f84cdf836370d439"
     }
   ]
 }

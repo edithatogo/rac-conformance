@@ -78,7 +78,15 @@ def build_profile(scenario: tuple[str, str, str, str, str]) -> dict[str, object]
                 "occurredAt": "2026-07-01T00:00:00Z",
                 "observedAt": "2026-07-01T00:00:00Z",
                 "actorId": actor_id,
-            }
+            },
+            {
+                "id": f"event:{name}:review-closed",
+                "kind": "certified_human",
+                "stateId": f"state:{name}:closed",
+                "occurredAt": "2026-07-03T00:00:00Z",
+                "observedAt": "2026-07-03T00:00:00Z",
+                "actorId": actor_id,
+            },
         ],
         "transitions": [
             {
@@ -86,7 +94,13 @@ def build_profile(scenario: tuple[str, str, str, str, str]) -> dict[str, object]
                 "fromStateId": f"state:{name}:detected",
                 "toStateId": f"state:{name}:review",
                 "eventId": f"event:{name}:detected",
-            }
+            },
+            {
+                "id": f"transition:{name}:closed",
+                "fromStateId": f"state:{name}:review",
+                "toStateId": f"state:{name}:closed",
+                "eventId": f"event:{name}:review-closed",
+            },
         ],
         "actors": [{"id": actor_id, "kind": "person", "label": "Synthetic human reviewer"}],
         "humanTasks": [
@@ -97,7 +111,7 @@ def build_profile(scenario: tuple[str, str, str, str, str]) -> dict[str, object]
                 "stateId": f"state:{name}:review",
             },
             {
-                "id": f"task:{name}:participation-support",
+                "id": f"task:{name}:culturally-responsive-participation-support",
                 "kind": "human_decision",
                 "actorId": actor_id,
                 "stateId": f"state:{name}:review",
@@ -125,6 +139,16 @@ def build_profile(scenario: tuple[str, str, str, str, str]) -> dict[str, object]
         ],
         "traceLinks": [],
     }
+    if name == "parallel-complaint":
+        profile["states"].append({"id": f"state:{name}:parallel-pathway", "kind": "proposed"})
+        profile["transitions"].append(
+            {
+                "id": f"transition:{name}:parallel-pathway",
+                "fromStateId": f"state:{name}:review",
+                "toStateId": f"state:{name}:parallel-pathway",
+                "eventId": f"event:{name}:detected",
+            }
+        )
     trace_digest = hashlib.sha256(
         json.dumps(profile, sort_keys=True, separators=(",", ":")).encode()
     ).hexdigest()

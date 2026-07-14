@@ -36,6 +36,14 @@ def test_generated_corpus_is_synthetic_and_schema_valid(tmp_path) -> None:
         assert all(
             not assertion["controlling"] for assertion in profile["sourceAssertions"]
         )
+        assert any(
+            transition["toStateId"].endswith(":closed")
+            for transition in profile["transitions"]
+        )
+        assert any(
+            "culturally-responsive-participation-support" in task["id"]
+            for task in profile["humanTasks"]
+        )
         assert list(validator.iter_errors(profile)) == []
 
 
@@ -44,3 +52,11 @@ def test_blocked_source_fixture_fails_closed() -> None:
 
     assert profile["sourceAssertions"][0]["sourceStatus"] == "blocked"
     assert profile["humanTasks"][0]["kind"] == "human_review"
+
+
+def test_parallel_complaint_fixture_has_parallel_pathway() -> None:
+    profile = MODULE.build_profile(MODULE.SCENARIOS[4])
+
+    assert any(
+        state["id"].endswith(":parallel-pathway") for state in profile["states"]
+    )

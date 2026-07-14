@@ -31,6 +31,14 @@
       "occurredAt": "2026-07-01T00:00:00Z",
       "observedAt": "2026-07-01T00:00:00Z",
       "actorId": "person:synthetic-reviewer-blocked-source"
+    },
+    {
+      "id": "event:blocked-source:review-closed",
+      "kind": "certified_human",
+      "stateId": "state:blocked-source:closed",
+      "occurredAt": "2026-07-03T00:00:00Z",
+      "observedAt": "2026-07-03T00:00:00Z",
+      "actorId": "person:synthetic-reviewer-blocked-source"
     }
   ],
   "transitions": [
@@ -39,6 +47,12 @@
       "fromStateId": "state:blocked-source:detected",
       "toStateId": "state:blocked-source:review",
       "eventId": "event:blocked-source:detected"
+    },
+    {
+      "id": "transition:blocked-source:closed",
+      "fromStateId": "state:blocked-source:review",
+      "toStateId": "state:blocked-source:closed",
+      "eventId": "event:blocked-source:review-closed"
     }
   ],
   "actors": [
@@ -56,7 +70,7 @@
       "stateId": "state:blocked-source:review"
     },
     {
-      "id": "task:blocked-source:participation-support",
+      "id": "task:blocked-source:culturally-responsive-participation-support",
       "kind": "human_decision",
       "actorId": "person:synthetic-reviewer-blocked-source",
       "stateId": "state:blocked-source:review"
@@ -86,7 +100,7 @@
     {
       "id": "trace-link:blocked-source",
       "traceConformsTo": "pic-traces/0.1.0",
-      "traceRef": "urn:sha256:327e030076578fcd064adfda29ec15306552c7d7676dfe18a6e4ccba8e3f07cb"
+      "traceRef": "urn:sha256:0c1bdbd35e7356cc9b17d21602b4669b8c2a97ff38c80fce2c784833cb2a8416"
     }
   ]
 }
