@@ -8,11 +8,12 @@ during the repository incubation governed by
 
 ## Phase 1 - Authority and Source Architecture
 
-- [ ] Task: Build regulator, HTA, payer, and service-funding authority matrix
-    - [ ] Cover Medsafe/Pharmac, TGA/PBAC-PBS/MSAC-MBS, MHRA/NICE, and FDA/explicitly payer-specific US follow-on.
-    - [ ] Record statutory or policy function, decision owner, advice owner, applicant, output, review route, and post-market owner.
-    - [ ] Mark non-equivalent and absent functions explicitly.
+- [x] Task: Build regulator, HTA, payer, and service-funding authority matrix
+    - [x] Cover Medsafe/Pharmac, TGA/PBAC-PBS/MSAC-MBS, MHRA/NICE, and FDA/explicitly payer-specific US follow-on.
+    - [x] Record statutory or policy function, decision owner, advice owner, applicant, output, review route, and post-market owner.
+    - [x] Mark non-equivalent and absent functions explicitly.
     - **Acceptance:** automated checks reject FDA-as-payer, MBS-as-medicine-regulator, and other false-equivalence assertions.
+    - **Evidence:** `subrepos/process-mappings/profiles/health-technology/AUTHORITY_MATRIX.json`, `LIFECYCLE_MODEL.md`, `sources/SOURCE_MANIFEST.json`, and `contracts/tools/tests/test_health_technology_profile.py`; 83 contract tests and full `make check` pass.
 - [ ] Task: Build versioned primary-source manifests
     - [ ] Store source ledgers under `subrepos/process-mappings/profiles/health-technology/sources/`.
     - [ ] Pin current official process manuals, legislation or regulations where needed, application guidance, and public decision-record formats.
