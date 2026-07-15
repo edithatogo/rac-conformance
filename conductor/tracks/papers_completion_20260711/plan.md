@@ -70,6 +70,7 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 > migrations, fixtures, or limitations may be inferred from the release alone.
 - [ ] Task: Import the release-evidence bundle containing tests, fixtures,
       provenance, empirical results, exception summaries, and known limitations.
+      - **PREPARATION COMPLETE (2026-07-15):** `tools/validate_foio_evidence_bundle.py` provides fail-closed intake validation for release identity, capabilities, contracts, migrations, tests, fixtures, provenance, empirical results, exceptions, and limitations.
 - [ ] Task: Diff release evidence against manuscript claims and regenerate all
       affected tables, figures, citations, methods, results, and limitations.
 - [ ] Task: Run paper-artifact QA and prepare a human submission approval packet.

@@ -28,6 +28,12 @@ SHA, contract/capability matrix, migrations, tests, fixtures, provenance,
 empirical results, exceptions, and limitations. The RaC paper refresh starts
 only after that bundle is public and its digests are independently checked.
 
+When available, validate the bundle locally with:
+
+```sh
+python tools/validate_foio_evidence_bundle.py /path/to/foio-release-evidence.json
+```
+
 Do not infer the bundle from FOI-O `v0.8.1` alone. The public issue remains the
 upstream source of truth.
 
