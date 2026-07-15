@@ -1,0 +1,1 @@
+Conductor review fix: safety handoff consumption now has an explicit status gate; approved-for-consumption requires human-approved review, while the candidate example remains blocked. Phase 1 checkpoint corrected from three blocked downloads to two NSW downloads after HQSC verification. Full make check passed.
