@@ -1,9 +1,9 @@
 {
   "track_id": "foi_programme_governance_20260714",
   "type": "chore",
-  "status": "in_progress",
+  "status": "blocked",
   "created_at": "2026-07-14T00:00:00+10:00",
-  "updated_at": "2026-07-14T23:02:00+10:00",
+  "updated_at": "2026-07-15T22:20:00+10:00",
   "description": "Govern and synchronize the Freedom of Information programme across Project 14 and its repository-native Conductor roadmaps.",
   "github_issue": "https://github.com/edithatogo/rac-conformance/issues/30"
 }

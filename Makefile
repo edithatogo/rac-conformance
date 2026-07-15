@@ -6,7 +6,7 @@ audit:
 	PYTHONPATH=. uv run python -m tools.repo_audit
 
 audit-test:
-	PYTHONPATH=. uv run --with pytest --with pyyaml pytest tools/tests
+	PYTHONPATH=. uv run --with pytest --with pyyaml --with jsonschema pytest tools/tests
 
 release-gates-check:
 	PYTHONPATH=. uv run python -m tools.release_gates conductor/v1-release-gates.json --as-of 2026-07-15

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/rac-conformance/blob/main/conductor/tracks/v1_independent_validation_20260714/SUBMISSION_SCHEMA.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "implementationId", "organisation", "repository", "sourceRevision",
+    "sourceDigest", "contractVersions", "kitDigestSha256", "environment",
+    "command", "inputDigest", "resultDigest", "testOutcome",
+    "independenceStatus", "acknowledgement", "attestation", "maintenance", "evidenceUrls"
+  ],
+  "properties": {
+    "implementationId": {"type": "string", "minLength": 1},
+    "organisation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "controlRelationship"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "controlRelationship": {"enum": ["external", "internal", "maintainer-fork"]}
+      }
+    },
+    "repository": {
+      "type": "object", "additionalProperties": false,
+      "required": ["url", "accessControl"],
+      "properties": {
+        "url": {"type": "string", "format": "uri"},
+        "accessControl": {"enum": ["external", "internal", "maintainer-fork"]}
+      }
+    },
+    "sourceRevision": {"type": "string", "pattern": "^[0-9a-fA-F]{7,64}$"},
+    "sourceDigest": {"type": "string", "pattern": "^sha256:[0-9a-fA-F]{64}$"},
+    "contractVersions": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "kitDigestSha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "environment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["runtime", "platform", "cleanCheckout"],
+      "properties": {
+        "runtime": {"type": "string", "minLength": 1},
+        "platform": {"type": "string", "minLength": 1},
+        "cleanCheckout": {"type": "boolean"}
+      }
+    },
+    "command": {"type": "string", "minLength": 1},
+    "inputDigest": {"type": "string", "pattern": "^sha256:[0-9a-fA-F]{64}$"},
+    "resultDigest": {"type": "string", "pattern": "^sha256:[0-9a-fA-F]{64}$"},
+    "testOutcome": {"enum": ["pass", "fail", "inconclusive"]},
+    "independenceStatus": {"enum": ["qualifying", "partial", "conflicting", "withdrawn", "declined", "unresponsive", "internal-rehearsal", "unacknowledged", "maintainer-fork", "narrative-only"]},
+    "acknowledgement": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["confirmed", "pending", "withdrawn", "none"]},
+        "url": {"type": "string", "format": "uri"}
+      }
+    },
+    "attestation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["issuerControl", "evidenceType", "url"],
+      "properties": {
+        "issuerControl": {"enum": ["external", "internal"]},
+        "evidenceType": {"enum": ["external-publication", "owner-confirmation"]},
+        "url": {"type": "string", "format": "uri"}
+      }
+    },
+    "maintenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["owner", "freshnessDate"],
+      "properties": {
+        "owner": {"type": "string", "minLength": 1},
+        "freshnessDate": {"type": "string", "format": "date"}
+      }
+    },
+    "evidenceUrls": {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1}
+  }
+}

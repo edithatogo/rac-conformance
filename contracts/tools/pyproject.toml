@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "pic-contracts"
 version = "0.1.0"
 description = "Reference tooling for Policy Interchange Contracts"
-readme = "../../contracts/README.md"
+readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "jsonschema>=4.18",

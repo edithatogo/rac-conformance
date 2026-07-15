@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "rac-zenodo-input.v1",
+  "repository": "https://github.com/edithatogo/rac-conformance",
+  "tag": "v0.2.0",
+  "commit": "35fdebdd6ca3ad0a254ca0b3ec5b7466b7db3fe5",
+  "githubArchiveUrl": "https://github.com/edithatogo/rac-conformance/archive/refs/tags/v0.2.0.tar.gz",
+  "githubArchiveSha256": "07743bb7e4be3749f89564d8cb0184372a76d26af426181ccdcd3115e8d667ff",
+  "localGitArchiveSha256": "3077044a38d1f2fcabf60d473c3875de4e1de09717f10fbe76582eff13939c11",
+  "status": "ready_for_human_deposit",
+  "zenodoVersionDoi": null,
+  "zenodoConceptDoi": null
+}

@@ -4,21 +4,25 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
 
 ## Phase 1 - Independence Contract and Implementer Kit
 
-- [ ] Task: Define independent-validation evidence policy
-    - [ ] Define organisational, repository, codebase, oracle, fixture-curation, and execution independence.
-    - [ ] Define qualifying, partial, conflicting, withdrawn, declined, and unresponsive outcomes.
-    - [ ] Define freshness and maintenance requirements.
+- [x] Task: Define independent-validation evidence policy
+    - [x] Define organisational, repository, codebase, oracle, fixture-curation, and execution independence.
+    - [x] Define qualifying, partial, conflicting, withdrawn, declined, and unresponsive outcomes.
+    - [x] Define freshness and maintenance requirements.
     - **Acceptance:** self-owned forks, agent-generated fixtures, and unacknowledged issues cannot satisfy the gate.
-- [ ] Task: Build self-contained implementer kit
-    - [ ] Package versioned schemas, examples, negative corpus, expected-result policy, runner instructions, and result manifest.
-    - [ ] Remove assumptions about local paths, private services, or unpublished source material.
-    - [ ] Add a clean-environment rehearsal.
+    - **Evidence:** `docs/INDEPENDENT_VALIDATION_POLICY.md`, `INDEPENDENCE_CRITERIA.json`, and `tools/tests/test_independence_policy.py` define eight independence dimensions, six outcomes, freshness windows, and explicit non-qualifying statuses.
+- [x] Task: Build self-contained implementer kit
+    - [x] Package a versioned schema, examples, negative corpus, expected-result policy, runner instructions, and result manifest.
+    - [x] Remove assumptions about local paths, private services, or unpublished source material.
+    - [x] Add a clean-environment rehearsal runner.
     - **Acceptance:** an uninvolved reviewer can reproduce the kit's reference run.
-- [ ] Task: Build conformance evidence verifier
-    - [ ] Validate implementation identity, versions, environment, artifact digests, result signatures/checksums, and test outcomes.
-    - [ ] Reject stale, incomplete, self-certified, or unverifiable submissions.
+    - **Evidence:** `conductor/tracks/v1_independent_validation_20260714/kit/` is self-contained for `pic-semantics/0.1.0`; `run_reference.py` imports only `jsonschema`, computes a kit digest, and labels its output `reference-runner-only`.
+- [x] Task: Build conformance evidence verifier
+    - [x] Validate implementation identity, versions, environment, artifact digests, result signatures/checksums, and test outcomes.
+    - [x] Reject stale, incomplete, self-certified, or unverifiable submissions.
     - **Acceptance:** verifier emits deterministic evidence status and precise exceptions.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Independence Contract and Implementer Kit' (Protocol in workflow.md)
+    - **Evidence:** `SUBMISSION_SCHEMA.json`, `tools/independent_evidence.py`, and `tools/tests/test_independent_evidence.py` provide a network-free packet contract, deterministic classification, and coverage for qualifying, partial, conflicting, withdrawn, declined, unresponsive, rejected, stale, and internal-rehearsal cases.
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Independence Contract and Implementer Kit' (Protocol in workflow.md)
+    - **CHECKPOINT:** Policy, self-contained kit, deterministic verifier, and clean-room agent rehearsal are complete. Local tests and the clean evaluator run pass; semantic integrity, external implementation, external acknowledgement, and v1 adoption remain deferred to later phases.
 
 ## Phase 2 - Candidate Engagement
 

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "rac-release-provenance.v1",
+  "release": "v1.0.0-rc.1",
+  "source": {
+    "commit": "0c4a83b55208bae59592af017c6e0f66194ec8bb",
+    "tree": "ef742234d76a777ac7d43af01aa7b7d1b388a27b",
+    "cleanCheckout": true
+  },
+  "build": {
+    "runtime": "Python 3.14.5",
+    "platform": "macOS arm64",
+    "builder": "uv 0.11.8",
+    "commands": [
+      "uv build --out-dir release-candidate/packages",
+      "git archive --format=tar.gz --prefix=rac-conformance-v1.0.0-rc.1/ HEAD",
+      "make check"
+    ],
+    "reproducibleBuilds": true,
+    "comparison": "Two clean builds produced identical wheel and source-distribution SHA-256 digests."
+  },
+  "publication": {
+    "status": "not-published",
+    "humanAuthorizationRequired": true
+  }
+}

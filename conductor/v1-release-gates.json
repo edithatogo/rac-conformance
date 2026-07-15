@@ -55,6 +55,17 @@
       "observed_at": "2026-07-15"
     },
     {
+      "id": "papers-programme-submission",
+      "owner": "dylan",
+      "category": "human",
+      "status": "blocked",
+      "dependencies": ["papers-refresh"],
+      "source": "https://github.com/edithatogo/rac-conformance/issues/24",
+      "reason_code": "paper_programme_human_submission_pending",
+      "next_action": "Approve authorship, venue, disclosure text, and submission of the three prepared paper packets.",
+      "observed_at": "2026-07-15"
+    },
+    {
       "id": "rac-zenodo-deposit",
       "owner": "dylan",
       "category": "human",
@@ -74,6 +85,17 @@
       "source": "https://github.com/edithatogo/rac-conformance/issues/30",
       "observed_at": "2026-07-15",
       "evidence": [{"url": "https://github.com/edithatogo/rac-conformance/tree/main/docs", "observed_at": "2026-07-15"}]
+    },
+    {
+      "id": "foi-governance-manual-verification",
+      "owner": "dylan",
+      "category": "human",
+      "status": "blocked",
+      "dependencies": ["v1-governance-documents"],
+      "source": "https://github.com/edithatogo/rac-conformance/issues/30",
+      "reason_code": "project14_manual_verification_pending",
+      "next_action": "Verify the live Project 14 scope, issue membership, fields, and navigation against HUMAN_VERIFICATION_PACKET.md.",
+      "observed_at": "2026-07-15"
     }
   ]
 }

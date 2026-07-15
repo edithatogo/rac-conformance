@@ -1,0 +1,189 @@
+{
+  "environment": {
+    "captured_at_utc": "2026-07-15T06:54:21.019888+00:00",
+    "jsonschema": "4.26.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.5 (main, May 10 2026, 19:20:57) [Clang 22.1.3 ]"
+  },
+  "evaluation": {
+    "corpus_size": 16,
+    "internal_rehearsal": true,
+    "invalid_expected": 10,
+    "method": "jsonschema Draft 2020-12 validator with local $id registry and FormatChecker",
+    "qualifies_as_external_adoption": false,
+    "qualifies_as_human_certification": false,
+    "status": "pass",
+    "valid_expected": 6
+  },
+  "evaluator": {
+    "path": "conductor/tracks/v1_independent_validation_20260714/evidence/agent-independent/evaluate.py",
+    "sha256": "ffe60af84c17877a2de7edeccb8fe640226c9e575b9b1e6b43a71537bc4b8f7d"
+  },
+  "repository": {
+    "clean_at_capture": true,
+    "commit": "8468710300addedddcfe516866c6628f96e346ba",
+    "commit_short": "8468710"
+  },
+  "results": [
+    {
+      "error": null,
+      "example": "contracts/process-profile/0.1.0/examples/valid/foi-oia.json",
+      "example_sha256": "d76982a8731c58e22408e0fdc3edb19464a8515c9ac2bc63174092ec83e3981f",
+      "expected": "valid",
+      "observed": "valid",
+      "pass": true,
+      "schema": "contracts/process-profile/0.1.0/schema.json",
+      "schema_sha256": "b41cd3a56d003817d75aac779b54ece9c8d1b36cb68cfcdca16bd43d7b3bb635"
+    },
+    {
+      "error": null,
+      "example": "contracts/process-profile/0.1.0/examples/valid/human-review.json",
+      "example_sha256": "eb6d7a7c4e2fe7f5a7125664ee7d4b52b3e1b5dcb47316ff488ef16a01cbb590",
+      "expected": "valid",
+      "observed": "valid",
+      "pass": true,
+      "schema": "contracts/process-profile/0.1.0/schema.json",
+      "schema_sha256": "b41cd3a56d003817d75aac779b54ece9c8d1b36cb68cfcdca16bd43d7b3bb635"
+    },
+    {
+      "error": "'agent-proposed' is not one of ['human-approved', 'official-primary']",
+      "example": "contracts/process-profile/0.1.0/examples/invalid/agent-controlling.json",
+      "example_sha256": "2fde8bcb7e38161333f294de5d36a5097b657278a01d158081982a12d1a81a55",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/process-profile/0.1.0/schema.json",
+      "schema_sha256": "b41cd3a56d003817d75aac779b54ece9c8d1b36cb68cfcdca16bd43d7b3bb635"
+    },
+    {
+      "error": "'observedAt' is a required property",
+      "example": "contracts/process-profile/0.1.0/examples/invalid/ambiguous-time.json",
+      "example_sha256": "a786b023c626733ce02e42a465863c22436c64ca9df6b89c756aaa24ada36231",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/process-profile/0.1.0/schema.json",
+      "schema_sha256": "b41cd3a56d003817d75aac779b54ece9c8d1b36cb68cfcdca16bd43d7b3bb635"
+    },
+    {
+      "error": "'automatic_magic' is not one of ['human_review', 'human_decision', 'human_approval']",
+      "example": "contracts/process-profile/0.1.0/examples/invalid/bad-task-kind.json",
+      "example_sha256": "74c6b5f5aac010415893e7f72bc0b6bdd6aa985bb805021f32d7677327bc43b0",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/process-profile/0.1.0/schema.json",
+      "schema_sha256": "b41cd3a56d003817d75aac779b54ece9c8d1b36cb68cfcdca16bd43d7b3bb635"
+    },
+    {
+      "error": "'authorityAssertionId' is a required property",
+      "example": "contracts/process-profile/0.1.0/examples/invalid/missing-authority.json",
+      "example_sha256": "6a00547e7fd5caf8bbd0bf32731004fe7f3890eb9632dc75540f53c599e8d75b",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/process-profile/0.1.0/schema.json",
+      "schema_sha256": "b41cd3a56d003817d75aac779b54ece9c8d1b36cb68cfcdca16bd43d7b3bb635"
+    },
+    {
+      "error": null,
+      "example": "contracts/pic-fixtures/0.1.0/examples/valid/missingness.json",
+      "example_sha256": "b3ec33e823b523efd29bc858b5af1240a7384bb87a9007aa4a63625d700988cb",
+      "expected": "valid",
+      "observed": "valid",
+      "pass": true,
+      "schema": "contracts/pic-fixtures/0.1.0/schema.json",
+      "schema_sha256": "8cd8ea1c0e82de7fa76abc008a388985ee3b90f27e29e47f29f6d6973c5e15ac"
+    },
+    {
+      "error": null,
+      "example": "contracts/pic-fixtures/0.1.0/examples/valid/plain.json",
+      "example_sha256": "70bcf3d4233b7dc8fa64b321ef30828c3be130bd29151e6ef1ad1e6f1120215f",
+      "expected": "valid",
+      "observed": "valid",
+      "pass": true,
+      "schema": "contracts/pic-fixtures/0.1.0/schema.json",
+      "schema_sha256": "8cd8ea1c0e82de7fa76abc008a388985ee3b90f27e29e47f29f6d6973c5e15ac"
+    },
+    {
+      "error": "1.0 is not of type 'string'",
+      "example": "contracts/pic-fixtures/0.1.0/examples/invalid/bad-tolerance.json",
+      "example_sha256": "421fd80f9e2264f869c7cee4643f6721c4998eb960a1c0736d5d4ac282c433b8",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/pic-fixtures/0.1.0/schema.json",
+      "schema_sha256": "8cd8ea1c0e82de7fa76abc008a388985ee3b90f27e29e47f29f6d6973c5e15ac"
+    },
+    {
+      "error": "2100.5 is not valid under any of the given schemas",
+      "example": "contracts/pic-fixtures/0.1.0/examples/invalid/float-money.json",
+      "example_sha256": "387369db3541d06ccfe9f972ec7a4fedf2bf924181a2fa0e901ef5defdda6eda",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/pic-fixtures/0.1.0/schema.json",
+      "schema_sha256": "8cd8ea1c0e82de7fa76abc008a388985ee3b90f27e29e47f29f6d6973c5e15ac"
+    },
+    {
+      "error": "'curator' is a required property",
+      "example": "contracts/pic-fixtures/0.1.0/examples/invalid/missing-curator.json",
+      "example_sha256": "fa9675a8390c99bab23c7290b3aa9d60430a4d2bac42c16cae22798b38c4e7a9",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/pic-fixtures/0.1.0/schema.json",
+      "schema_sha256": "8cd8ea1c0e82de7fa76abc008a388985ee3b90f27e29e47f29f6d6973c5e15ac"
+    },
+    {
+      "error": null,
+      "example": "contracts/pic-traces/0.1.0/examples/valid/missingness-trace.json",
+      "example_sha256": "a966ce9cd8fc48850a4d177ff43e94c722de28b082de78cd90331833c5598fc9",
+      "expected": "valid",
+      "observed": "valid",
+      "pass": true,
+      "schema": "contracts/pic-traces/0.1.0/schema.json",
+      "schema_sha256": "d260c100e38e5f9735fecd48740f74e5c52ac1774c2f7bbd815cd106c6d19d5f"
+    },
+    {
+      "error": null,
+      "example": "contracts/pic-traces/0.1.0/examples/valid/oia-response-deadline.json",
+      "example_sha256": "a22aaee22c8b60dfc4d7688ef9c2e2f0f15dc405209136b37d57bd83be974d2f",
+      "expected": "valid",
+      "observed": "valid",
+      "pass": true,
+      "schema": "contracts/pic-traces/0.1.0/schema.json",
+      "schema_sha256": "d260c100e38e5f9735fecd48740f74e5c52ac1774c2f7bbd815cd106c6d19d5f"
+    },
+    {
+      "error": "'calculation' is not one of ['decision', 'process', 'evidence_check', 'notice']",
+      "example": "contracts/pic-traces/0.1.0/examples/invalid/bad-kind.json",
+      "example_sha256": "8b280370dd177fbd3f39bdc6a0b3d6bbbc6ab588eab09d4ba25ec6d716cabf29",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/pic-traces/0.1.0/schema.json",
+      "schema_sha256": "d260c100e38e5f9735fecd48740f74e5c52ac1774c2f7bbd815cd106c6d19d5f"
+    },
+    {
+      "error": "'id' is a required property",
+      "example": "contracts/pic-traces/0.1.0/examples/invalid/bad-parameter-version.json",
+      "example_sha256": "b68e3a8c3970268a6622d419819bb4d9b3eec02ea1ecb9811db908d30d328c10",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/pic-traces/0.1.0/schema.json",
+      "schema_sha256": "d260c100e38e5f9735fecd48740f74e5c52ac1774c2f7bbd815cd106c6d19d5f"
+    },
+    {
+      "error": "'conformsTo' is a required property",
+      "example": "contracts/pic-traces/0.1.0/examples/invalid/missing-conforms-to.json",
+      "example_sha256": "78c3a3a6becc995822c28f658fb25df93543dc151b843f821865545d3b06923b",
+      "expected": "invalid",
+      "observed": "invalid",
+      "pass": true,
+      "schema": "contracts/pic-traces/0.1.0/schema.json",
+      "schema_sha256": "d260c100e38e5f9735fecd48740f74e5c52ac1774c2f7bbd815cd106c6d19d5f"
+    }
+  ]
+}

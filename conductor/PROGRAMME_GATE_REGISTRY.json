@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "rac-programme-gates.v1",
+  "asOf": "2026-07-15",
+  "sourceOfTruth": "conductor/tracks/*/plan.md",
+  "actionPacket": "conductor/PROGRAMME_GATE_ACTION_PACKET.md",
+  "confirmationLedger": "conductor/PROGRAMME_GATE_CONFIRMATIONS.json",
+  "gates": [
+    {
+      "issue": "#23",
+      "track": "external_adoption_20260711",
+      "status": "blocked_external",
+      "preparationStatus": "follow-up_packets_ready",
+      "class": "upstream-and-human",
+      "localEvidence": ["external/ADOPTION_STATUS.md", "external/MAINTAINER_MONITORING.md", "external/MAINTAINER_FOLLOWUPS.md"],
+      "nextAction": "Upstream maintainers must approve workflows, review, sign, merge, or explicitly decline the staged proposals; Dylan may send follow-ups.",
+      "humanRequired": true
+    },
+    {
+      "issue": "#24",
+      "track": "papers_completion_20260711",
+      "status": "blocked_dependency",
+      "preparationStatus": "paper_packets_ready_for_evidence_refresh",
+      "class": "upstream-and-human",
+      "localEvidence": ["papers/coupling/ARXIV_SUBMISSION.md", "studies/snap-divergence/paper/ARXIV_SUBMISSION.md", "papers/FOI_PROGRAMME_RELEASE_PACKET.md"],
+      "nextAction": "Import the FOI-O release-evidence bundle, refresh affected manuscripts, then obtain Dylan's submission authorization.",
+      "humanRequired": true
+    },
+    {
+      "issue": "#31",
+      "track": "papers_completion_20260711/phase-4.75",
+      "status": "blocked_upstream",
+      "preparationStatus": "waiting_for_foi_o_bundle",
+      "class": "upstream-release",
+      "localEvidence": ["papers/foio-pic-release-evidence.json", "papers/CITATION_LEDGER.md"],
+      "nextAction": "FOI-O must publish the release-evidence bundle with tests, fixtures, provenance, empirical results, exceptions, migrations, and limitations.",
+      "humanRequired": false
+    },
+    {
+      "issue": "#30",
+      "track": "foi_programme_governance_20260714",
+      "status": "blocked_manual_verification",
+      "preparationStatus": "verification_packet_ready",
+      "class": "human-and-github-project",
+      "localEvidence": ["conductor/tracks/foi_programme_governance_20260714/HUMAN_VERIFICATION_PACKET.md", "conductor/tracks/foi_programme_governance_20260714/project14-allowlist.json", "tools/validate_project14_allowlist.py"],
+      "nextAction": "Dylan must verify the live Project 14 title, scope, repository boundaries, item fields, and navigation anchors.",
+      "humanRequired": true
+    },
+    {
+      "issue": "#33",
+      "track": "citation_zenodo_mirroring_20260714",
+      "status": "blocked_human_publication",
+      "preparationStatus": "deposit_packet_ready",
+      "class": "human-publication",
+      "localEvidence": ["papers/zenodo/RAC_CONFORMANCE_ZENODO_SUBMISSION.md", "papers/zenodo/foi-programme-mirror-manifest.json", "papers/CITATION_LEDGER.md"],
+      "nextAction": "Dylan must deposit the verified RaC Conformance release in Zenodo, verify version and concept DOIs, and replace pending ledger entries.",
+      "humanRequired": true
+    }
+  ]
+}

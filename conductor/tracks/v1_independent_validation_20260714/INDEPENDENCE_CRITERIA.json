@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "rac-independent-validation-criteria.v1",
+  "requiredDimensions": [
+    "organisation",
+    "repository",
+    "codebase",
+    "oracle",
+    "fixtureCuration",
+    "execution",
+    "acknowledgement",
+    "maintenance"
+  ],
+  "outcomes": ["qualifying", "partial", "conflicting", "withdrawn", "declined", "unresponsive"],
+  "nonQualifyingStatuses": ["internal-rehearsal", "unacknowledged", "maintainer-fork", "narrative-only"],
+  "freshness": {"defaultDays": 180, "releaseCandidateDays": 90},
+  "minimumEvidence": [
+    "implementation identity and independent owner",
+    "source revision and repository digest",
+    "consumed contract versions and artifact digests",
+    "runtime, platform, command, and clean-environment result",
+    "input/result checksums and failure diagnostics",
+    "acknowledgement or durable attributable publication",
+    "maintenance owner and freshness date",
+    "limitations and unresolved mismatches"
+  ],
+  "v1Gate": {
+    "minimumConsumers": 3,
+    "minimumDomainClasses": 2,
+    "minimumExternalOrganisationConsumers": 1,
+    "silenceCountsAsAdoption": false,
+    "maintainerForkCountsAsIndependent": false,
+    "agentRehearsalCountsAsIndependent": false
+  }
+}

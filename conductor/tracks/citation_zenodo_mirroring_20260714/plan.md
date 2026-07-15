@@ -15,6 +15,7 @@ GitHub issue: https://github.com/edithatogo/rac-conformance/issues/33
 - [x] Add `.zenodo.json` and register the repository in the paper mirror manifest. (CFF/Zenodo metadata validated locally)
 - [ ] [HUMAN] Deposit the verified GitHub release in Zenodo and verify the
       resulting version and concept DOIs.
+      - **PREPARATION COMPLETE (2026-07-15):** `papers/zenodo/RAC_CONFORMANCE_V0.2.0_ARCHIVE.json` records the verified release commit and GitHub archive SHA-256.
 - [ ] Replace the pending DOI gate in the manuscript ledger.
 
 > EVIDENCE CORRECTION (2026-07-15): Zenodo record `21360138` is the FOI-O

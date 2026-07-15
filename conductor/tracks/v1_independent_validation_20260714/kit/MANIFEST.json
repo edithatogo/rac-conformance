@@ -1,0 +1,15 @@
+{
+  "kitVersion": "independent-kit/0.1.0",
+  "contract": "pic-semantics/0.1.0",
+  "contents": [
+    "bundle/pic-semantics-0.1.0/schema.json",
+    "bundle/pic-semantics-0.1.0/examples/valid/",
+    "bundle/pic-semantics-0.1.0/examples/invalid/",
+    "EXPECTED_RESULTS_POLICY.md",
+    "README.md",
+    "run_reference.py"
+  ],
+  "privateServicesRequired": false,
+  "repositoryCheckoutRequired": false,
+  "independenceStatus": "reference-kit-only"
+}
