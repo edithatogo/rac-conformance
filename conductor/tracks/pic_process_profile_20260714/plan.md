@@ -34,11 +34,12 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
     - [x] Add compatibility tests for existing PIC identifiers.
     - **Acceptance:** tests fail for the intended unsupported contract before implementation.
     - **Evidence:** `contracts/tools/tests/test_process_profile_schema.py` and the valid/invalid corpus define the intended red/green behavior; targeted collection fails until `process-profile/0.1.0` and validator discovery are implemented.
-- [ ] Task: Implement process-profile schemas and validator
-    - [ ] Add versioned schemas, canonical examples, diagnostics, and CLI discovery.
-    - [ ] Preserve all existing PIC validation behavior.
-    - [ ] Produce deterministic normalized traces for comparison.
+- [x] Task: Implement process-profile schemas and validator
+    - [x] Add versioned schemas, canonical examples, diagnostics, and CLI discovery.
+    - [x] Preserve all existing PIC validation behavior.
+    - [x] Produce deterministic normalized traces for comparison.
     - **Acceptance:** valid/invalid corpus and >=80% relevant coverage pass.
+    - **Evidence:** `contracts/process-profile/0.1.0/`, `contracts/tools/src/pic_contracts/validation.py`, `contracts/tools/src/pic_contracts/validate_examples.py`, and `contracts/tools/tests/test_process_profile_schema.py`; the full contract suite passes with 83.46% coverage.
 - [x] Task: Document semantics and projection rules
     - [x] Define normative lifecycle semantics and non-normative platform guidance.
     - [x] Document representational loss and exception handling.
