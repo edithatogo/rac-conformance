@@ -59,8 +59,14 @@ after Dylan's explicit authorization.
 
 GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 
-- [ ] Task: Verify the immutable `foi-o` release tag, commit SHA, contract and
+- [x] Task: Verify the immutable `foi-o` release tag, commit SHA, contract and
       schema versions, capability matrix, migrations, and reproducibility commands.
+
+> VERIFIED (2026-07-15): `papers/FOIO_V0.8.1_RELEASE_VERIFICATION.md` records
+> the immutable tag/commit, package and citation versions, key contract/schema/
+> migration hashes, reproducibility commands, and the exact non-green test
+> outcome. This closes release inspection only; it does not close the evidence
+> bundle, empirical, conformance, or human-publication gates.
 
 > EVIDENCE UPDATE (2026-07-15): `edithatogo/foi-o` has now published immutable
 > release `v0.8.1` at commit
