@@ -4,11 +4,12 @@ GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46). De
 
 ## Phase 1 - Release Candidate Freeze
 
-- [ ] Task: Audit all v1 gates and dependency evidence
-    - [ ] Validate the machine-readable gate manifest and every linked artifact.
-    - [ ] Recheck external URLs, hosted checks, human certifications, and evidence freshness.
-    - [ ] Block release for any missing, stale, conflicting, or self-certified required gate.
+- [x] Task: Audit all v1 gates and dependency evidence
+    - [x] Validate the machine-readable gate manifest and every linked artifact.
+    - [x] Recheck external URLs, hosted checks, human certifications, and evidence freshness.
+    - [x] Block release for any missing, stale, conflicting, or self-certified required gate.
     - **Acceptance:** the gate report is deterministic and has no unknown required status.
+    - **Evidence:** `tools/v1_release_audit.py`, `tools/tests/test_v1_release_audit.py`, and `V1_RELEASE_GATE_AUDIT.json` produce a deterministic blocked/ready decision. External URL, hosted-check, and human-certification verification is explicitly recorded as `not-performed` when it cannot be proven locally.
 - [ ] Task: Freeze normative surface and migration set
     - [ ] Freeze schemas, CLIs, canonicalization, identifiers, diagnostics, and compatibility promises.
     - [ ] Generate migrations from every supported 0.x version.

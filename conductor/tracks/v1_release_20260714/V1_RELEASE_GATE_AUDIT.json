@@ -1,0 +1,103 @@
+{
+  "asOf": "2026-07-15",
+  "blockers": [
+    {
+      "dependencies": [
+        "independent-consumer"
+      ],
+      "id": "external-independent-adoption",
+      "nextAction": "Obtain an independent consumer report or maintainer-certified external adoption evidence.",
+      "reasonCode": "independent_adoption_not_verified",
+      "status": "blocked"
+    },
+    {
+      "dependencies": [
+        "foi-o-27"
+      ],
+      "id": "foio-release-evidence-bundle",
+      "nextAction": "Complete foi-o issue 27 with capabilities, migrations, tests, fixtures, provenance, empirical results, exceptions, and limitations.",
+      "reasonCode": "external_release_evidence_bundle_pending",
+      "status": "blocked"
+    },
+    {
+      "dependencies": [
+        "foio-release-evidence-bundle"
+      ],
+      "id": "papers-refresh",
+      "nextAction": "Refresh manuscripts and figures after the foi-o release-evidence bundle is complete.",
+      "reasonCode": "paper_refresh_waits_for_release_evidence",
+      "status": "blocked"
+    },
+    {
+      "dependencies": [
+        "human-deposit"
+      ],
+      "id": "rac-zenodo-deposit",
+      "nextAction": "Deposit the RaC Conformance release to Zenodo and record the verified version and concept DOIs.",
+      "reasonCode": "human_deposit_required",
+      "status": "blocked"
+    }
+  ],
+  "gateCount": 7,
+  "gates": [
+    {
+      "category": "adoption",
+      "id": "external-independent-adoption",
+      "observedAt": "2026-07-15",
+      "owner": "dylan",
+      "status": "blocked"
+    },
+    {
+      "category": "external-release",
+      "id": "foio-immutable-release",
+      "observedAt": "2026-07-15",
+      "owner": "foi-o-maintainers",
+      "status": "pass"
+    },
+    {
+      "category": "external-evidence",
+      "id": "foio-release-evidence-bundle",
+      "observedAt": "2026-07-15",
+      "owner": "foi-o-maintainers",
+      "status": "blocked"
+    },
+    {
+      "category": "repository",
+      "id": "local-repository-check",
+      "observedAt": "2026-07-15",
+      "owner": "rac-maintainers",
+      "status": "pass"
+    },
+    {
+      "category": "human",
+      "id": "papers-refresh",
+      "observedAt": "2026-07-15",
+      "owner": "dylan",
+      "status": "blocked"
+    },
+    {
+      "category": "human",
+      "id": "rac-zenodo-deposit",
+      "observedAt": "2026-07-15",
+      "owner": "dylan",
+      "status": "blocked"
+    },
+    {
+      "category": "governance",
+      "id": "v1-governance-documents",
+      "observedAt": "2026-07-15",
+      "owner": "rac-maintainers",
+      "status": "pass"
+    }
+  ],
+  "manifestValid": true,
+  "networkChecks": "not-performed",
+  "release": "v1.0.0-rc.1",
+  "releaseDecision": "blocked",
+  "schemaVersion": "rac-v1-release-audit.v1",
+  "statuses": [
+    "blocked",
+    "pass"
+  ],
+  "validationErrors": []
+}
