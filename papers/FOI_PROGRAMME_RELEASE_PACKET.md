@@ -1,8 +1,14 @@
 # FOI programme quality release packet
 
-As of 2026-07-14, the three child repositories have explicit stable and
+As of 2026-07-15, the three child repositories have explicit stable and
 canary quality evidence. The machine-readable source of truth is
 [`foi-programme-quality-evidence.json`](foi-programme-quality-evidence.json).
+
+FOI-O `v0.8.1` is now an immutable published release with verified Zenodo
+version and concept DOIs. Its release-evidence bundle, V2 compatibility
+exercise, and empirical extraction gates remain open under
+[foi-o#27](https://github.com/edithatogo/foi-o/issues/27); this packet does not
+infer those results from release metadata.
 
 ## Stable lanes
 
@@ -24,12 +30,12 @@ canary quality evidence. The machine-readable source of truth is
 - The cross-repository FOI-O/NLP extraction contract is pinned for testing, but
   the next full re-extraction remains pending. No manuscript claim should call
   this extraction-accuracy evidence.
-- Zenodo deposits, Hugging Face revision pins, upstream merges, and final
+- Remaining Zenodo deposits, Hugging Face revision pins, upstream merges, and final
   manuscript submission remain human/publication gates.
 
 ## Reproducibility
 
 The release register pins local repository heads, quality decisions, and the
 exact boundary between repo-local evidence and external publication evidence.
-When the next FOI-O release is available, rerun the extraction contract and
-update this packet and the citation ledger together.
+When the FOI-O release-evidence bundle is published, rerun the extraction
+contract and update this packet and the citation ledger together.

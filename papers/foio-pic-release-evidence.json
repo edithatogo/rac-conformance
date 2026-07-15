@@ -57,5 +57,5 @@
     "status": "pending_independent_oracle_review",
     "rule": "Generated fixtures and crosswalk rows cannot be promoted without an independent reviewer and immutable review evidence."
   },
-  "manuscript_boundary": "This bundle records pinned available evidence and explicit blockers; it is not evidence of a FOI-O V2 release, compatibility pass, independent-oracle approval, or publication."
+  "manuscript_boundary": "This bundle records pinned available evidence and explicit blockers; it is not evidence of conformance with the FOI-O V2 compatibility profile, an independent-oracle approval, or publication."
 }
