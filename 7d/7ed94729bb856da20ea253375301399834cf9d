@@ -1,0 +1,1 @@
+Task evidence: bounded fixed-seed fuzz/property tests pass; no network, sensitive corpus, or unbounded resource use.
