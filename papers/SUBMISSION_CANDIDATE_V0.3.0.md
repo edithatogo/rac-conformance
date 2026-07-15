@@ -5,6 +5,8 @@
 **Package owner:** Dylan A Mordaunt  
 **Submission rule:** no arXiv, journal, or preprint action occurs until Dylan authorizes that specific action.
 
+PDF artifacts and hashes: [`release/v0.3.0/MANIFEST.json`](release/v0.3.0/MANIFEST.json).
+
 This is the next version of the paper package. It advances preparation without
 claiming that the FOI-O release-evidence bundle, RaC Zenodo mirror, or any
 upstream adoption proposal has been accepted.
@@ -40,6 +42,7 @@ upstream adoption proposal has been accepted.
 - [x] Limitations distinguish agreement from legal validity and divergence from defect.
 - [x] FOI-O and Zenodo publication boundaries are explicit.
 - [x] Repository `make check` passes.
+- [x] Candidate A4 PDFs generated and hashed under `papers/release/v0.3.0/`.
 - [ ] Produce venue-specific PDFs and run final PDF/link/word-count checks.
 - [ ] Dylan confirms authorship, affiliations, declarations, and target venue for each paper.
 - [ ] Dylan authorizes each submission or records a continued deferral.
