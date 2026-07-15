@@ -1,9 +1,11 @@
 # Paper Programme Submission Candidate v0.3.0
 
 **Prepared:** 2026-07-15  
-**Status:** submission-ready candidate; not submitted  
+**Status:** package approved; not submitted  
 **Package owner:** Dylan A Mordaunt  
 **Submission rule:** no arXiv, journal, or preprint action occurs until Dylan authorizes that specific action.
+
+**Package approval:** Dylan approved package version `v0.3.0` on 2026-07-15.
 
 PDF artifacts and hashes: [`release/v0.3.0/MANIFEST.json`](release/v0.3.0/MANIFEST.json).
 
@@ -49,8 +51,8 @@ upstream adoption proposal has been accepted.
 
 ## Decisions for release
 
-1. **Package version:** approve `Paper Programme Submission Candidate v0.3.0` as
-   the working submission package.
+1. **Package version:** **approved** — `Paper Programme Submission Candidate
+   v0.3.0` is the working submission package.
 2. **Evidence posture:** choose whether to submit with the current explicit
    FOI-O evidence limitation or wait for #27 before making any FOI-O release or
    compatibility claims. The package supports the former only with the boundary

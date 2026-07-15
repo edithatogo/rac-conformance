@@ -1,7 +1,7 @@
 {
   "schema_version": "rulesandprocesses.paper-submission-candidate.v1",
   "package_version": "0.3.0",
-  "status": "candidate_not_submitted",
+  "status": "approved_package_not_submitted",
   "prepared_at": "2026-07-15",
   "source_commit": "2b61ab0",
   "pdf_engine": "pandoc with typst",
@@ -28,5 +28,10 @@
       "page_size": "A4"
     }
   ],
-  "publication_boundary": "No submission, preprint identifier, or acceptance is claimed. FOI-O evidence-bundle and human authorization gates remain explicit."
+  "package_approval": {
+    "approved_by": "Dylan A Mordaunt",
+    "approved_at": "2026-07-15",
+    "scope": "package version only"
+  },
+  "publication_boundary": "No submission, preprint identifier, or acceptance is claimed. FOI-O evidence-bundle, venue, and submission authorization gates remain explicit."
 }

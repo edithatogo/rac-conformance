@@ -93,6 +93,10 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 > external adoption proposal is accepted. The release-triggered refresh tasks
 > remain open for evidence reconciliation when #27 is accepted.
 
+> HUMAN APPROVAL (2026-07-15): Dylan approved package version `v0.3.0`.
+> This approves the prepared package only; venue selection, declarations, PDF
+> submission authorization, and any FOI-O evidence claims remain separate gates.
+
 ## Phase 4.8 - Programme citation and mirror reconciliation
 
 - [x] Task: Add or correct `CITATION.cff` metadata for every included FOI
