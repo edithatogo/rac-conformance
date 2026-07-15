@@ -1,0 +1,1 @@
+Clean build initially failed because ../../contracts/README.md was not present in the package build context; corrected to ../README.md.
