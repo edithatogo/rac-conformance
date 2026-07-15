@@ -1,0 +1,1 @@
+Task evidence: make check and make supply-chain pass; generated SBOM includes locked registry hashes and reproducibility manifest records lock/workflow inputs and release provenance boundary.
