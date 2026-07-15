@@ -1,0 +1,1 @@
+Task evidence: full make check and converter test suite pass. Converter rejects oversized source files, excessive nesting, excessive leaves, and oversized decimal tolerances with controlled errors.
