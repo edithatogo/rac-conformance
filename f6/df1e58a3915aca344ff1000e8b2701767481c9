@@ -1,0 +1,1 @@
+Evidence: PYTHONPATH=. uv run --with pytest,pyyaml,jsonschema pytest tools/tests/test_v1_release_audit.py tools/tests/test_release_gates.py (9 passed). Audit manifest valid; release decision blocked by four gates.
