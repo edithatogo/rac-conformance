@@ -1,0 +1,1 @@
+Task evidence: local make check, XML validation, and diff validation pass. The Java 17 worker and CPT tests are executed by the pinned GitHub adapter smoke-test job.
