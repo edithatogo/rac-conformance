@@ -21,7 +21,8 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     - [x] Reject stale, incomplete, self-certified, or unverifiable submissions.
     - **Acceptance:** verifier emits deterministic evidence status and precise exceptions.
     - **Evidence:** `SUBMISSION_SCHEMA.json`, `tools/independent_evidence.py`, and `tools/tests/test_independent_evidence.py` provide a network-free packet contract, deterministic classification, and coverage for qualifying, partial, conflicting, withdrawn, declined, unresponsive, rejected, stale, and internal-rehearsal cases.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Independence Contract and Implementer Kit' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Independence Contract and Implementer Kit' (Protocol in workflow.md)
+    - **CHECKPOINT:** Policy, self-contained kit, deterministic verifier, and clean-room agent rehearsal are complete. Local tests and the clean evaluator run pass; semantic integrity, external implementation, external acknowledgement, and v1 adoption remain deferred to later phases.
 
 ## Phase 2 - Candidate Engagement
 

@@ -47,10 +47,10 @@ python -m json.tool \
   conductor/tracks/v1_independent_validation_20260714/evidence/agent-independent/RESULTS.json
 ```
 
-The first captured input commit was `b7d439f49c10c23d128a1e0b64e796acab647bc2`.
-After committing the evaluator, the reproducibility refresh was run against
-the committed evaluator at `e6fe037` (the result manifest records the exact
-commit for that refresh).
+The reproducibility refresh was run from a clean detached worktree at
+`8468710300addedddcfe516866c6628f96e346ba` after the kit and verifier were
+committed. The result manifest records the exact commit, evaluator digest, and
+input digests.
 
 ## Result
 
@@ -58,12 +58,9 @@ The independent rehearsal **passed** all 16 expected schema verdicts: 6
 valid examples were accepted and 10 invalid examples were rejected. The
 machine-readable evidence is in `RESULTS.json`.
 
-The repository was not clean at capture because an unrelated untracked
-`conductor/tracks/v1_independent_validation_20260714/kit/` directory was
-present in the shared worktree, and the evidence outputs themselves are
-untracked until this evidence task is committed. This does not alter the
-captured commit or the input digests; a clean checkout is required for a
-third-party reproduction.
+The evaluator recorded a clean checkout at capture. The evidence output was
+written outside that detached worktree and copied back into this track, so the
+captured clean-state claim is not affected by committing the manifest here.
 
 ## Blockers and limitations
 
