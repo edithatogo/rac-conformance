@@ -1,0 +1,38 @@
+name: Camunda Adapter
+
+on:
+  push:
+    paths:
+      - "subrepos/process-mappings/adapters/camunda/**"
+      - "contracts/tools/tests/test_camunda_architecture.py"
+      - ".github/workflows/camunda-adapter.yml"
+  pull_request:
+    paths:
+      - "subrepos/process-mappings/adapters/camunda/**"
+      - "contracts/tools/tests/test_camunda_architecture.py"
+      - ".github/workflows/camunda-adapter.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: camunda-adapter-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+      - name: Run isolated adapter smoke tests
+        working-directory: subrepos/process-mappings/adapters/camunda
+        run: mvn --batch-mode --no-transfer-progress test

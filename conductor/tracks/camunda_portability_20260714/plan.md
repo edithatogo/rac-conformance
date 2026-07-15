@@ -14,12 +14,13 @@ repository incubation governed by
     - [x] Define rule-worker, human-task, trace, error, credential, and data boundaries.
     - **Acceptance:** the decision explains why Camunda is optional and identifies unsupported assumptions.
     - **Evidence:** `subrepos/process-mappings/adapters/camunda/ARCHITECTURE_DECISION.md` and `VERSION_LOCK.json` select CPT with Java 17, JUnit 5, Testcontainers, and Camunda 8.9.12; local Java 11/no-Docker limitations are explicit.
-- [ ] Task: Scaffold reproducible adapter test module
-    - [ ] Create the module under `subrepos/process-mappings/adapters/camunda/` without adding Java, Docker, or Camunda dependencies to PIC core.
-    - [ ] Pin Java/build/Testcontainers/Camunda dependencies and container images.
-    - [ ] Add offline-friendly dependency and image documentation.
-    - [ ] Add a smoke test and CI job that can be disabled only with an explicit environment reason.
+- [x] Task: Scaffold reproducible adapter test module
+    - [x] Create the module under `subrepos/process-mappings/adapters/camunda/` without adding Java, Docker, or Camunda dependencies to PIC core.
+    - [x] Pin Java/build/Testcontainers/Camunda dependencies and container images.
+    - [x] Add offline-friendly dependency and image documentation.
+    - [x] Add a smoke test and CI job that can be disabled only with an explicit environment reason.
     - **Acceptance:** clean setup and teardown leave no committed runtime state.
+    - **Evidence:** `subrepos/process-mappings/adapters/camunda/pom.xml`, committed BPMN model, JUnit smoke tests, `VERSION_LOCK.json`, and `.github/workflows/camunda-adapter.yml`; local XML/core gates pass, while Java 17/Maven/Docker execution is delegated to the pinned CI job.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Architecture and Reproducibility' (Protocol in workflow.md)
 
 ## Phase 2 - Executable Mapping
