@@ -1,0 +1,1 @@
+Evidence: PYTHONPATH=. uv run --with pytest,jsonschema,pyyaml pytest tools/tests (30 passed); uv run --with jsonschema python conductor/tracks/v1_independent_validation_20260714/kit/run_reference.py (pass).
