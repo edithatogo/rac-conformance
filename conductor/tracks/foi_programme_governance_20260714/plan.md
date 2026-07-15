@@ -25,13 +25,14 @@
 - [x] Task: Verify issue state and Project status against local Conductor plans.
 - [ ] Task: Conductor - User Manual Verification 'Item synchronization' (Protocol in workflow.md)
 
-> CHECKPOINT (2026-07-14): Project 14 contains the current FOI-O #23/#24,
+> CHECKPOINT (2026-07-15): Live Project 14 contains the current FOI-O #23/#24,
 > rac-conformance #30, fyi-archive #187/#188, nlp-policy-nz #100/#101, and
 > legislation #62 items; the paper release gate rac-conformance #31 was added.
-> Their current Project status is `Todo`, matching the local plans. Project 14
-> now provides jurisdiction, repository role, dependency, evidence status,
-> human gate, and delivery status fields; all 19 allowlisted items have values,
-> including delivery PR #36.
+> Completed delivery items nlp-policy-nz #100/#101 and rac-conformance #36 are
+> explicitly overridden to `Done`; all other allowlisted items are `Todo`.
+> Project 14 provides jurisdiction, repository role, dependency, evidence
+> status, human gate, and delivery status fields; all 19 allowlisted items have
+> values.
 > Prepared review surface: `HUMAN_VERIFICATION_PACKET.md` section 2.
 
 ## Phase 3: Durable governance
@@ -42,13 +43,15 @@
 - [x] Task: Archive only after live Project evidence is recorded.
 - [ ] Task: Conductor - User Manual Verification 'Durable governance' (Protocol in workflow.md)
 
-> CHECKPOINT (2026-07-14): Added `project14-allowlist.json` and
+> CHECKPOINT (2026-07-15): Added `project14-allowlist.json` and
 > `tools/validate_project14_allowlist.py`. Against the live Project 14 export,
 > the checker initially found all 18 required items and 67 extra historical
 > items. The historical items were removed from Project 14 only, preserving
 > their source issues and dedicated-project memberships. Delivery PR #36 was
-> subsequently added as the nineteenth required item. The live board now passes
-> the exact allowlist with zero missing, extra, or stale items.
+> subsequently added as the nineteenth required item. A fresh export found the
+> completed NLP issues #100/#101 still expected as `Todo`; their explicit
+> `Done` overrides now make the exact allowlist pass with zero missing, extra,
+> or stale items.
 > Prepared review surface: `HUMAN_VERIFICATION_PACKET.md` section 3.
 
 > REVIEW (2026-07-14): Added stale-status detection and four passing unit tests.
