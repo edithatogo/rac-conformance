@@ -2,6 +2,8 @@
   "project": 14,
   "expected_status": "Todo",
   "expected_status_overrides": {
+    "edithatogo/nlp-policy-nz#100": "Done",
+    "edithatogo/nlp-policy-nz#101": "Done",
     "edithatogo/rac-conformance#36": "Done"
   },
   "required_fields": [
