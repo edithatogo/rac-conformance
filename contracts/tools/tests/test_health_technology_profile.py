@@ -66,3 +66,11 @@ def test_money_and_outcomes_are_not_encoded_in_authority_matrix() -> None:
     assert "recommendation" in serialized
     assert '"price":' not in serialized
     assert '"clinicalrecommendation":' not in serialized
+
+
+def test_lifecycle_model_preserves_variation_and_loss_boundaries() -> None:
+    model = (PROFILE / "LIFECYCLE_MODEL.md").read_text().lower()
+    for term in ("parallel", "conditional", "terminated", "resubmitted", "representational loss"):
+        assert term in model
+    assert "fda is not a payer" in model
+    assert "msac are not medicine regulators" in model

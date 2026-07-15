@@ -21,11 +21,12 @@ during the repository incubation governed by
     - [x] Record inaccessible confidential stages as unavailable rather than filling gaps.
     - **Acceptance:** every modeled stage has a source owner and authority classification.
     - **Evidence:** `subrepos/process-mappings/profiles/health-technology/sources/SOURCE_MANIFEST.json` records 13 official source references, retrieval time, digests, authority classes, unresolved effective/supersession fields, rights, and unavailable confidential evidence; manifest regression tests pass.
-- [ ] Task: Define common lifecycle and variation model
-    - [ ] Define neutral concepts for authorisation, HTA, recommendation, funding decision, negotiation, listing, restriction, exception, implementation, and monitoring.
-    - [ ] Support parallel, iterative, terminated, resubmitted, and conditionally linked pathways.
-    - [ ] Document representational loss per jurisdiction.
+- [x] Task: Define common lifecycle and variation model
+    - [x] Define neutral concepts for authorisation, HTA, recommendation, funding decision, negotiation, listing, restriction, exception, implementation, and monitoring.
+    - [x] Support parallel, iterative, terminated, resubmitted, and conditionally linked pathways.
+    - [x] Document representational loss per jurisdiction.
     - **Acceptance:** common terms do not erase institutional decision ownership.
+    - **Evidence:** `subrepos/process-mappings/profiles/health-technology/LIFECYCLE_MODEL.md` defines neutral stages, variation rules, unavailable evidence, representational loss, and authority boundaries; lifecycle regression tests pass.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Authority and Source Architecture' (Protocol in workflow.md)
 
 ## Phase 2 - Comparison Case Selection
