@@ -1,0 +1,1 @@
+Review finding fixed: qualifying evidence now requires an explicit external-owner or external-publication attestation. Validation: targeted tests 6 passed; make check passed.
