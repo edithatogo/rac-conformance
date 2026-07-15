@@ -12,7 +12,7 @@ during the repository incubation governed by
 > primary-source ledger and an authority/variation matrix covering NZ, Australia,
 > and NSW. The matrix distinguishes regulation, national policy, national
 > framework, national standard, state directive, regional implementation, and
-> hypothetical local procedure. Three official source downloads remain blocked
+> hypothetical local procedure. Two NSW official policy downloads remain blocked
 > and are recorded as exceptions; no secondary substitute, legal conclusion, or
 > clinical judgement has been encoded.
 
@@ -66,22 +66,40 @@ during the repository incubation governed by
 
 ## Phase 3 - Synthetic Demonstrator and Review
 
-- [ ] Task: Build synthetic candidate fixture corpus
-    - [ ] Include culturally responsive participation and support options without asserting substantive adequacy automatically.
-    - [ ] Include expected parallel pathways and explicit unresolved questions.
-    - [ ] Run process-profile validation and trace generation.
+- [x] Task: Build synthetic candidate fixture corpus
+    - [x] Include culturally responsive participation and support options without asserting substantive adequacy automatically.
+    - [x] Include expected parallel pathways and explicit unresolved questions.
+    - [x] Run process-profile validation and trace generation.
     - **Acceptance:** no fixture contains real or plausibly re-identifiable event data.
-- [ ] Task: [HUMAN] Certify contested assertions and interpretation boundaries
-    - [ ] Present resolver exceptions, controlling-source assertions, and proposed process differences only.
-    - [ ] Record approval, rejection, limits, or further-source requirements.
+    - Evidence: `candidates/process-profiles/`, `tools/generate_adverse_incident_fixtures.py`, and `contracts/tools/tests/test_adverse_incident_fixtures.py`.
+- [x] Task: [HUMAN] Certify contested assertions and interpretation boundaries
+    - [x] Present resolver exceptions, controlling-source assertions, and proposed process differences only.
+    - [x] Record approval, rejection, limits, or further-source requirements.
     - **Acceptance:** human review is focused and every promoted assertion has an auditable decision.
-- [ ] Task: Publish comparative findings and limitations
-    - [ ] Distinguish source fact, interpretation, executable behavior, variation, and unresolved exception.
-    - [ ] Document portability implications for the process profile and Camunda study.
+    - Prepared artifacts: `subrepos/process-mappings/profiles/adverse-incidents/HUMAN_REVIEW_PACKET.md` and `HUMAN_REVIEW_DECISIONS.template.json`.
+    - **HUMAN GATE COMPLETE:** all six queued decisions are recorded; local escalation remains explicitly unresolved and no local obligation is promoted.
+    - Human decisions recorded in `HUMAN_REVIEW_DECISIONS.json`: four limited approvals, one explicit rejection, and one approved-unresolved boundary.
+    - Process improvement recorded: source discovery is the first human-controlled step for every pathway; see `SOURCE_DISCOVERY_PROTOCOL.md`.
+    - Process architecture recorded: all decisions sit within the project-level linked-process model in `PROCESS_PROJECT_MODEL.md`.
+- [x] Task: Publish comparative findings and limitations
+    - [x] Distinguish source fact, interpretation, executable behavior, variation, and unresolved exception.
+    - [x] Document portability implications for the process profile and Camunda study.
     - **Acceptance:** findings make no organisational-compliance, legal-advice, or clinical-safety claim.
-- [ ] Task: Define privacy-preserving post-market safety handoff
-    - [ ] Specify the minimum public or appropriately de-identified aggregate event, provenance, authority, jurisdiction, permitted-purpose, and review fields.
-    - [ ] Reject patient-level content, inferred causation, and uncertified downstream action.
-    - [ ] Add valid and negative examples without making the handoff mandatory for incident workflows.
+    - Evidence: `subrepos/process-mappings/profiles/adverse-incidents/COMPARATIVE_FINDINGS.md`.
+- [x] Task: Define privacy-preserving post-market safety handoff
+    - [x] Specify the minimum public or appropriately de-identified aggregate event, provenance, authority, jurisdiction, permitted-purpose, and review fields.
+    - [x] Reject patient-level content, inferred causation, and uncertified downstream action.
+    - [x] Add valid and negative examples without making the handoff mandatory for incident workflows.
     - **Acceptance:** the handoff schema and examples validate and strictly exclude patient-level data, causal inference, and uncertified downstream action.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Synthetic Demonstrator and Review' (Protocol in workflow.md)
+    - Evidence: `safety-handoff/schema.json`, `safety-handoff/examples/`, and `contracts/tools/tests/test_adverse_incident_safety_handoff.py`.
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Synthetic Demonstrator and Review' (Protocol in workflow.md)
+    - Review: spec/plan/workflow/diff reviewed; one safety-handoff consumption gate and one stale source-blocker statement fixed.
+    - Validation: `FOI_PROGRAMME_REPO_ROOT=/tmp/rac-process-consumption make check` passed.
+
+> CHECKPOINT (2026-07-15): Phase 3 is complete. Human review decisions are
+> auditable, the six synthetic pathways remain non-identifying, comparative
+> findings preserve source and interpretation boundaries, and the optional
+> safety handoff fails closed before human review. Remaining source exceptions
+> are explicit: two blocked NSW policy downloads, the Australian framework's
+> unstated effective date, and unresolved local escalation ownership. No legal,
+> clinical, organisational, or compliance claim has been automated.
