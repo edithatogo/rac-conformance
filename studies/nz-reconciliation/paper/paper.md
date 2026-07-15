@@ -2,7 +2,7 @@
 
 **Author:** Dylan A Mordaunt  
 **ORCID:** [0000-0002-9775-0603](https://orcid.org/0000-0002-9775-0603)  
-**Status:** draft; submission deferred pending human authorization  
+**Status:** submission candidate v0.3.0; human authorization pending
 **Evidence track:** `nz_reconciliation_20260707`, `nz_recon_live_20260709`
 
 ## Abstract

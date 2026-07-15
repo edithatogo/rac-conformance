@@ -1,10 +1,12 @@
 # arXiv submission packet — SNAP divergence study
 
-**Status:** **deferred** (2026-07-09) — prepare fully; **do not submit** without explicit human authorization.  
+**Status:** **submission candidate v0.3.0** (2026-07-15) — **do not submit** without explicit human authorization.
 **GitHub issue:** [#16](https://github.com/edithatogo/rac-conformance/issues/16)  
 **Unified project:** [arXiv and preprint papers](https://github.com/users/edithatogo/projects/20)  
 **Source draft:** [`paper.md`](paper.md)  
 **Author block:** [`../../../papers/AUTHOR.md`](../../../papers/AUTHOR.md)
+
+**Programme package:** [`../../../papers/SUBMISSION_CANDIDATE_V0.3.0.md`](../../../papers/SUBMISSION_CANDIDATE_V0.3.0.md)
 
 ## Proposed metadata
 

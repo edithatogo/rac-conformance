@@ -9,7 +9,7 @@
 
 **Date:** July 2026  
 **Track:** `divergence_study_20260704`  
-**arXiv status:** deferred (see `ARXIV_SUBMISSION.md`; GitHub [#16](https://github.com/edithatogo/rac-conformance/issues/16))  
+**arXiv status:** submission candidate v0.3.0; authorization pending (see `ARXIV_SUBMISSION.md`; GitHub [#16](https://github.com/edithatogo/rac-conformance/issues/16))
 **Author block:** [`papers/AUTHOR.md`](../../../papers/AUTHOR.md)
 
 ---
