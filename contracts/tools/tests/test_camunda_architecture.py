@@ -11,7 +11,7 @@ def test_camunda_lock_is_optional_and_pinned() -> None:
     lock = json.loads((ADAPTER / "VERSION_LOCK.json").read_text())
     assert lock["camundaVersion"] == "8.9.12"
     assert lock["java"]["minimum"] == "17"
-    assert lock["testFramework"]["name"] == "JUnit 5"
+    assert lock["testFramework"]["name"] == "JUnit Jupiter 6.0.3 (JUnit 5 API)"
     assert lock["runtime"]["kind"] == "testcontainers"
     assert lock["normativeDependency"] is False
     assert lock["processTest"]["pomSha256"]
