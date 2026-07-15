@@ -1,0 +1,25 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "rac-conformance",
+      "version": "v1.0.0-rc.1"
+    },
+    "properties": [
+      {"name": "source.commit", "value": "0c4a83b55208bae59592af017c6e0f66194ec8bb"},
+      {"name": "lockfile.sha256", "value": "3fc7fa479b9e3cc53640dd4b6c408afa22a2c0c27d32c3c2451ea0b889248fa3"}
+    ]
+  },
+  "components": [
+    {"type": "library", "name": "pic-contracts", "version": "0.1.0", "scope": "required"},
+    {"type": "library", "name": "jsonschema", "version": "4.26.0", "scope": "required"},
+    {"type": "library", "name": "PyYAML", "version": "6.0.3", "scope": "required"},
+    {"type": "library", "name": "attrs", "version": "26.1.0", "scope": "transitive"},
+    {"type": "library", "name": "jsonschema-specifications", "version": "2025.9.1", "scope": "transitive"},
+    {"type": "library", "name": "referencing", "version": "0.37.0", "scope": "transitive"},
+    {"type": "library", "name": "rpds-py", "version": "2026.6.3", "scope": "transitive"}
+  ]
+}

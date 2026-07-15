@@ -16,11 +16,13 @@ GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46). De
     - [x] Move nonqualifying features to experimental or a later 1.x roadmap.
     - **Acceptance:** freeze diff and exclusions are explicit and reviewed.
     - **Evidence:** `V1_NORMATIVE_FREEZE.md` records the exact freeze base, supported package versions, migration posture, exclusions, and post-freeze change rule; contract documentation was corrected to match the `pic-traces/0.2.0` schema.
-- [ ] Task: Build release candidate from clean environments
-    - [ ] Produce packages, source archives, SBOMs, checksums, provenance, and compatibility reports.
-    - [ ] Compare reproducible builds and run all supported-platform matrices.
+- [x] Task: Build release candidate from clean environments
+    - [x] Produce packages, source archives, SBOMs, checksums, provenance, and compatibility reports.
+    - [x] Compare reproducible builds and run all supported-platform matrices.
     - **Acceptance:** all release artifacts derive from the reviewed release commit.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Release Candidate Freeze' (Protocol in workflow.md)
+    - **Evidence:** `release-candidate/` contains the package/source artifacts, SBOM, checksums, provenance, and compatibility report generated from clean commit `0c4a83b`; two clean package builds had identical SHA-256 digests and clean `make check` passed.
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Release Candidate Freeze' (Protocol in workflow.md)
+    - **CHECKPOINT:** Gate audit is deterministic and blocked for four declared external/human gates. Normative scope is frozen, package metadata is buildable, and a reproducible `v1.0.0-rc.1` candidate has passed clean `make check`. Qualification, human certification, publication, and final release remain deferred.
 
 ## Phase 2 - Qualification
 
