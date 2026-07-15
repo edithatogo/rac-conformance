@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "rac-programme-gate-confirmations.v1",
+  "asOf": "2026-07-15",
+  "instructions": "Replace pending values only with attributable URL-backed evidence or Dylan's explicit recorded decision.",
+  "confirmations": [
+    {"issue": "#23", "status": "pending_external_terminal_outcomes", "evidenceUrl": null, "confirmedBy": null, "confirmedAt": null},
+    {"issue": "#27", "status": "pending_upstream_evidence_bundle", "evidenceUrl": null, "confirmedBy": null, "confirmedAt": null},
+    {"issue": "#30", "status": "pending_human_project_verification", "evidenceUrl": null, "confirmedBy": null, "confirmedAt": null},
+    {"issue": "#31", "status": "pending_foio_bundle_and_paper_refresh", "evidenceUrl": null, "confirmedBy": null, "confirmedAt": null},
+    {"issue": "#33", "status": "pending_human_zenodo_deposit", "evidenceUrl": null, "confirmedBy": null, "confirmedAt": null}
+  ]
+}

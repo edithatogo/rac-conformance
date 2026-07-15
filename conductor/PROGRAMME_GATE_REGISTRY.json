@@ -2,6 +2,8 @@
   "schemaVersion": "rac-programme-gates.v1",
   "asOf": "2026-07-15",
   "sourceOfTruth": "conductor/tracks/*/plan.md",
+  "actionPacket": "conductor/PROGRAMME_GATE_ACTION_PACKET.md",
+  "confirmationLedger": "conductor/PROGRAMME_GATE_CONFIRMATIONS.json",
   "gates": [
     {
       "issue": "#23",
