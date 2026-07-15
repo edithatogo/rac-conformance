@@ -16,10 +16,11 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     - [x] Add a clean-environment rehearsal runner.
     - **Acceptance:** an uninvolved reviewer can reproduce the kit's reference run.
     - **Evidence:** `conductor/tracks/v1_independent_validation_20260714/kit/` is self-contained for `pic-semantics/0.1.0`; `run_reference.py` imports only `jsonschema`, computes a kit digest, and labels its output `reference-runner-only`.
-- [ ] Task: Build conformance evidence verifier
-    - [ ] Validate implementation identity, versions, environment, artifact digests, result signatures/checksums, and test outcomes.
-    - [ ] Reject stale, incomplete, self-certified, or unverifiable submissions.
+- [x] Task: Build conformance evidence verifier
+    - [x] Validate implementation identity, versions, environment, artifact digests, result signatures/checksums, and test outcomes.
+    - [x] Reject stale, incomplete, self-certified, or unverifiable submissions.
     - **Acceptance:** verifier emits deterministic evidence status and precise exceptions.
+    - **Evidence:** `SUBMISSION_SCHEMA.json`, `tools/independent_evidence.py`, and `tools/tests/test_independent_evidence.py` provide a network-free packet contract, deterministic classification, and coverage for qualifying, partial, conflicting, withdrawn, declined, unresponsive, rejected, stale, and internal-rehearsal cases.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Independence Contract and Implementer Kit' (Protocol in workflow.md)
 
 ## Phase 2 - Candidate Engagement
