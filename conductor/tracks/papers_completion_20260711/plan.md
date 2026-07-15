@@ -97,6 +97,10 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 > This approves the prepared package only; venue selection, declarations, PDF
 > submission authorization, and any FOI-O evidence claims remain separate gates.
 
+> DECISION (2026-07-15): Dylan will not submit any paper in the v0.3.0 package
+> until the FOI-O v2 update has been submitted to arXiv. Keep all three paper
+> packets prepared, but retain the submission gate pending that prerequisite.
+
 ## Phase 4.8 - Programme citation and mirror reconciliation
 
 - [x] Task: Add or correct `CITATION.cff` metadata for every included FOI

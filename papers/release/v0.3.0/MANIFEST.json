@@ -33,5 +33,10 @@
     "approved_at": "2026-07-15",
     "scope": "package version only"
   },
+  "submission_sequence": {
+    "prerequisite": "FOI-O v2 update submitted to arXiv",
+    "status": "pending_external_submission",
+    "applies_to": ["coupling", "snap-divergence", "nz-reconciliation"]
+  },
   "publication_boundary": "No submission, preprint identifier, or acceptance is claimed. FOI-O evidence-bundle, venue, and submission authorization gates remain explicit."
 }

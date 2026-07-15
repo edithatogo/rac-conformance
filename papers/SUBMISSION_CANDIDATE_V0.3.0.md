@@ -7,6 +7,9 @@
 
 **Package approval:** Dylan approved package version `v0.3.0` on 2026-07-15.
 
+**Submission sequence:** Dylan will not submit any paper in this package until
+the FOI-O v2 update has been submitted to arXiv.
+
 PDF artifacts and hashes: [`release/v0.3.0/MANIFEST.json`](release/v0.3.0/MANIFEST.json).
 
 This is the next version of the paper package. It advances preparation without
@@ -58,6 +61,7 @@ upstream adoption proposal has been accepted.
    compatibility claims. The package supports the former only with the boundary
    text retained.
 3. **Venue and action:** identify the target venue and authorize PDF generation
-   and submission separately for the coupling, SNAP, and NZ papers.
+   and submission separately for the coupling, SNAP, and NZ papers, after the
+   FOI-O v2 arXiv submission prerequisite is satisfied.
 
 Approval of this candidate package is not submission authorization.
