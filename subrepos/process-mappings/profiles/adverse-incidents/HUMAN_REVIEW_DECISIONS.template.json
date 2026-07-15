@@ -62,14 +62,14 @@
     },
     {
       "mappingId": "mapping.local.escalation",
-      "decision": null,
+      "decision": "approved-unresolved",
       "sourceRef": null,
       "sourceDigest": null,
       "jurisdiction": "AU-NSW",
-      "effectiveDateBasis": null,
-      "permittedInterpretation": null,
-      "excludedInterpretation": "Do not invent a local escalation owner or procedure.",
-      "followUpSourceRequest": "Name the controlling local procedure or retain unresolved."
+      "effectiveDateBasis": "Not applicable until a specific service context and controlling local source are identified.",
+      "permittedInterpretation": "Human task to identify the applicable local owner and procedure after project and jurisdiction source discovery.",
+      "excludedInterpretation": "Do not invent a local escalation owner, procedure, or compliance conclusion.",
+      "followUpSourceRequest": "Supply the service context and controlling local source, or retain unresolved."
     }
   ]
 }

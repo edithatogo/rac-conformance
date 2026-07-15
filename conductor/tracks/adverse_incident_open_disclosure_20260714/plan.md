@@ -72,13 +72,13 @@ during the repository incubation governed by
     - [x] Run process-profile validation and trace generation.
     - **Acceptance:** no fixture contains real or plausibly re-identifiable event data.
     - Evidence: `candidates/process-profiles/`, `tools/generate_adverse_incident_fixtures.py`, and `contracts/tools/tests/test_adverse_incident_fixtures.py`.
-- [ ] Task: [HUMAN] Certify contested assertions and interpretation boundaries
-    - [ ] Present resolver exceptions, controlling-source assertions, and proposed process differences only.
-    - [ ] Record approval, rejection, limits, or further-source requirements.
+- [x] Task: [HUMAN] Certify contested assertions and interpretation boundaries
+    - [x] Present resolver exceptions, controlling-source assertions, and proposed process differences only.
+    - [x] Record approval, rejection, limits, or further-source requirements.
     - **Acceptance:** human review is focused and every promoted assertion has an auditable decision.
     - Prepared artifacts: `subrepos/process-mappings/profiles/adverse-incidents/HUMAN_REVIEW_PACKET.md` and `HUMAN_REVIEW_DECISIONS.template.json`.
-    - **HUMAN GATE READY:** Dylan must certify or reject the queued assertions and exceptions before promotion or Phase 3 closure.
-    - Human decisions recorded: four limited approvals and explicit rejection of `mapping.au.secondary-summary` in `HUMAN_REVIEW_DECISIONS.json`; one decision remains.
+    - **HUMAN GATE COMPLETE:** all six queued decisions are recorded; local escalation remains explicitly unresolved and no local obligation is promoted.
+    - Human decisions recorded in `HUMAN_REVIEW_DECISIONS.json`: four limited approvals, one explicit rejection, and one approved-unresolved boundary.
     - Process improvement recorded: source discovery is the first human-controlled step for every pathway; see `SOURCE_DISCOVERY_PROTOCOL.md`.
     - Process architecture recorded: all decisions sit within the project-level linked-process model in `PROCESS_PROJECT_MODEL.md`.
 - [ ] Task: Publish comparative findings and limitations
