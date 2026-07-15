@@ -8,11 +8,12 @@ repository incubation governed by
 
 ## Phase 1 - Architecture and Reproducibility
 
-- [ ] Task: Record Camunda adapter architecture decision
-    - [ ] Verify current official BPMN, connector/job-worker, Process Test, clock, audit, and migration capabilities.
-    - [ ] Choose the smallest supported local runtime and exact version.
-    - [ ] Define rule-worker, human-task, trace, error, credential, and data boundaries.
+- [x] Task: Record Camunda adapter architecture decision
+    - [x] Verify current official BPMN, connector/job-worker, Process Test, clock, audit, and migration capabilities.
+    - [x] Choose the smallest supported local runtime and exact version.
+    - [x] Define rule-worker, human-task, trace, error, credential, and data boundaries.
     - **Acceptance:** the decision explains why Camunda is optional and identifies unsupported assumptions.
+    - **Evidence:** `subrepos/process-mappings/adapters/camunda/ARCHITECTURE_DECISION.md` and `VERSION_LOCK.json` select CPT with Java 17, JUnit 5, Testcontainers, and Camunda 8.9.12; local Java 11/no-Docker limitations are explicit.
 - [ ] Task: Scaffold reproducible adapter test module
     - [ ] Create the module under `subrepos/process-mappings/adapters/camunda/` without adding Java, Docker, or Camunda dependencies to PIC core.
     - [ ] Pin Java/build/Testcontainers/Camunda dependencies and container images.
