@@ -3,9 +3,10 @@
 Prepared: 2026-07-15
 
 This packet separates decisions Dylan can verify now from the compatibility
-exercise that must wait for a published FOI-O V2 release. Approval of the first
-three sections does not approve a fixture, crosswalk row, legal interpretation,
-release, paper, or external contribution.
+exercise that must wait for the published FOI-O release-evidence bundle and
+independent review. Approval of the first three sections does not approve a
+fixture, crosswalk row, legal interpretation, release, paper, or external
+contribution.
 
 ## 1. Umbrella definition
 
@@ -66,8 +67,10 @@ Confirm these design constraints:
 - generated fixture/crosswalk candidates require independent review and
   immutable review evidence before promotion.
 - the current compatibility matrix correctly remains
-  `blocked_no_published_release` until FOI-O V2 is published and its artifacts
-  pass content-addressed offline validation.
+  `blocked_pending_evidence_bundle` until the published FOI-O `v0.8.1`
+  evidence bundle and its artifacts pass content-addressed offline validation;
+- the independent-oracle review and promotion gate remain open even though the
+  software release and Zenodo record are verified.
 - the Hugging Face pin retains both provenance exceptions; it is not silently
   treated as a certified manuscript dataset.
 
@@ -80,5 +83,5 @@ passes.
 An unambiguous response may use:
 
 > I approve governance verification sections 1-3 and the Phase 4 boundary
-> rules. I understand the published-release exercise and independent review
+> rules. I understand the release-evidence exercise and independent review
 > remain open.
