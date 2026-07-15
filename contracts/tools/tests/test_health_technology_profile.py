@@ -74,3 +74,19 @@ def test_lifecycle_model_preserves_variation_and_loss_boundaries() -> None:
         assert term in model
     assert "fda is not a payer" in model
     assert "msac are not medicine regulators" in model
+
+
+def test_comparison_candidates_are_ranked_without_selection_or_fixture_promotion() -> None:
+    candidates = json.loads(
+        (PROFILE / "candidates/COMPARISON_CASE_CANDIDATES.json").read_text()
+    )
+    spine = json.loads((PROFILE / "candidates/SOURCE_SPINE.json").read_text())
+    source_ids = {item["id"] for item in spine["sources"]}
+    assert len(candidates["candidates"]) >= 2
+    assert all(
+        item["status"] == "candidate-needs-human-selection"
+        for item in candidates["candidates"]
+    )
+    assert all(set(item["sourceIds"]) <= source_ids for item in candidates["candidates"])
+    assert all("clinicalRecommendation" not in item for item in candidates["candidates"])
+    assert all("rights" in item["scores"] for item in candidates["candidates"])

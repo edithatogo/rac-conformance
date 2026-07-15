@@ -35,11 +35,12 @@ during the repository incubation governed by
 
 ## Phase 2 - Comparison Case Selection
 
-- [ ] Task: Produce comparison-case candidates
-    - [ ] Identify publicly documented medicines/indications with aligned regulator and funding records in at least two jurisdictions.
-    - [ ] Score source completeness, temporal comparability, indication alignment, public evidence, rights, and implementation value.
-    - [ ] Include a no-selection outcome if no candidate supports defensible comparison.
+- [x] Task: Produce comparison-case candidates
+    - [x] Identify publicly documented medicines/indications with aligned regulator and funding records in at least two jurisdictions.
+    - [x] Score source completeness, temporal comparability, indication alignment, public evidence, rights, and implementation value.
+    - [x] Include a no-selection outcome if no candidate supports defensible comparison.
     - **Acceptance:** each candidate has a source manifest and stated comparability limitations.
+    - **Evidence:** `subrepos/process-mappings/profiles/health-technology/candidates/COMPARISON_CASE_CANDIDATES.json` ranks three pembrolizumab candidates; `SOURCE_SPINE.json` records official discovery sources, effective dates, gaps, and unavailable evidence. No candidate is selected or promoted.
 - [ ] Task: [HUMAN] Approve one comparison case and jurisdiction pair
     - [ ] Present ranked candidates, source gaps, sensitivity, and expected process coverage.
     - [ ] Dylan selects, defers, or rejects the case; no fixture promotion occurs here.
