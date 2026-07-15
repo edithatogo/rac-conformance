@@ -3,7 +3,9 @@
 ## 0.2.0 (2026-07-06)
 
 
-- Add optional `valueOrigin` (enum: `["explicit", "default"]`) to input trace nodes.
+- Require the shared `valueState` field on input trace nodes and add optional
+  `valueOrigin` (enum: `["explicit", "default"]`) to distinguish explicit
+  and defaulted inputs.
 - Update validator support to validate v0.2.0 trace formats.
 
 ## 0.1.0 (2026-07-06)
