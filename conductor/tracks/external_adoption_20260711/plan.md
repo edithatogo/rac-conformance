@@ -8,7 +8,7 @@
 
 > CHECKPOINT (2026-07-14): Alaveteli #9355 and PR #9356 are closed without merge; no maintainer rationale is visible. PolicyEngine #515-#517, OpenFisca #1382, RuleSpec NZ #80, and OpenFisca Aotearoa #200 remain open with maintainer, workflow, CI, review, or signing gates. Local repository maintenance PR #27 is merged with all required checks passing. Ledgers were refreshed in `external/UPSTREAM_PR_AUDIT.md` and `external/MAINTAINER_MONITORING.md`.
 
-> CHECKPOINT (2026-07-15): A live PR sweep found no new terminal outcome. PolicyEngine #515-#517 remain open with empty hosted check rollups; OpenFisca #1382 and OpenFisca Aotearoa #200 remain `REVIEW_REQUIRED`; RuleSpec NZ #80 remains `CHANGES_REQUESTED` with two hosted validation failures; Alaveteli #9356 remains closed without merge. The local evidence-preparation PRs #80 and #81 merged successfully, but they do not change upstream adoption status.
+> CHECKPOINT (2026-07-15): A live PR sweep found no new terminal outcome. PolicyEngine #515-#517 remain open with empty hosted check rollups; OpenFisca #1382 and OpenFisca Aotearoa #200 remain `REVIEW_REQUIRED`; RuleSpec NZ #80 remains `CHANGES_REQUESTED` with two hosted validation failures; Alaveteli #9356 remains closed without merge. RaC Conformance preparation PRs #80 and #81 merged successfully, but they do not change upstream adoption status. Any source-controlled RuleSpec fix remains contributor-preparable; workflow approval, signing, hosted re-run, and merge/decline remain maintainer-controlled.
 
 ## Phase 2 - Review response
 
