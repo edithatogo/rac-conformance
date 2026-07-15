@@ -5,17 +5,17 @@
       "foioCore": "2.0.0",
       "profile": "foi-o-nz@2.0.0",
       "picCompatibility": ["pic-crosswalk@0.1.0", "pic-fixtures@0.1.0", "pic-parameters@0.2.0", "pic-traces@0.2.0"],
-      "status": "blocked_no_published_release",
+      "status": "blocked_pending_evidence_bundle",
       "publishedManifestUri": null,
       "publishedManifestSha256": null,
       "contractExample": "examples/valid/nz-release.json",
-      "blocker": "FOI-O V2 artifacts are present on main but no immutable V2 release is published."
+      "blocker": "FOI-O v0.8.1 is published, but the V2 compatibility manifest, release-evidence bundle, and independent review are not complete."
     },
     {
       "foioCore": "2.0.0",
       "profile": "foi-o-au-nsw@0.1.0",
       "picCompatibility": ["pic-crosswalk@0.1.0", "pic-fixtures@0.1.0", "pic-parameters@0.2.0", "pic-traces@0.2.0"],
-      "status": "blocked_no_published_release",
+      "status": "blocked_jurisdiction_profile_release",
       "publishedManifestUri": null,
       "publishedManifestSha256": null,
       "contractExample": "examples/valid/nsw-release.json",

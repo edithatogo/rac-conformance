@@ -66,9 +66,12 @@ Confirm these design constraints:
   separate from PIC `valueState`.
 - generated fixture/crosswalk candidates require independent review and
   immutable review evidence before promotion.
-- the current compatibility matrix correctly remains
+- the NZ compatibility entry correctly remains
   `blocked_pending_evidence_bundle` until the published FOI-O `v0.8.1`
   evidence bundle and its artifacts pass content-addressed offline validation;
+- the Australian entry correctly remains
+  `blocked_jurisdiction_profile_release` until its jurisdiction profile
+  release is complete;
 - the independent-oracle review and promotion gate remain open even though the
   software release and Zenodo record are verified.
 - the Hugging Face pin retains both provenance exceptions; it is not silently
