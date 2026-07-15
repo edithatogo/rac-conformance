@@ -92,4 +92,14 @@ during the repository incubation governed by
     - [x] Add valid and negative examples without making the handoff mandatory for incident workflows.
     - **Acceptance:** the handoff schema and examples validate and strictly exclude patient-level data, causal inference, and uncertified downstream action.
     - Evidence: `safety-handoff/schema.json`, `safety-handoff/examples/`, and `contracts/tools/tests/test_adverse_incident_safety_handoff.py`.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Synthetic Demonstrator and Review' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Synthetic Demonstrator and Review' (Protocol in workflow.md)
+    - Review: spec/plan/workflow/diff reviewed; one safety-handoff consumption gate and one stale source-blocker statement fixed.
+    - Validation: `FOI_PROGRAMME_REPO_ROOT=/tmp/rac-process-consumption make check` passed.
+
+> CHECKPOINT (2026-07-15): Phase 3 is complete. Human review decisions are
+> auditable, the six synthetic pathways remain non-identifying, comparative
+> findings preserve source and interpretation boundaries, and the optional
+> safety handoff fails closed before human review. Remaining source exceptions
+> are explicit: two blocked NSW policy downloads, the Australian framework's
+> unstated effective date, and unresolved local escalation ownership. No legal,
+> clinical, organisational, or compliance claim has been automated.
