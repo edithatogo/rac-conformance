@@ -39,6 +39,8 @@ def classify(packet: dict, *, today: dt.date | None = None) -> dict:
         exceptions.append("execution was not from a clean checkout")
     if packet.get("acknowledgement", {}).get("status") != "confirmed":
         exceptions.append("external acknowledgement is missing")
+    if packet.get("attestation", {}).get("issuerControl") != "external":
+        exceptions.append("external owner attestation is missing")
     freshness = packet.get("maintenance", {}).get("freshnessDate")
     if freshness:
         try:

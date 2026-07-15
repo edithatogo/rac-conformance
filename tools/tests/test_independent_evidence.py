@@ -21,6 +21,11 @@ def packet():
         "testOutcome": "pass",
         "independenceStatus": "qualifying",
         "acknowledgement": {"status": "confirmed", "url": "https://example.org/result"},
+        "attestation": {
+            "issuerControl": "external",
+            "evidenceType": "owner-confirmation",
+            "url": "https://example.org/attestation",
+        },
         "maintenance": {"owner": "Example Org", "freshnessDate": "2026-07-01"},
         "evidenceUrls": ["https://example.org/result"],
     }
@@ -39,6 +44,14 @@ def test_internal_rehearsal_is_partial():
     result = classify(candidate, today=dt.date(2026, 7, 15))
     assert result["status"] == "partial"
     assert result["qualifiesForV1"] is False
+
+
+def test_self_certified_packet_is_partial():
+    candidate = packet()
+    candidate["attestation"]["issuerControl"] = "internal"
+    result = classify(candidate, today=dt.date(2026, 7, 15))
+    assert result["status"] == "partial"
+    assert "external owner attestation is missing" in result["exceptions"]
 
 
 def test_all_non_qualifying_outcomes_are_preserved():

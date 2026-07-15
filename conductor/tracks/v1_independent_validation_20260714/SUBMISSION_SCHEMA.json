@@ -7,7 +7,7 @@
     "implementationId", "organisation", "repository", "sourceRevision",
     "sourceDigest", "contractVersions", "kitDigestSha256", "environment",
     "command", "inputDigest", "resultDigest", "testOutcome",
-    "independenceStatus", "acknowledgement", "maintenance", "evidenceUrls"
+    "independenceStatus", "acknowledgement", "attestation", "maintenance", "evidenceUrls"
   ],
   "properties": {
     "implementationId": {"type": "string", "minLength": 1},
@@ -50,6 +50,15 @@
       "required": ["status"],
       "properties": {
         "status": {"enum": ["confirmed", "pending", "withdrawn", "none"]},
+        "url": {"type": "string", "format": "uri"}
+      }
+    },
+    "attestation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["issuerControl", "evidenceType", "url"],
+      "properties": {
+        "issuerControl": {"enum": ["external", "internal"]},
+        "evidenceType": {"enum": ["external-publication", "owner-confirmation"]},
         "url": {"type": "string", "format": "uri"}
       }
     },
