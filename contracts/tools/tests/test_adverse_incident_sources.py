@@ -41,7 +41,12 @@ def test_blocked_sources_are_explicit_and_not_filled_by_secondary_sources() -> N
 
     assert document["blockedSources"]
     for source in document["sources"]:
-        assert source["reviewerState"] == "agent-proposed"
+        expected_state = (
+            "human-approved"
+            if source["id"] == "assertion.nz.hdc.communication"
+            else "agent-proposed"
+        )
+        assert source["reviewerState"] == expected_state
         assert source["url"].startswith("https://")
         if source["id"] in document["blockedSources"]:
             assert source["sourceStatus"].endswith("download-blocked")

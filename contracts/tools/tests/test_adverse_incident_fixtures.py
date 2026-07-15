@@ -72,7 +72,7 @@ def test_human_review_template_matches_resolver_queue() -> None:
         template_path.read_text(encoding="utf-8")
     )
 
-    assert template["status"] == "awaiting-human-review"
+    assert template["status"] == "partially-reviewed"
     assert {item["mappingId"] for item in template["decisions"]} == {
         "mapping.nz.consumer-informed",
         "mapping.nz.review-learning",
@@ -81,4 +81,10 @@ def test_human_review_template_matches_resolver_queue() -> None:
         "mapping.au.secondary-summary",
         "mapping.local.escalation",
     }
-    assert all(item["decision"] is None for item in template["decisions"])
+    decisions = {item["mappingId"]: item["decision"] for item in template["decisions"]}
+    assert decisions["mapping.nz.consumer-informed"] == "approved"
+    assert all(
+        decision is None
+        for mapping_id, decision in decisions.items()
+        if mapping_id != "mapping.nz.consumer-informed"
+    )

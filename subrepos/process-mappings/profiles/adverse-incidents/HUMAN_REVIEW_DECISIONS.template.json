@@ -1,17 +1,17 @@
 {
   "profileId": "adverse-incidents/open-disclosure",
-  "status": "awaiting-human-review",
-  "reviewer": null,
-  "reviewedAt": null,
+  "status": "partially-reviewed",
+  "reviewer": "Dylan Mordaunt",
+  "reviewedAt": "2026-07-15",
   "decisions": [
     {
       "mappingId": "mapping.nz.consumer-informed",
-      "decision": null,
-      "sourceRef": null,
-      "sourceDigest": null,
+      "decision": "approved",
+      "sourceRef": "https://www.hdc.org.nz/your-rights/about-the-code/code-of-health-and-disability-services-consumers-rights/",
+      "sourceDigest": "cf68019c860a1cd5bf462d6e501d4cca9702d57f8eb4974d53d11a2820c20761",
       "jurisdiction": "NZ",
-      "effectiveDateBasis": null,
-      "permittedInterpretation": null,
+      "effectiveDateBasis": "1996-07-01; official HDC Code page reviewed 2026-07-15",
+      "permittedInterpretation": "Human-controlled communication format, language, manner, understanding, support-person, and cultural-consideration tasks.",
       "excludedInterpretation": "Do not infer disclosure adequacy or legal compliance.",
       "followUpSourceRequest": null
     },
