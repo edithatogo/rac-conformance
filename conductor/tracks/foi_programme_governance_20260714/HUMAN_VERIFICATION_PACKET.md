@@ -1,6 +1,6 @@
 # Human verification packet
 
-Prepared: 2026-07-14
+Prepared: 2026-07-15
 
 This packet separates decisions Dylan can verify now from the compatibility
 exercise that must wait for a published FOI-O V2 release. Approval of the first
@@ -32,10 +32,15 @@ python tools/validate_project14_allowlist.py --items /tmp/project14.json \
   --allowlist conductor/tracks/foi_programme_governance_20260714/project14-allowlist.json
 ```
 
-The last verified result contained all 19 required items, no missing, extra, or
-stale issue/PR items, and values for jurisdiction, repository role, dependency,
-evidence status, human gate, and delivery status. Dedicated repository Project
-memberships were not removed.
+Fresh verification on 2026-07-15 produced `observed=19 required=19` with no
+missing, extra, or stale issue/PR items. The allowlist explicitly records
+`nlp-policy-nz#100`, `nlp-policy-nz#101`, and `rac-conformance#36` as `Done`; all
+other allowlisted items are expected to be `Todo`. Every item has values for
+jurisdiction, repository role, dependency, evidence status, human gate, and
+delivery status. Dedicated repository Project memberships were not removed.
+
+This is machine verification only. It does not constitute Dylan's approval of
+the Project 14 scope, synchronization policy, or FOI-O/PIC boundary rules.
 
 Decision: `approve` or identify the item/field that is incorrect.
 
