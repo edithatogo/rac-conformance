@@ -9,7 +9,7 @@
 
 **Date:** July 2026  
 **Track:** `community_20260704` (Phase 4)  
-**arXiv status:** deferred (see `ARXIV_SUBMISSION.md`; GitHub [#15](https://github.com/edithatogo/rac-conformance/issues/15))  
+**arXiv status:** submission candidate v0.3.0; authorization pending (see `ARXIV_SUBMISSION.md`; GitHub [#15](https://github.com/edithatogo/rac-conformance/issues/15))
 **Author block:** [`papers/AUTHOR.md`](../AUTHOR.md)
 
 ---

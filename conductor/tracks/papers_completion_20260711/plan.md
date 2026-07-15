@@ -84,6 +84,13 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 > phase begins only after `foi-o` publishes its release-evidence bundle through
 > issue #27. Publication remains human-authorized after the refresh.
 
+> PREPARATION (2026-07-15): Prepared the independent `Paper Programme
+> Submission Candidate v0.3.0` package across all three manuscripts and
+> submission packets. It preserves the current FOI-O evidence limitation and
+> advances venue/PDF/authorization decisions without claiming that #27 or any
+> external adoption proposal is accepted. The release-triggered refresh tasks
+> remain open for evidence reconciliation when #27 is accepted.
+
 ## Phase 4.8 - Programme citation and mirror reconciliation
 
 - [x] Task: Add or correct `CITATION.cff` metadata for every included FOI
