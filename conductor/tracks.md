@@ -126,10 +126,10 @@ GitHub issue: [#40](https://github.com/edithatogo/rac-conformance/issues/40)
 
 ---
 
-- [ ] **Track: Map adverse-incident management and open disclosure**
+- [x] **Track: Map adverse-incident management and open disclosure**
 Track ID: `adverse_incident_open_disclosure_20260714`
 GitHub issue: [#41](https://github.com/edithatogo/rac-conformance/issues/41)
-*Link: [./tracks/adverse_incident_open_disclosure_20260714/](./tracks/adverse_incident_open_disclosure_20260714/)*
+*Archived link: [./archive/adverse_incident_open_disclosure_20260714/](./archive/adverse_incident_open_disclosure_20260714/)*
 
 ---
 
