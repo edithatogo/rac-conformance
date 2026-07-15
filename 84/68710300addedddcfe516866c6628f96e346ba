@@ -1,0 +1,1 @@
+Evidence: PYTHONPATH=. uv run --with pytest,jsonschema,pyyaml pytest tools/tests (30 passed); git diff --check; submission schema parsed with python -m json.tool.
