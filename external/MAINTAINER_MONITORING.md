@@ -1,12 +1,12 @@
 # Maintainer response monitoring
 
-Last checked: **2026-07-15** (live PR sweep: no unresolved contribution reached a terminal upstream outcome; Alaveteli remains closed without merge; local preparation PRs #80 and #81 merged; RuleSpec NZ still has failed hosted validation and `CHANGES_REQUESTED`).
+Last checked: **2026-07-15** (live PR sweep: no unresolved contribution reached a terminal upstream outcome; Alaveteli remains closed without merge; local preparation PRs #80 and #81 merged; Axiom has clarified that RuleSpec NZ's old signing-key path is superseded by the canonical migration).
 
 Bot / author-only comments do **not** count as maintainer replies.
 
 | Target | URL | State | Implementation | Maintainer reply? | Next action |
 |---|---|---|---|---|---|
-| rulespec-nz KiwiSaver compile | https://github.com/TheAxiomFoundation/rulespec-nz/issues/79 | open | [PR #80](https://github.com/TheAxiomFoundation/rulespec-nz/pull/80) — `CHANGES_REQUESTED`; hosted `validate / validate` and `validate / validate (nz)` fail; local compile/Ruff/270-test evidence remains separate; **hard-blocked** on `AXIOM_ENCODE_APPLY_SIGNING_KEY` | No resolving maintainer action | Resolve hosted failures, re-sign, and await maintainer review/merge |
+| rulespec-nz KiwiSaver compile | https://github.com/TheAxiomFoundation/rulespec-nz/issues/79 | open | [PR #80](https://github.com/TheAxiomFoundation/rulespec-nz/pull/80) — `CHANGES_REQUESTED`; hosted `validate / validate` and `validate / validate (nz)` fail; local compile/Ruff/270-test evidence remains separate; Axiom says the old shared-secret signing path is superseded | Yes (Max clarified 2026-07-11) | Leave #80 open as source-fix evidence; Axiom carries the correction into the immutable corpus/Ed25519 canonical migration and then reviews/merges/declines |
 | PE trace export | https://github.com/PolicyEngine/policyengine-core/issues/512 | open | [PR #515](https://github.com/PolicyEngine/policyengine-core/pull/515) — Max reviewed; requested/endorsed structured `TraceNode` fields, explicit v1 omissions, and trace namespace coordination | Yes (Max COMMENTED; current review visible 2026-07-14) | Address any remaining comments; maintainer approves fork workflows and re-reviews |
 | PE missingness | https://github.com/PolicyEngine/policyengine-core/issues/513 | open | [PR #516](https://github.com/PolicyEngine/policyengine-core/pull/516) — Max reviewed; requested canonical visible-branch reuse and clarified future value-state vocabulary | Yes (Max COMMENTED; current review visible 2026-07-14) | Address any remaining comments; maintainer approves fork workflows and re-reviews |
 | PE YAML converter | https://github.com/PolicyEngine/policyengine-core/issues/514 | open | [PR #517](https://github.com/PolicyEngine/policyengine-core/pull/517) — Max reviewed; requested docs-build confirmation and source-code links | Yes (Max COMMENTED; current review visible 2026-07-14) | Address any remaining comments; maintainer approves fork workflows and re-reviews |
@@ -19,12 +19,16 @@ Bot / author-only comments do **not** count as maintainer replies.
 
 ## Hard external blockers (cannot clear from this agent)
 
-1. **`AXIOM_ENCODE_APPLY_SIGNING_KEY`** for [rulespec-nz#80](https://github.com/TheAxiomFoundation/rulespec-nz/pull/80) — asked [@MaxGhenis](https://github.com/MaxGhenis) to `sign-applied-files` on the PR branch. Fork SoT remains `edithatogo/rulespec-nz` @ `fix/kiwisaver-elective-rates-map`.
-2. **First-time fork workflow approval** on PolicyEngine PRs #515–#517 (empty check rollup until a maintainer approves Actions).
+1. **First-time fork workflow approval** on PolicyEngine PRs #515–#517 (empty check rollup until a maintainer approves Actions).
 
 3. **Maintainer review and hosted CI** remain unresolved for OpenFisca #1382
    (`REVIEW_REQUIRED`) and OpenFisca Aotearoa #200 (`REVIEW_REQUIRED`); neither
    has a contributor-controlled action that can produce an upstream outcome.
+
+3. **RuleSpec NZ canonical migration** remains upstream-controlled. The old
+shared-secret signing path is explicitly superseded; #80 remains open evidence
+for the KiwiSaver correction while Axiom publishes the immutable named corpus,
+migrates manifests to Ed25519 verification, and migrates source-bound modules.
 
 ## Local demo / publication follow-through (this repo)
 
