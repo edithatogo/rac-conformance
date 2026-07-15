@@ -47,7 +47,10 @@ python -m json.tool \
   conductor/tracks/v1_independent_validation_20260714/evidence/agent-independent/RESULTS.json
 ```
 
-Captured commit: `b7d439f49c10c23d128a1e0b64e796acab647bc2`.
+The first captured input commit was `b7d439f49c10c23d128a1e0b64e796acab647bc2`.
+After committing the evaluator, the reproducibility refresh was run against
+the committed evaluator at `e6fe037` (the result manifest records the exact
+commit for that refresh).
 
 ## Result
 
