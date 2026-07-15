@@ -3,6 +3,7 @@
   "status": "partially-reviewed",
   "reviewer": "Dylan Mordaunt",
   "reviewedAt": "2026-07-15",
+  "projectModel": "PROCESS_PROJECT_MODEL.md",
   "decisions": [
     {
       "mappingId": "mapping.nz.consumer-informed",
@@ -37,7 +38,17 @@
       "excludedInterpretation": "Not legislation, not a universal legal obligation, not a substitute for state or territory requirements, and not an automated disclosure decision.",
       "followUpSourceRequest": "Search and verify current state, territory, and local policies before jurisdiction-specific implementation."
     },
-    {"mappingId": "mapping.nsw.incident-review", "decision": null},
+    {
+      "mappingId": "mapping.nsw.incident-review",
+      "decision": "approved",
+      "sourceRef": "https://cec.health.nsw.gov.au/Review-incidents/incident-management-policy-resources",
+      "sourceDigest": null,
+      "jurisdiction": "AU-NSW",
+      "effectiveDateBasis": "14 December 2020 commencement confirmed on official CEC resource page; controlling directive text remains blocked.",
+      "permittedInterpretation": "Project-level human-controlled source discovery, NSW review-pathway selection, reporting, learning, and escalation as linked but distinct processes.",
+      "excludedInterpretation": "Does not encode reportability thresholds, harm scores, mandatory classifications, legal or clinical conclusions, or NSW compliance.",
+      "followUpSourceRequest": "Verify PD2020_047 and current related NSW policy overlays before implementation."
+    },
     {"mappingId": "mapping.au.secondary-summary", "decision": null},
     {"mappingId": "mapping.local.escalation", "decision": null}
   ]

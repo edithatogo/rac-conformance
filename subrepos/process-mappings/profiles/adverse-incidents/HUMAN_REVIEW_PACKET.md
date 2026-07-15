@@ -6,6 +6,10 @@ This packet narrows review to the controlling-source assertions and resolver
 exceptions produced by the deterministic Phase 2 resolver. It is not legal,
 clinical, organisational, or compliance advice.
 
+All decisions apply within the project-level linked-process model in
+`PROCESS_PROJECT_MODEL.md`. They do not certify related processes, jurisdiction
+overlays, or organisational compliance.
+
 ## Review Order
 
 1. Confirm whether each source assertion is authoritative for the stated
