@@ -18,11 +18,11 @@
       "sourceId": "nz-hqsc-national-adverse-events-policy-2023",
       "jurisdiction": "NZ",
       "authorityClass": "national_policy",
-      "sourceStatus": "blocked",
+      "sourceStatus": "current",
       "effectiveFrom": "2023-07-01",
       "effectiveDateStatus": "verified",
-      "reviewerState": "agent-proposed",
-      "sourceRef": "https://www.hqsc.govt.nz/resources/resource-library/national-adverse-event-policy-2023/"
+      "reviewerState": "human-approved",
+      "sourceRef": "https://www.hqsc.govt.nz/assets/Our-work/System-safety/Adverse-events/Publications-resources/AdverseEventsPolicy2023_Eng_Feb24update_WEB.pdf?hash=bf39db6403496651fcfa93ef5c67a13944ac75a2"
     },
     {
       "id": "assertion.au.framework.disclosure",

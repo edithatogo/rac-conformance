@@ -15,7 +15,17 @@
       "excludedInterpretation": "Does not certify disclosure adequacy, clinical appropriateness, legal compliance, or organisational compliance.",
       "followUpSourceRequest": null
     },
-    {"mappingId": "mapping.nz.review-learning", "decision": null},
+    {
+      "mappingId": "mapping.nz.review-learning",
+      "decision": "approved",
+      "sourceRef": "https://www.hqsc.govt.nz/assets/Our-work/System-safety/Adverse-events/Publications-resources/AdverseEventsPolicy2023_Eng_Feb24update_WEB.pdf?hash=bf39db6403496651fcfa93ef5c67a13944ac75a2",
+      "sourceDigest": "0975b3c880b6e9c3a49bef53a8e69506246232bb4f115813edd57db22c989ef2",
+      "jurisdiction": "NZ",
+      "effectiveDateBasis": "2023-07-01; official HQSC page and PDF reviewed 2026-07-15",
+      "permittedInterpretation": "Human-selected review approach, consumer and whānau participation, feedback on draft findings, and human-agreed learning actions.",
+      "excludedInterpretation": "Does not encode clinical causation, severity, reportability, organisational compliance, or adequacy of a particular review response.",
+      "followUpSourceRequest": null
+    },
     {"mappingId": "mapping.au.open-disclosure", "decision": null},
     {"mappingId": "mapping.nsw.incident-review", "decision": null},
     {"mappingId": "mapping.au.secondary-summary", "decision": null},

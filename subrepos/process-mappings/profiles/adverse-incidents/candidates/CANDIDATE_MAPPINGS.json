@@ -23,8 +23,8 @@
       "sourceAssertionIds": ["assertion.nz.hqsc.review-learning"],
       "actorClasses": ["review-or-clinical-governance-team"],
       "humanTasks": ["select review approach", "agree learning actions"],
-      "loss": "blocked policy text prevents encoding review obligations",
-      "sourceRefs": ["https://www.hqsc.govt.nz/resources/resource-library/national-adverse-event-policy-2023/"]
+      "loss": "does not determine clinical causation, severity, reportability, compliance, or adequacy of a particular review response",
+      "sourceRefs": ["https://www.hqsc.govt.nz/assets/Our-work/System-safety/Adverse-events/Publications-resources/AdverseEventsPolicy2023_Eng_Feb24update_WEB.pdf?hash=bf39db6403496651fcfa93ef5c67a13944ac75a2"]
     },
     {
       "id": "mapping.au.open-disclosure",
