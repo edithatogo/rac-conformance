@@ -55,6 +55,13 @@ authorization remains a human gate.
 release is available. After that release, update the papers and submit only
 after Dylan's explicit authorization.
 
+> RELEASE UPDATE (2026-07-15): `edithatogo/foi-o` v0.8.1 is now available at
+> an immutable release and has verified Zenodo version DOI
+> `10.5281/zenodo.21360138` and concept DOI `10.5281/zenodo.21360137`. The
+> refresh remains gated on the release-evidence bundle requested in issue #27
+> and the resulting human paper authorization; no evidence bundle is inferred
+> from the software release or Zenodo record.
+
 ## Phase 4.75 - FOI-O release-triggered paper refresh
 
 GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
@@ -62,10 +69,10 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 - [ ] Task: Verify the immutable `foi-o` release tag, commit SHA, contract and
       schema versions, capability matrix, migrations, and reproducibility commands.
 
-> BLOCKED (2026-07-14): `edithatogo/foi-o` has no published immutable release;
-> GitHub issue #31 remains open with `external-gate`, `human-gate`, and
-> `publication` labels. No release tag, commit pin, or evidence bundle may be
-> inferred or fabricated.
+> CHECKPOINT (2026-07-15): The software release and Zenodo record are now
+> available. This task still requires verification against the release-evidence
+> bundle requested in `edithatogo/foi-o#27`; no contract, empirical, or
+> reproducibility claim is inferred from release metadata alone.
 - [ ] Task: Import the release-evidence bundle containing tests, fixtures,
       provenance, empirical results, exception summaries, and known limitations.
 - [ ] Task: Diff release evidence against manuscript claims and regenerate all
@@ -73,9 +80,9 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 - [ ] Task: Run paper-artifact QA and prepare a human submission approval packet.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'FOI-O release-triggered paper refresh' (Protocol in workflow.md)
 
-> BLOCKED (2026-07-14): This phase begins only after `foi-o` publishes the next
-immutable release and its release-evidence bundle. Publication remains
-human-authorized after the refresh.
+> BLOCKED (2026-07-15): The immutable release prerequisite is complete, but this
+> phase begins only after `foi-o` publishes its release-evidence bundle through
+> issue #27. Publication remains human-authorized after the refresh.
 
 ## Phase 4.8 - Programme citation and mirror reconciliation
 
