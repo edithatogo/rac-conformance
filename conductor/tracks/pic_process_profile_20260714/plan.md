@@ -9,17 +9,25 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
 
 ## Phase 1 - Consumer and Semantic Inventory
 
-- [ ] Task: Inventory process concepts from real consumers
+- [x] Task: Inventory process concepts from real consumers
     - [ ] Extract only consumed concepts from FOI-O, the existing Docassemble demo, harness traces, and approved health demonstrator requirements.
     - [ ] Record concept owner, consumer, cardinality, time semantics, and failure behavior.
     - [ ] Reject ontology, BPMN, and workflow-engine concepts with no current consumer.
-    - **Acceptance:** every proposed field has a named consumer and evidence artifact.
-- [ ] Task: Define authority and source-assertion model
+-    - **Acceptance:** every proposed field has a named consumer and evidence artifact.
+    - Evidence: `contracts/process-profile/CONSUMER_INVENTORY.md`.
+- [x] Task: Define authority and source-assertion model
     - [ ] Distinguish law, regulation, national policy, regional policy, guidance, interpretation, and runtime observation.
     - [ ] Define `agent-proposed`, `human-approved`, and official-primary assertion states.
     - [ ] Define fail-closed behavior for blocked, stale, conflicting, or missing-effective-date sources.
     - **Acceptance:** controlling assertions cannot be inferred from secondary-only evidence.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Consumer and Semantic Inventory' (Protocol in workflow.md)
+    - Evidence: `contracts/process-profile/DESIGN.md`, schema semantics, and negative examples.
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Consumer and Semantic Inventory' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-16): Phase 1 is complete. The consumer inventory names
+> the FOI-O, foi-process, health-profile, and optional Camunda consumers for
+> each field. Authority, review, effective-date, and fail-closed semantics are
+> documented and exercised by the process-profile corpus. No ontology or
+> platform runtime was added.
 
 ## Phase 2 - Contract and Validator
 

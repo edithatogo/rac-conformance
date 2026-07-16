@@ -1,0 +1,17 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "profileId": "demo/process.human-review",
+  "profileVersion": "0.1.0",
+  "processDefinitionVersion": "1.0.0",
+  "jurisdiction": "AU-NSW",
+  "applicableAt": "2026-01-01T00:00:00Z",
+  "observedAt": "2026-07-16T00:00:00Z",
+  "sourceAssertions": [{"id": "demo/source/policy.1", "authority": "regional_policy", "sourceType": "official_primary", "reviewStatus": "official-primary", "assertion": "The published policy requires a human review before closure.", "sourceUri": "https://example.org/policy/1", "retrievedAt": "2026-07-16T00:00:00Z", "effectiveFrom": "2026-01-01", "effectiveTo": null, "controlling": true}],
+  "states": [{"id": "demo/state/open", "kind": "initial", "label": "Open"}, {"id": "demo/state/closed", "kind": "terminal", "label": "Closed"}],
+  "events": [{"id": "demo/event/review.certified", "kind": "certified_human_decision", "eventType": "ReviewCertified", "occurredAt": "2026-07-16T01:00:00Z", "observedAt": "2026-07-16T01:00:01Z", "actorId": "role/reviewer", "sourceAssertionIds": ["demo/source/policy.1"]}],
+  "transitions": [{"id": "demo/transition/review.close", "fromStateId": "demo/state/open", "toStateId": "demo/state/closed", "triggerEventId": "demo/event/review.certified", "taskId": "demo/task/review", "sourceAssertionIds": ["demo/source/policy.1"]}],
+  "tasks": [{"id": "demo/task/review", "kind": "human_task", "name": "Review and certify", "actorRole": "role/reviewer", "decisionEventId": "demo/event/review.certified", "sourceAssertionIds": ["demo/source/policy.1"]}],
+  "ruleInvocations": [],
+  "evidenceReferences": [],
+  "traces": [{"id": "demo/trace/review.1", "traceContract": "pic-traces/0.2.0", "artifactRef": "pic-traces/0.2.0#demo/review.1", "eventIds": ["demo/event/review.certified"], "ruleInvocationIds": [], "equivalenceClaim": "output"}]
+}
