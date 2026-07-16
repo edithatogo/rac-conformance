@@ -1,6 +1,6 @@
-.PHONY: check audit audit-test paper-artifacts paper-artifacts-write lint test validate-examples process-mappings-check health-technology-check hardening-check converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
+.PHONY: check audit audit-test paper-artifacts paper-artifacts-write lint test validate-examples process-mappings-check health-technology-check hardening-check release-audit converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
 
-check: audit audit-test paper-artifacts lint test validate-examples process-mappings-check health-technology-check hardening-check converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
+check: audit audit-test paper-artifacts lint test validate-examples process-mappings-check health-technology-check hardening-check release-audit converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
 
 audit:
 	PYTHONPATH=. uv run python -m tools.repo_audit
@@ -31,6 +31,9 @@ health-technology-check:
 
 hardening-check:
 	PYTHONPATH=. uv run python tools/validate_hardening_evidence.py
+
+release-audit:
+	PYTHONPATH=. uv run python tools/v1_release_audit.py
 
 converter-lint:
 	uv run --directory converters/fixtures --with ruff ruff check .

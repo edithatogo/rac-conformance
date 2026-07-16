@@ -161,7 +161,7 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45)
 
 ---
 
-- [ ] **Track: Qualify and release RaC Conformance v1.0**
+- [~] **Track: Qualify and release RaC Conformance v1.0**
 Track ID: `v1_release_20260714`
 GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46)
 *Link: [./tracks/v1_release_20260714/](./tracks/v1_release_20260714/)*
