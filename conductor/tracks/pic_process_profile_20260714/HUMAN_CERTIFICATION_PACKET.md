@@ -58,5 +58,6 @@ decision. Its candidate and contract SHA-256 values must remain unchanged.
   Dylan on 2026-07-16**.
 - Decision 2, event-kind distinctions: **approved by Dylan on 2026-07-16**.
 - Decision 3, reviewability boundary: **approved by Dylan on 2026-07-16**.
+- Decision 4, source/actor/timer integrity: **approved by Dylan on 2026-07-16**.
 - Overall candidate disposition remains pending until all review questions are
   answered.

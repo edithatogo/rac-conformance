@@ -15,7 +15,8 @@
   "decisionLog": [
     {"id": "event-vocabulary-and-state-semantics", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:26:37Z", "scope": "The revised FOI-O event vocabulary and non-terminal reviewability representation are acceptable for PIC compatibility."},
     {"id": "event-kind-distinction", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:28:01Z", "scope": "Observed events, executed actions, and derived deadline/overdue signals remain distinct without certifying legal correctness."},
-    {"id": "reviewability-boundary", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:28:28Z", "scope": "Overdue and reviewability are non-terminal derived signals, not legal refusal, Ombudsman, human-certification, or access outcomes."}
+    {"id": "reviewability-boundary", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:28:28Z", "scope": "Overdue and reviewability are non-terminal derived signals, not legal refusal, Ombudsman, human-certification, or access outcomes."},
+    {"id": "source-actor-timer-integrity", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:29:07Z", "scope": "The official OIA source spine, effective date, explicit actors, and working-day timer declaration are appropriate for the candidate."}
   ],
   "evidence": [
     "conductor/tracks/pic_process_profile_20260714/HUMAN_CERTIFICATION_PACKET.md",

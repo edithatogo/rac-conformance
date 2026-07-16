@@ -111,3 +111,5 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
 > HUMAN DECISION (2026-07-16): Dylan approved Decision 3, confirming that
 > reviewability remains a non-terminal derived signal and not a legal or
 > Ombudsman outcome.
+> HUMAN DECISION (2026-07-16): Dylan approved Decision 4, confirming the
+> official source spine, effective date, explicit actors, and timer declaration.
