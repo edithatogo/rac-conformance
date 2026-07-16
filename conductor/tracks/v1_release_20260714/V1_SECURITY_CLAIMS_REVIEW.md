@@ -1,8 +1,7 @@
 # v1 Security, Licensing, and Claims Review
 
-Review scope: current `codex/rac-v1-integration` working branch. A final
-candidate commit and artifact set must be re-frozen after the remaining gates
-are resolved.
+Review scope: current `codex/rac-v1-integration` working branch and the
+unpublished candidate from commit `4206608baa37c4844cb4aee4a629797df9479ff9`.
 
 ## Verified locally
 
@@ -13,9 +12,10 @@ are resolved.
   dispositions.
 - `docs/V1_VALIDATION_BASELINE.json` and `docs/V1_FUZZ_BASELINE.json` record
   bounded validation measurements and deterministic synthetic mutations.
-- `docs/V1_SUPPLY_CHAIN_EVIDENCE.md` and `docs/V1_SBOM.json` record local
-  workflow/dependency audits, lockfiles, SBOM evidence, and hosted-control
-  limitations.
+- `docs/V1_SUPPLY_CHAIN_EVIDENCE.md`, `docs/V1_HOSTED_GOVERNANCE.md`, and
+  `docs/V1_SBOM.json` record local workflow/dependency audits, lockfiles, SBOM
+  evidence, hosted branch protection, secret-scanning status, and remaining
+  signing/environment limitations.
 - GitHub Actions workflows use read-only contents permissions and immutable
   action references in the reviewed files.
 - The candidate contains Apache-2.0 licensing metadata, `CITATION.cff`,
@@ -27,11 +27,10 @@ are resolved.
 
 ## Not locally certifiable
 
-- Live dependency advisories, GitHub branch-protection status, hosted Actions
-  results for this exact commit, secret-scanning results, and external source
-  rights were not independently rechecked in this workspace.
-- Mutation testing, cross-platform qualification, reproducible release-build
-  comparison, rollback rehearsal, and hosted control verification remain open.
+- External source rights, protected release environments, commit signatures,
+  and artifact attestations remain open.
+- FOI-O evidence, independent adoption, human mapping certification, health
+  case selection, and publication authorization remain open.
 - Human approval is still required for release promotion, signing, package
   publication, DOI deposition, and announcements.
 

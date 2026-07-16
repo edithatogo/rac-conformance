@@ -2,8 +2,12 @@
 
 ## Candidate status
 
-- No current `v1.0.0-rc.1` artifact set is frozen in this branch. The prior
-  `0c4a83b` candidate is historical evidence only and must not be promoted.
+- A current, unpublished `v1.0.0-rc.1` candidate has been rebuilt from
+  `4206608baa37c4844cb4aee4a629797df9479ff9`. The candidate manifest,
+  provenance, packages, source archive, checksums, compatibility report, and
+  hosted qualification evidence are under `release-candidate/current/`. The
+  prior `0c4a83b` candidate is historical evidence only and must not be
+  promoted.
 - Current gate manifest: `conductor/v1-release-gates.json`
 - Current hardening evidence: `docs/V1_THREAT_MODEL.md`,
   `docs/V1_RISK_REGISTER.json`, `docs/V1_VALIDATION_BASELINE.json`,
@@ -13,7 +17,8 @@
 
 ## Current decision
 
-`DO NOT AUTHORIZE v1.0`: a final candidate must be rebuilt after the FOI-O
+`DO NOT AUTHORIZE v1.0`: the current candidate must remain unpublished until
+the FOI-O
 release-evidence bundle, independent adoption, paper refresh, paper-programme
 submission authorization, Project 14 manual verification, Zenodo deposit, and
 engineering-hardening gates change state.

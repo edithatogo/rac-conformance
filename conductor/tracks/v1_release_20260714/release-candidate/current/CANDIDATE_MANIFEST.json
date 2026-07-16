@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "rac-v1-release-candidate.v0.1.0",
+  "release": "v1.0.0-rc.1",
+  "status": "candidate-not-authorized",
+  "sourceCommit": "4206608baa37c4844cb4aee4a629797df9479ff9",
+  "sourceArchive": "rac-conformance-v1.0.0-rc.1.tar.gz",
+  "artifacts": [
+    {"path": "rac-conformance-v1.0.0-rc.1.tar.gz", "sha256": "740fbd5ec11713a27eb36f616c8b5d91d248f88272892ec34053e207c0268520"},
+    {"path": "packages/pic_contracts-0.1.0-py3-none-any.whl", "sha256": "169b2db0975483cb808d3f3a8d26951f686eca6152f48b2b339a8b3e8b285802"},
+    {"path": "packages/pic_contracts-0.1.0.tar.gz", "sha256": "7f0311b5016cbeb8fe82ccb980d41db5f589c850ea0ff28c72189541d96f25bc"},
+    {"path": "SBOM.cdx.json", "sha256": "b5ae4a49bd7367de3e3490f3b3f3fd82b9141142f900d756d8048d9e5c672db7"},
+    {"path": "HOSTED_QUALIFICATION.md", "sha256": "96b0149d62b038740cbf11c516741fb27f666c694210d54da8eb5b1843d14e78"}
+  ],
+  "reproducibility": {"sourceArchiveBuildsCompared": 2, "packageBuildsCompared": 2, "byteIdentical": true},
+  "humanBoundary": "No tag, signature, package upload, DOI deposit, announcement, or release authorization is performed by this candidate manifest."
+}

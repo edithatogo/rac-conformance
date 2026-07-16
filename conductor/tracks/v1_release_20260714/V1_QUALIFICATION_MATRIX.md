@@ -1,6 +1,6 @@
 # v1.0.0-rc.1 Qualification Matrix
 
-Candidate commit: `0c4a83b55208bae59592af017c6e0f66194ec8bb`
+Candidate commit: `4206608baa37c4844cb4aee4a629797df9479ff9`
 
 | Surface | Local evidence | Status | Release interpretation |
 | --- | --- | --- | --- |
@@ -21,3 +21,8 @@ Candidate commit: `0c4a83b55208bae59592af017c6e0f66194ec8bb`
 The matrix is deterministic and deliberately distinguishes passing local tests
 from external qualification. It does not certify any candidate fixture,
 jurisdiction mapping, external maintainer, or independent implementation.
+
+Automated cross-platform and hosted security evidence for the current candidate
+is recorded in `docs/V1_HOSTED_QUALIFICATION.md` and
+`docs/V1_HOSTED_GOVERNANCE.md`. Human source certification, independent
+adoption, publication, signing, and external evidence gates remain blocked.
