@@ -32,16 +32,25 @@ def validate(root: Path) -> list[str]:
         errors.append("MBS cannot be a medicine regulator")
 
     manifest = json.loads((root / "sources/manifest.json").read_text(encoding="utf-8"))
-    source_ids = {source["id"] for source in manifest.get("sources", [])}
+    source_ids: list[str] = []
     for source in manifest.get("sources", []):
-        if source["verificationStatus"] == "observed" and not source.get("url"):
-            errors.append(f"observed source has no URL: {source['id']}")
-        if source["verificationStatus"] in {"blocked", "UNVERIFIED"} and source.get("digest"):
-            errors.append(f"blocked/unverified source cannot have digest: {source['id']}")
+        if not isinstance(source, dict):
+            errors.append("source entry must be an object")
+            continue
+        source_id = source.get("id")
+        if not source_id:
+            errors.append("source entry is missing 'id'")
+            continue
+        source_ids.append(source_id)
+        status = source.get("verificationStatus")
+        if status == "observed" and not source.get("url"):
+            errors.append(f"observed source has no URL: {source_id}")
+        if status in {"blocked", "UNVERIFIED"} and source.get("digest"):
+            errors.append(f"blocked/unverified source cannot have digest: {source_id}")
     for authority in authorities.values():
         if not any(source.get("authority") == authority["id"] for source in manifest.get("sources", [])):
             errors.append(f"authority has no source assertion: {authority['id']}")
-    if len(source_ids) != len(manifest.get("sources", [])):
+    if len(set(source_ids)) != len(source_ids):
         errors.append("source IDs must be unique")
     return errors
 

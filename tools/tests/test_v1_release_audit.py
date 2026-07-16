@@ -41,3 +41,16 @@ def test_audit_is_ready_only_when_every_gate_passes():
         ],
     }
     assert audit(manifest, as_of=date(2026, 7, 15))["releaseDecision"] == "ready"
+
+
+def test_audit_reports_malformed_gate_entries_without_crashing():
+    manifest = {
+        "manifest_version": "1",
+        "release": "v1.0.0-rc.1",
+        "gates": ["malformed"],
+    }
+
+    report = audit(manifest, as_of=date(2026, 7, 15))
+
+    assert report["manifestValid"] is False
+    assert report["releaseDecision"] == "blocked"

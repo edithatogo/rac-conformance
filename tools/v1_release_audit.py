@@ -12,7 +12,10 @@ from tools.release_gates import load_manifest, validate_manifest
 
 def audit(manifest: dict, *, as_of: date) -> dict:
     validation = validate_manifest(manifest, as_of=as_of)
-    gates = sorted(manifest.get("gates", []), key=lambda gate: str(gate.get("id", "")))
+    gates = sorted(
+        (gate for gate in manifest.get("gates", []) if isinstance(gate, dict)),
+        key=lambda gate: str(gate.get("id", "")),
+    )
     blockers = [
         {
             "id": gate.get("id"),

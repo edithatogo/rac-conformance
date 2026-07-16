@@ -66,10 +66,13 @@ def validate_manifest(manifest: dict[str, Any], *, as_of: date) -> ValidationRep
 
     statuses: set[str] = set()
     seen_ids: set[str] = set()
-    for gate in sorted(gates, key=lambda item: str(item.get("id", ""))):
+    for gate in gates:
         if not isinstance(gate, dict):
             errors.append("gate: each entry must be an object")
-            continue
+    for gate in sorted(
+        (item for item in gates if isinstance(item, dict)),
+        key=lambda item: str(item.get("id", "")),
+    ):
         gate_id = gate.get("id")
         if not isinstance(gate_id, str) or not gate_id:
             errors.append("gate: id required")
