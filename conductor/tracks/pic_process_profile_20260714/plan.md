@@ -106,3 +106,5 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
 > HUMAN DECISION (2026-07-16): Dylan approved Decision 1, covering the revised
 > event vocabulary and non-terminal reviewability semantics. Overall
 > certification remains pending.
+> HUMAN DECISION (2026-07-16): Dylan approved Decision 2, covering the
+> distinction between observed events, executed actions, and derived signals.

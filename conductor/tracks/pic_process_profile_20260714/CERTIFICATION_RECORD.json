@@ -13,7 +13,8 @@
   "reviewer": null,
   "reviewedAt": null,
   "decisionLog": [
-    {"id": "event-vocabulary-and-state-semantics", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:26:37Z", "scope": "The revised FOI-O event vocabulary and non-terminal reviewability representation are acceptable for PIC compatibility."}
+    {"id": "event-vocabulary-and-state-semantics", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:26:37Z", "scope": "The revised FOI-O event vocabulary and non-terminal reviewability representation are acceptable for PIC compatibility."},
+    {"id": "event-kind-distinction", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:28:01Z", "scope": "Observed events, executed actions, and derived deadline/overdue signals remain distinct without certifying legal correctness."}
   ],
   "evidence": [
     "conductor/tracks/pic_process_profile_20260714/HUMAN_CERTIFICATION_PACKET.md",

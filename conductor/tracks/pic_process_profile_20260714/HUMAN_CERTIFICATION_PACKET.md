@@ -56,5 +56,6 @@ decision. Its candidate and contract SHA-256 values must remain unchanged.
 
 - Decision 1, event vocabulary and non-terminal state semantics: **approved by
   Dylan on 2026-07-16**.
+- Decision 2, event-kind distinctions: **approved by Dylan on 2026-07-16**.
 - Overall candidate disposition remains pending until all review questions are
   answered.
