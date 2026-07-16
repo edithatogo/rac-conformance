@@ -78,6 +78,14 @@ Phase 1 and establishes the implementation home required by
 
 ## Phase 4 - Deferred Cutover and Parent Closeout
 
+> CHECKPOINT (2026-07-16): The human decision is to defer creation of
+> `edithatogo/process-mappings`. The structured subrepo remains the sole
+> writable source, and the migration packet plus extraction rehearsal are
+> retained for reconsideration when a second mature domain or independent
+> consumer justifies a separate release lifecycle. No remote, destination
+> issues, redirects, or hosted settings were created. Parent checks remain the
+> active verification gate.
+
 - [x] Task: [HUMAN] Record decision to defer repository creation and canonical cutover
     - [x] Review extraction evidence, ownership, visibility, governance, security, issue migration, and rollback plan.
     - [x] Defer creation of `edithatogo/process-mappings` until the reconsideration triggers in `migration/DEFERRED_CUTOVER_DECISION.md` are met.
