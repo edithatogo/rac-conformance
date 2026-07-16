@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "rac-conformance-risk-register.v0.1.0",
+  "updatedAt": "2026-07-16",
+  "risks": [
+    {"id":"R-001","severity":"high","threat":"resource-exhaustion","asset":"JSON validator","mitigation":"bounded byte, depth, and string loading","verification":"contracts/tools/tests/test_safety.py","disposition":"mitigated"},
+    {"id":"R-002","severity":"high","threat":"source-spoofing-or-staleness","asset":"process mappings","mitigation":"source status, immutable provenance, effective dates, human certification","verification":"health technology source manifest and process-profile semantics","disposition":"release-blocking-until-certified"},
+    {"id":"R-003","severity":"high","threat":"dependency-or-workflow-compromise","asset":"CI and release","mitigation":"immutable action pins, least-privilege permissions, dependency review, CodeQL, zizmor","verification":"workflow inspection and hosted checks","disposition":"pending-hosted-evidence"},
+    {"id":"R-004","severity":"medium","threat":"path-traversal","asset":"fixture converters","mitigation":"converter path policy and isolated temporary roots","verification":"converter hostile-input suite","disposition":"partially-evidenced"},
+    {"id":"R-005","severity":"high","threat":"provenance-or-signature-gap","asset":"release artifacts","mitigation":"SBOM, checksums, provenance and human signing gate","verification":"v1 release packet","disposition":"release-blocking-until-published"}
+  ]
+}

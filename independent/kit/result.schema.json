@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rac.example.org/schemas/pic-independent-result.v0.1.0.json",
+  "type": "object",
+  "required": ["schemaVersion", "implementation", "environment", "corpus", "oracle", "outcome", "evidence"],
+  "properties": {
+    "schemaVersion": {"const": "pic-independent-result.v0.1.0"},
+    "implementation": {"type": "object", "required": ["name", "revision", "repository", "maintainerControlled"], "properties": {"name": {"type": "string", "minLength": 1}, "revision": {"type": "string", "minLength": 7}, "repository": {"type": "string", "minLength": 1}, "maintainerControlled": {"type": "boolean"}}},
+    "environment": {"type": "object", "required": ["os", "runtime"], "properties": {"os": {"type": "string"}, "runtime": {"type": "string"}}},
+    "corpus": {"type": "object", "required": ["digest", "generatedBy"], "properties": {"digest": {"pattern": "^[0-9a-f]{64}$"}, "generatedBy": {"type": "string"}}},
+    "oracle": {"type": "object", "required": ["method", "independent"], "properties": {"method": {"type": "string"}, "independent": {"type": "boolean"}}},
+    "outcome": {"enum": ["qualifying", "partial", "conflicting", "withdrawn", "declined", "unresponsive", "not-submitted"]},
+    "evidence": {"type": "object", "required": ["resultDigest", "tests", "acknowledged"], "properties": {"resultDigest": {"pattern": "^[0-9a-f]{64}$"}, "tests": {"type": "array"}, "acknowledged": {"type": "boolean"}}}
+  }
+}

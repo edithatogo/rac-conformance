@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "pic-independent-result.v0.1.0",
+  "implementation": {"name": "example-only", "revision": "not-submitted", "repository": "none", "maintainerControlled": true},
+  "environment": {"os": "not-run", "runtime": "not-run"},
+  "corpus": {"digest": "0000000000000000000000000000000000000000000000000000000000000000", "generatedBy": "example-only"},
+  "oracle": {"method": "none", "independent": false},
+  "outcome": "not-submitted",
+  "evidence": {"resultDigest": "0000000000000000000000000000000000000000000000000000000000000000", "tests": [], "acknowledged": false}
+}
