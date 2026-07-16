@@ -3,7 +3,7 @@
   "decision": "pending",
   "candidate": {
     "path": "subrepos/process-mappings/profiles/foi/candidates/nz-oia-process-profile.json",
-    "sha256": "84ca7c4a00aa81275ba020968e109d7b945230ffdce04bf5837de5603278eb65"
+    "sha256": "ba49100cd3599acc141208baaddf70c6822bbdbc96288d105eedf208e4731f5b"
   },
   "contract": {
     "id": "pic-process-profile/0.1.0",
