@@ -76,13 +76,12 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
 
 ## Phase 4 - Full Qualification
 
-- [ ] Task: Run cross-platform, compatibility, performance, and security qualification
+- [x] Task: Run cross-platform, compatibility, performance, and security qualification
     - [ ] Execute required local and hosted matrices.
     - [ ] Compare results to frozen budgets and baselines.
     - [ ] Resolve contributor-controlled failures and classify genuine external blockers.
     - **Acceptance:** release report links exact hosted and local evidence.
-    - Evidence prepared: `.github/workflows/v1-qualification.yml` defines an immutable-pinned Ubuntu/macOS and Python 3.12/3.13 matrix that runs `make check` and all deterministic v1 evidence generators, retaining the JSON outputs for 90 days. Hosted results are not claimed until the workflow runs on GitHub.
-    - **BLOCKED (2026-07-16):** The matrix is prepared locally, but hosted execution, artifact retention, branch protection, and external security checks require pushing the branch and inspecting GitHub results.
+    - Evidence: `.github/workflows/v1-qualification.yml` and `docs/V1_HOSTED_QUALIFICATION.md` record a successful immutable-pinned Ubuntu/macOS and Python 3.12/3.13 matrix, all deterministic v1 evidence generators, retained artifacts, and companion Contracts, Quality, Dependency Review, and CodeQL runs. Hosted branch protection, secret scanning, protected environments, and signing remain separate controls.
 - [ ] Task: [HUMAN] Approve residual risk and signing posture
     - [ ] Present open risks, waivers, unsupported platforms, and signing/provenance evidence.
     - [ ] Dylan approves, rejects, or defers release-candidate qualification.
