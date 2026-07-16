@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "process-mappings-extraction-rehearsal.v0.1.0",
+  "parentHead": "f9fd927ca63034fc99e02031fe1df2c08fef40e8",
+  "subtreeCommit": "f0ccb4698377f984940b4972377db4661c5f12de",
+  "remoteCreated": false,
+  "canonicalCutover": false,
+  "worktreeOverlay": false,
+  "rollback": {
+    "procedure": "Delete the temporary extraction; parent HEAD and working tree are unchanged.",
+    "dualWritableSourcePrevented": true
+  },
+  "extracted": {
+    "commitCount": 6,
+    "fileCount": 107,
+    "fileListSha256": "b2bc031407a46791678b1f577f65770b91c4ff6c40bdaa58a7cbcf91182a2613",
+    "requiredStandaloneCheck": "passed",
+    "gitFsck": "passed",
+    "writableSourceCount": 1,
+    "rollbackVerified": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "track_id": "process_mappings_repository_20260714",
+  "type": "feature",
+  "status": "in_progress",
+  "created_at": "2026-07-14T14:02:14Z",
+  "updated_at": "2026-07-16T17:28:00Z",
+  "description": "Incubate a domain-neutral process-mappings repository and prepare a controlled extraction without creating competing sources of truth."
+}
