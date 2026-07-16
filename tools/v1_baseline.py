@@ -29,16 +29,29 @@ BUDGETS = {
 
 def _large_document() -> dict[str, Any]:
     document = json.loads(VALID.read_text(encoding="utf-8"))
+    source_id = document["sourceAssertions"][0]["id"]
+    actor_id = document["actors"][0]["id"]
     for index in range(100):
-        document["states"].append({"id": f"synthetic.state-{index}", "kind": "observed"})
+        state_id = f"synthetic/state-{index}"
+        event_id = f"synthetic/event-{index}"
+        document["states"].append(
+            {
+                "id": state_id,
+                "kind": "intermediate",
+                "label": f"Synthetic state {index}",
+                "sourceAssertionIds": [source_id],
+            }
+        )
         document["events"].append(
             {
-                "id": f"synthetic.event-{index}",
-                "kind": "observed",
-                "stateId": f"synthetic.state-{index}",
-                "occurredAt": "2026-07-01T09:00:00+12:00",
-                "observedAt": "2026-07-01T09:00:00+12:00",
-                "actorId": "authority:agency",
+                "id": event_id,
+                "kind": "observed_event",
+                "eventType": "SyntheticEvent",
+                "occurredAt": "2026-07-01T09:00:00Z",
+                "observedAt": "2026-07-01T09:00:00Z",
+                "actorId": actor_id,
+                "sourceAssertionIds": [source_id],
+                "evidenceReferenceIds": [],
             }
         )
     return document

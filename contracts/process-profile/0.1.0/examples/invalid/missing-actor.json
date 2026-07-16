@@ -1,0 +1,14 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "profileId": "demo/process.invalid",
+  "profileVersion": "0.1.0",
+  "processDefinitionVersion": "1.0.0",
+  "jurisdiction": "NZ",
+  "applicableAt": "2026-01-01T00:00:00Z",
+  "observedAt": "2026-01-01T00:00:00Z",
+  "sourceAssertions": [{"id": "demo/source/policy.1", "authority": "guidance", "sourceType": "official_primary", "reviewStatus": "official-primary", "assertion": "Published guidance", "sourceUri": "https://example.org/policy", "retrievedAt": "2026-01-01T00:00:00Z", "effectiveFrom": "2026-01-01", "effectiveTo": null, "controlling": true}],
+  "actors": [{"id": "system/demo", "kind": "system", "name": "Demo system"}],
+  "states": [{"id": "demo/state/open", "kind": "initial", "label": "Open"}],
+  "events": [{"id": "demo/event/opened", "kind": "observed_event", "eventType": "Opened", "occurredAt": "2026-01-01T00:00:00Z", "observedAt": "2026-01-01T00:00:01Z", "sourceAssertionIds": ["demo/source/policy.1"]}],
+  "timers": [], "transitions": [], "tasks": [], "ruleInvocations": [], "evidenceReferences": [], "traces": []
+}

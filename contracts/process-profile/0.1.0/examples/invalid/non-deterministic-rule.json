@@ -1,0 +1,7 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "profileId": "demo/process.invalid", "profileVersion": "0.1.0", "processDefinitionVersion": "1.0.0", "jurisdiction": "NZ", "applicableAt": "2026-01-01T00:00:00Z", "observedAt": "2026-01-01T00:00:00Z",
+  "sourceAssertions": [], "actors": [], "states": [], "events": [], "timers": [], "transitions": [], "tasks": [],
+  "ruleInvocations": [{"id": "demo/rule/call.1", "ruleId": "demo/rule/one", "deterministic": false, "fixtureRef": "pic-fixtures/0.1.0#demo/case.1", "parameterRefs": [], "traceId": "demo/trace/one"}],
+  "evidenceReferences": [], "traces": []
+}

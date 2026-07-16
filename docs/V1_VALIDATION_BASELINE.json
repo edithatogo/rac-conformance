@@ -22,15 +22,15 @@
       "expectedOk": true,
       "observedOk": true,
       "issueCount": 0,
-      "elapsedMs": 5.142,
-      "bytes": 1424
+      "elapsedMs": 3.687,
+      "bytes": 3850
     },
     {
       "name": "small-invalid",
       "expectedOk": false,
       "observedOk": false,
-      "issueCount": 1,
-      "elapsedMs": 1.938,
+      "issueCount": 21,
+      "elapsedMs": 2.157,
       "bytes": 357
     },
     {
@@ -38,15 +38,15 @@
       "expectedOk": true,
       "observedOk": true,
       "issueCount": 0,
-      "elapsedMs": 8.566,
-      "bytes": 24794
+      "elapsedMs": 15.026,
+      "bytes": 43020
     },
     {
       "name": "deep-invalid",
       "expectedOk": false,
       "observedOk": false,
-      "issueCount": 2,
-      "elapsedMs": 1.53,
+      "issueCount": 1,
+      "elapsedMs": 0.106,
       "bytes": 1077
     }
   ],

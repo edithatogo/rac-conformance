@@ -10,7 +10,7 @@
 | `pic-fixtures` | `0.1.0` | `edithatogo/foi-o` | `oia_rules_20260704` | Active | Candidate OIA deadline fixtures pending human curation. |
 | `pic-traces` | `0.1.0` | `edithatogo/foi-o` | `oia_rules_20260704` | Active | Decision-trace shape for rule invocation results. |
 | `pic-foio-compatibility` | `0.1.0` | `edithatogo/foi-o` | `foi_programme_governance_20260714` | Active | Optional release handshake; FOI-O remains runtime-authoritative. |
-| `pic-process-profile` | `0.1.0` | FOI-O staged traces and process-mappings incubator | `pic_process_profile_20260714` | Candidate | Candidate-only mappings with explicit loss; no human promotion yet. |
+| `pic-process-profile` | `0.1.0` | `edithatogo/foi-o` and `subrepos/process-mappings` | `pic_process_profile_20260714` | Certified candidate | FOI-O baseline projection is human-certified for PIC compatibility but remains unpromoted pending process-mappings cutover #50; domain profiles remain outside PIC authority. |
 
 ## Potential Consumers
 

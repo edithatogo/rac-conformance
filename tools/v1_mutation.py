@@ -22,13 +22,13 @@ MUTATIONS = [
     },
     {
         "id": "event-reference-membership",
-        "old": 'if event["stateId"] not in state_ids:',
-        "new": 'if event["stateId"] in state_ids:',
+        "old": 'refs_exist("event", item["id"], [item["triggerEventId"]], event_by_id)',
+        "new": "pass  # mutation: skip event reference check",
     },
     {
         "id": "rule-reference-membership",
-        "old": 'if invocation["authorityAssertionId"] not in assertion_ids:',
-        "new": 'if invocation["authorityAssertionId"] in assertion_ids:',
+        "old": 'refs_exist("trace", item["id"], [item["traceId"]], trace_by_id)',
+        "new": "pass  # mutation: skip trace reference check",
     },
 ]
 
@@ -36,11 +36,11 @@ MUTATIONS = [
 def _cases() -> list[tuple[str, dict[str, Any], bool]]:
     valid = json.loads(VALID.read_text(encoding="utf-8"))
     missing_process = json.loads(json.dumps(valid))
-    del missing_process["process"]
+    del missing_process["profileId"]
     unknown_event = json.loads(json.dumps(valid))
-    unknown_event["events"][0]["stateId"] = "missing.state"
+    unknown_event["transitions"][0]["triggerEventId"] = "missing.event"
     unknown_rule = json.loads(json.dumps(valid))
-    unknown_rule["ruleInvocations"][0]["authorityAssertionId"] = "missing.assertion"
+    unknown_rule["ruleInvocations"][0]["traceId"] = "missing.trace"
     return [
         ("valid-profile", valid, True),
         ("missing-process", missing_process, False),

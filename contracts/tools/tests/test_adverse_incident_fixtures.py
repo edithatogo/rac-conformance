@@ -28,21 +28,21 @@ def test_generated_corpus_is_synthetic_and_schema_valid(tmp_path) -> None:
     validator = Draft202012Validator(SCHEMA)
     for path in paths:
         profile = json.loads(path.read_text(encoding="utf-8"))
-        assert profile["case"]["synthetic"] is True
+        assert profile["profileId"].startswith("adverse-incidents/")
         assert all(
-            assertion["reviewerState"] == "agent-proposed"
+            assertion["reviewStatus"] == "agent-proposed"
             for assertion in profile["sourceAssertions"]
         )
         assert all(
             not assertion["controlling"] for assertion in profile["sourceAssertions"]
         )
         assert any(
-            transition["toStateId"].endswith(":closed")
+            transition["toStateId"].endswith("/state/closed")
             for transition in profile["transitions"]
         )
         assert any(
             "culturally-responsive-participation-support" in task["id"]
-            for task in profile["humanTasks"]
+            for task in profile["tasks"]
         )
         assert list(validator.iter_errors(profile)) == []
 
@@ -50,15 +50,15 @@ def test_generated_corpus_is_synthetic_and_schema_valid(tmp_path) -> None:
 def test_blocked_source_fixture_fails_closed() -> None:
     profile = MODULE.build_profile(MODULE.SCENARIOS[-1])
 
-    assert profile["sourceAssertions"][0]["sourceStatus"] == "blocked"
-    assert profile["humanTasks"][0]["kind"] == "human_review"
+    assert "unavailable" in profile["sourceAssertions"][0]["assertion"]
+    assert profile["tasks"][0]["kind"] == "human_task"
 
 
 def test_parallel_complaint_fixture_has_parallel_pathway() -> None:
     profile = MODULE.build_profile(MODULE.SCENARIOS[4])
 
     assert any(
-        state["id"].endswith(":parallel-pathway") for state in profile["states"]
+        state["id"].endswith("/state/parallel-pathway") for state in profile["states"]
     )
 
 

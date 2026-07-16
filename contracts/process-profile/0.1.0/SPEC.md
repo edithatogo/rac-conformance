@@ -1,57 +1,36 @@
-# PIC Process Profile 0.1.0
+# pic-process-profile 0.1.0
 
-Status: draft normative contract  
-Conforms to: `pic-process-profile/0.1.0`
+`pic-process-profile` is a small, platform-neutral description of an
+administrative process and its evidence-bearing execution. It is an
+interchange and conformance contract, not a workflow engine or ontology.
 
-## Lifecycle semantics
+## Semantics
 
-The profile describes a process instance as a versioned definition, synthetic
-or permitted case, states, events, transitions, actors, optional timers,
-human tasks, rule invocations, source assertions, and trace links.
+- `states` and `transitions` describe the process definition.
+- `actors` identify people, roles, organizations, and systems participating in
+  the process. Authority for a role or system is linked through source
+  assertions rather than inferred from its label.
+- `timers` identify calendar, working-day, deadline, and relative timing
+  obligations. They reference a start event and carry a human-readable
+  duration; calendar arithmetic remains in the relevant PIC parameter or rule
+  contract.
+- `events` describe execution records. `observed_event`, `derived_state`,
+  `proposed_action`, `certified_human_decision`, and `executed_action` are
+  deliberately distinct; a proposal is never a certification.
+- `tasks` distinguish human work from deterministic rule work. A human task
+  may record a certified decision event, while a deterministic rule task must
+  reference a `ruleInvocation`.
+- All process times are explicit: `applicableAt` is when the definition is
+  applicable, `occurredAt` is when an event happened, and `observedAt` is when
+  the record was observed. The validator rejects impossible ordering and
+  missing effective dates for controlling assertions.
+- `sourceAssertions` identify authority and review state. An assertion is
+  controlling only when it is an official primary source or has been approved
+  by a human. Agent-proposed and secondary-only assertions remain evidence,
+  never certification.
+- `traces` link normalized process events to released PIC traces. Adapters may
+  lose platform detail, but must state the equivalence claim and loss notes.
 
-- An `observed` event records that an observation occurred; it does not assert
-  that the event was lawful, correct, or complete.
-- A `derived` state or event records deterministic processing over declared
-  inputs. It must remain distinguishable from observation.
-- A `proposed` action or state is a candidate and cannot be treated as an
-  executed or certified decision.
-- A `certified_human` state or event requires an external human certification
-  record; repository authors cannot self-certify it by changing JSON.
-- An `executed` state or event records a reported execution outcome, not the
-  authority for the rule that produced it.
-- A transition links declared states and, when present, the event that caused
-  the transition. Missing or dangling links are validation failures.
-- A human task remains a human task even when a platform renders it as a job,
-  form, or service call. The profile never converts a human task into a
-  deterministic rule invocation.
-- `occurredAt` and `observedAt` are distinct timestamps. A process comparison
-  must not substitute one for the other.
-
-Rule invocations link existing PIC decision and parameter identifiers, a
-versioned PIC trace shape, and an authority assertion. They do not embed a
-new expression language or redefine PIC semantics.
-
-## Projection and loss
-
-Projection into a service, workflow platform, engine trace, or FOI-O export is
-non-normative. A projection MUST report:
-
-1. source process-profile version and digest;
-2. target format and adapter version;
-3. identifiers preserved, renamed, or unavailable;
-4. timestamp, human-task, authority, and source-assertion loss;
-5. rejected or unsupported elements; and
-6. the normalized trace reference produced on return, when available.
-
-Lossless equivalence is never assumed from matching event counts or labels. A
-projection that cannot preserve jurisdiction, effective date, authority,
-reviewer state, or human/deterministic distinction must emit an explicit loss
-or exception rather than silently flattening it.
-
-## Safety and authority boundary
-
-The contract is not a legal, clinical, regulatory, funding, or standards-body
-authority. FOI-O remains authoritative for FOI semantics and jurisdiction
-profiles. External engines and platforms remain adapters or evidence sources.
-Controlling source assertions are subject to `AUTHORITY_MODEL.md`; agent-only
-or secondary-only evidence cannot become a certified process decision.
+The profile contains identifiers and references, not embedded legal, clinical,
+funding, or expression-language decisions. Domain profiles and jurisdiction
+overlays remain source-backed consumer artifacts under the incubator.

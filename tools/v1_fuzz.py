@@ -20,7 +20,7 @@ def _mutations(document: dict[str, Any]) -> list[tuple[str, dict[str, Any], bool
     cases: list[tuple[str, dict[str, Any], bool]] = []
 
     missing_process = copy.deepcopy(document)
-    del missing_process["process"]
+    del missing_process["profileId"]
     cases.append(("missing-required-process", missing_process, False))
 
     bad_state_kind = copy.deepcopy(document)
@@ -32,12 +32,19 @@ def _mutations(document: dict[str, Any]) -> list[tuple[str, dict[str, Any], bool
     cases.append(("unknown-state-reference", unknown_reference, False))
 
     hostile_string = copy.deepcopy(document)
-    hostile_string["case"]["id"] = "<script>alert('x')</script>\n$(touch /tmp/nope)"
+    hostile_string["profileId"] = "<script>alert('x')</script>\n$(touch /tmp/nope)"
     cases.append(("hostile-string", hostile_string, False))
 
     oversized_decimal = copy.deepcopy(document)
-    oversized_decimal["states"].append({"id": "state.large", "kind": "derived"})
-    oversized_decimal["case"]["id"] = "9" * 10_000
+    oversized_decimal["states"].append(
+        {
+            "id": "synthetic/state.large",
+            "kind": "intermediate",
+            "label": "Large synthetic state",
+            "sourceAssertionIds": [document["sourceAssertions"][0]["id"]],
+        }
+    )
+    oversized_decimal["profileId"] = "a" * 10_000
     cases.append(("large-identifier-valid", oversized_decimal, True))
 
     deep = copy.deepcopy(document)

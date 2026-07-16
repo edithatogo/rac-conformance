@@ -57,7 +57,7 @@
       "observedOk": false,
       "issueCount": 1,
       "diagnosticCodes": [
-        "schema"
+        "json"
       ]
     }
   ],

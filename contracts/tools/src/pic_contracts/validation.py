@@ -12,6 +12,7 @@ from typing import Any
 from jsonschema import ValidationError as JsonSchemaValidationError
 
 from pic_contracts.parameters import validate_parameter_periods
+from pic_contracts.safety import SafetyLimitError
 from pic_contracts.schema_utils import load_json, validator_for
 
 CONFORMS_TO_CONTRACT = {
@@ -70,7 +71,7 @@ def detect_contract(doc: dict[str, Any], path: Path | None = None) -> str | None
                 "pic-parameters",
                 "pic-fixtures",
                 "pic-traces",
-            "pic-foio-compatibility",
+                "pic-foio-compatibility",
                 "process-profile",
             }:
                 return part
@@ -87,7 +88,7 @@ def validate_file(path: Path) -> ValidationReport:
     report = ValidationReport()
     try:
         doc = load_json(path)
-    except json.JSONDecodeError as exc:
+    except (json.JSONDecodeError, SafetyLimitError, OSError, UnicodeDecodeError) as exc:
         report.add(ValidationIssue(str(path), f"invalid JSON: {exc}", "json"))
         return report
     if not isinstance(doc, dict):
@@ -115,63 +116,180 @@ def validate_file(path: Path) -> ValidationReport:
 
 
 def _process_profile_semantics(path: Path, doc: dict[str, Any]) -> list[ValidationIssue]:
-    """Validate references and authority constraints beyond JSON Schema."""
-
+    """Check cross-record process invariants that JSON Schema cannot express."""
     issues: list[ValidationIssue] = []
-    state_ids = {item["id"] for item in doc["states"]}
-    event_ids = {item["id"] for item in doc["events"]}
-    actor_ids = {item["id"] for item in doc["actors"]}
-    assertion_ids = {item["id"] for item in doc["sourceAssertions"]}
-    invocation_ids = {item["id"] for item in doc.get("ruleInvocations", [])}
-    for index, event in enumerate(doc["events"]):
-        location = f"{path}:events/{index}"
-        if event["stateId"] not in state_ids:
-            issues.append(ValidationIssue(location, "event references unknown state", "reference"))
-        if event["actorId"] not in actor_ids:
-            issues.append(ValidationIssue(location, "event references unknown actor", "reference"))
-    for index, transition in enumerate(doc["transitions"]):
-        location = f"{path}:transitions/{index}"
-        for state_field in ("fromStateId", "toStateId"):
-            if transition[state_field] not in state_ids:
+    source_by_id = {item["id"]: item for item in doc["sourceAssertions"]}
+    actor_by_id = {item["id"]: item for item in doc["actors"]}
+    state_by_id = {item["id"]: item for item in doc["states"]}
+    event_by_id = {item["id"]: item for item in doc["events"]}
+    timer_by_id = {item["id"]: item for item in doc["timers"]}
+    task_by_id = {item["id"]: item for item in doc["tasks"]}
+    invocation_by_id = {item["id"]: item for item in doc["ruleInvocations"]}
+    evidence_by_id = {item["id"]: item for item in doc["evidenceReferences"]}
+    trace_by_id = {item["id"]: item for item in doc["traces"]}
+
+    def unique(kind: str, records: list[dict[str, Any]]) -> None:
+        ids = [record["id"] for record in records]
+        if len(ids) != len(set(ids)):
+            issues.append(ValidationIssue(str(path), f"duplicate {kind} ID", "reference"))
+
+    def refs_exist(kind: str, owner: str, refs: list[str], records: dict[str, Any]) -> None:
+        for ref in refs:
+            if ref not in records:
+                issues.append(
+                    ValidationIssue(f"{path}:{owner}", f"unknown {kind} ID: {ref}", "reference")
+                )
+
+    for kind, records in (
+        ("source assertion", doc["sourceAssertions"]),
+        ("actor", doc["actors"]),
+        ("state", doc["states"]),
+        ("event", doc["events"]),
+        ("timer", doc["timers"]),
+        ("task", doc["tasks"]),
+        ("rule invocation", doc["ruleInvocations"]),
+        ("evidence reference", doc["evidenceReferences"]),
+        ("trace", doc["traces"]),
+    ):
+        unique(kind, records)
+
+    for assertion in doc["sourceAssertions"]:
+        if assertion["controlling"]:
+            eligible = (
+                assertion["sourceType"] == "official_primary"
+                or assertion["reviewStatus"] == "human-approved"
+            )
+            if not eligible:
                 issues.append(
                     ValidationIssue(
-                        location,
-                        f"transition references unknown {state_field}",
-                        "reference",
+                        f"{path}:sourceAssertions/{assertion['id']}",
+                        "controlling assertion must be official primary or human-approved",
+                        "authority",
                     )
                 )
-        if "eventId" in transition and transition["eventId"] not in event_ids:
-            issues.append(
-                ValidationIssue(location, "transition references unknown eventId", "reference")
-            )
-    for index, invocation in enumerate(doc.get("ruleInvocations", [])):
-        location = f"{path}:ruleInvocations/{index}"
-        if invocation["authorityAssertionId"] not in assertion_ids:
+            if assertion["effectiveFrom"] is None:
+                issues.append(
+                    ValidationIssue(
+                        f"{path}:sourceAssertions/{assertion['id']}",
+                        "controlling assertion requires effectiveFrom",
+                        "time",
+                    )
+                )
+        if assertion["effectiveFrom"] and assertion["effectiveTo"] and date.fromisoformat(
+            assertion["effectiveTo"]
+        ) < date.fromisoformat(assertion["effectiveFrom"]):
             issues.append(
                 ValidationIssue(
-                    location,
-                    "rule invocation references unknown authority assertion",
-                    "reference",
+                    f"{path}:sourceAssertions/{assertion['id']}",
+                    "effectiveTo precedes effectiveFrom",
+                    "time",
                 )
             )
-    for index, assertion in enumerate(doc["sourceAssertions"]):
-        if assertion.get("controlling") and assertion["reviewerState"] == "agent-proposed":
+
+    for item in doc["states"]:
+        refs_exist("source assertion", item["id"], item.get("sourceAssertionIds", []), source_by_id)
+    for item in doc["actors"]:
+        refs_exist(
+            "source assertion",
+            item["id"],
+            item.get("authoritySourceAssertionIds", []),
+            source_by_id,
+        )
+    for item in doc["events"]:
+        refs_exist("actor", item["id"], [item["actorId"]], actor_by_id)
+        if item.get("timerId"):
+            refs_exist("timer", item["id"], [item["timerId"]], timer_by_id)
+        refs_exist("source assertion", item["id"], item["sourceAssertionIds"], source_by_id)
+        refs_exist(
+            "evidence reference", item["id"], item.get("evidenceReferenceIds", []), evidence_by_id
+        )
+        occurred = datetime.fromisoformat(item["occurredAt"].replace("Z", "+00:00"))
+        observed = datetime.fromisoformat(item["observedAt"].replace("Z", "+00:00"))
+        try:
+            timestamps_reversed = observed < occurred
+        except TypeError:
             issues.append(
                 ValidationIssue(
-                    f"{path}:sourceAssertions/{index}",
-                    "agent-proposed assertion cannot be controlling",
-                    "authority",
+                    f"{path}:events/{item['id']}",
+                    "cannot compare offset-naive and offset-aware timestamps",
+                    "time",
                 )
             )
-    for index, link in enumerate(doc["traceLinks"]):
-        if link.get("ruleInvocationId") and link["ruleInvocationId"] not in invocation_ids:
+            timestamps_reversed = False
+        if timestamps_reversed:
             issues.append(
                 ValidationIssue(
-                    f"{path}:traceLinks/{index}",
-                    "trace link references unknown rule invocation",
-                    "reference",
+                    f"{path}:events/{item['id']}", "observedAt precedes occurredAt", "time"
                 )
             )
+    for item in doc["timers"]:
+        refs_exist("event", item["id"], [item["startEventId"]], event_by_id)
+        refs_exist("source assertion", item["id"], item["sourceAssertionIds"], source_by_id)
+    for item in doc["transitions"]:
+        refs_exist("state", item["id"], [item["fromStateId"], item["toStateId"]], state_by_id)
+        refs_exist("event", item["id"], [item["triggerEventId"]], event_by_id)
+        if item.get("taskId"):
+            refs_exist("task", item["id"], [item["taskId"]], task_by_id)
+        refs_exist("source assertion", item["id"], item.get("sourceAssertionIds", []), source_by_id)
+    for item in doc["tasks"]:
+        refs_exist("source assertion", item["id"], item.get("sourceAssertionIds", []), source_by_id)
+        if item["kind"] == "human_task" and "ruleInvocationId" in item:
+            issues.append(
+                ValidationIssue(
+                    f"{path}:tasks/{item['id']}",
+                    "human task cannot reference a rule invocation",
+                    "task-kind",
+                )
+            )
+        if item["kind"] == "deterministic_rule_task" and "ruleInvocationId" not in item:
+            issues.append(
+                ValidationIssue(
+                    f"{path}:tasks/{item['id']}",
+                    "deterministic rule task requires a rule invocation",
+                    "task-kind",
+                )
+            )
+        if item.get("ruleInvocationId"):
+            refs_exist("rule invocation", item["id"], [item["ruleInvocationId"]], invocation_by_id)
+        if item.get("decisionEventId"):
+            refs_exist("event", item["id"], [item["decisionEventId"]], event_by_id)
+            if (
+                item["kind"] == "human_task"
+                and item["decisionEventId"] in event_by_id
+                and event_by_id[item["decisionEventId"]]["kind"] != "certified_human_decision"
+            ):
+                issues.append(
+                    ValidationIssue(
+                        f"{path}:tasks/{item['id']}",
+                        "human task decisionEventId must identify a certified human decision",
+                        "task-kind",
+                    )
+                )
+    for item in doc["ruleInvocations"]:
+        refs_exist("trace", item["id"], [item["traceId"]], trace_by_id)
+    for item in doc["evidenceReferences"]:
+        refs_exist("source assertion", item["id"], item["sourceAssertionIds"], source_by_id)
+    for item in doc["traces"]:
+        refs_exist("event", item["id"], item["eventIds"], event_by_id)
+        refs_exist("rule invocation", item["id"], item["ruleInvocationIds"], invocation_by_id)
+
+    applicable = datetime.fromisoformat(doc["applicableAt"].replace("Z", "+00:00"))
+    observed = datetime.fromisoformat(doc["observedAt"].replace("Z", "+00:00"))
+    try:
+        timestamps_reversed = observed < applicable
+    except TypeError:
+        issues.append(
+            ValidationIssue(
+                str(path),
+                "cannot compare offset-naive and offset-aware timestamps",
+                "time",
+            )
+        )
+        timestamps_reversed = False
+    if timestamps_reversed:
+        issues.append(
+            ValidationIssue(str(path), "profile observedAt precedes applicableAt", "time")
+        )
     return issues
 
 
