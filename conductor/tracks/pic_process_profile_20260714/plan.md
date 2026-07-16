@@ -95,3 +95,5 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
 > process-profile contract, the pinned incubator manifest, and standalone
 > checks. `make check` passes. The human certification packet remains pending;
 > no candidate fixture or controlling mapping was promoted by the agent.
+> The machine-readable certification record is `CERTIFICATION_RECORD.json` and
+> is intentionally `pending` until a human reviewer records a decision.

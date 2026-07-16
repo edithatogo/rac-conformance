@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "pic-process-profile-certification.v0.1.0",
+  "decision": "pending",
+  "candidate": {
+    "path": "subrepos/process-mappings/profiles/foi/candidates/nz-oia-process-profile.json",
+    "sha256": "84ca7c4a00aa81275ba020968e109d7b945230ffdce04bf5837de5603278eb65"
+  },
+  "contract": {
+    "id": "pic-process-profile/0.1.0",
+    "path": "contracts/process-profile/0.1.0/schema.json",
+    "sha256": "cad9bd4b41da6745ee3ee8bd6ec46b68cd3160e368ecbfda6ee8e4fd84dffa77"
+  },
+  "reviewer": null,
+  "reviewedAt": null,
+  "evidence": [
+    "conductor/tracks/pic_process_profile_20260714/HUMAN_CERTIFICATION_PACKET.md",
+    "subrepos/process-mappings/profiles/foi/CANDIDATE_REVIEW.md",
+    "external/foi-o/rules/SOURCES.md"
+  ],
+  "notes": "Only a human reviewer may change decision from pending. Candidate promotion is prohibited unless decision is certified and hashes remain unchanged."
+}

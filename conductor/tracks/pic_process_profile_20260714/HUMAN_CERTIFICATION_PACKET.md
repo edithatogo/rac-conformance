@@ -14,6 +14,7 @@ the semantic authority.
 - Source spine: `external/foi-o/rules/SOURCES.md`
 - Execution evidence: `external/foi-o/rules/traces/`
 - Contract: `contracts/process-profile/0.1.0/`
+- Machine-readable record: `CERTIFICATION_RECORD.json` (currently `pending`).
 
 ## Review questions
 
@@ -31,6 +32,9 @@ the semantic authority.
 ## Certification record
 
 Complete this section by hand. An agent must not fill it in.
+
+The machine-readable record must be updated by the human reviewer after the
+decision. Its candidate and contract SHA-256 values must remain unchanged.
 
 - Decision: `pending | certified | rejected | changes-requested`
 - Reviewer: `______________________________`
