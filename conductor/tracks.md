@@ -133,7 +133,7 @@ GitHub issue: [#41](https://github.com/edithatogo/rac-conformance/issues/41)
 
 ---
 
-- [ ] **Track: Compare medicine regulatory and payer pathways**
+- [~] **Track: Compare medicine regulatory and payer pathways**
 Track ID: `health_technology_pathways_20260714`
 GitHub issue: [#42](https://github.com/edithatogo/rac-conformance/issues/42)
 *Link: [./tracks/health_technology_pathways_20260714/](./tracks/health_technology_pathways_20260714/)*
