@@ -10,3 +10,10 @@ evidence into released PIC process-profile contracts.
   does not reinterpret FOI law or become a runtime dependency of either repo.
 
 No FOI mapping is implemented yet.
+
+The current integration boundary is recorded in
+`../../schemas/contract-consumption.json` (relative to this profile). It
+does not promote any FOI-O or foi-process artifact to a legal or normative
+authority: FOI-O supplies semantic input, while foi-process supplies execution
+and evidence input. Any representational loss must be recorded before a
+profile can be proposed.

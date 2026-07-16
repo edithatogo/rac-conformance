@@ -34,9 +34,9 @@ Phase 1 and establishes the implementation home required by
     - [x] Update tracks #40-#43 with exact normative and implementation paths.
     - **Acceptance:** local and GitHub dependency graphs agree and no existing repository is repurposed ambiguously.
 - [ ] Task: Define released-contract consumption and compatibility tests
-    - [ ] Pin the process-profile contract version or commit consumed from `rac-conformance`.
-    - [ ] Validate profiles against upstream schemas without copying normative definitions.
-    - [ ] Add compatibility-matrix and provenance checks for FOI-O and foi-process inputs.
+    - [x] Pin the process-profile contract version or commit consumed from `rac-conformance`.
+    - [x] Validate profiles against upstream schemas without copying normative definitions.
+    - [x] Add compatibility-matrix and provenance checks for FOI-O and foi-process inputs.
     - **Acceptance:** drift is detected deterministically and cannot silently fork PIC or FOI semantics.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Parent Integration and Contract Discipline' (Protocol in workflow.md)
 
