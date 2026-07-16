@@ -12,7 +12,7 @@ Reconsider extraction only when a second domain profile has a named consumer,
 an independent consumer needs the mappings, and the mapping artifacts require
 their own release or governance lifecycle. The full decision record and human
 provenance are maintained in the parent Conductor track:
-`conductor/tracks/process_mappings_repository_20260714/migration/DEFERRED_CUTOVER_DECISION.md`.
+`conductor/archive/process_mappings_repository_20260714/migration/DEFERRED_CUTOVER_DECISION.md`.
 
 Until then, changes land through `rac-conformance`; no destination repository,
 issue migration, redirect, or canonical-home claim is authorized.
