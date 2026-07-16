@@ -1,6 +1,6 @@
 # FOI-O Candidate Review
 
-This is an `agent-proposed` compatibility candidate, not a certified FOI-O
+This is a human-certified PIC compatibility candidate, not a canonical FOI-O
 profile and not a legal interpretation. It is derived from the staged FOI-O
 rules design, source notes, PIC artifacts, and the pinned FOI-O integration
 evidence under `external/foi-o/`.
@@ -15,8 +15,8 @@ evidence under `external/foi-o/`.
 | response communication | observed `DecisionCommunicated` event | candidate |
 
 `foi-o` remains authoritative for FOI semantics and `foi-process` remains the
-execution/evidence source. Candidate promotion needs human review of the
-source assertions, event identity choices, payload loss, non-terminal
-reviewability interpretation, and every loss note. The candidate does not
+execution/evidence source. Dylan certified the PIC compatibility projection on
+2026-07-16. Canonical promotion remains subject to repository cutover #50. The
+candidate does not
 assert that an overdue flag is an Ombudsman review outcome or a legal refusal
 conclusion.

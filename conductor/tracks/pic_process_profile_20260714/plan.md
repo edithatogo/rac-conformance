@@ -79,11 +79,12 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
     - [x] Implement profile data under `subrepos/process-mappings/profiles/foi/` and consume pinned foi-process exports only as execution evidence.
     - **Acceptance:** the corpus validates and does not alter FOI-O runtime authority.
     - Evidence: `subrepos/process-mappings/profiles/foi/candidates/` and `CANDIDATE_REVIEW.md`.
-- [ ] Task: [HUMAN] Certify controlling FOI-O mappings
-    - [ ] Present only contested source assertions and mapping exceptions.
-    - [ ] Record approval, rejection, or required changes per assertion.
+- [x] Task: [HUMAN] Certify controlling FOI-O mappings
+    - [x] Present only contested source assertions and mapping exceptions.
+    - [x] Record approval, rejection, or required changes per assertion.
     - **Acceptance:** certified fixtures contain no agent-only controlling assertion.
     - Packet: `HUMAN_CERTIFICATION_PACKET.md`.
+    - Evidence: `CERTIFICATION_RECORD.json` records Dylan's certification of the PIC compatibility projection; canonical repository promotion remains deferred to #50.
 - [x] Task: Run full compatibility and regression gates
     - [x] Run `make check`, schema corpus checks, and FOI-O profile validation.
     - [x] Update consumer and compatibility matrices.
@@ -91,12 +92,10 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
     - Evidence: `make check` passed on 2026-07-16; focused process-profile suite passed with 8 tests; the pinned process-mappings manifest and standalone check validate the candidate.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - FOI-O Baseline Validation' (Protocol in workflow.md)
 
-> REVIEW (2026-07-17): The current candidate validates through the parent
+> REVIEW (2026-07-17): The revised candidate validates through the parent
 > process-profile contract, the pinned incubator manifest, and standalone
-> checks. `make check` passes. The human certification packet remains pending;
-> no candidate fixture or controlling mapping was promoted by the agent.
-> The machine-readable certification record is `CERTIFICATION_RECORD.json` and
-> is intentionally `pending` until a human reviewer records a decision.
+> checks. `make check` passes. Dylan certified the PIC compatibility projection;
+> no canonical candidate promotion occurred.
 > REVIEW UPDATE (2026-07-17): The candidate was revised to preserve staged
 > FOI-O CoreEvent vocabulary and remove the unsupported terminal reviewability
 > implication. The certification packet now asks questions against revision
@@ -115,3 +114,5 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
 > official source spine, effective date, explicit actors, and timer declaration.
 > HUMAN DECISION (2026-07-16): Dylan approved Decision 5, confirming the loss
 > notes and explicit non-claims.
+> HUMAN CERTIFICATION (2026-07-16): Dylan certified the candidate for PIC
+> compatibility. It remains in the incubator candidate directory pending #50.

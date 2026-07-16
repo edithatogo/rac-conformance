@@ -14,7 +14,7 @@ the semantic authority.
 - Source spine: `external/foi-o/rules/SOURCES.md`
 - Execution evidence: `external/foi-o/rules/traces/`
 - Contract: `contracts/process-profile/0.1.0/`
-- Machine-readable record: `CERTIFICATION_RECORD.json` (currently `pending`).
+- Machine-readable record: `CERTIFICATION_RECORD.json` (now `certified`).
 - Row-level review aid: `MAPPING_REVIEW_MATRIX.md`.
 - Candidate revision: `7990b4f`; the record pins the candidate SHA-256 and the
   `pic-process-profile/0.1.0` schema SHA-256.
@@ -60,5 +60,5 @@ decision. Its candidate and contract SHA-256 values must remain unchanged.
 - Decision 3, reviewability boundary: **approved by Dylan on 2026-07-16**.
 - Decision 4, source/actor/timer integrity: **approved by Dylan on 2026-07-16**.
 - Decision 5, loss notes and non-claims: **approved by Dylan on 2026-07-16**.
-- Overall candidate disposition remains pending until all review questions are
-  answered.
+- Overall disposition: **certified by Dylan on 2026-07-16** for PIC
+  compatibility; candidate retained pending #50 repository cutover.

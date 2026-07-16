@@ -119,7 +119,7 @@ GitHub issue: [#50](https://github.com/edithatogo/rac-conformance/issues/50)
 
 ---
 
-- [ ] **Track: Define the platform-neutral PIC process profile**
+- [x] **Track: Define the platform-neutral PIC process profile**
 Track ID: `pic_process_profile_20260714`
 GitHub issue: [#40](https://github.com/edithatogo/rac-conformance/issues/40)
 *Link: [./tracks/pic_process_profile_20260714/](./tracks/pic_process_profile_20260714/)*
