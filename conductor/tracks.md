@@ -112,10 +112,10 @@ GitHub issue: [#39](https://github.com/edithatogo/rac-conformance/issues/39)
 
 ---
 
-- [~] **Track: Incubate and extract the process-mappings repository**
+- [x] **Track: Incubate process-mappings as a provisional subrepo (canonical extraction deferred)**
 Track ID: `process_mappings_repository_20260714`
 GitHub issue: [#50](https://github.com/edithatogo/rac-conformance/issues/50)
-*Link: [./tracks/process_mappings_repository_20260714/](./tracks/process_mappings_repository_20260714/)*
+*Archived link: [./archive/process_mappings_repository_20260714/](./archive/process_mappings_repository_20260714/)*
 
 ---
 

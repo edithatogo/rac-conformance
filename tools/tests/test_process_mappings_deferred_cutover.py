@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).parents[2]
-TRACK = ROOT / "conductor/tracks/process_mappings_repository_20260714"
+TRACK = ROOT / "conductor/archive/process_mappings_repository_20260714"
 
 
 def test_deferred_cutover_keeps_one_writable_parent_source() -> None:
