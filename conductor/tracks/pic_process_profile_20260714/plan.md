@@ -103,3 +103,6 @@ under [#50](https://github.com/edithatogo/rac-conformance/issues/50).
 > `7990b4f`; the human gate remains pending.
 > REVIEW AID (2026-07-17): Added `MAPPING_REVIEW_MATRIX.md` with row-level
 > source vocabulary, PIC representation, and explicit non-claims.
+> HUMAN DECISION (2026-07-16): Dylan approved Decision 1, covering the revised
+> event vocabulary and non-terminal reviewability semantics. Overall
+> certification remains pending.

@@ -51,3 +51,10 @@ decision. Its candidate and contract SHA-256 values must remain unchanged.
 - Reviewer: `______________________________`
 - Date: `__________________`
 - Evidence or change request: `______________________________`
+
+## Decision log
+
+- Decision 1, event vocabulary and non-terminal state semantics: **approved by
+  Dylan on 2026-07-16**.
+- Overall candidate disposition remains pending until all review questions are
+  answered.
