@@ -85,6 +85,11 @@ Phase 1 and establishes the implementation home required by
 > consumer justifies a separate release lifecycle. No remote, destination
 > issues, redirects, or hosted settings were created. Parent checks remain the
 > active verification gate.
+>
+> Review (2026-07-16): Found and fixed one extracted-clone portability defect
+> where `STATUS.md` linked to a parent-only decision file. The local decision
+> mirror in `subrepos/process-mappings/migration/` now makes the subtree
+> link-complete. Focused rehearsal tests and full `make check` pass.
 
 - [x] Task: [HUMAN] Record decision to defer repository creation and canonical cutover
     - [x] Review extraction evidence, ownership, visibility, governance, security, issue migration, and rollback plan.
