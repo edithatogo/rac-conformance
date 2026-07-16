@@ -1,4 +1,4 @@
-.PHONY: check audit audit-test release-gates-check paper-artifacts paper-artifacts-write lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test v1-baseline v1-fuzz
+.PHONY: check audit audit-test release-gates-check paper-artifacts paper-artifacts-write lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test v1-baseline v1-fuzz v1-mutation
 
 check: audit audit-test release-gates-check paper-artifacts lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
 
@@ -70,3 +70,6 @@ v1-baseline:
 
 v1-fuzz:
 	PYTHONPATH=contracts/tools/src uv run --with jsonschema python tools/v1_fuzz.py --output docs/V1_FUZZ_BASELINE.json
+
+v1-mutation:
+	PYTHONPATH=contracts/tools/src uv run --with jsonschema python tools/v1_mutation.py --output docs/V1_MUTATION_GATE.json

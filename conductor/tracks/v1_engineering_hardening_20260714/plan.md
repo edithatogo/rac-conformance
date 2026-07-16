@@ -37,10 +37,11 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     - [ ] Enforce explicit size, depth, time, and memory limits where appropriate.
     - **Acceptance:** failures are controlled and do not expose secrets or write outside allowed paths.
     - Evidence: `tools/process_mappings_rehearsal.py` enforces per-file and total extraction-size limits plus resolved destination containment; `tools/tests/test_process_mappings_rehearsal.py` covers traversal and absolute-path rejection.
-- [ ] Task: Add mutation testing to high-value deterministic modules
+- [x] Task: Add mutation testing to high-value deterministic modules
     - [ ] Select validators/converters with stable oracles.
     - [ ] Set justified thresholds and document equivalent/surviving mutations.
     - **Acceptance:** threshold failures block the release candidate unless explicitly waived with evidence.
+    - Evidence: `tools/v1_mutation.py`, `Makefile` target `v1-mutation`, and `docs/V1_MUTATION_GATE.json` mutate three stable validator predicates; all three are killed by committed process-profile oracles and the threshold permits no survivors.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Adversarial and Semantic Testing' (Protocol in workflow.md)
 
 ## Phase 3 - Supply Chain and Release Reproducibility
