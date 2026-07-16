@@ -9,48 +9,51 @@ during the repository incubation governed by
 ## Phase 1 - Authority and Source Architecture
 
 - [x] Task: Build regulator, HTA, payer, and service-funding authority matrix
-    - [x] Cover Medsafe/Pharmac, TGA/PBAC-PBS/MSAC-MBS, MHRA/NICE, and FDA/explicitly payer-specific US follow-on.
-    - [x] Record statutory or policy function, decision owner, advice owner, applicant, output, review route, and post-market owner.
-    - [x] Mark non-equivalent and absent functions explicitly.
+    - [ ] Cover Medsafe/Pharmac, TGA/PBAC-PBS/MSAC-MBS, MHRA/NICE, and FDA/explicitly payer-specific US follow-on.
+    - [ ] Record statutory or policy function, decision owner, advice owner, applicant, output, review route, and post-market owner.
+    - [ ] Mark non-equivalent and absent functions explicitly.
     - **Acceptance:** automated checks reject FDA-as-payer, MBS-as-medicine-regulator, and other false-equivalence assertions.
-    - **Evidence:** `subrepos/process-mappings/profiles/health-technology/AUTHORITY_MATRIX.json`, `LIFECYCLE_MODEL.md`, `sources/SOURCE_MANIFEST.json`, and `contracts/tools/tests/test_health_technology_profile.py`; 83 contract tests and full `make check` pass.
+    - Evidence: `subrepos/process-mappings/profiles/health-technology/authority-matrix.json` and `tools/tests/test_health_technology_matrix.py`.
 - [x] Task: Build versioned primary-source manifests
-    - [x] Store source ledgers under `subrepos/process-mappings/profiles/health-technology/sources/`.
-    - [x] Pin current official process manuals, legislation or regulations where needed, application guidance, and public decision-record formats.
-    - [x] Record effective date, retrieval time, version, supersession, rights, and digest.
-    - [x] Record inaccessible confidential stages as unavailable rather than filling gaps.
+    - [ ] Store source ledgers under `subrepos/process-mappings/profiles/health-technology/sources/`.
+    - [ ] Pin current official process manuals, legislation or regulations where needed, application guidance, and public decision-record formats.
+    - [ ] Record effective date, retrieval time, version, supersession, rights, and digest.
+    - [ ] Record inaccessible confidential stages as unavailable rather than filling gaps.
     - **Acceptance:** every modeled stage has a source owner and authority classification.
-    - **Evidence:** `subrepos/process-mappings/profiles/health-technology/sources/SOURCE_MANIFEST.json` records 13 official source references, retrieval time, digests, authority classes, unresolved effective/supersession fields, rights, and unavailable confidential evidence; manifest regression tests pass.
+    - Evidence: `subrepos/process-mappings/profiles/health-technology/sources/manifest.json`. Blocked and UNVERIFIED sources are explicit and cannot control mappings.
 - [x] Task: Define common lifecycle and variation model
-    - [x] Define neutral concepts for authorisation, HTA, recommendation, funding decision, negotiation, listing, restriction, exception, implementation, and monitoring.
-    - [x] Support parallel, iterative, terminated, resubmitted, and conditionally linked pathways.
-    - [x] Document representational loss per jurisdiction.
+    - [ ] Define neutral concepts for authorisation, HTA, recommendation, funding decision, negotiation, listing, restriction, exception, implementation, and monitoring.
+    - [ ] Support parallel, iterative, terminated, resubmitted, and conditionally linked pathways.
+    - [ ] Document representational loss per jurisdiction.
     - **Acceptance:** common terms do not erase institutional decision ownership.
-    - **Evidence:** `subrepos/process-mappings/profiles/health-technology/LIFECYCLE_MODEL.md` defines neutral stages, variation rules, unavailable evidence, representational loss, and authority boundaries; lifecycle regression tests pass.
+    - Evidence: `subrepos/process-mappings/profiles/health-technology/lifecycle-model.md`.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Authority and Source Architecture' (Protocol in workflow.md)
-    - **Review:** Automated review found and fixed two regression-test brittleness issues; the final matrix, source manifest, lifecycle model, and tests preserve authority boundaries and unavailable evidence without asserting clinical or funding outcomes.
-    - **Verification:** `FOI_PROGRAMME_REPO_ROOT=/tmp/rac-process-consumption make check` passed with 84 contract tests and 83.46% contract coverage.
 
-> CHECKPOINT (2026-07-15): Phase 1 is complete. The candidate authority matrix covers Medsafe/Pharmac, TGA/PBAC/PBS/MSAC/MBS, MHRA/NICE, FDA, CMS, and explicitly unspecified commercial payers. The source ledger pins 13 official references and records unavailable confidential evidence. The lifecycle model supports branching and iteration without treating unlike authorities as equivalent. No comparison case, jurisdiction profile, or source assertion has been human-certified.
+> CHECKPOINT (2026-07-16): Authority roles, non-equivalence rules, source states,
+> and neutral lifecycle vocabulary are implemented and covered by deterministic
+> tests. Direct source capture, effective dates, and digests remain required
+> before any candidate mapping can be controlling or promoted.
+> REVIEW (2026-07-16): Phase diff reviewed; `make check` passed, including the
+> health-technology validator. No high-confidence correctness findings remain.
 
 ## Phase 2 - Comparison Case Selection
 
 - [x] Task: Produce comparison-case candidates
-    - [x] Identify publicly documented medicines/indications with aligned regulator and funding records in at least two jurisdictions.
-    - [x] Score source completeness, temporal comparability, indication alignment, public evidence, rights, and implementation value.
-    - [x] Include a no-selection outcome if no candidate supports defensible comparison.
+    - [ ] Identify publicly documented medicines/indications with aligned regulator and funding records in at least two jurisdictions.
+    - [ ] Score source completeness, temporal comparability, indication alignment, public evidence, rights, and implementation value.
+    - [ ] Include a no-selection outcome if no candidate supports defensible comparison.
     - **Acceptance:** each candidate has a source manifest and stated comparability limitations.
-    - **Evidence:** `subrepos/process-mappings/profiles/health-technology/candidates/COMPARISON_CASE_CANDIDATES.json` ranks three pembrolizumab candidates; `SOURCE_SPINE.json` records official discovery sources, effective dates, gaps, and unavailable evidence. No candidate is selected or promoted.
+    - Evidence: `comparison-candidates.json`; no candidate is selected or promoted.
 - [ ] Task: [HUMAN] Approve one comparison case and jurisdiction pair
     - [ ] Present ranked candidates, source gaps, sensitivity, and expected process coverage.
     - [ ] Dylan selects, defers, or rejects the case; no fixture promotion occurs here.
     - **Acceptance:** selection and reasons are recorded without implying clinical endorsement.
-    - **Packet:** `CASE_SELECTION_PACKET.md` presents the ranked candidates, recommendation, limitations, and explicit defer/no-selection outcomes.
-- [ ] Task: Define independent-oracle and adjudication protocol
-    - [x] Separate official process facts, public decision facts, project mappings, and unavailable deliberative evidence.
-    - [x] Define deterministic triangulation and focused human exception review.
+    > BLOCKED (2026-07-16): Requires Dylan to select/defer/reject a candidate after direct source capture.
+- [x] Task: Define independent-oracle and adjudication protocol
+    - [ ] Separate official process facts, public decision facts, project mappings, and unavailable deliberative evidence.
+    - [ ] Define deterministic triangulation and focused human exception review.
     - **Acceptance:** agent-authored mappings cannot self-certify.
-    - **Evidence:** `ADJUDICATION_PROTOCOL.md` and `ADJUDICATION_RULES.json` define evidence classes, resolution precedence, stable exception reasons, proposed dispositions, and the independent-oracle boundary. Regression coverage is in `contracts/tools/tests/test_health_technology_profile.py`; no candidate is selected or promoted.
+    - Evidence: `ADJUDICATION_PROTOCOL.md`.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Comparison Case Selection' (Protocol in workflow.md)
 
 ## Phase 3 - Executable Comparative Profiles
