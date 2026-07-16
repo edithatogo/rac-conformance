@@ -24,9 +24,11 @@ def validate(root: Path) -> list[str]:
         authority = authorities.get(forbidden.get("authority"))
         if authority and forbidden.get("role") in authority.get("roles", []):
             errors.append(f"non-equivalence violated: {rule['id']}")
-    if "market_authorisation" in authorities["fda"].get("roles", []) and "payer_coverage" in authorities["fda"].get("roles", []):
+    fda = authorities.get("fda")
+    if fda and "market_authorisation" in fda.get("roles", []) and "payer_coverage" in fda.get("roles", []):
         errors.append("FDA cannot be both regulator and payer")
-    if "market_authorisation" in authorities["mbs"].get("roles", []):
+    mbs = authorities.get("mbs")
+    if mbs and "market_authorisation" in mbs.get("roles", []):
         errors.append("MBS cannot be a medicine regulator")
 
     manifest = json.loads((root / "sources/manifest.json").read_text(encoding="utf-8"))
@@ -37,7 +39,7 @@ def validate(root: Path) -> list[str]:
         if source["verificationStatus"] in {"blocked", "UNVERIFIED"} and source.get("digest"):
             errors.append(f"blocked/unverified source cannot have digest: {source['id']}")
     for authority in authorities.values():
-        if not any(source["authority"] == authority["id"] for source in manifest["sources"]):
+        if not any(source.get("authority") == authority["id"] for source in manifest.get("sources", [])):
             errors.append(f"authority has no source assertion: {authority['id']}")
     if len(source_ids) != len(manifest.get("sources", [])):
         errors.append("source IDs must be unique")
