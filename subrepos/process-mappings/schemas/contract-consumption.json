@@ -2,7 +2,7 @@
   "schemaVersion": "process-mappings-contract-consumption.v0.1.0",
   "repository": {
     "name": "edithatogo/rac-conformance",
-    "revision": "0d5c30bc1e2b3461044cf55c3033675db6d48ad3",
+    "revision": "40e489bafc16e3713a1aaa1a3e17a920dddc12df",
     "purpose": "Released PIC contract source; definitions are not copied into the incubator."
   },
   "normativeContracts": [
