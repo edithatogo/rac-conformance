@@ -205,7 +205,18 @@ def _process_profile_semantics(path: Path, doc: dict[str, Any]) -> list[Validati
         )
         occurred = datetime.fromisoformat(item["occurredAt"].replace("Z", "+00:00"))
         observed = datetime.fromisoformat(item["observedAt"].replace("Z", "+00:00"))
-        if observed < occurred:
+        try:
+            timestamps_reversed = observed < occurred
+        except TypeError:
+            issues.append(
+                ValidationIssue(
+                    f"{path}:events/{item['id']}",
+                    "cannot compare offset-naive and offset-aware timestamps",
+                    "time",
+                )
+            )
+            timestamps_reversed = False
+        if timestamps_reversed:
             issues.append(
                 ValidationIssue(
                     f"{path}:events/{item['id']}", "observedAt precedes occurredAt", "time"
@@ -217,7 +228,8 @@ def _process_profile_semantics(path: Path, doc: dict[str, Any]) -> list[Validati
     for item in doc["transitions"]:
         refs_exist("state", item["id"], [item["fromStateId"], item["toStateId"]], state_by_id)
         refs_exist("event", item["id"], [item["triggerEventId"]], event_by_id)
-        refs_exist("task", item["id"], [item["taskId"]], task_by_id) if item.get("taskId") else None
+        if item.get("taskId"):
+            refs_exist("task", item["id"], [item["taskId"]], task_by_id)
         refs_exist("source assertion", item["id"], item.get("sourceAssertionIds", []), source_by_id)
     for item in doc["tasks"]:
         refs_exist("source assertion", item["id"], item.get("sourceAssertionIds", []), source_by_id)
@@ -263,7 +275,18 @@ def _process_profile_semantics(path: Path, doc: dict[str, Any]) -> list[Validati
 
     applicable = datetime.fromisoformat(doc["applicableAt"].replace("Z", "+00:00"))
     observed = datetime.fromisoformat(doc["observedAt"].replace("Z", "+00:00"))
-    if observed < applicable:
+    try:
+        timestamps_reversed = observed < applicable
+    except TypeError:
+        issues.append(
+            ValidationIssue(
+                str(path),
+                "cannot compare offset-naive and offset-aware timestamps",
+                "time",
+            )
+        )
+        timestamps_reversed = False
+    if timestamps_reversed:
         issues.append(
             ValidationIssue(str(path), "profile observedAt precedes applicableAt", "time")
         )

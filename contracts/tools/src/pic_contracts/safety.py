@@ -11,14 +11,16 @@ class SafetyLimitError(ValueError):
     """Raised when an input exceeds a deterministic parser safety limit."""
 
 
-def _depth(value: Any, current: int = 0) -> int:
+def _depth(value: Any, current: int = 0, max_depth: int = 64) -> int:
+    if current > max_depth:
+        raise SafetyLimitError(f"input exceeds max_depth={max_depth}")
     if isinstance(value, dict):
         children = value.values()
     elif isinstance(value, list):
         children = value
     else:
         return current
-    return max((_depth(item, current + 1) for item in children), default=current)
+    return max((_depth(item, current + 1, max_depth) for item in children), default=current)
 
 
 def load_bounded_json(
@@ -35,14 +37,12 @@ def load_bounded_json(
     document = json.loads(raw.decode("utf-8"))
     if not isinstance(document, dict):
         raise SafetyLimitError("PIC artifact must be a JSON object")
-    if _depth(document) > max_depth:
-        raise SafetyLimitError(f"input exceeds max_depth={max_depth}")
-    largest_string = max(
-        (len(item.encode("utf-8")) for item in _strings(document)),
-        default=0,
-    )
-    if largest_string > max_string_bytes:
-        raise SafetyLimitError(f"input exceeds max_string_bytes={max_string_bytes}")
+    _depth(document, max_depth=max_depth)
+    for item in _strings(document):
+        if len(item) > max_string_bytes:
+            raise SafetyLimitError(f"input exceeds max_string_bytes={max_string_bytes}")
+        if len(item) * 4 > max_string_bytes and len(item.encode("utf-8")) > max_string_bytes:
+            raise SafetyLimitError(f"input exceeds max_string_bytes={max_string_bytes}")
     return document
 
 

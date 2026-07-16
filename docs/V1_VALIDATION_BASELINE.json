@@ -22,7 +22,7 @@
       "expectedOk": true,
       "observedOk": true,
       "issueCount": 0,
-      "elapsedMs": 6.539,
+      "elapsedMs": 3.687,
       "bytes": 3850
     },
     {
@@ -30,7 +30,7 @@
       "expectedOk": false,
       "observedOk": false,
       "issueCount": 21,
-      "elapsedMs": 2.126,
+      "elapsedMs": 2.157,
       "bytes": 357
     },
     {
@@ -38,7 +38,7 @@
       "expectedOk": true,
       "observedOk": true,
       "issueCount": 0,
-      "elapsedMs": 15.252,
+      "elapsedMs": 15.026,
       "bytes": 43020
     },
     {
@@ -46,7 +46,7 @@
       "expectedOk": false,
       "observedOk": false,
       "issueCount": 1,
-      "elapsedMs": 0.089,
+      "elapsedMs": 0.106,
       "bytes": 1077
     }
   ],
