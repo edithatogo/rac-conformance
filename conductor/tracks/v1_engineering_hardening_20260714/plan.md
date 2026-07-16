@@ -26,6 +26,12 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
 
 ## Phase 2 - Adversarial and Semantic Testing
 
+> CHECKPOINT (2026-07-16): The bounded fuzz corpus, extraction traversal and
+> size protections, and deterministic mutation gate pass. Six synthetic
+> mutations are reproducible, three stable validator mutants are killed, and
+> no sensitive or external source data is used. Cross-platform hosted runs and
+> broader memory/CPU qualification remain deferred to Phase 4.
+
 - [x] Task: Add property and fuzz tests
     - [ ] Generate schema-valid and near-valid structures with bounded sizes.
     - [ ] Test canonicalization idempotence, round trips, determinism, and diagnostic stability.
@@ -42,7 +48,7 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     - [ ] Set justified thresholds and document equivalent/surviving mutations.
     - **Acceptance:** threshold failures block the release candidate unless explicitly waived with evidence.
     - Evidence: `tools/v1_mutation.py`, `Makefile` target `v1-mutation`, and `docs/V1_MUTATION_GATE.json` mutate three stable validator predicates; all three are killed by committed process-profile oracles and the threshold permits no survivors.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Adversarial and Semantic Testing' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Adversarial and Semantic Testing' (Protocol in workflow.md)
 
 ## Phase 3 - Supply Chain and Release Reproducibility
 
