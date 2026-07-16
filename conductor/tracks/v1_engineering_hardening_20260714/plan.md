@@ -86,4 +86,5 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     - [ ] Present open risks, waivers, unsupported platforms, and signing/provenance evidence.
     - [ ] Dylan approves, rejects, or defers release-candidate qualification.
     - **Acceptance:** no risk is accepted implicitly by merging code.
+    - **Packet:** `RESIDUAL_RISK_DECISION_PACKET.md` records the exact open hosted controls, candidate-only boundaries, evidence references, and required decision fields.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
