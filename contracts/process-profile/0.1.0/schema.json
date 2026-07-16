@@ -1,36 +1,171 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://rac-conformance.edithatogo.dev/contracts/process-profile/0.1.0/schema.json",
-  "title": "PIC Process Profile 0.1.0",
+  "$id": "https://github.com/edithatogo/rac-conformance/contracts/process-profile/0.1.0/schema.json",
+  "title": "PIC process profile",
   "type": "object",
   "additionalProperties": false,
-  "required": ["conformsTo", "process", "case", "states", "events", "transitions", "actors", "sourceAssertions", "traceLinks"],
+  "required": ["conformsTo", "profileId", "profileVersion", "processDefinitionVersion", "jurisdiction", "applicableAt", "observedAt", "sourceAssertions", "actors", "states", "events", "timers", "transitions", "tasks", "ruleInvocations", "evidenceReferences", "traces"],
   "properties": {
     "conformsTo": {"const": "pic-process-profile/0.1.0"},
-    "process": {"$ref": "#/$defs/process"},
-    "case": {"$ref": "#/$defs/case"},
-    "states": {"type": "array", "items": {"$ref": "#/$defs/state"}},
-    "events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
-    "transitions": {"type": "array", "items": {"$ref": "#/$defs/transition"}},
-    "actors": {"type": "array", "items": {"$ref": "#/$defs/actor"}},
+    "profileId": {"$ref": "#/$defs/picId"},
+    "profileVersion": {"$ref": "#/$defs/semver"},
+    "processDefinitionVersion": {"$ref": "#/$defs/semver"},
+    "jurisdiction": {"type": "string", "pattern": "^[A-Z]{2}(?:-[A-Z0-9]{1,3})?$"},
+    "applicableAt": {"type": "string", "format": "date-time"},
+    "observedAt": {"type": "string", "format": "date-time"},
+    "sourceAssertions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/sourceAssertion"}},
+    "actors": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/actor"}},
+    "states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/state"}},
+    "events": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/event"}},
     "timers": {"type": "array", "items": {"$ref": "#/$defs/timer"}},
-    "humanTasks": {"type": "array", "items": {"$ref": "#/$defs/humanTask"}},
+    "transitions": {"type": "array", "items": {"$ref": "#/$defs/transition"}},
+    "tasks": {"type": "array", "items": {"$ref": "#/$defs/task"}},
     "ruleInvocations": {"type": "array", "items": {"$ref": "#/$defs/ruleInvocation"}},
-    "sourceAssertions": {"type": "array", "items": {"$ref": "#/$defs/sourceAssertion"}},
-    "traceLinks": {"type": "array", "items": {"$ref": "#/$defs/traceLink"}}
+    "evidenceReferences": {"type": "array", "items": {"$ref": "#/$defs/evidenceReference"}},
+    "traces": {"type": "array", "items": {"$ref": "#/$defs/trace"}},
+    "exceptions": {"type": "array", "items": {"$ref": "#/$defs/exception"}}
   },
   "$defs": {
-    "id": {"type": "string", "minLength": 1, "pattern": "^[a-z0-9][a-z0-9._:/-]*$"},
-    "process": {"type": "object", "additionalProperties": false, "required": ["id", "version"], "properties": {"id": {"$ref": "#/$defs/id"}, "version": {"type": "string", "minLength": 1}, "jurisdiction": {"type": "string", "minLength": 1}}},
-    "case": {"type": "object", "additionalProperties": false, "required": ["id", "synthetic"], "properties": {"id": {"$ref": "#/$defs/id"}, "synthetic": {"type": "boolean"}}},
-    "state": {"type": "object", "additionalProperties": false, "required": ["id", "kind"], "properties": {"id": {"$ref": "#/$defs/id"}, "kind": {"enum": ["observed", "derived", "proposed", "certified_human", "executed"]}}},
-    "event": {"type": "object", "additionalProperties": false, "required": ["id", "kind", "stateId", "occurredAt", "observedAt", "actorId"], "properties": {"id": {"$ref": "#/$defs/id"}, "kind": {"enum": ["observed", "derived", "proposed", "certified_human", "executed"]}, "stateId": {"$ref": "#/$defs/id"}, "occurredAt": {"type": "string", "format": "date-time"}, "observedAt": {"type": "string", "format": "date-time"}, "actorId": {"$ref": "#/$defs/id"}}},
-    "transition": {"type": "object", "additionalProperties": false, "required": ["id", "fromStateId", "toStateId"], "properties": {"id": {"$ref": "#/$defs/id"}, "fromStateId": {"$ref": "#/$defs/id"}, "toStateId": {"$ref": "#/$defs/id"}, "eventId": {"$ref": "#/$defs/id"}}},
-    "actor": {"type": "object", "additionalProperties": false, "required": ["id", "kind", "label"], "properties": {"id": {"$ref": "#/$defs/id"}, "kind": {"enum": ["authority", "person", "service", "system"]}, "label": {"type": "string", "minLength": 1}}},
-    "timer": {"type": "object", "additionalProperties": false, "required": ["id", "startAt"], "properties": {"id": {"$ref": "#/$defs/id"}, "startAt": {"type": "string", "format": "date-time"}, "dueAt": {"type": "string", "format": "date-time"}, "parameterId": {"$ref": "#/$defs/id"}}},
-    "humanTask": {"type": "object", "additionalProperties": false, "required": ["id", "kind", "actorId"], "properties": {"id": {"$ref": "#/$defs/id"}, "kind": {"enum": ["human_review", "human_decision", "human_approval"]}, "actorId": {"$ref": "#/$defs/id"}, "stateId": {"$ref": "#/$defs/id"}}},
-    "ruleInvocation": {"type": "object", "additionalProperties": false, "required": ["id", "decisionId", "authorityAssertionId", "observedAt"], "properties": {"id": {"$ref": "#/$defs/id"}, "decisionId": {"$ref": "#/$defs/id"}, "parameterIds": {"type": "array", "items": {"$ref": "#/$defs/id"}}, "traceConformsTo": {"type": "string", "pattern": "^pic-traces/[0-9]+\\.[0-9]+\\.[0-9]+$"}, "authorityAssertionId": {"$ref": "#/$defs/id"}, "observedAt": {"type": "string", "format": "date-time"}}},
-    "sourceAssertion": {"type": "object", "additionalProperties": false, "required": ["id", "authorityClass", "reviewerState", "sourceStatus", "effectiveFrom", "jurisdiction", "sourceRef"], "properties": {"id": {"$ref": "#/$defs/id"}, "authorityClass": {"enum": ["law", "regulation", "national_policy", "regional_policy", "guidance", "interpretation", "runtime_observation", "secondary"]}, "reviewerState": {"enum": ["agent-proposed", "human-approved", "official-primary"]}, "sourceStatus": {"enum": ["current", "superseded", "blocked", "unavailable", "conflicting"]}, "effectiveFrom": {"type": "string", "format": "date"}, "effectiveTo": {"type": ["string", "null"], "format": "date"}, "jurisdiction": {"type": "string", "minLength": 1}, "sourceRef": {"type": "string", "format": "uri"}, "digest": {"type": "string"}, "controlling": {"type": "boolean", "default": false}, "interpretationState": {"enum": ["uninterpreted", "mapped", "contested"]}}, "allOf": [{"if": {"properties": {"controlling": {"const": true}}}, "then": {"properties": {"reviewerState": {"enum": ["human-approved", "official-primary"]}}}}]},
-    "traceLink": {"type": "object", "additionalProperties": false, "required": ["id", "traceConformsTo", "traceRef"], "properties": {"id": {"$ref": "#/$defs/id"}, "traceConformsTo": {"type": "string", "pattern": "^pic-traces/[0-9]+\\.[0-9]+\\.[0-9]+$"}, "traceRef": {"type": "string", "pattern": "^urn:sha256:[a-f0-9]{64}$"}, "ruleInvocationId": {"$ref": "#/$defs/id"}}}
+    "picId": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_.-]*(/[a-z0-9][a-z0-9_.-]*)*$"},
+    "semver": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "refIds": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/picId"}},
+    "requiredRefIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/picId"}},
+    "sourceAssertion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "authority", "sourceType", "reviewStatus", "assertion", "sourceUri", "retrievedAt", "effectiveFrom", "controlling"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "authority": {"enum": ["law", "regulation", "national_policy", "regional_policy", "guidance", "interpretation", "runtime_observation"]},
+        "sourceType": {"enum": ["official_primary", "official_secondary", "secondary", "runtime_record"]},
+        "reviewStatus": {"enum": ["agent-proposed", "human-approved", "official-primary", "rejected"]},
+        "assertion": {"type": "string", "minLength": 1},
+        "sourceUri": {"type": "string", "format": "uri"},
+        "retrievedAt": {"type": "string", "format": "date-time"},
+        "effectiveFrom": {"type": ["string", "null"], "format": "date"},
+        "effectiveTo": {"type": ["string", "null"], "format": "date"},
+        "controlling": {"type": "boolean"}
+      }
+    },
+    "state": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "label"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "kind": {"enum": ["initial", "intermediate", "terminal"]},
+        "label": {"type": "string", "minLength": 1},
+        "sourceAssertionIds": {"$ref": "#/$defs/requiredRefIds"}
+      }
+    },
+    "actor": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "name"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "kind": {"enum": ["person", "role", "organization", "system"]},
+        "name": {"type": "string", "minLength": 1},
+        "authoritySourceAssertionIds": {"$ref": "#/$defs/refIds"}
+      }
+    },
+    "event": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "eventType", "occurredAt", "observedAt", "actorId", "sourceAssertionIds"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "kind": {"enum": ["observed_event", "derived_state", "proposed_action", "certified_human_decision", "executed_action"]},
+        "eventType": {"type": "string", "minLength": 1},
+        "occurredAt": {"type": "string", "format": "date-time"},
+        "observedAt": {"type": "string", "format": "date-time"},
+        "actorId": {"$ref": "#/$defs/picId"},
+        "timerId": {"$ref": "#/$defs/picId"},
+        "sourceAssertionIds": {"$ref": "#/$defs/requiredRefIds"},
+        "evidenceReferenceIds": {"$ref": "#/$defs/refIds"}
+      }
+    },
+    "timer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "name", "startEventId", "duration", "sourceAssertionIds"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "kind": {"enum": ["calendar_duration", "working_day_duration", "deadline", "relative"]},
+        "name": {"type": "string", "minLength": 1},
+        "startEventId": {"$ref": "#/$defs/picId"},
+        "duration": {"type": "string", "minLength": 1},
+        "calendarId": {"type": "string", "minLength": 1},
+        "sourceAssertionIds": {"$ref": "#/$defs/requiredRefIds"}
+      },
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "working_day_duration"}}, "required": ["kind"]}, "then": {"required": ["calendarId"]}}
+      ]
+    },
+    "transition": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "fromStateId", "toStateId", "triggerEventId"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "fromStateId": {"$ref": "#/$defs/picId"},
+        "toStateId": {"$ref": "#/$defs/picId"},
+        "triggerEventId": {"$ref": "#/$defs/picId"},
+        "taskId": {"$ref": "#/$defs/picId"},
+        "sourceAssertionIds": {"$ref": "#/$defs/refIds"}
+      }
+    },
+    "task": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "name"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "kind": {"enum": ["human_task", "deterministic_rule_task", "evidence_task"]},
+        "name": {"type": "string", "minLength": 1},
+        "actorRole": {"type": "string", "minLength": 1},
+        "ruleInvocationId": {"$ref": "#/$defs/picId"},
+        "decisionEventId": {"$ref": "#/$defs/picId"},
+        "sourceAssertionIds": {"$ref": "#/$defs/refIds"}
+      }
+    },
+    "ruleInvocation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "ruleId", "deterministic", "fixtureRef", "parameterRefs", "traceId"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "ruleId": {"$ref": "#/$defs/picId"},
+        "deterministic": {"const": true},
+        "fixtureRef": {"type": "string", "pattern": "^pic-fixtures/[0-9]+\\.[0-9]+\\.[0-9]+#.+$"},
+        "parameterRefs": {"type": "array", "items": {"type": "string", "pattern": "^pic-parameters/[0-9]+\\.[0-9]+\\.[0-9]+#.+$"}},
+        "traceId": {"$ref": "#/$defs/picId"}
+      }
+    },
+    "evidenceReference": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "uri", "sha256", "sourceAssertionIds"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "uri": {"type": "string", "format": "uri"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "sourceAssertionIds": {"$ref": "#/$defs/requiredRefIds"}
+      }
+    },
+    "trace": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "traceContract", "artifactRef", "eventIds", "ruleInvocationIds", "equivalenceClaim"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "traceContract": {"type": "string", "pattern": "^pic-traces/[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "artifactRef": {"type": "string", "minLength": 1},
+        "eventIds": {"$ref": "#/$defs/requiredRefIds"},
+        "ruleInvocationIds": {"$ref": "#/$defs/refIds"},
+        "equivalenceClaim": {"enum": ["output", "path", "semantic", "none"]},
+        "lossNotes": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "exception": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "description"],
+      "properties": {
+        "id": {"$ref": "#/$defs/picId"},
+        "kind": {"enum": ["unsupported_mapping", "source_conflict", "missing_time", "platform_loss", "human_adjudication_required"]},
+        "description": {"type": "string", "minLength": 1}
+      }
+    }
   }
 }

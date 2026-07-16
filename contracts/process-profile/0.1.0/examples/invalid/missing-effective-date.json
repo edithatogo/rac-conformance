@@ -1,6 +1,6 @@
 {
   "conformsTo": "pic-process-profile/0.1.0",
   "profileId": "demo/process.invalid", "profileVersion": "0.1.0", "processDefinitionVersion": "1.0.0", "jurisdiction": "NZ", "applicableAt": "2026-01-01T00:00:00Z", "observedAt": "2026-01-01T00:00:00Z",
-  "sourceAssertions": [{"id": "demo/source/agent.1", "authority": "interpretation", "sourceType": "secondary", "reviewStatus": "agent-proposed", "assertion": "Unreviewed claim", "sourceUri": "https://example.org/claim", "retrievedAt": "2026-01-01T00:00:00Z", "effectiveFrom": null, "effectiveTo": null, "controlling": true}],
+  "sourceAssertions": [{"id": "demo/source/law.1", "authority": "law", "sourceType": "official_primary", "reviewStatus": "official-primary", "assertion": "Law", "sourceUri": "https://example.org/law", "retrievedAt": "2026-01-01T00:00:00Z", "effectiveFrom": null, "effectiveTo": null, "controlling": true}],
   "actors": [], "states": [], "events": [], "timers": [], "transitions": [], "tasks": [], "ruleInvocations": [], "evidenceReferences": [], "traces": []
 }

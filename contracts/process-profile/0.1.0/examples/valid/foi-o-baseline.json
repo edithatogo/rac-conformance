@@ -1,0 +1,49 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "profileId": "foi-o/process.nz_oia",
+  "profileVersion": "0.1.0",
+  "processDefinitionVersion": "0.8.1",
+  "jurisdiction": "NZ",
+  "applicableAt": "2025-04-05T00:00:00Z",
+  "observedAt": "2026-07-16T00:00:00Z",
+  "sourceAssertions": [
+    {
+      "id": "foi-o/source/oia.official",
+      "authority": "law",
+      "sourceType": "official_primary",
+      "reviewStatus": "official-primary",
+      "assertion": "The official consolidation is the controlling legal source for this profile.",
+      "sourceUri": "https://www.legislation.govt.nz/act/public/1982/0156/latest/whole.html",
+      "retrievedAt": "2026-07-16T00:00:00Z",
+      "effectiveFrom": "2025-04-05",
+      "effectiveTo": null,
+      "controlling": true
+    }
+  ],
+  "actors": [
+    {"id": "system/intake", "kind": "system", "name": "Intake system", "authoritySourceAssertionIds": ["foi-o/source/oia.official"]},
+    {"id": "foi-o/rules", "kind": "system", "name": "FOI-O deterministic rules", "authoritySourceAssertionIds": ["foi-o/source/oia.official"]},
+    {"id": "system/casework", "kind": "system", "name": "Casework system", "authoritySourceAssertionIds": ["foi-o/source/oia.official"]}
+  ],
+  "states": [
+    {"id": "foi-o/state/request.received", "kind": "initial", "label": "Request received", "sourceAssertionIds": ["foi-o/source/oia.official"]},
+    {"id": "foi-o/state/request.closed", "kind": "terminal", "label": "Request closed", "sourceAssertionIds": ["foi-o/source/oia.official"]}
+  ],
+  "events": [
+    {"id": "foi-o/event/request.received", "kind": "observed_event", "eventType": "RequestReceived", "occurredAt": "2026-07-15T01:00:00Z", "observedAt": "2026-07-15T01:00:01Z", "actorId": "system/intake", "sourceAssertionIds": ["foi-o/source/oia.official"], "evidenceReferenceIds": ["foi-o/evidence/request.log"]},
+    {"id": "foi-o/event/response.deadline", "kind": "derived_state", "eventType": "DeadlineCalculated", "occurredAt": "2026-07-15T01:00:02Z", "observedAt": "2026-07-15T01:00:02Z", "actorId": "foi-o/rules", "sourceAssertionIds": ["foi-o/source/oia.official"], "evidenceReferenceIds": ["foi-o/evidence/request.log"]},
+    {"id": "foi-o/event/request.closed", "kind": "executed_action", "eventType": "RequestClosed", "occurredAt": "2026-07-16T01:00:00Z", "observedAt": "2026-07-16T01:00:01Z", "actorId": "system/casework", "sourceAssertionIds": ["foi-o/source/oia.official"], "evidenceReferenceIds": ["foi-o/evidence/request.log"]}
+  ],
+  "timers": [{"id": "foi-o/timer/response.deadline", "kind": "working_day_duration", "name": "Twenty working day response period", "startEventId": "foi-o/event/request.received", "duration": "20 working_days", "calendarId": "nz-oia/working-day-calendar", "sourceAssertionIds": ["foi-o/source/oia.official"]}],
+  "transitions": [
+    {"id": "foi-o/transition/receive.close", "fromStateId": "foi-o/state/request.received", "toStateId": "foi-o/state/request.closed", "triggerEventId": "foi-o/event/request.closed", "sourceAssertionIds": ["foi-o/source/oia.official"]}
+  ],
+  "tasks": [{"id": "foi-o/task/clock", "kind": "deterministic_rule_task", "name": "Calculate statutory clock", "ruleInvocationId": "foi-o/rule/clock", "sourceAssertionIds": ["foi-o/source/oia.official"]}],
+  "ruleInvocations": [{"id": "foi-o/rule/clock", "ruleId": "foi-o/rule/response_deadline", "deterministic": true, "fixtureRef": "pic-fixtures/0.1.0#foi-o/case.1", "parameterRefs": ["pic-parameters/0.2.0#foi-o/parameter.response_days"], "traceId": "foi-o/trace/request.001"}],
+  "evidenceReferences": [
+    {"id": "foi-o/evidence/request.log", "uri": "urn:sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "sourceAssertionIds": ["foi-o/source/oia.official"]}
+  ],
+  "traces": [
+    {"id": "foi-o/trace/request.001", "traceContract": "pic-traces/0.2.0", "artifactRef": "pic-traces/0.2.0#foi-o/request.001", "eventIds": ["foi-o/event/request.received", "foi-o/event/response.deadline", "foi-o/event/request.closed"], "ruleInvocationIds": [], "equivalenceClaim": "path", "lossNotes": ["Platform queue metadata is not represented."]}
+  ]
+}

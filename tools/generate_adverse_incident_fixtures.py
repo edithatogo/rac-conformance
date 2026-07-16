@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 
@@ -59,106 +58,116 @@ SOURCE_REFS = {
 def build_profile(scenario: tuple[str, str, str, str, str]) -> dict[str, object]:
     name, source_id, jurisdiction, authority_class, effective_from = scenario
     prefix = f"adverse-incidents/{name}"
-    actor_id = f"person:synthetic-reviewer-{name}"
-    source_status = "blocked" if name == "blocked-source" else "current"
+    actor_id = f"adverse-incidents/{name}/synthetic-reviewer"
+    source_id_ref = f"adverse-incidents/{name}/source/{source_id}"
+    source_assertion = (
+        "The official source was unavailable to the agent and requires human review."
+        if name == "blocked-source"
+        else "Synthetic fixture assertion proposed for schema and harness testing."
+    )
     profile: dict[str, object] = {
         "conformsTo": "pic-process-profile/0.1.0",
-        "process": {"id": prefix, "version": "0.1.0-candidate", "jurisdiction": jurisdiction},
-        "case": {"id": f"case:{prefix}", "synthetic": True},
+        "profileId": prefix,
+        "profileVersion": "0.1.0",
+        "processDefinitionVersion": "0.1.0",
+        "jurisdiction": jurisdiction,
+        "applicableAt": f"{effective_from}T00:00:00Z",
+        "observedAt": "2026-07-03T00:00:00Z",
         "states": [
-            {"id": f"state:{name}:detected", "kind": "observed"},
-            {"id": f"state:{name}:review", "kind": "proposed"},
-            {"id": f"state:{name}:closed", "kind": "proposed"},
+            {"id": f"{prefix}/state/detected", "kind": "initial", "label": "Incident detected", "sourceAssertionIds": [source_id_ref]},
+            {"id": f"{prefix}/state/review", "kind": "intermediate", "label": "Human review", "sourceAssertionIds": [source_id_ref]},
+            {"id": f"{prefix}/state/closed", "kind": "terminal", "label": "Review closed", "sourceAssertionIds": [source_id_ref]},
         ],
         "events": [
             {
-                "id": f"event:{name}:detected",
-                "kind": "observed",
-                "stateId": f"state:{name}:detected",
+                "id": f"{prefix}/event/detected",
+                "kind": "observed_event",
+                "eventType": "IncidentDetected",
                 "occurredAt": "2026-07-01T00:00:00Z",
                 "observedAt": "2026-07-01T00:00:00Z",
                 "actorId": actor_id,
+                "sourceAssertionIds": [source_id_ref],
             },
             {
-                "id": f"event:{name}:review-closed",
-                "kind": "certified_human",
-                "stateId": f"state:{name}:closed",
+                "id": f"{prefix}/event/review-closed",
+                "kind": "certified_human_decision",
+                "eventType": "ReviewClosed",
                 "occurredAt": "2026-07-03T00:00:00Z",
                 "observedAt": "2026-07-03T00:00:00Z",
                 "actorId": actor_id,
+                "sourceAssertionIds": [source_id_ref],
             },
         ],
         "transitions": [
             {
-                "id": f"transition:{name}:review",
-                "fromStateId": f"state:{name}:detected",
-                "toStateId": f"state:{name}:review",
-                "eventId": f"event:{name}:detected",
+                "id": f"{prefix}/transition/review",
+                "fromStateId": f"{prefix}/state/detected",
+                "toStateId": f"{prefix}/state/review",
+                "triggerEventId": f"{prefix}/event/detected",
+                "sourceAssertionIds": [source_id_ref],
             },
             {
-                "id": f"transition:{name}:closed",
-                "fromStateId": f"state:{name}:review",
-                "toStateId": f"state:{name}:closed",
-                "eventId": f"event:{name}:review-closed",
+                "id": f"{prefix}/transition/closed",
+                "fromStateId": f"{prefix}/state/review",
+                "toStateId": f"{prefix}/state/closed",
+                "triggerEventId": f"{prefix}/event/review-closed",
+                "sourceAssertionIds": [source_id_ref],
             },
         ],
-        "actors": [{"id": actor_id, "kind": "person", "label": "Synthetic human reviewer"}],
-        "humanTasks": [
+        "actors": [{"id": actor_id, "kind": "person", "name": "Synthetic human reviewer"}],
+        "tasks": [
             {
-                "id": f"task:{name}:review",
-                "kind": "human_review",
-                "actorId": actor_id,
-                "stateId": f"state:{name}:review",
+                "id": f"{prefix}/task/review",
+                "kind": "human_task",
+                "name": "Review incident",
+                "actorRole": actor_id,
+                "sourceAssertionIds": [source_id_ref],
             },
             {
-                "id": f"task:{name}:culturally-responsive-participation-support",
-                "kind": "human_decision",
-                "actorId": actor_id,
-                "stateId": f"state:{name}:review",
+                "id": f"{prefix}/task/culturally-responsive-participation-support",
+                "kind": "human_task",
+                "name": "Provide culturally responsive participation support",
+                "actorRole": actor_id,
+                "sourceAssertionIds": [source_id_ref],
             },
             {
-                "id": f"task:{name}:unresolved-questions",
-                "kind": "human_review",
-                "actorId": actor_id,
-                "stateId": f"state:{name}:review",
+                "id": f"{prefix}/task/unresolved-questions",
+                "kind": "human_task",
+                "name": "Record unresolved questions",
+                "actorRole": actor_id,
+                "sourceAssertionIds": [source_id_ref],
             },
         ],
         "sourceAssertions": [
             {
-                "id": f"assertion:{source_id}:{name}",
-                "authorityClass": authority_class,
-                "reviewerState": "agent-proposed",
-                "sourceStatus": source_status,
+                "id": source_id_ref,
+                "authority": authority_class,
+                "sourceType": "official_primary",
+                "reviewStatus": "agent-proposed",
+                "assertion": source_assertion,
+                "sourceUri": SOURCE_REFS[source_id],
+                "retrievedAt": "2026-07-03T00:00:00Z",
                 "effectiveFrom": effective_from,
                 "effectiveTo": None,
-                "jurisdiction": jurisdiction,
-                "sourceRef": SOURCE_REFS[source_id],
                 "controlling": False,
-                "interpretationState": "uninterpreted",
             }
         ],
-        "traceLinks": [],
+        "timers": [],
+        "ruleInvocations": [],
+        "evidenceReferences": [],
+        "traces": [],
     }
     if name == "parallel-complaint":
-        profile["states"].append({"id": f"state:{name}:parallel-pathway", "kind": "proposed"})
+        profile["states"].append({"id": f"{prefix}/state/parallel-pathway", "kind": "intermediate", "label": "Parallel complaint pathway", "sourceAssertionIds": [source_id_ref]})
         profile["transitions"].append(
             {
-                "id": f"transition:{name}:parallel-pathway",
-                "fromStateId": f"state:{name}:review",
-                "toStateId": f"state:{name}:parallel-pathway",
-                "eventId": f"event:{name}:detected",
+                "id": f"{prefix}/transition/parallel-pathway",
+                "fromStateId": f"{prefix}/state/review",
+                "toStateId": f"{prefix}/state/parallel-pathway",
+                "triggerEventId": f"{prefix}/event/detected",
+                "sourceAssertionIds": [source_id_ref],
             }
         )
-    trace_digest = hashlib.sha256(
-        json.dumps(profile, sort_keys=True, separators=(",", ":")).encode()
-    ).hexdigest()
-    profile["traceLinks"] = [
-        {
-            "id": f"trace-link:{name}",
-            "traceConformsTo": "pic-traces/0.1.0",
-            "traceRef": f"urn:sha256:{trace_digest}",
-        }
-    ]
     return profile
 
 

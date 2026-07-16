@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "pic-process-profile-certification.v0.1.0",
+  "decision": "certified",
+  "candidate": {
+    "path": "subrepos/process-mappings/profiles/foi/candidates/nz-oia-process-profile.json",
+    "sha256": "ba49100cd3599acc141208baaddf70c6822bbdbc96288d105eedf208e4731f5b"
+  },
+  "contract": {
+    "id": "pic-process-profile/0.1.0",
+    "path": "contracts/process-profile/0.1.0/schema.json",
+    "sha256": "cad9bd4b41da6745ee3ee8bd6ec46b68cd3160e368ecbfda6ee8e4fd84dffa77"
+  },
+  "reviewer": "Dylan",
+  "reviewedAt": "2026-07-16T11:31:34Z",
+  "decisionLog": [
+    {"id": "event-vocabulary-and-state-semantics", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:26:37Z", "scope": "The revised FOI-O event vocabulary and non-terminal reviewability representation are acceptable for PIC compatibility."},
+    {"id": "event-kind-distinction", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:28:01Z", "scope": "Observed events, executed actions, and derived deadline/overdue signals remain distinct without certifying legal correctness."},
+    {"id": "reviewability-boundary", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:28:28Z", "scope": "Overdue and reviewability are non-terminal derived signals, not legal refusal, Ombudsman, human-certification, or access outcomes."},
+    {"id": "source-actor-timer-integrity", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:29:07Z", "scope": "The official OIA source spine, effective date, explicit actors, and working-day timer declaration are appropriate for the candidate."},
+    {"id": "loss-notes-and-non-claims", "decision": "approved", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:29:50Z", "scope": "The candidate's loss notes and explicit non-claims adequately prevent overstatement of FOI-O semantic, legal, or outcome equivalence."},
+    {"id": "overall-disposition", "decision": "certified", "reviewer": "Dylan", "recordedAt": "2026-07-16T11:31:34Z", "scope": "Certified for PIC compatibility; retained as an incubator candidate and not promoted to a canonical extracted profile."
+    }
+  ],
+  "evidence": [
+    "conductor/tracks/pic_process_profile_20260714/HUMAN_CERTIFICATION_PACKET.md",
+    "subrepos/process-mappings/profiles/foi/CANDIDATE_REVIEW.md",
+    "external/foi-o/rules/SOURCES.md"
+  ],
+  "notes": "Human certification applies to PIC compatibility only. Candidate promotion remains governed by process-mappings repository cutover #50; hashes must remain unchanged."
+}

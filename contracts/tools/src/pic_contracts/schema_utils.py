@@ -2,19 +2,20 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
 
+from pic_contracts.safety import load_bounded_json
+
 REPO_ROOT = Path(__file__).resolve().parents[4]
 CONTRACTS_ROOT = REPO_ROOT / "contracts"
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(path.read_text(encoding="utf-8"))
+    return load_bounded_json(path)
 
 
 def load_schema(contract: str, version: str = "0.1.0") -> dict[str, Any]:
