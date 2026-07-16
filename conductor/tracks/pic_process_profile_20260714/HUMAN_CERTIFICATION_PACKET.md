@@ -21,9 +21,11 @@ the semantic authority.
    transfer, extension, refusal, and reviewability?
 2. Are the source assertion, effective date, and authority classifications
    appropriate for this compatibility candidate?
-3. Are the two loss notes complete, especially for FOI-O ontology hierarchy,
+3. Are the actor roles/systems and the working-day timer mapped to the correct
+   FOI-O authority and starting event?
+4. Are the two loss notes complete, especially for FOI-O ontology hierarchy,
    discretion, and reasonableness judgments?
-4. Should this remain a candidate, or may it be promoted into a certified
+5. Should this remain a candidate, or may it be promoted into a certified
    profile artifact after the requested changes?
 
 ## Certification record
