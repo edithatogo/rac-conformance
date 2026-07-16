@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "rac-conformance-v1-gates.v0.1.0",
+  "release": "1.0.0-rc",
+  "evaluatedAt": "2026-07-16",
+  "repository": "edithatogo/rac-conformance",
+  "gates": [
+    {"id":"contracts","category":"technical","status":"pass","evidence":"make check contract suites"},
+    {"id":"process-profile","category":"technical","status":"pass_with_human_gate","evidence":"pic-process-profile/0.1.0 implementation; FOI-O certification remains human"},
+    {"id":"health-technology","category":"comparative-study","status":"blocked","evidence":"authority/source architecture only; case selection and source capture remain"},
+    {"id":"hardening","category":"security","status":"blocked","evidence":"local controls pass; hosted platform, mutation, SBOM/provenance, and rollback evidence remain"},
+    {"id":"independent-validation","category":"external","status":"blocked","evidence":"independent/STATUS_LEDGER.json: no external implementation result"},
+    {"id":"external-adoption","category":"external","status":"blocked","evidence":"upstream maintainer actions remain in issue #23"},
+    {"id":"papers-and-citations","category":"publication","status":"deferred","evidence":"paper submission remains deferred pending FOI-O v2/arXiv update"},
+    {"id":"human-release-authorization","category":"human","status":"pending_human","evidence":"release candidate, residual risk, and signing posture require explicit approval"},
+    {"id":"publication","category":"human","status":"pending_human","evidence":"no package, tag, DOI, or announcement has been published"}
+  ]
+}

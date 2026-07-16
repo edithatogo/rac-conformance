@@ -1,63 +1,46 @@
-"""Create a deterministic v1 release-readiness report from the gate manifest."""
+"""Audit v1 release gates without silently treating incomplete evidence as pass."""
 
 from __future__ import annotations
 
 import argparse
 import json
-from datetime import date
 from pathlib import Path
 
-from tools.release_gates import load_manifest, validate_manifest
+
+ALLOWED = {"pass", "pass_with_human_gate", "blocked", "deferred", "pending_human"}
 
 
-def audit(manifest: dict, *, as_of: date) -> dict:
-    validation = validate_manifest(manifest, as_of=as_of)
-    gates = sorted(manifest.get("gates", []), key=lambda gate: str(gate.get("id", "")))
-    blockers = [
-        {
-            "id": gate.get("id"),
-            "status": gate.get("status"),
-            "reasonCode": gate.get("reason_code"),
-            "nextAction": gate.get("next_action"),
-            "dependencies": gate.get("dependencies", []),
-        }
-        for gate in gates
-        if gate.get("status") in {"blocked", "fail", "exception"}
-    ]
-    return {
-        "schemaVersion": "rac-v1-release-audit.v1",
-        "asOf": as_of.isoformat(),
-        "release": manifest.get("release"),
-        "manifestValid": validation.ok,
-        "releaseDecision": "ready" if validation.ok and not blockers else "blocked",
-        "networkChecks": "not-performed",
-        "statuses": sorted(validation.statuses),
-        "validationErrors": list(validation.errors),
-        "gateCount": len(gates),
-        "blockers": blockers,
-        "gates": [
-            {
-                "id": gate.get("id"),
-                "owner": gate.get("owner"),
-                "category": gate.get("category"),
-                "status": gate.get("status"),
-                "observedAt": gate.get("observed_at"),
-            }
-            for gate in gates
-        ],
-    }
+def audit(path: Path) -> dict[str, object]:
+    document = json.loads(path.read_text(encoding="utf-8"))
+    diagnostics: list[str] = []
+    gates = document.get("gates")
+    if not isinstance(gates, list) or not gates:
+        diagnostics.append("gates must be a non-empty list")
+        gates = []
+    seen: set[str] = set()
+    for gate in gates:
+        gate_id = gate.get("id") if isinstance(gate, dict) else None
+        if not gate_id or gate_id in seen:
+            diagnostics.append(f"missing or duplicate gate: {gate_id}")
+        seen.add(gate_id)
+        if gate.get("status") not in ALLOWED:
+            diagnostics.append(f"unsupported gate status: {gate_id}")
+        if not gate.get("evidence"):
+            diagnostics.append(f"gate lacks evidence: {gate_id}")
+    required = {"contracts", "hardening", "independent-validation", "human-release-authorization", "publication"}
+    missing = required - seen
+    diagnostics.extend(f"missing required gate: {gate_id}" for gate_id in sorted(missing))
+    releasable = not diagnostics and all(gate["status"] == "pass" for gate in gates)
+    return {"release": document.get("release"), "releasable": releasable, "diagnostics": diagnostics, "gateCount": len(gates)}
 
 
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Audit v1 release readiness")
-    parser.add_argument("manifest", type=Path)
-    parser.add_argument("--as-of", required=True, type=date.fromisoformat)
-    parser.add_argument("--output", type=Path, required=True)
-    args = parser.parse_args(argv)
-    report = audit(load_manifest(args.manifest), as_of=args.as_of)
-    args.output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", nargs="?", default="release/v1/gates.json")
+    args = parser.parse_args()
+    report = audit(Path(args.path))
     print(json.dumps(report, indent=2, sort_keys=True))
-    return 0 if report["releaseDecision"] == "ready" else 2
+    return 0 if not report["diagnostics"] else 1
 
 
 if __name__ == "__main__":

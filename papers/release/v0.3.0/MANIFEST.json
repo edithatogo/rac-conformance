@@ -1,0 +1,42 @@
+{
+  "schema_version": "rulesandprocesses.paper-submission-candidate.v1",
+  "package_version": "0.3.0",
+  "status": "approved_package_not_submitted",
+  "prepared_at": "2026-07-15",
+  "source_commit": "2b61ab0",
+  "pdf_engine": "pandoc with typst",
+  "artifacts": [
+    {
+      "id": "coupling",
+      "path": "coupling.pdf",
+      "sha256": "e9e17d93e4944f1647718c6c9abdb882012addc180757f6e7760b87be8ad9677",
+      "pages": 3,
+      "page_size": "A4"
+    },
+    {
+      "id": "snap-divergence",
+      "path": "snap-divergence.pdf",
+      "sha256": "4446b774a38c0c1496325befc221d46f12a877115308aea1511b59f1ca3c90fa",
+      "pages": 4,
+      "page_size": "A4"
+    },
+    {
+      "id": "nz-reconciliation",
+      "path": "nz-reconciliation.pdf",
+      "sha256": "4bdfd5c982cd3a1fcc5ba86d1f7510d697a061135f3cfd0d5fa94847c7c9eee6",
+      "pages": 2,
+      "page_size": "A4"
+    }
+  ],
+  "package_approval": {
+    "approved_by": "Dylan A Mordaunt",
+    "approved_at": "2026-07-15",
+    "scope": "package version only"
+  },
+  "submission_sequence": {
+    "prerequisite": "FOI-O v2 update submitted to arXiv",
+    "status": "pending_external_submission",
+    "applies_to": ["coupling", "snap-divergence", "nz-reconciliation"]
+  },
+  "publication_boundary": "No submission, preprint identifier, or acceptance is claimed. FOI-O evidence-bundle, venue, and submission authorization gates remain explicit."
+}

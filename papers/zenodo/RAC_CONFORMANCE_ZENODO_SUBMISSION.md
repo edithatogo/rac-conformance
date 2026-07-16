@@ -8,12 +8,8 @@ issue #33. This file is preparation evidence, not proof of a Zenodo deposit.
 - GitHub release/tag: `v0.2.0`
 - Main commit: `35fdebdd6ca3ad0a254ca0b3ec5b7466b7db3fe5`
 - Release: https://github.com/edithatogo/rac-conformance/releases/tag/v0.2.0
-- GitHub source archive SHA-256: `07743bb7e4be3749f89564d8cb0184372a76d26af426181ccdcd3115e8d667ff`
-- Locally reproducible `git archive` SHA-256: `3077044a38d1f2fcabf60d473c3875de4e1de09717f10fbe76582eff13939c11`
-
-The GitHub archive digest is the deposit identity to verify. The local archive
-digest is retained as a reproducibility cross-check; GitHub and local gzip
-archives are not expected to be byte-identical.
+- Archive packet: `RAC_CONFORMANCE_V0.2.0_ARCHIVE.json`
+- GitHub archive SHA-256: `07743bb7e4be3749f89564d8cb0184372a76d26af426181ccdcd3115e8d667ff`
 
 ## Human publication steps
 
@@ -24,3 +20,6 @@ archives are not expected to be byte-identical.
    citation ledger.
 4. Replace `pending_human_deposit` with `verified_published_version` only after
    the version DOI resolves to this exact release.
+
+The archive packet records preparation evidence only. It does not represent a
+Zenodo deposit or DOI verification.

@@ -24,7 +24,7 @@
   "provenance": {
     "source": "GitHub release archive",
     "retrieved_at": "2026-07-15",
-    "verification_command": "curl -fsSL https://github.com/edithatogo/rac-conformance/archive/refs/tags/v0.2.0.tar.gz -o /tmp/rac-conformance-v0.2.0.tar.gz && shasum -a 256 /tmp/rac-conformance-v0.2.0.tar.gz",
+    "verification_command": "curl -fsSL <archive_url> | shasum -a 256",
     "status": "verified_pending_human_deposit"
   }
 }
