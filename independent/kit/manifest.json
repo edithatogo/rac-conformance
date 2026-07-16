@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "pic-independent-kit.v0.1.0",
+  "kitVersion": "0.1.0",
+  "contracts": ["pic-process-profile/0.1.0", "pic-fixtures/0.1.0", "pic-traces/0.1.0"],
+  "corpus": {
+    "validExamples": ["contracts/process-profile/0.1.0/examples/valid/foi-o-baseline.json"],
+    "negativePolicy": ["schema-invalid", "stale-source", "confidential-inference", "jurisdiction-leakage"]
+  },
+  "expectedResultPolicy": "Pass only when every valid example validates, every negative example is rejected for the expected class, and no controlling result is derived from secondary-only or blocked evidence.",
+  "requiredResultFields": ["implementation", "environment", "corpus", "oracle", "outcome", "evidence"]
+}

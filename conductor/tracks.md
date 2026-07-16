@@ -154,7 +154,7 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44)
 
 ---
 
-- [ ] **Track: Obtain independent v1 validation and adoption evidence**
+- [~] **Track: Obtain independent v1 validation and adoption evidence**
 Track ID: `v1_independent_validation_20260714`
 GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45)
 *Link: [./tracks/v1_independent_validation_20260714/](./tracks/v1_independent_validation_20260714/)*

@@ -4,21 +4,28 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
 
 ## Phase 1 - Independence Contract and Implementer Kit
 
-- [ ] Task: Define independent-validation evidence policy
+- [x] Task: Define independent-validation evidence policy
     - [ ] Define organisational, repository, codebase, oracle, fixture-curation, and execution independence.
     - [ ] Define qualifying, partial, conflicting, withdrawn, declined, and unresponsive outcomes.
     - [ ] Define freshness and maintenance requirements.
     - **Acceptance:** self-owned forks, agent-generated fixtures, and unacknowledged issues cannot satisfy the gate.
-- [ ] Task: Build self-contained implementer kit
+    - Evidence: `independent/INDEPENDENCE_POLICY.md` and `independent/STATUS_LEDGER.json`.
+- [x] Task: Build self-contained implementer kit
     - [ ] Package versioned schemas, examples, negative corpus, expected-result policy, runner instructions, and result manifest.
     - [ ] Remove assumptions about local paths, private services, or unpublished source material.
     - [ ] Add a clean-environment rehearsal.
     - **Acceptance:** an uninvolved reviewer can reproduce the kit's reference run.
-- [ ] Task: Build conformance evidence verifier
+    - Evidence: `independent/kit/`.
+- [x] Task: Build conformance evidence verifier
     - [ ] Validate implementation identity, versions, environment, artifact digests, result signatures/checksums, and test outcomes.
     - [ ] Reject stale, incomplete, self-certified, or unverifiable submissions.
     - **Acceptance:** verifier emits deterministic evidence status and precise exceptions.
+    - Evidence: `tools/independent_validation.py` and `tools/tests/test_independent_validation.py`.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Independence Contract and Implementer Kit' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-16): Independence policy, clean-environment kit, result
+> schema, verifier, and explicit blocked ledger are implemented. No external
+> implementation result exists yet, so the v1 adoption gate remains blocked.
 
 ## Phase 2 - Candidate Engagement
 

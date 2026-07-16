@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "pic-independent-adoption-ledger.v0.1.0",
+  "updatedAt": "2026-07-16",
+  "requiredForV1": {"maintainedConsumers": 3, "domainClasses": 2, "externalImplementation": 1},
+  "qualifyingConsumers": [],
+  "candidates": [],
+  "gate": "blocked_pending_external_evidence",
+  "reason": "No independently controlled implementation result has been submitted or acknowledged."
+}
