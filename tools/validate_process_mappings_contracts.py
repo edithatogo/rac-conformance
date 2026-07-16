@@ -117,13 +117,19 @@ def validate_manifest(manifest_path: Path, repository_root: Path) -> list[str]:
             errors.append(f"{location} must remain an observed official-schema assertion")
 
     matrix = document.get("compatibilityMatrix")
-    if not isinstance(matrix, list) or {row.get("consumer") for row in matrix if isinstance(row, dict)} != {"foi-o", "foi-process"}:
-        errors.append("compatibilityMatrix must cover both foi-o and foi-process")
-    for index, row in enumerate(matrix or []):
-        if not isinstance(row, dict) or not row.get("contractIds") or not row.get("inputIds"):
-            errors.append(f"compatibilityMatrix[{index}] must link contracts and inputs")
-        elif not set(row["inputIds"]).issubset(input_ids):
-            errors.append(f"compatibilityMatrix[{index}] references an unknown input")
+    if not isinstance(matrix, list):
+        errors.append("compatibilityMatrix must be a list")
+    else:
+        if {row.get("consumer") for row in matrix if isinstance(row, dict)} != {"foi-o", "foi-process"}:
+            errors.append("compatibilityMatrix must cover both foi-o and foi-process")
+        for index, row in enumerate(matrix):
+            if not isinstance(row, dict) or not isinstance(row.get("contractIds"), list) or not isinstance(row.get("inputIds"), list):
+                errors.append(f"compatibilityMatrix[{index}] must link contracts and inputs as lists")
+                continue
+            if not set(row["contractIds"]).issubset(seen):
+                errors.append(f"compatibilityMatrix[{index}] references an unknown contract")
+            if not set(row["inputIds"]).issubset(input_ids):
+                errors.append(f"compatibilityMatrix[{index}] references an unknown input")
 
     return errors
 

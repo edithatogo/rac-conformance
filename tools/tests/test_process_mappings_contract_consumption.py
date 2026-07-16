@@ -50,5 +50,27 @@ def test_manifest_requires_immutable_external_input_provenance(tmp_path: Path) -
     assert any("input revision" in error for error in errors)
 
 
+def test_manifest_rejects_malformed_compatibility_matrix(tmp_path: Path) -> None:
+    document = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    document["compatibilityMatrix"] = 42
+    candidate = tmp_path / "manifest.json"
+    candidate.write_text(json.dumps(document), encoding="utf-8")
+
+    errors = validate_manifest(candidate, ROOT)
+
+    assert "compatibilityMatrix must be a list" in errors
+
+
+def test_manifest_rejects_unknown_contract_reference(tmp_path: Path) -> None:
+    document = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    document["compatibilityMatrix"][0]["contractIds"] = ["unknown-contract"]
+    candidate = tmp_path / "manifest.json"
+    candidate.write_text(json.dumps(document), encoding="utf-8")
+
+    errors = validate_manifest(candidate, ROOT)
+
+    assert any("unknown contract" in error for error in errors)
+
+
 def test_candidate_profiles_validate_against_parent_contract() -> None:
     assert validate_candidate_profiles(ROOT) == []
