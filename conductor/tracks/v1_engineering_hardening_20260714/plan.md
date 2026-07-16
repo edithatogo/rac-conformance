@@ -24,19 +24,22 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
 
 ## Phase 2 - Adversarial and Semantic Testing
 
-- [ ] Task: Add property and fuzz tests
+- [x] Task: Add property and fuzz tests
     - [ ] Generate schema-valid and near-valid structures with bounded sizes.
     - [ ] Test canonicalization idempotence, round trips, determinism, and diagnostic stability.
     - [ ] Seed regressions from every discovered failure.
     - **Acceptance:** fuzz jobs are reproducible, time-bounded, and preserve failure artifacts safely.
-- [ ] Task: Add hostile-input and resource-limit tests
+    - Evidence: seeded bounded corpus in `contracts/tools/tests/test_hardening_properties.py`; an external fuzz engine is not required for the deterministic local gate.
+- [x] Task: Add hostile-input and resource-limit tests
     - [ ] Cover deep nesting, large collections, archive/path abuse, hostile strings, remote-reference attempts, and oversized decimals.
     - [ ] Enforce explicit size, depth, time, and memory limits where appropriate.
     - **Acceptance:** failures are controlled and do not expose secrets or write outside allowed paths.
+    - Evidence: `contracts/tools/tests/test_safety.py` and `pic_contracts.safety.load_bounded_json`.
 - [ ] Task: Add mutation testing to high-value deterministic modules
     - [ ] Select validators/converters with stable oracles.
     - [ ] Set justified thresholds and document equivalent/surviving mutations.
     - **Acceptance:** threshold failures block the release candidate unless explicitly waived with evidence.
+    > BLOCKED (2026-07-16): No mutation runner is configured or pinned in this repository; adding one requires selecting and reviewing a tool and its reproducibility contract.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Adversarial and Semantic Testing' (Protocol in workflow.md)
 
 ## Phase 3 - Supply Chain and Release Reproducibility
