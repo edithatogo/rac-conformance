@@ -90,3 +90,32 @@ def test_comparison_candidates_are_ranked_without_selection_or_fixture_promotion
     assert all(set(item["sourceIds"]) <= source_ids for item in candidates["candidates"])
     assert all("clinicalRecommendation" not in item for item in candidates["candidates"])
     assert all("rights" in item["scores"] for item in candidates["candidates"])
+
+
+def test_adjudication_protocol_is_data_driven_and_preserves_human_boundary() -> None:
+    rules = load_json("ADJUDICATION_RULES.json")
+    protocol = (PROFILE / "ADJUDICATION_PROTOCOL.md").read_text().lower()
+    assert rules["method"] == "deterministic-data-driven-adjudication-rules"
+    assert set(rules["controllingReviewerStates"]) == {
+        "official-primary",
+        "human-approved",
+    }
+    assert set(rules["nonControllingReviewerStates"]) == {
+        "agent-proposed",
+        "secondary",
+    }
+    assert {
+        "blocked official source",
+        "conflicting primary sources",
+        "missing effective date",
+        "fixture assumption underspecified",
+        "secondary-source-only evidence",
+    } <= set(rules["exceptionReasons"])
+    assert {item["id"] for item in rules["dispositions"]} == {
+        "confirmed_process_fact",
+        "expected_modeling_difference",
+        "fixture_adapter_issue",
+        "needs_more_source_review",
+    }
+    assert "may not act as the independent oracle" in protocol
+    assert "promote a candidate fixture" in protocol

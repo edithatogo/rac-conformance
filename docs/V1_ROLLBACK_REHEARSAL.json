@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "rac-v1-rollback-rehearsal.v0.1.0",
+  "currentCommit": "8ef5faa1ea31b714470924e53cbbd41b56ae2db1",
+  "fallbackTag": "v0.2.0",
+  "fallbackCommit": "35fdebdd6ca3ad0a254ca0b3ec5b7466b7db3fe5",
+  "artifacts": {
+    "currentSourceArchiveSha256": "221664b369eb0bd3434f0ffef7879183c219ed8790fcf7d4b3f8b7dd6a9c54f7",
+    "fallbackSourceArchiveSha256": "417bbb4fba4f22ae758ae340c25c83ab76103c80077973b9fd3913c68ab3dcd3"
+  },
+  "restore": {
+    "currentRequiredPaths": [
+      "LICENSE",
+      "contracts",
+      "conductor",
+      "SECURITY.md"
+    ],
+    "fallbackRequiredPaths": [
+      "LICENSE",
+      "contracts",
+      "conductor",
+      "SECURITY.md"
+    ],
+    "currentPass": true,
+    "fallbackPass": true
+  },
+  "tabletop": {
+    "owner": "rac-maintainers",
+    "trigger": "artifact integrity, security, or compatibility failure",
+    "actions": [
+      "freeze publication and preserve the failing artifact and logs",
+      "announce the affected commit/tag and compatibility impact",
+      "restore the last verified source/archive and compatibility metadata",
+      "rerun the full local and hosted qualification gates",
+      "publish a corrective release only after human approval"
+    ],
+    "externalActions": "Hosted yanking, package rollback, signing, and notification remain unperformed."
+  },
+  "result": "pass"
+}

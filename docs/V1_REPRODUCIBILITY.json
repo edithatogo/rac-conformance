@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "rac-v1-reproducibility.v0.1.0",
+  "commit": "8ef5faa1ea31b714470924e53cbbd41b56ae2db1",
+  "tree": "98f53c5e6692f03b6b2106462eed8d4c2862f887",
+  "sourceArchive": {
+    "firstSha256": "221664b369eb0bd3434f0ffef7879183c219ed8790fcf7d4b3f8b7dd6a9c54f7",
+    "secondSha256": "221664b369eb0bd3434f0ffef7879183c219ed8790fcf7d4b3f8b7dd6a9c54f7",
+    "identical": true
+  },
+  "trackedEvidence": {
+    "sbom": "b5ae4a49bd7367de3e3490f3b3f3fd82b9141142f900d756d8048d9e5c672db7",
+    "threatModel": "032ffc6e5105e77565fed18b8fc1de1016f2396342f2eb2dd2dd73fdfb57cc39",
+    "riskRegister": "90f6c872db88b1b3e3c4c247c329b61b9ca7652b482d925768feadad11d89a37"
+  },
+  "hostedAttestation": "workflow-configured; execution requires protected release-environment approval",
+  "result": "pass"
+}

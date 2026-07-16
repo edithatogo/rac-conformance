@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "rac-v1-mutation-gate.v0.1.0",
+  "source": "contracts/tools/src/pic_contracts/validation.py",
+  "oracle": "committed process-profile valid and invalid examples with reference checks",
+  "threshold": {
+    "minimumKilled": 3,
+    "equivalentMutants": 0
+  },
+  "mutations": [
+    {
+      "id": "contract-detection-guard",
+      "killed": true,
+      "cases": [
+        {
+          "case": "valid-profile",
+          "expectedOk": true,
+          "observedOk": false
+        },
+        {
+          "case": "missing-process",
+          "expectedOk": false,
+          "observedOk": false
+        },
+        {
+          "case": "unknown-event-state",
+          "expectedOk": false,
+          "observedOk": false
+        },
+        {
+          "case": "unknown-rule-assertion",
+          "expectedOk": false,
+          "observedOk": false
+        }
+      ]
+    },
+    {
+      "id": "event-reference-membership",
+      "killed": true,
+      "cases": [
+        {
+          "case": "valid-profile",
+          "expectedOk": true,
+          "observedOk": false
+        },
+        {
+          "case": "missing-process",
+          "expectedOk": false,
+          "observedOk": false
+        },
+        {
+          "case": "unknown-event-state",
+          "expectedOk": false,
+          "observedOk": true
+        },
+        {
+          "case": "unknown-rule-assertion",
+          "expectedOk": false,
+          "observedOk": false
+        }
+      ]
+    },
+    {
+      "id": "rule-reference-membership",
+      "killed": true,
+      "cases": [
+        {
+          "case": "valid-profile",
+          "expectedOk": true,
+          "observedOk": false
+        },
+        {
+          "case": "missing-process",
+          "expectedOk": false,
+          "observedOk": false
+        },
+        {
+          "case": "unknown-event-state",
+          "expectedOk": false,
+          "observedOk": false
+        },
+        {
+          "case": "unknown-rule-assertion",
+          "expectedOk": false,
+          "observedOk": true
+        }
+      ]
+    }
+  ],
+  "killed": 3,
+  "result": "pass"
+}

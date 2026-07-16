@@ -37,3 +37,22 @@ def test_foi_source_references_are_pinned_and_portable() -> None:
         for ref in mapping["sourceRefs"]
     )
     assert all(item["sha256"] for item in portability["references"])
+
+
+def test_foi_human_certification_template_covers_all_pending_rows() -> None:
+    template = json.loads(
+        (ROOT / "HUMAN_CERTIFICATION_DECISIONS.template.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    ids = {item["id"] for item in template["decisions"]}
+    assert len(ids) == 9
+    assert all(item["outcome"] == "pending" for item in template["decisions"])
+    assert template["reviewer"] is None
+    assert set(template["allowedOutcomes"]) == {
+        "approve-bounded",
+        "limit",
+        "reject",
+        "defer",
+    }
+    assert "No fixture is promoted" in template["promotionStatement"]

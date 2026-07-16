@@ -6,6 +6,10 @@ This packet is an operational handoff for the remaining external and human
 gates. It does not claim that any gate is complete. The local Conductor plans
 and `PROGRAMME_GATE_REGISTRY.json` remain authoritative.
 
+The v1-specific decisions for process-mappings cutover, PIC certification,
+health-technology comparison, independent validation, and release qualification
+are consolidated in `conductor/V1_REMAINING_GATES_PACKET.md`.
+
 ## 1. External adoption: #23
 
 Local preparation is complete in `external/MAINTAINER_FOLLOWUPS.md` and

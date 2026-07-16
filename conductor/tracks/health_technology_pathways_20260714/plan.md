@@ -45,10 +45,12 @@ during the repository incubation governed by
     - [ ] Present ranked candidates, source gaps, sensitivity, and expected process coverage.
     - [ ] Dylan selects, defers, or rejects the case; no fixture promotion occurs here.
     - **Acceptance:** selection and reasons are recorded without implying clinical endorsement.
+    - **Packet:** `CASE_SELECTION_PACKET.md` presents the ranked candidates, recommendation, limitations, and explicit defer/no-selection outcomes.
 - [ ] Task: Define independent-oracle and adjudication protocol
-    - [ ] Separate official process facts, public decision facts, project mappings, and unavailable deliberative evidence.
-    - [ ] Define deterministic triangulation and focused human exception review.
+    - [x] Separate official process facts, public decision facts, project mappings, and unavailable deliberative evidence.
+    - [x] Define deterministic triangulation and focused human exception review.
     - **Acceptance:** agent-authored mappings cannot self-certify.
+    - **Evidence:** `ADJUDICATION_PROTOCOL.md` and `ADJUDICATION_RULES.json` define evidence classes, resolution precedence, stable exception reasons, proposed dispositions, and the independent-oracle boundary. Regression coverage is in `contracts/tools/tests/test_health_technology_profile.py`; no candidate is selected or promoted.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Comparison Case Selection' (Protocol in workflow.md)
 
 ## Phase 3 - Executable Comparative Profiles

@@ -12,6 +12,8 @@ from pathlib import Path
 
 SUBTREE = Path("subrepos/process-mappings")
 _MARKDOWN_LINK = re.compile(r"\[[^]]+\]\(([^)]+)\)")
+MAX_FILE_BYTES = 5 * 1024 * 1024
+MAX_TOTAL_BYTES = 25 * 1024 * 1024
 
 
 def run_rehearsal(root: Path, report_path: Path, *, require_clean: bool = True) -> dict:
@@ -46,6 +48,12 @@ def run_rehearsal(root: Path, report_path: Path, *, require_clean: bool = True) 
         str(path.relative_to(SUBTREE)): hashlib.sha256((root / path).read_bytes()).hexdigest()
         for path in tracked
     }
+    total_bytes = sum((root / path).stat().st_size for path in tracked)
+    if total_bytes > MAX_TOTAL_BYTES:
+        raise ValueError(f"process-mappings subtree exceeds {MAX_TOTAL_BYTES} bytes")
+    oversized = [str(path) for path in tracked if (root / path).stat().st_size > MAX_FILE_BYTES]
+    if oversized:
+        raise ValueError(f"process-mappings files exceed {MAX_FILE_BYTES} bytes: {oversized}")
     file_manifest = "\n".join(f"{path}\0{digest}" for path, digest in sorted(file_digests.items()))
     file_manifest_sha = hashlib.sha256(file_manifest.encode()).hexdigest()
     license_digest = hashlib.sha256((root / "LICENSE").read_bytes()).hexdigest()
@@ -54,7 +62,7 @@ def run_rehearsal(root: Path, report_path: Path, *, require_clean: bool = True) 
         target = Path(temporary) / "process-mappings"
         target.mkdir()
         for relative in tracked:
-            destination = target / relative.relative_to(SUBTREE)
+            destination = _safe_destination(target, relative.relative_to(SUBTREE))
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(root / relative, destination)
         shutil.copy2(root / "LICENSE", target / "LICENSE")
@@ -122,6 +130,18 @@ def _relative_to_root(root: Path, path: Path) -> str | None:
         return str(path.resolve().relative_to(root.resolve()))
     except ValueError:
         return None
+
+
+def _safe_destination(root: Path, relative: Path) -> Path:
+    """Return a destination proven to remain below the extraction root."""
+
+    if relative.is_absolute() or ".." in relative.parts:
+        raise ValueError(f"unsafe extracted path: {relative}")
+    resolved_root = root.resolve()
+    destination = (resolved_root / relative).resolve()
+    if destination != resolved_root and resolved_root not in destination.parents:
+        raise ValueError(f"extracted path escapes destination: {relative}")
+    return destination
 
 
 def _rewrite_parent_license_link(path: Path) -> list[str]:

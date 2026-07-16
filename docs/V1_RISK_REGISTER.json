@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "rac-v1-risk-register.v0.1.0",
+  "status": "engineering-baseline",
+  "asOf": "2026-07-16",
+  "scope": "deterministic validators, converters, profiles, adapters, CI, and release artifacts",
+  "claimsBoundary": "This register does not certify policy, legal, clinical, funding, or external-service correctness.",
+  "risks": [
+    {
+      "id": "TM-01",
+      "severity": "high",
+      "category": "filesystem",
+      "owner": "rac-maintainers",
+      "control": "Path-constrained extraction and hostile path tests",
+      "verification": "tools/process_mappings_rehearsal.py plus Phase 2 hostile-input tests",
+      "status": "open",
+      "releaseDisposition": "blocking"
+    },
+    {
+      "id": "TM-02",
+      "severity": "high",
+      "category": "resource-exhaustion",
+      "owner": "rac-maintainers",
+      "control": "Archive, member-count, byte, depth, and runtime budgets",
+      "verification": "Phase 1 baseline and Phase 2 resource-limit tests",
+      "status": "open",
+      "releaseDisposition": "blocking"
+    },
+    {
+      "id": "TM-03",
+      "severity": "high",
+      "category": "parser",
+      "owner": "rac-maintainers",
+      "control": "Bounded structured-data validation and deterministic failure diagnostics",
+      "verification": "Phase 2 property and hostile-input tests",
+      "status": "open",
+      "releaseDisposition": "blocking"
+    },
+    {
+      "id": "TM-04",
+      "severity": "medium",
+      "category": "output-injection",
+      "owner": "rac-maintainers",
+      "control": "Structured output and hostile-string regression corpus",
+      "verification": "Phase 2 hostile-input tests and report review",
+      "status": "partially-controlled",
+      "releaseDisposition": "qualification-required"
+    },
+    {
+      "id": "TM-05",
+      "severity": "high",
+      "category": "provenance",
+      "owner": "profile-owners",
+      "control": "Pinned source revisions/digests; no implicit remote dereference",
+      "verification": "Source manifests, authority model, and release audit",
+      "status": "partially-controlled",
+      "releaseDisposition": "blocking-for-certified-evidence"
+    },
+    {
+      "id": "TM-06",
+      "severity": "high",
+      "category": "compatibility",
+      "owner": "contract-maintainers",
+      "control": "Fail-closed unknown revisions and migration tests",
+      "verification": "Compatibility matrices and contract test suite",
+      "status": "partially-controlled",
+      "releaseDisposition": "qualification-required"
+    },
+    {
+      "id": "TM-08",
+      "severity": "critical",
+      "category": "authority",
+      "owner": "Dylan",
+      "control": "Human/official source assertion review with effective dates",
+      "verification": "PIC and process-profile human certification packets",
+      "status": "human-gate",
+      "releaseDisposition": "blocking"
+    },
+    {
+      "id": "TM-09",
+      "severity": "critical",
+      "category": "oracle-independence",
+      "owner": "Dylan",
+      "control": "Candidate-only fixture paths and independent oracle review",
+      "verification": "Independent-validation policy and verifier",
+      "status": "human-gate",
+      "releaseDisposition": "blocking"
+    },
+    {
+      "id": "TM-10",
+      "severity": "high",
+      "category": "supply-chain",
+      "owner": "rac-maintainers",
+      "control": "Locked dependencies, immutable action pins, least privilege, and scans",
+      "verification": "Phase 3 workflow/dependency audit and hosted CI evidence",
+      "status": "open",
+      "releaseDisposition": "blocking"
+    },
+    {
+      "id": "TM-11",
+      "severity": "critical",
+      "category": "confidentiality",
+      "owner": "rac-maintainers",
+      "control": "Secret scanning, synthetic fixtures, and artifact review",
+      "verification": "CI security jobs and release artifact inspection",
+      "status": "partially-controlled",
+      "releaseDisposition": "blocking-if-detected"
+    },
+    {
+      "id": "TM-12",
+      "severity": "medium",
+      "category": "adapter-boundary",
+      "owner": "adapter-maintainers",
+      "control": "Optional isolated adapters with explicit projection loss",
+      "verification": "Camunda and service-boundary contract tests",
+      "status": "partially-controlled",
+      "releaseDisposition": "qualification-required"
+    },
+    {
+      "id": "TM-14",
+      "severity": "critical",
+      "category": "release-integrity",
+      "owner": "release-owner",
+      "control": "Immutable commit, checksums, SBOM, provenance, and clean-build comparison",
+      "verification": "v1 release candidate audit and hosted release evidence",
+      "status": "partially-controlled",
+      "releaseDisposition": "blocking"
+    }
+  ]
+}

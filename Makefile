@@ -1,4 +1,4 @@
-.PHONY: check audit audit-test release-gates-check paper-artifacts paper-artifacts-write lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
+.PHONY: check audit audit-test release-gates-check paper-artifacts paper-artifacts-write lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test v1-baseline v1-fuzz v1-mutation v1-reproducibility v1-rollback
 
 check: audit audit-test release-gates-check paper-artifacts lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
 
@@ -64,3 +64,18 @@ docassemble-oia-clock-lint:
 
 docassemble-oia-clock-test:
 	PYTHONPATH=demos/docassemble-oia-clock/src:demos/service-boundaries/src:external/foi-o/src uv run --with pytest pytest demos/docassemble-oia-clock/tests
+
+v1-baseline:
+	PYTHONPATH=contracts/tools/src uv run --with jsonschema python tools/v1_baseline.py --output docs/V1_VALIDATION_BASELINE.json
+
+v1-fuzz:
+	PYTHONPATH=contracts/tools/src uv run --with jsonschema python tools/v1_fuzz.py --output docs/V1_FUZZ_BASELINE.json
+
+v1-mutation:
+	PYTHONPATH=contracts/tools/src uv run --with jsonschema python tools/v1_mutation.py --output docs/V1_MUTATION_GATE.json
+
+v1-reproducibility:
+	uv run python tools/v1_reproducibility.py --output docs/V1_REPRODUCIBILITY.json
+
+v1-rollback:
+	PYTHONPATH=tools uv run python tools/v1_rollback_rehearsal.py --output docs/V1_ROLLBACK_REHEARSAL.json

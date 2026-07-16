@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "rac-independent-candidate-registry.v0.1.0",
+  "status": "draft-awaiting-human-target-selection",
+  "selectionRule": "A candidate is eligible only when an external organisation owns the implementation and oracle, the surface addresses a documented consumer problem, and results are attributable and reproducible.",
+  "candidates": [
+    {
+      "id": "policyengine-core",
+      "organisation": "PolicyEngine",
+      "sourceRepository": "https://github.com/PolicyEngine/policyengine-core",
+      "problemEvidence": ["https://github.com/PolicyEngine/policyengine-core/issues/512", "https://github.com/PolicyEngine/policyengine-core/issues/513", "https://github.com/PolicyEngine/policyengine-core/issues/514"],
+      "boundedSurface": "Consume the versioned PIC trace, missingness, or fixture-converter contract in a clean upstream test job without changing PolicyEngine calculation semantics.",
+      "expectedEffort": "One small adapter or fixture corpus plus an upstream test workflow.",
+      "owner": "PolicyEngine maintainer selected by Dylan",
+      "independenceRisk": "A maintainer-controlled fork or contributor branch is insufficient unless the implementation and oracle are independently curated and the external organisation acknowledges the result.",
+      "noResponseExit": "After one authorized issue/PR follow-up and the documented response window, record unresponsive and do not count the candidate toward v1 adoption.",
+      "status": "candidate-awaiting-human-outreach-approval"
+    },
+    {
+      "id": "openfisca-core",
+      "organisation": "OpenFisca",
+      "sourceRepository": "https://github.com/openfisca/openfisca-core",
+      "problemEvidence": ["https://github.com/openfisca/openfisca-core/issues/1380", "https://github.com/openfisca/openfisca-core/pull/1382"],
+      "boundedSurface": "Validate a read-only PIC trace or missingness projection against OpenFisca's existing calculation and test conventions, preserving OpenFisca as the semantic engine.",
+      "expectedEffort": "One adapter fixture set and a reproducible upstream CI invocation.",
+      "owner": "OpenFisca maintainer selected by Dylan",
+      "independenceRisk": "The RaC maintainer cannot curate the OpenFisca oracle or treat an unreviewed local fork as independent evidence.",
+      "noResponseExit": "After one authorized follow-up and the documented response window, record unresponsive and do not count the candidate toward v1 adoption.",
+      "status": "candidate-awaiting-human-outreach-approval"
+    },
+    {
+      "id": "openfisca-aotearoa",
+      "organisation": "BetterRules / OpenFisca Aotearoa",
+      "sourceRepository": "https://github.com/BetterRules/openfisca-aotearoa",
+      "problemEvidence": ["https://github.com/BetterRules/openfisca-aotearoa/issues/199", "https://github.com/BetterRules/openfisca-aotearoa/pull/200"],
+      "boundedSurface": "Run the PIC fixture and trace projection against the NZ rules package used by the existing reconciliation study, without promoting any agent-generated fixture as golden evidence.",
+      "expectedEffort": "One NZ-specific adapter fixture set and a clean hosted test run.",
+      "owner": "BetterRules maintainer selected by Dylan",
+      "independenceRisk": "The existing local fork and reconciliation study are contributor-controlled and therefore rehearsal evidence only until BetterRules independently runs and acknowledges the result.",
+      "noResponseExit": "After one authorized follow-up and the documented response window, record unresponsive and do not count the candidate toward v1 adoption.",
+      "status": "candidate-awaiting-human-outreach-approval"
+    },
+    {
+      "id": "unaffiliated-research-or-public-sector-implementer",
+      "organisation": "To be identified",
+      "sourceRepository": null,
+      "problemEvidence": [],
+      "boundedSurface": "Use the self-contained PIC implementer kit with an independently curated synthetic process case and publish the input, output, oracle, environment, and checksums.",
+      "expectedEffort": "A bounded clean-room implementation and one reproducible evidence packet.",
+      "owner": "Dylan to nominate; external organisation to execute",
+      "independenceRisk": "The organisation, implementation, and oracle curator must be independent of this repository and must acknowledge the result; no candidate has yet been identified.",
+      "noResponseExit": "If no suitable organisation is identified after the approved outreach round, record no-selection and keep the v1 gate blocked rather than substituting an internal rehearsal.",
+      "status": "preferred-but-unidentified"
+    }
+  ],
+  "humanBoundary": "No candidate is approved, contacted, submitted, or counted as adoption by this registry. Human authorization is required for each external communication.",
+  "sourceOfTruth": "This registry supplements CANDIDATES.md; external acknowledgements and immutable result packets must be added before any candidate can satisfy the v1 gate."
+}

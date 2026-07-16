@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "rac-v1-release-provenance.v0.1.0",
+  "release": "v1.0.0-rc.1",
+  "source": {"repository": "https://github.com/edithatogo/rac-conformance", "commit": "4206608baa37c4844cb4aee4a629797df9479ff9", "dirtyTree": false},
+  "build": {"packageCommand": "uv build --out-dir <dir> contracts/tools", "archiveCommand": "git archive --format=tar --prefix=rac-conformance-v1.0.0-rc.1/ HEAD | gzip -n", "cleanBuildsCompared": 2, "sourceArchiveAndPackagesByteIdentical": true, "hostedQualification": "docs/V1_HOSTED_QUALIFICATION.md"},
+  "attestation": {"status": "not-signed", "reason": "Human signing and protected release-environment gates remain open."}
+}

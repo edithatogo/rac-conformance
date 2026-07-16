@@ -1,6 +1,5 @@
 import copy
 import datetime as dt
-import json
 
 from tools.independent_evidence import classify
 

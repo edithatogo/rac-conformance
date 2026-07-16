@@ -1,20 +1,27 @@
 # v1.0 Release Authorization Packet
 
-## Candidate
+## Candidate status
 
-- Programme release: `v1.0.0-rc.1`
-- Candidate source commit: `0c4a83b55208bae59592af017c6e0f66194ec8bb`
-- Source archive SHA-256: `d5bd7e39d81ed1fbf37e6580695d57736d7a2292831ad9673050a60ee5cde933`
-- Package artifacts and checksums: `release-candidate/SHA256SUMS`
-- Gate audit: `V1_RELEASE_GATE_AUDIT.json`
-- Qualification: `V1_QUALIFICATION_MATRIX.md`
+- A current, unpublished `v1.0.0-rc.1` candidate has been rebuilt from
+  `4206608baa37c4844cb4aee4a629797df9479ff9`. The candidate manifest,
+  provenance, packages, source archive, checksums, compatibility report, and
+  hosted qualification evidence are under `release-candidate/current/`. The
+  prior `0c4a83b` candidate is historical evidence only and must not be
+  promoted.
+- Current gate manifest: `conductor/v1-release-gates.json`
+- Current hardening evidence: `docs/V1_THREAT_MODEL.md`,
+  `docs/V1_RISK_REGISTER.json`, `docs/V1_VALIDATION_BASELINE.json`,
+  `docs/V1_FUZZ_BASELINE.json`, `docs/V1_SUPPLY_CHAIN_EVIDENCE.md`, and
+  `docs/V1_SBOM.json`
 - Security/claims review: `V1_SECURITY_CLAIMS_REVIEW.md`
 
 ## Current decision
 
-`DO NOT AUTHORIZE v1.0`: the candidate remains blocked by the FOI-O release-
-evidence bundle, independent adoption, paper refresh, paper-programme
-submission authorization, Project 14 manual verification, and Zenodo deposit.
+`DO NOT AUTHORIZE v1.0`: the current candidate must remain unpublished until
+the FOI-O
+release-evidence bundle, independent adoption, paper refresh, paper-programme
+submission authorization, Project 14 manual verification, Zenodo deposit, and
+engineering-hardening gates change state.
 
 ## Human decision checklist
 

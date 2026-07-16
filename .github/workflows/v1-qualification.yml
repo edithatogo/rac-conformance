@@ -1,0 +1,65 @@
+name: v1 Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v1-qualification-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qualification:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.12", "3.13"]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install uv
+        run: python -m pip install --disable-pip-version-check uv==0.11.8
+
+      - name: Run complete repository gate
+        run: make check
+
+      - name: Generate v1 qualification evidence
+        run: |
+          make v1-baseline
+          make v1-fuzz
+          make v1-mutation
+          make v1-reproducibility
+          make v1-rollback
+
+      - name: Upload qualification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: v1-qualification-${{ matrix.os }}-py${{ matrix.python }}
+          path: |
+            docs/V1_VALIDATION_BASELINE.json
+            docs/V1_FUZZ_BASELINE.json
+            docs/V1_MUTATION_GATE.json
+            docs/V1_REPRODUCIBILITY.json
+            docs/V1_ROLLBACK_REHEARSAL.json
+          if-no-files-found: error
+          retention-days: 90

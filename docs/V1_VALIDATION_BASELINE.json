@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "rac-v1-validation-baseline.v0.1.0",
+  "observedAt": "2026-07-16",
+  "reference": {
+    "python": "3.14.5",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "implementation": "CPython",
+    "validator": "pic_contracts.validation.validate_file"
+  },
+  "budgets": {
+    "small_valid_ms": 250,
+    "small_invalid_ms": 250,
+    "large_valid_ms": 1000,
+    "deep_invalid_ms": 250,
+    "large_document_bytes": 250000,
+    "deep_nesting": 64
+  },
+  "variancePolicy": "Timings are reference measurements. A budget increase requires a reviewed change to this artifact and a reason; missing or failed cases are not treated as passing.",
+  "cases": [
+    {
+      "name": "small-valid",
+      "expectedOk": true,
+      "observedOk": true,
+      "issueCount": 0,
+      "elapsedMs": 5.142,
+      "bytes": 1424
+    },
+    {
+      "name": "small-invalid",
+      "expectedOk": false,
+      "observedOk": false,
+      "issueCount": 1,
+      "elapsedMs": 1.938,
+      "bytes": 357
+    },
+    {
+      "name": "large-valid",
+      "expectedOk": true,
+      "observedOk": true,
+      "issueCount": 0,
+      "elapsedMs": 8.566,
+      "bytes": 24794
+    },
+    {
+      "name": "deep-invalid",
+      "expectedOk": false,
+      "observedOk": false,
+      "issueCount": 2,
+      "elapsedMs": 1.53,
+      "bytes": 1077
+    }
+  ],
+  "result": "pass"
+}
