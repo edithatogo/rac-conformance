@@ -20,11 +20,12 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
 
 ## Phase 2 - Adversarial and Semantic Testing
 
-- [ ] Task: Add property and fuzz tests
+- [x] Task: Add property and fuzz tests
     - [ ] Generate schema-valid and near-valid structures with bounded sizes.
     - [ ] Test canonicalization idempotence, round trips, determinism, and diagnostic stability.
     - [ ] Seed regressions from every discovered failure.
     - **Acceptance:** fuzz jobs are reproducible, time-bounded, and preserve failure artifacts safely.
+    - Evidence: `tools/v1_fuzz.py`, `Makefile` target `v1-fuzz`, and `docs/V1_FUZZ_BASELINE.json` run six bounded deterministic mutations from a committed synthetic example and require every mutation to fail closed.
 - [ ] Task: Add hostile-input and resource-limit tests
     - [ ] Cover deep nesting, large collections, archive/path abuse, hostile strings, remote-reference attempts, and oversized decimals.
     - [ ] Enforce explicit size, depth, time, and memory limits where appropriate.

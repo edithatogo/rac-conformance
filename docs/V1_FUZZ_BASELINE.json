@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "rac-v1-validation-fuzz.v0.1.0",
+  "seed": "committed-example:contracts/process-profile/0.1.0/examples/valid/foi-oia.json",
+  "mutationCount": 6,
+  "bounds": {
+    "maxMutations": 6,
+    "maxDepth": 64,
+    "maxIdentifierLength": 10000
+  },
+  "results": [
+    {
+      "name": "missing-required-process",
+      "expectedOk": false,
+      "observedOk": false,
+      "issueCount": 1,
+      "diagnosticCodes": [
+        "schema"
+      ]
+    },
+    {
+      "name": "unsupported-state-kind",
+      "expectedOk": false,
+      "observedOk": false,
+      "issueCount": 1,
+      "diagnosticCodes": [
+        "schema"
+      ]
+    },
+    {
+      "name": "unknown-state-reference",
+      "expectedOk": false,
+      "observedOk": false,
+      "issueCount": 1,
+      "diagnosticCodes": [
+        "reference"
+      ]
+    },
+    {
+      "name": "hostile-string",
+      "expectedOk": false,
+      "observedOk": false,
+      "issueCount": 1,
+      "diagnosticCodes": [
+        "schema"
+      ]
+    },
+    {
+      "name": "large-identifier-valid",
+      "expectedOk": true,
+      "observedOk": true,
+      "issueCount": 0,
+      "diagnosticCodes": []
+    },
+    {
+      "name": "deep-unknown-value",
+      "expectedOk": false,
+      "observedOk": false,
+      "issueCount": 1,
+      "diagnosticCodes": [
+        "schema"
+      ]
+    }
+  ],
+  "result": "pass"
+}
