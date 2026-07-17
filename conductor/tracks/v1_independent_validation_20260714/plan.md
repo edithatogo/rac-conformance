@@ -59,6 +59,10 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     > https://github.com/PolicyEngine/policyengine-core/issues/512#issuecomment-4998530912
     > with a 14-day response window and one-follow-up limit. The target remains
     > pending maintainer response; no adoption or independent result is claimed.
+    > HUMAN DECISION (2026-07-17): Dylan approved deferring the unaffiliated
+    > research/public-sector route until a named organisation, repository,
+    > owner, and communication channel are identified. No generic invitation
+    > will be sent and no internal rehearsal will satisfy the v1 gate.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Candidate Engagement' (Protocol in workflow.md)
 
 ## Phase 3 - Result Verification and Feedback

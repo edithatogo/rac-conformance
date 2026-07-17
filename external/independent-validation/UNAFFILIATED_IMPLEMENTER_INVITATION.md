@@ -1,6 +1,7 @@
 # Unaffiliated Implementer Invitation
 
-Status: draft; no organisation has been identified or contacted.
+Status: deferred pending identification of a named organisation; no invitation
+has been sent.
 
 The preferred qualifying route is an unaffiliated public-sector or research
 organisation that has a real need for deterministic process or rules
@@ -15,3 +16,10 @@ RaC repository's implementation. It must request the fields in
 
 No invitation may be sent until Dylan identifies the organisation and approves
 the exact communication.
+
+## Human decision
+
+On 2026-07-17, Dylan approved deferring this route until a specific external
+research or public-sector organisation, repository, owner, and communication
+channel are identified. No generic invitation will be sent and no internal
+rehearsal will satisfy the v1 gate.

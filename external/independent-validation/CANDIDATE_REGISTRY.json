@@ -1,6 +1,6 @@
 {
   "schemaVersion": "rac-independent-candidate-registry.v0.1.0",
-  "status": "draft-awaiting-human-target-selection",
+  "status": "draft-awaiting-named-unaffiliated-implementer",
   "selectionRule": "A candidate is eligible only when an external organisation owns the implementation and oracle, the surface addresses a documented consumer problem, and results are attributable and reproducible.",
   "candidates": [
     {
@@ -49,7 +49,7 @@
       "owner": "Dylan to nominate; external organisation to execute",
       "independenceRisk": "The organisation, implementation, and oracle curator must be independent of this repository and must acknowledge the result; no candidate has yet been identified.",
       "noResponseExit": "If no suitable organisation is identified after the approved outreach round, record no-selection and keep the v1 gate blocked rather than substituting an internal rehearsal.",
-      "status": "preferred-but-unidentified"
+      "status": "deferred-until-named-organisation"
     }
   ],
   "humanBoundary": "No candidate is approved, contacted, submitted, or counted as adoption by this registry. Human authorization is required for each external communication.",
