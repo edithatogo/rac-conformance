@@ -1,6 +1,6 @@
 # Independent Validation Candidates
 
-Status: draft for human target selection; no outreach has been sent.
+Status: bounded PolicyEngine and OpenFisca core outreach submitted and awaiting response; other targets remain uncontacted or deferred. No adoption is claimed.
 
 The machine-readable candidate registry is
 `CANDIDATE_REGISTRY.json`. It is the review surface for target ownership,
@@ -14,8 +14,8 @@ are candidate surfaces, not adoption evidence.
 
 | Candidate | Consumer problem | Proposed bounded surface | Independence risk | Disposition |
 | --- | --- | --- | --- | --- |
-| PolicyEngine maintainers | Reproducible cross-engine trace and fixture comparison | Consume `pic-semantics/0.1.0` or `pic-traces/0.2.0` in a clean test job | Existing upstream proposal may be a maintainer-controlled fork; only a fresh independently-owned implementation qualifies | Requires human outreach approval |
-| OpenFisca maintainers | Process/trace representation around rules-heavy jurisdiction models | Validate a read-only profile or trace projection without changing engine semantics | Existing contribution path may not establish organizational or oracle independence | Requires human outreach approval |
+| PolicyEngine maintainers | Reproducible cross-engine trace and fixture comparison | Consume `pic-semantics/0.1.0` or `pic-traces/0.2.0` in a clean test job | Existing upstream proposal may be a maintainer-controlled fork; only a fresh independently-owned implementation qualifies | Authorized outreach submitted; awaiting maintainer response |
+| OpenFisca maintainers | Process/trace representation around rules-heavy jurisdiction models | Validate a read-only profile or trace projection without changing engine semantics | Existing contribution path may not establish organizational or oracle independence | Authorized outreach submitted; awaiting maintainer response |
 | An unaffiliated public-sector or research implementer | Need for source-backed process profile and deterministic conformance evidence | Run the self-contained PIC implementer kit against an independently curated synthetic case | Candidate must be identified and must curate its own oracle | Preferred qualifying route; candidate not yet identified |
 
 ## Required submission contents

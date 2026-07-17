@@ -2,7 +2,7 @@
 
 **Snapshot date:** 2026-07-17
 **Track:** `v1_independent_validation_20260714`
-**Disposition:** blocked pending external evidence and analyst authorization
+**Disposition:** blocked pending external evidence; selected outreach submitted and awaiting response
 
 ## Review worksheet
 
@@ -26,10 +26,14 @@ an evidence failure, not permission to continue.
 
 ## Current dispositions
 
-- **PolicyEngine:** open PRs and issue-linked proposals remain maintainer
-  controlled submissions; no independent consumer result is present.
-- **OpenFisca core:** PR #1382 remains open; issue #1381 remains awaiting
-  maintainer direction; no independent consumer result is present.
+- **PolicyEngine:** the authorized bounded comment is recorded at
+  https://github.com/PolicyEngine/policyengine-core/issues/512#issuecomment-4998530912
+  and awaits a response. The comment is not acknowledgement, an independent
+  result, or adoption.
+- **OpenFisca core:** the authorized bounded comment is recorded at
+  https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-4998515274
+  and awaits a response. The comment is not acknowledgement, an independent
+  result, or adoption.
 - **OpenFisca Aotearoa:** PR #200 remains open; a fork implementation is not
   independent adoption evidence for this gate.
 - **FOI-O:** issue #27 remains open. The local remediation candidate is not an

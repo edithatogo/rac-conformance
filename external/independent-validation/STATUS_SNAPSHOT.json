@@ -6,13 +6,13 @@
   "gate": "blocked_pending_external_evidence",
   "externalEvidence": "absent",
   "adoptionClaim": "not_claimed",
-  "outreach": "not_authorized_by_this_packet",
+  "outreach": "authorized_and_submitted_for_selected_targets_awaiting_response",
   "targets": {
-    "policyengine": {"state": "open_pending_maintainer_review", "independentResult": false},
-    "openfiscaCore": {"state": "open_pending_maintainer_review", "independentResult": false},
+    "policyengine": {"state": "outreach_submitted_awaiting_maintainer_response", "independentResult": false, "outreachUrl": "https://github.com/PolicyEngine/policyengine-core/issues/512#issuecomment-4998530912"},
+    "openfiscaCore": {"state": "outreach_submitted_awaiting_maintainer_response", "independentResult": false, "outreachUrl": "https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-4998515274"},
     "openfiscaAotearoa": {"state": "open_pending_maintainer_review", "independentResult": false},
     "foiO": {"state": "open_pending_release_evidence_bundle", "independentResult": false},
     "unaffiliated": {"state": "deferred_no_named_owner_or_channel", "independentResult": false}
   },
-  "recheckRequiredBefore": ["human outreach authorization", "paper handoff", "ledger update", "v1 certification"]
+  "recheckRequiredBefore": ["selected-target maintainer response or response-window expiry", "additional outreach authorization", "paper handoff", "ledger update", "v1 certification"]
 }

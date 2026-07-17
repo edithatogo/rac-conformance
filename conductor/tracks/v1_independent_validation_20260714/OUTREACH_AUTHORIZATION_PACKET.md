@@ -1,6 +1,6 @@
 # Independent-validation outreach authorization packet
 
-Status: **ready for human target selection; no outreach has been sent**.
+Status: **PolicyEngine and OpenFisca core outreach authorized and submitted; awaiting response. Other targets require separate authorization. No adoption is claimed.**
 
 This packet turns issue #45's human gate into a bounded authorization decision.
 It does not claim adoption, authorize contact by itself, or permit the RaC
