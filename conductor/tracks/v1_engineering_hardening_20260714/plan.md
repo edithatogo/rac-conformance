@@ -98,5 +98,11 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     - [ ] Present open risks, waivers, unsupported platforms, and signing/provenance evidence.
     - [ ] Dylan approves, rejects, or defers release-candidate qualification.
     - **Acceptance:** no risk is accepted implicitly by merging code.
+    > ANALYST DECISION (2026-07-18): Dylan approved a signed v1.0 release tag
+    > plus verified artifact attestations, without retroactively requiring all
+    > commits to be signed. The decision is recorded against `73aff57` in
+    > `RESIDUAL_RISK_DECISION_PACKET.md`. Signing identity selection, final-tree
+    > rebuild, protected attestation execution, verification, all other risk
+    > decisions, and publication remain pending; this task stays unchecked.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
     - **REVIEW:** Automated qualification is complete. Package attestations, live rollback evidence, signing posture, and human residual-risk approval remain separate release gates.
