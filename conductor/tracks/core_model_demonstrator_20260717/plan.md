@@ -48,9 +48,10 @@ Consumes completed work from [#39](https://github.com/edithatogo/rac-conformance
     - [x] Keep hosted attestations, signing, live rollback, and external evidence explicitly deferred.
     - **Acceptance:** local core evidence is reproducible and residual external gates are named rather than hidden.
     - **Evidence:** `CORE_HARDENING_EVIDENCE.md`; existing `security/`, `docs/V1_REPRODUCIBILITY.json`, `docs/V1_MUTATION_GATE.json`; `make check` passed on 2026-07-17.
-- [ ] Task: Prepare core demonstrator readiness packet
-    - [ ] State the core claims supported by each evidence level.
-    - [ ] Link the FOI-O certification, normalized trace, validator corpus, and hardening evidence.
-    - [ ] Link [DEFERRED_ROADMAP.md](../../DEFERRED_ROADMAP.md) for all excluded work.
+- [x] Task: Prepare core demonstrator readiness packet
+    - [x] State the core claims supported by each evidence level.
+    - [x] Link the FOI-O certification, normalized trace, validator corpus, and hardening evidence.
+    - [x] Link [DEFERRED_ROADMAP.md](../../DEFERRED_ROADMAP.md) for all excluded work.
     - **Acceptance:** a reviewer can distinguish model completeness, demonstration evidence, and deferred programme work.
+    - **Evidence:** [CORE_READINESS_PACKET.md](CORE_READINESS_PACKET.md); human certification remains the explicit Phase 3 gate.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Local hardening and core readiness'
