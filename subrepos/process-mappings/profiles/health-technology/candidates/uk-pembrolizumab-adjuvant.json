@@ -1,0 +1,44 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "profileId": "health-technology/uk-pembrolizumab-adjuvant",
+  "profileVersion": "0.1.0",
+  "processDefinitionVersion": "0.1.0",
+  "jurisdiction": "UK",
+  "applicableAt": "2022-02-02T00:00:00Z",
+  "observedAt": "2026-07-17T06:14:29Z",
+  "sourceAssertions": [
+    {"id": "health/source/uk-mhra-market-authorisation", "authority": "guidance", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "MHRA publishes a medicine marketing-authorisation process description.", "sourceUri": "https://www.gov.uk/guidance/apply-for-a-licence-to-market-a-medicine-in-the-uk", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": null, "effectiveTo": null, "controlling": false},
+    {"id": "health/source/uk-nice-process-manual", "authority": "guidance", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "NICE publishes a technology-appraisal process manual.", "sourceUri": "https://www.nice.org.uk/process/pmg36", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": "2026-03-31", "effectiveTo": null, "controlling": false},
+    {"id": "health/source/uk-nice-ta766", "authority": "national_policy", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "NICE publishes technology-appraisal guidance relevant to the selected melanoma comparison.", "sourceUri": "https://www.nice.org.uk/guidance/ta766", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": "2022-02-02", "effectiveTo": null, "controlling": false}
+  ],
+  "actors": [
+    {"id": "health/uk/mhra", "kind": "organization", "name": "MHRA", "authoritySourceAssertionIds": ["health/source/uk-mhra-market-authorisation"]},
+    {"id": "health/uk/nice", "kind": "organization", "name": "NICE", "authoritySourceAssertionIds": ["health/source/uk-nice-process-manual", "health/source/uk-nice-ta766"]},
+    {"id": "health/system/profile", "kind": "system", "name": "Candidate profile recorder", "authoritySourceAssertionIds": []}
+  ],
+  "states": [
+    {"id": "health/uk/state/application-recorded", "kind": "initial", "label": "Application or evidence record observed", "sourceAssertionIds": ["health/source/uk-mhra-market-authorisation", "health/source/uk-nice-process-manual"]},
+    {"id": "health/uk/state/regulatory-and-appraisal-processes-observed", "kind": "intermediate", "label": "Regulatory and appraisal process stages observed", "sourceAssertionIds": ["health/source/uk-mhra-market-authorisation", "health/source/uk-nice-process-manual"]},
+    {"id": "health/uk/state/source-review-held", "kind": "terminal", "label": "Held for source and comparability review", "sourceAssertionIds": ["health/source/uk-nice-ta766"]}
+  ],
+  "events": [
+    {"id": "health/uk/event/application-recorded", "kind": "observed_event", "eventType": "ApplicationRecordObserved", "occurredAt": "2022-02-02T00:00:00Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/system/profile", "sourceAssertionIds": ["health/source/uk-mhra-market-authorisation", "health/source/uk-nice-process-manual"]},
+    {"id": "health/uk/event/regulatory-process-observed", "kind": "observed_event", "eventType": "RegulatoryProcessDescriptionObserved", "occurredAt": "2026-07-17T06:14:29Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/uk/mhra", "sourceAssertionIds": ["health/source/uk-mhra-market-authorisation"]},
+    {"id": "health/uk/event/appraisal-process-observed", "kind": "observed_event", "eventType": "AppraisalProcessDescriptionObserved", "occurredAt": "2026-07-17T06:14:29Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/uk/nice", "sourceAssertionIds": ["health/source/uk-nice-process-manual", "health/source/uk-nice-ta766"]},
+    {"id": "health/uk/event/source-review-held", "kind": "derived_state", "eventType": "SourceReviewRequired", "occurredAt": "2026-07-17T06:14:30Z", "observedAt": "2026-07-17T06:14:30Z", "actorId": "health/system/profile", "sourceAssertionIds": ["health/source/uk-nice-ta766"]}
+  ],
+  "timers": [],
+  "transitions": [
+    {"id": "health/uk/transition/record-observe", "fromStateId": "health/uk/state/application-recorded", "toStateId": "health/uk/state/regulatory-and-appraisal-processes-observed", "triggerEventId": "health/uk/event/regulatory-process-observed", "sourceAssertionIds": ["health/source/uk-mhra-market-authorisation"]},
+    {"id": "health/uk/transition/observe-hold", "fromStateId": "health/uk/state/regulatory-and-appraisal-processes-observed", "toStateId": "health/uk/state/source-review-held", "triggerEventId": "health/uk/event/source-review-held", "sourceAssertionIds": ["health/source/uk-nice-ta766"]}
+  ],
+  "tasks": [{"id": "health/uk/task/source-review", "kind": "evidence_task", "name": "Review source applicability and indication boundaries", "actorRole": "human reviewer", "sourceAssertionIds": ["health/source/uk-nice-ta766"]}],
+  "ruleInvocations": [],
+  "evidenceReferences": [
+    {"id": "health/uk/evidence/mhra", "uri": "urn:sha256:d2fa0dacc41fb3e22d33337e2bcbd8c13c162dd0dd24bccf4ccfbd8f5a686ddb", "sha256": "d2fa0dacc41fb3e22d33337e2bcbd8c13c162dd0dd24bccf4ccfbd8f5a686ddb", "sourceAssertionIds": ["health/source/uk-mhra-market-authorisation"]},
+    {"id": "health/uk/evidence/nice-manual", "uri": "urn:sha256:b2c4e2d0f6d5f2a89549eb4b05b7eddf2bcf9b24bfbbba91ca494eba4ab8898f", "sha256": "b2c4e2d0f6d5f2a89549eb4b05b7eddf2bcf9b24bfbbba91ca494eba4ab8898f", "sourceAssertionIds": ["health/source/uk-nice-process-manual"]},
+    {"id": "health/uk/evidence/nice-ta766", "uri": "urn:sha256:bd3e5c03361b0853cdc56eec817a936d869e45955506750baffc85cb139d0a41", "sha256": "bd3e5c03361b0853cdc56eec817a936d869e45955506750baffc85cb139d0a41", "sourceAssertionIds": ["health/source/uk-nice-ta766"]}
+  ],
+  "traces": [{"id": "health/uk/trace/candidate", "traceContract": "pic-traces/0.2.0", "artifactRef": "pic-traces/0.2.0#health/uk/pembrolizumab-adjuvant", "eventIds": ["health/uk/event/application-recorded", "health/uk/event/regulatory-process-observed", "health/uk/event/appraisal-process-observed", "health/uk/event/source-review-held"], "ruleInvocationIds": [], "equivalenceClaim": "path", "lossNotes": ["Confidential deliberation, negotiation, clinical appropriateness, funding entitlement, and patient access are not represented."]}],
+  "exceptions": [{"id": "health/uk/exception/source-review", "kind": "human_adjudication_required", "description": "Human review is required for source applicability, indication alignment, effective dates, and comparison limits before promotion."}]
+}

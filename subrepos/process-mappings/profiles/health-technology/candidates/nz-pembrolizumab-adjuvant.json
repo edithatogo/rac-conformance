@@ -1,0 +1,44 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "profileId": "health-technology/nz-pembrolizumab-adjuvant",
+  "profileVersion": "0.1.0",
+  "processDefinitionVersion": "0.1.0",
+  "jurisdiction": "NZ",
+  "applicableAt": "2025-06-01T00:00:00Z",
+  "observedAt": "2026-07-17T06:14:29Z",
+  "sourceAssertions": [
+    {"id": "health/source/nz-medsafe-evaluation", "authority": "guidance", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "Medsafe publishes a medicine evaluation process description.", "sourceUri": "https://www.medsafe.govt.nz/Consumers/Safety-of-Medicines/medsafe-evaluation-process.asp", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": null, "effectiveTo": null, "controlling": false},
+    {"id": "health/source/nz-pharmac-funding", "authority": "national_policy", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "Pharmac publishes a medicine funding application journey.", "sourceUri": "https://pharmac.govt.nz/assets/Uploads/Journey-of-a-medicine-funding-application.pdf", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": null, "effectiveTo": null, "controlling": false},
+    {"id": "health/source/nz-pharmac-melanoma-2025", "authority": "national_policy", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "Pharmac publishes a public decision record relevant to the selected melanoma comparison.", "sourceUri": "https://www.pharmac.govt.nz/news-and-resources/consultations-and-decisions/decision-to-fund-treatments-for-stage-iii-and-iv-melanoma-and-widen-access-to-treatments-for-immune-checkpoint-inhibitor-related-toxicity?page=1&type=all", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": "2025-06-01", "effectiveTo": null, "controlling": false}
+  ],
+  "actors": [
+    {"id": "health/nz/medsafe", "kind": "organization", "name": "Medsafe", "authoritySourceAssertionIds": ["health/source/nz-medsafe-evaluation"]},
+    {"id": "health/nz/pharmac", "kind": "organization", "name": "Pharmac", "authoritySourceAssertionIds": ["health/source/nz-pharmac-funding", "health/source/nz-pharmac-melanoma-2025"]},
+    {"id": "health/system/profile", "kind": "system", "name": "Candidate profile recorder", "authoritySourceAssertionIds": []}
+  ],
+  "states": [
+    {"id": "health/nz/state/application-recorded", "kind": "initial", "label": "Application or evidence record observed", "sourceAssertionIds": ["health/source/nz-medsafe-evaluation", "health/source/nz-pharmac-funding"]},
+    {"id": "health/nz/state/regulatory-and-funding-processes-observed", "kind": "intermediate", "label": "Regulatory and funding process stages observed", "sourceAssertionIds": ["health/source/nz-medsafe-evaluation", "health/source/nz-pharmac-funding"]},
+    {"id": "health/nz/state/source-review-held", "kind": "terminal", "label": "Held for source and comparability review", "sourceAssertionIds": ["health/source/nz-pharmac-melanoma-2025"]}
+  ],
+  "events": [
+    {"id": "health/nz/event/application-recorded", "kind": "observed_event", "eventType": "ApplicationRecordObserved", "occurredAt": "2025-06-01T00:00:00Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/system/profile", "sourceAssertionIds": ["health/source/nz-medsafe-evaluation", "health/source/nz-pharmac-funding"]},
+    {"id": "health/nz/event/regulatory-process-observed", "kind": "observed_event", "eventType": "RegulatoryProcessDescriptionObserved", "occurredAt": "2026-07-17T06:14:29Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/nz/medsafe", "sourceAssertionIds": ["health/source/nz-medsafe-evaluation"]},
+    {"id": "health/nz/event/funding-process-observed", "kind": "observed_event", "eventType": "FundingProcessDescriptionObserved", "occurredAt": "2026-07-17T06:14:29Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/nz/pharmac", "sourceAssertionIds": ["health/source/nz-pharmac-funding"]},
+    {"id": "health/nz/event/source-review-held", "kind": "derived_state", "eventType": "SourceReviewRequired", "occurredAt": "2026-07-17T06:14:30Z", "observedAt": "2026-07-17T06:14:30Z", "actorId": "health/system/profile", "sourceAssertionIds": ["health/source/nz-pharmac-melanoma-2025"]}
+  ],
+  "timers": [],
+  "transitions": [
+    {"id": "health/nz/transition/record-observe", "fromStateId": "health/nz/state/application-recorded", "toStateId": "health/nz/state/regulatory-and-funding-processes-observed", "triggerEventId": "health/nz/event/regulatory-process-observed", "sourceAssertionIds": ["health/source/nz-medsafe-evaluation"]},
+    {"id": "health/nz/transition/observe-hold", "fromStateId": "health/nz/state/regulatory-and-funding-processes-observed", "toStateId": "health/nz/state/source-review-held", "triggerEventId": "health/nz/event/source-review-held", "sourceAssertionIds": ["health/source/nz-pharmac-melanoma-2025"]}
+  ],
+  "tasks": [{"id": "health/nz/task/source-review", "kind": "evidence_task", "name": "Review source applicability and indication boundaries", "actorRole": "human reviewer", "sourceAssertionIds": ["health/source/nz-pharmac-melanoma-2025"]}],
+  "ruleInvocations": [],
+  "evidenceReferences": [
+    {"id": "health/nz/evidence/medsafe", "uri": "urn:sha256:49f97dc3e7bad4b3401973e3de37cce994a081e41f246baaf031e7d9a300a693", "sha256": "49f97dc3e7bad4b3401973e3de37cce994a081e41f246baaf031e7d9a300a693", "sourceAssertionIds": ["health/source/nz-medsafe-evaluation"]},
+    {"id": "health/nz/evidence/pharmac-journey", "uri": "urn:sha256:b75da6f1875812b6daf55c5648edffb4b8264c4038391fc8b62624761ddf558a", "sha256": "b75da6f1875812b6daf55c5648edffb4b8264c4038391fc8b62624761ddf558a", "sourceAssertionIds": ["health/source/nz-pharmac-funding"]},
+    {"id": "health/nz/evidence/pharmac-melanoma", "uri": "urn:sha256:215f343d376b5d4d82650758fcb73c9980d19bbb29007d3034c9ed4bd82bef2b", "sha256": "215f343d376b5d4d82650758fcb73c9980d19bbb29007d3034c9ed4bd82bef2b", "sourceAssertionIds": ["health/source/nz-pharmac-melanoma-2025"]}
+  ],
+  "traces": [{"id": "health/nz/trace/candidate", "traceContract": "pic-traces/0.2.0", "artifactRef": "pic-traces/0.2.0#health/nz/pembrolizumab-adjuvant", "eventIds": ["health/nz/event/application-recorded", "health/nz/event/regulatory-process-observed", "health/nz/event/funding-process-observed", "health/nz/event/source-review-held"], "ruleInvocationIds": [], "equivalenceClaim": "path", "lossNotes": ["Confidential deliberation, negotiation, clinical appropriateness, funding entitlement, and patient access are not represented."]}],
+  "exceptions": [{"id": "health/nz/exception/source-review", "kind": "human_adjudication_required", "description": "Human review is required for source applicability, indication alignment, effective dates, and comparison limits before promotion."}]
+}
