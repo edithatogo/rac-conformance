@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "core-foi-demonstrator-chain.v0.1.0",
+  "status": "candidate-human-certification-required",
+  "equivalenceClaim": "none",
+  "nonClaims": [
+    "No legal or clinical conclusion is certified.",
+    "The FOI-O and foi-process trace formats are not treated as interchangeable.",
+    "No candidate fixture or canonical process-mappings profile is promoted."
+  ],
+  "sourceAuthority": {
+    "repository": "edithatogo/foi-o",
+    "role": "semantic-authority-input",
+    "path": "external/foi-o/rules/SOURCES.md",
+    "sha256": "0d565fecaed0d26beefac4a5574fd54a71db383be609e464389dbddbdb1a874f",
+    "sourceStatus": "staged-candidate-not-live-release"
+  },
+  "profile": {
+    "repository": "subrepos/process-mappings",
+    "role": "PIC compatibility candidate",
+    "path": "subrepos/process-mappings/profiles/foi/candidates/nz-oia-process-profile.json",
+    "sha256": "ba49100cd3599acc141208baaddf70c6822bbdbc96288d105eedf208e4731f5b",
+    "contract": "pic-process-profile/0.1.0",
+    "profileTraceId": "foi-o/trace/candidate.1",
+    "candidateStatus": "agent-proposed-and-human-certified-for-compatibility",
+    "promotionStatus": "not-promoted"
+  },
+  "executionEvidence": {
+    "repository": "edithatogo/foi-process",
+    "role": "deterministic execution-and-evidence-input",
+    "sourceRevision": "f67a351",
+    "tracePath": "external/foi-process/examples/generated/conformance-trace.json",
+    "traceSha256": "8686db42aca8a89fece56e4139a262712e313beb57b7596ae9120adb0942b812",
+    "replaySnapshotPath": "external/foi-process/examples/generated/replay-snapshot.json",
+    "replaySnapshotSha256": "5a69ba0d0fee1f62200dac0ab2039950b7c98cf7223143424eff338bc3ca2fa1",
+    "assertionStatus": "inferred",
+    "executionStatus": "staged-fixture"
+  },
+  "picTraceEvidence": {
+    "contract": "pic-traces/0.1.0",
+    "schemaPath": "contracts/pic-traces/0.1.0/schema.json",
+    "schemaSha256": "d260c100e38e5f9735fecd48740f74e5c52ac1774c2f7bbd815cd106c6d19d5f",
+    "path": "external/foi-o/rules/traces/friday_before_public_holiday_response-trace.json",
+    "sha256": "2c7f157a59fcbea12f176a03dff9bbd1b00f42c559a0a621f287299f2eff7bd3",
+    "traceStatus": "valid-pic-trace-not-profile-equivalence"
+  },
+  "reconciliation": {
+    "sharedConcepts": ["request timing", "working-day deadline calculation", "source/evidence references", "human-review boundary"],
+    "representationalLoss": [
+      "foi-process uses its own portable conformance-trace and replay schemas.",
+      "The staged PIC trace is a separate FOI-O rule-run artifact and does not share a case identifier with the foi-process fixture.",
+      "The process-profile candidate's logical artifactRef is resolved by this manifest; the candidate bytes remain unchanged.",
+      "FOI-O ontology hierarchy, platform event payloads, and OCEL object links are not represented in the PIC profile."
+    ],
+    "humanQuestions": [
+      "Is the bounded shared-concept comparison appropriate for a demonstrator?",
+      "Are the listed losses and non-claims complete?",
+      "Should the candidate remain compatibility-certified but unpromoted pending process-mappings cutover #50?"
+    ]
+  }
+}

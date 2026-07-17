@@ -27,11 +27,12 @@ Consumes completed work from [#39](https://github.com/edithatogo/rac-conformance
 
 ## Phase 3 - FOI demonstrator certification
 
-- [ ] Task: Reconcile FOI-O candidate, foi-process execution, and PIC trace evidence
-    - [ ] Validate the candidate profile and deterministic execution trace together.
-    - [ ] Record representational loss, unavailable source material, and non-claims.
-    - [ ] Ensure no candidate fixture is promoted by the implementing agent.
+- [x] Task: Reconcile FOI-O candidate, foi-process execution, and PIC trace evidence
+    - [x] Validate the candidate profile and deterministic execution trace together.
+    - [x] Record representational loss, unavailable source material, and non-claims.
+    - [x] Ensure no candidate fixture is promoted by the implementing agent.
     - **Acceptance:** the demonstrator has a reproducible source-to-profile-to-trace evidence chain.
+    - **Evidence:** `FOI_DEMONSTRATOR_CHAIN.json`, `FOI_DEMONSTRATOR_CERTIFICATION_PACKET.md`, `external/foi-process/SUBMISSION.md`; `make check` passed on 2026-07-17.
 - [ ] Task: [HUMAN] Certify the FOI-O demonstrator boundary
     - [ ] Review only source assertions, mapping exceptions, and non-claims.
     - [ ] Record certification or required changes against immutable digests.
