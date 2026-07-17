@@ -140,14 +140,14 @@ GitHub issue: [#41](https://github.com/edithatogo/rac-conformance/issues/41)
 
 ---
 
-- [ ] **Track: Compare medicine regulatory and payer pathways (deferred)**
+- [~] **Track: Compare medicine regulatory and payer pathways (candidate NZ/UK slice implemented; optional breadth and certification deferred)**
 Track ID: `health_technology_pathways_20260714`
 GitHub issue: [#42](https://github.com/edithatogo/rac-conformance/issues/42)
 *Link: [./tracks/health_technology_pathways_20260714/](./tracks/health_technology_pathways_20260714/)*
 
 ---
 
-- [ ] **Track: Prove PIC process portability with Camunda 8 (deferred)**
+- [~] **Track: Prove PIC process portability with Camunda 8 (architecture, scaffold, and deterministic worker implemented; remaining portability evidence deferred)**
 Track ID: `camunda_portability_20260714`
 GitHub issue: [#43](https://github.com/edithatogo/rac-conformance/issues/43)
 *Link: [./tracks/camunda_portability_20260714/](./tracks/camunda_portability_20260714/)*
@@ -185,7 +185,7 @@ their completed local phases are recorded in each plan, while human, hosted,
 upstream, and publication gates remain explicitly unchecked until proven.
 
 The active implementation priority is now the core model and FOI demonstrator
-track. Health-technology breadth, Camunda portability, independent adoption,
+track. Remaining health-technology breadth and certification, remaining Camunda portability evidence, independent adoption,
 process-mappings cutover, publication, Zenodo, and v1.0 release work are
 deferred under [DEFERRED_ROADMAP.md](./DEFERRED_ROADMAP.md) until their stated
 re-entry conditions are met.

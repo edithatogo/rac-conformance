@@ -9,24 +9,24 @@ during the repository incubation governed by
 ## Phase 1 - Authority and Source Architecture
 
 - [x] Task: Build regulator, HTA, payer, and service-funding authority matrix
-    - [ ] Cover Medsafe/Pharmac, TGA/PBAC-PBS/MSAC-MBS, MHRA/NICE, and FDA/explicitly payer-specific US follow-on.
-    - [ ] Record statutory or policy function, decision owner, advice owner, applicant, output, review route, and post-market owner.
-    - [ ] Mark non-equivalent and absent functions explicitly.
+    - [x] Cover Medsafe/Pharmac, TGA/PBAC-PBS/MSAC-MBS, MHRA/NICE, and FDA/explicitly payer-specific US follow-on.
+    - [x] Record statutory or policy function, decision owner, advice owner, applicant, output, review route, and post-market owner.
+    - [x] Mark non-equivalent and absent functions explicitly.
     - **Acceptance:** automated checks reject FDA-as-payer, MBS-as-medicine-regulator, and other false-equivalence assertions.
-    - Evidence: `subrepos/process-mappings/profiles/health-technology/authority-matrix.json` and `tools/tests/test_health_technology_matrix.py`.
+    - Evidence: `subrepos/process-mappings/profiles/health-technology/AUTHORITY_MATRIX.json` and `tools/tests/test_health_technology_matrix.py`.
 - [x] Task: Build versioned primary-source manifests
-    - [ ] Store source ledgers under `subrepos/process-mappings/profiles/health-technology/sources/`.
-    - [ ] Pin current official process manuals, legislation or regulations where needed, application guidance, and public decision-record formats.
-    - [ ] Record effective date, retrieval time, version, supersession, rights, and digest.
-    - [ ] Record inaccessible confidential stages as unavailable rather than filling gaps.
+    - [x] Store source ledgers under `subrepos/process-mappings/profiles/health-technology/sources/`.
+    - [x] Pin current official process manuals, legislation or regulations where needed, application guidance, and public decision-record formats.
+    - [x] Record effective date, retrieval time, version, supersession, rights, and digest.
+    - [x] Record inaccessible confidential stages as unavailable rather than filling gaps.
     - **Acceptance:** every modeled stage has a source owner and authority classification.
-    - Evidence: `subrepos/process-mappings/profiles/health-technology/sources/manifest.json`. Blocked and UNVERIFIED sources are explicit and cannot control mappings.
+    - Evidence: `subrepos/process-mappings/profiles/health-technology/sources/SOURCE_MANIFEST.json`. Blocked and UNVERIFIED sources are explicit and cannot control mappings.
 - [x] Task: Define common lifecycle and variation model
-    - [ ] Define neutral concepts for authorisation, HTA, recommendation, funding decision, negotiation, listing, restriction, exception, implementation, and monitoring.
-    - [ ] Support parallel, iterative, terminated, resubmitted, and conditionally linked pathways.
-    - [ ] Document representational loss per jurisdiction.
+    - [x] Define neutral concepts for authorisation, HTA, recommendation, funding decision, negotiation, listing, restriction, exception, implementation, and monitoring.
+    - [x] Support parallel, iterative, terminated, resubmitted, and conditionally linked pathways.
+    - [x] Document representational loss per jurisdiction.
     - **Acceptance:** common terms do not erase institutional decision ownership.
-    - Evidence: `subrepos/process-mappings/profiles/health-technology/lifecycle-model.md`.
+    - Evidence: `subrepos/process-mappings/profiles/health-technology/LIFECYCLE_MODEL.md`.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Authority and Source Architecture' (Protocol in workflow.md)
 
 > CHECKPOINT (2026-07-16): Authority roles, non-equivalence rules, source states,
@@ -43,11 +43,11 @@ during the repository incubation governed by
 ## Phase 2 - Comparison Case Selection
 
 - [x] Task: Produce comparison-case candidates
-    - [ ] Identify publicly documented medicines/indications with aligned regulator and funding records in at least two jurisdictions.
-    - [ ] Score source completeness, temporal comparability, indication alignment, public evidence, rights, and implementation value.
-    - [ ] Include a no-selection outcome if no candidate supports defensible comparison.
+    - [x] Identify publicly documented medicines/indications with aligned regulator and funding records in at least two jurisdictions.
+    - [x] Score source completeness, temporal comparability, indication alignment, public evidence, rights, and implementation value.
+    - [x] Include a no-selection outcome if no candidate supports defensible comparison.
     - **Acceptance:** each candidate has a source manifest and stated comparability limitations.
-    - Evidence: `comparison-candidates.json`; the selected candidate remains unpromoted and source-verification-gated.
+    - Evidence: `candidates/COMPARISON_CASE_CANDIDATES.json` and `candidates/SOURCE_SPINE.json`; the selected candidate remains unpromoted and source-verification-gated.
 - [x] Task: [HUMAN] Approve one comparison case and jurisdiction pair
     - [x] Present ranked candidates, source gaps, sensitivity, and expected process coverage.
     - [x] Dylan selects, defers, or rejects the case; no fixture promotion occurs here.
@@ -62,11 +62,12 @@ during the repository incubation governed by
     > selected for source verification only; no executable profile or fixture is
     > promoted.
 - [x] Task: Define independent-oracle and adjudication protocol
-    - [ ] Separate official process facts, public decision facts, project mappings, and unavailable deliberative evidence.
-    - [ ] Define deterministic triangulation and focused human exception review.
+    - [x] Separate official process facts, public decision facts, project mappings, and unavailable deliberative evidence.
+    - [x] Define deterministic triangulation and focused analyst exception review.
     - **Acceptance:** agent-authored mappings cannot self-certify.
-    - Evidence: `ADJUDICATION_PROTOCOL.md`.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Comparison Case Selection' (Protocol in workflow.md)
+    - Evidence: `ADJUDICATION_PROTOCOL.md` and `ADJUDICATION_RULES.json`.
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Comparison Case Selection' (Protocol in workflow.md)
+    - **CHECKPOINT (2026-07-17):** The approved NZ/UK case, source-spine limitations, independent-oracle boundary, and candidate-only authorization were reviewed and retained.
 
 ## Phase 3 - Executable Comparative Profiles
 
@@ -90,7 +91,8 @@ during the repository incubation governed by
     - [ ] Route to monitoring, evidence review, or human reassessment only where a controlling official source supports that route.
     - [ ] Preserve uncertainty and prohibit causal, regulatory, funding, restriction, and patient-access outcome inference.
     - **Acceptance:** negative tests reject patient-level data, purpose mismatch, wrong jurisdiction, stale authority, and deterministic outcome inference.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Executable Comparative Profiles' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Executable Comparative Profiles' (Protocol in workflow.md)
+    - **CHECKPOINT (2026-07-17):** The mandatory NZ/UK candidate-profile slice is implemented and reviewed. The optional Australian codependent-technology branch is deferred because the approved case does not require it. The optional post-market consumer is deferred pending a named consumer and controlling source. Certification, promotion, comparative publication, and Phase 4 remain pending.
 
 > CHECKPOINT (2026-07-17): Candidate NZ and UK profiles validate against
 > `pic-process-profile/0.1.0`, preserve jurisdiction-owned actors and source
