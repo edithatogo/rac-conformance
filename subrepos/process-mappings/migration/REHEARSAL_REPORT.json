@@ -1,10 +1,10 @@
 {
   "procedure": "local-process-mappings-extraction-rehearsal",
-  "sourceCommit": "68b12b7c16964797c0ebbe24f01c93c8347093cb",
-  "sourceTree": "2ef2a240d314c8ff5387486083fa1e22f67ffc4d",
-  "historySplitCommit": "35b459adacb4a058b676eb0ac1bfb8e3def2a389",
-  "trackedFileCount": 26,
-  "fileManifestSha256": "550c018930a3de8d78d4441ca1ad958b62d0bcc450395f7546fa45113712cbe9",
+  "sourceCommit": "19d497e0c0bbe8c10bfd9cf90ea4394744a3f614",
+  "sourceTree": "901ad0922de0da4bb5f2986c04aba1d67e214608",
+  "historySplitCommit": "9e6f30ce4fe308c2cf6e833f8b64bcc6efc1a951",
+  "trackedFileCount": 83,
+  "fileManifestSha256": "514ec0df83facce1f63d3468e936b29e3dde013a11dbac53a2ce8505c73b5edf",
   "parentLicenseSha256": "db3c7186f3e87713b0acbee2321b9af9a0795c5c87b7836540c0c5c42e3ff964",
   "transformedLinks": [
     "LICENSE_BOUNDARY.md: ../../LICENSE -> LICENSE"
@@ -13,22 +13,22 @@
     {
       "id": "tracked-tree",
       "status": "pass",
-      "detail": "26 tracked files copied"
+      "detail": "83 tracked files copied"
     },
     {
       "id": "source-commit",
       "status": "pass",
-      "detail": "68b12b7c16964797c0ebbe24f01c93c8347093cb"
+      "detail": "19d497e0c0bbe8c10bfd9cf90ea4394744a3f614"
     },
     {
       "id": "source-tree",
       "status": "pass",
-      "detail": "2ef2a240d314c8ff5387486083fa1e22f67ffc4d"
+      "detail": "901ad0922de0da4bb5f2986c04aba1d67e214608"
     },
     {
       "id": "history-preservation",
       "status": "pass",
-      "detail": "35b459adacb4a058b676eb0ac1bfb8e3def2a389"
+      "detail": "9e6f30ce4fe308c2cf6e833f8b64bcc6efc1a951"
     },
     {
       "id": "license-transfer",
@@ -57,8 +57,8 @@
     },
     {
       "id": "standalone-ci",
-      "status": "deferred",
-      "detail": "destination workflow must be added after cutover approval"
+      "status": "pass",
+      "detail": "Standalone check passed on public destination main"
     },
     {
       "id": "local-installation",
@@ -87,8 +87,8 @@
     },
     {
       "id": "remote-creation",
-      "status": "deferred",
-      "detail": "explicit human cutover gate required"
+      "status": "pass",
+      "detail": "https://github.com/edithatogo/process-mappings created public on 2026-07-17"
     },
     {
       "id": "rollback",
@@ -96,7 +96,18 @@
       "detail": "retain parent subtree until hosted clone and checks pass"
     }
   ],
-  "remoteCreated": false,
+  "remoteCreated": true,
+  "remoteUrl": "https://github.com/edithatogo/process-mappings",
+  "migrationCommit": "d0257c1a99068262ea257643f3d6bdb57f2baee6",
+  "hostedCloneCommit": "d0257c1a99068262ea257643f3d6bdb57f2baee6",
+  "hostedIssue": "https://github.com/edithatogo/process-mappings/issues/1",
+  "hostedControls": {
+    "public": true,
+    "requiredStatusChecks": ["check"],
+    "codeOwnerReview": true,
+    "conversationResolution": true,
+    "branchProtection": true
+  },
   "rollback": {
     "beforeCutover": "delete temporary extraction and keep parent subtree authoritative",
     "afterCutover": "restore parent reference only after canonical clone verification"

@@ -1,8 +1,10 @@
 # Process-mappings GitHub Migration Packet
 
-Status: **draft; human approval required before repository creation or cutover**.
+Status: **staged migration; public remote exists and hosted verification passed**.
+human approval was recorded before repository creation; canonical cutover still
+requires a separate closeout decision.
 
-This packet is prepared from `rac-conformance` issue [#50](https://github.com/edithatogo/rac-conformance/issues/50) and the dependent parent issues [#39](https://github.com/edithatogo/rac-conformance/issues/39), [#40](https://github.com/edithatogo/rac-conformance/issues/40), [#41](https://github.com/edithatogo/rac-conformance/issues/41), [#42](https://github.com/edithatogo/rac-conformance/issues/42), and [#43](https://github.com/edithatogo/rac-conformance/issues/43). It does not create a remote, issues, project items, or redirects.
+This packet is prepared from `rac-conformance` issue [#50](https://github.com/edithatogo/rac-conformance/issues/50) and the dependent parent issues [#39](https://github.com/edithatogo/rac-conformance/issues/39), [#40](https://github.com/edithatogo/rac-conformance/issues/40), [#41](https://github.com/edithatogo/rac-conformance/issues/41), [#42](https://github.com/edithatogo/rac-conformance/issues/42), and [#43](https://github.com/edithatogo/rac-conformance/issues/43). The public remote exists; canonical parent cutover remains open.
 
 ## Proposed repository
 
@@ -10,7 +12,7 @@ This packet is prepared from `rac-conformance` issue [#50](https://github.com/ed
 |---|---|---|
 | Owner | `edithatogo` | proposed |
 | Name | `process-mappings` | proposed |
-| URL | `https://github.com/edithatogo/process-mappings` | must not be treated as existing |
+| URL | `https://github.com/edithatogo/process-mappings` | public remote exists; not yet canonical |
 | Visibility | Public, subject to source-rights review | proposed |
 | License | Apache-2.0, retaining source-specific rights notices | prepared in `LICENSE_BOUNDARY.md` |
 | Initial version | `0.1.0-incubation` or equivalent pre-1.0 release | human decision |
@@ -60,9 +62,9 @@ cutover decision and authenticated migration.
 
 ## Human decision checklist
 
-- [ ] Approve repository creation and visibility.
-- [ ] Approve proposed owner, CODEOWNERS, branch protection, and security posture.
-- [ ] Approve issue/project mapping and destination issue creation.
+- [x] Approve repository creation and public visibility.
+- [x] Approve proposed owner, CODEOWNERS, branch protection, and security posture.
+- [x] Approve issue/project mapping and destination issue creation.
 - [ ] Approve initial versioning and release policy.
-- [ ] Approve the migration commit from `EXTRACTION_REHEARSAL.json`.
+- [x] Approve the migration commit from `EXTRACTION_REHEARSAL.json`.
 - [ ] Approve canonical cutover only after hosted CI and clean-clone verification.

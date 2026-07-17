@@ -1,7 +1,8 @@
 # Proposed GitHub Migration Packet
 
-Status: **deferred by human decision on 2026-07-16**. No remote repository has
-been created and no hosted setting in this packet is asserted as configured.
+Status: **staged migration in progress (human approval 2026-07-17)**. The
+public remote exists and hosted controls have been configured and verified;
+canonical parent cutover remains open.
 
 The active decision is recorded in
 [`DEFERRED_CUTOVER_DECISION.md`](DEFERRED_CUTOVER_DECISION.md). This packet
@@ -12,7 +13,7 @@ remains the preparation record if the reconsideration triggers are later met.
 - Proposed owner: `edithatogo`
 - Proposed repository: `process-mappings`
 - Proposed canonical URL: `https://github.com/edithatogo/process-mappings`
-- Initial visibility: private or public only after Dylan records the decision
+- Initial visibility: public, approved by Dylan on 2026-07-17
 - Initial release: no release until the extracted clone and hosted checks are
   independently verified
 - Initial version proposal: `0.1.0-incubating`; reserve `1.0.0` for a reviewed
@@ -41,8 +42,8 @@ the byte-level destination-facing source record.
 
 ## Required hosted controls
 
-Configure only after the human cutover decision and verify the actual check
-names against the first destination workflow run:
+Configured after the human cutover decision and verified against the first
+destination workflow run:
 
 - protect the default branch and require pull requests;
 - require the repository owner’s approval policy selected by Dylan;
@@ -55,9 +56,11 @@ names against the first destination workflow run:
 - enable secret scanning and push protection if available for the selected
   repository visibility.
 
-The parent’s current check names are evidence for planning only. A future
-destination must not copy a required-check name until the hosted run proves it
-exists and is trustworthy.
+The destination’s `Standalone check` workflow produced the required `check`
+status on commit `d0257c1a99068262ea257643f3d6bdb57f2baee6`; the clean clone and
+`git fsck --full` also passed. Parent canonical cutover remains conditional on
+updating consumers and replacing the incubator with an intentional read-only
+reference.
 
 ## Initial issue mapping
 
@@ -76,7 +79,8 @@ the migration decision until the human gate is complete.
 
 ## Extraction and rollback
 
-1. Dylan approves repository creation, visibility, owner, and conditions.
+1. Dylan approved repository creation, public visibility, owner, and staged
+   cutover conditions on 2026-07-17.
 2. Create the remote and import the exact tree recorded by
    `migration/REHEARSAL_REPORT.json`.
 3. Run the destination CI, dependency, link, provenance, and independent-clone

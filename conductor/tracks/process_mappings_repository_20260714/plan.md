@@ -77,18 +77,23 @@ Phase 1 and establishes the implementation home required by
 
 ## Phase 4 - Human Cutover and Parent Closeout
 
-- [ ] Task: [HUMAN] Approve repository creation and canonical cutover
-    - [ ] Review extraction evidence, ownership, visibility, governance, security, issue migration, and rollback plan.
-    - [ ] Approve, defer, or reject creation of `edithatogo/process-mappings`.
-    > BLOCKED (2026-07-16): Awaiting Dylan's explicit decision in
-    > `GITHUB_MIGRATION_PACKET.md`; agents must not create the remote, migrate
-    > issues, or make the extracted copy canonical before that decision.
+- [x] Task: [HUMAN] Approve repository creation and canonical cutover
+    - [x] Review extraction evidence, ownership, visibility, governance, security, issue migration, and rollback plan.
+    - [x] Approve, defer, or reject creation of `edithatogo/process-mappings`.
+    > HUMAN DECISION (2026-07-17): Dylan approved a public staged creation and
+    > migration. The destination was created, populated, protected, and
+    > independently cloned and checked. Canonical parent cutover remains a
+    > separate condition and is not implied by repository creation.
     - **Acceptance:** the decision and any conditions are recorded before remote creation or canonical-home changes.
-- [ ] Task: Execute approved extraction and verify hosted controls
-    - [ ] Create and populate the remote only after approval, then configure approved protections and Project linkage.
-    - [ ] Run required hosted checks and independently clone/test the extracted repository.
-    - [ ] Record immutable migration commit and source-tree provenance.
+- [x] Task: Execute approved extraction and verify hosted controls
+    - [x] Create and populate the remote only after approval, then configure approved protections and Project linkage.
+    - [x] Run required hosted checks and independently clone/test the extracted repository.
+    - [x] Record immutable migration commit and source-tree provenance.
     - **Acceptance:** the approved remote is reproducible, protected, and green; otherwise rollback is executed.
+    > EVIDENCE (2026-07-17): Public destination issue #1, migration commit
+    > `d0257c1a99068262ea257643f3d6bdb57f2baee6`, standalone check, clean clone,
+    > and `git fsck --full` passed. Parent remains the only canonical writable
+    > source until closeout.
 - [ ] Task: Close the parent incubator without dual ownership
     - [ ] Remove the writable subtree or replace it with an intentional read-only reference after all parent consumers use the canonical remote.
     - [ ] Update roadmap, issues, links, source manifests, and repository-boundary documentation.

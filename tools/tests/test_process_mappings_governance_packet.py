@@ -19,7 +19,7 @@ def test_prepared_governance_files_and_packet_are_present() -> None:
     ):
         assert (SUBTREE / relative).is_file()
     content = PACKET.read_text(encoding="utf-8")
-    assert "human approval required" in content
-    assert "does not create a remote" in content
+    assert "human approval" in content
+    assert "public remote exists" in content
     assert "Project 19" in content
     assert "single writable canonical source" in content
