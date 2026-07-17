@@ -69,7 +69,7 @@ Consumes completed work from [#39](https://github.com/edithatogo/rac-conformance
     - [x] Link the FOI-O certification, normalized trace, validator corpus, and hardening evidence.
     - [x] Link [DEFERRED_ROADMAP.md](../../DEFERRED_ROADMAP.md) for all excluded work.
     - **Acceptance:** a reviewer can distinguish model completeness, demonstration evidence, and deferred programme work.
-    - **Evidence:** [CORE_READINESS_PACKET.md](CORE_READINESS_PACKET.md); human certification remains the explicit Phase 3 gate.
+    - **Evidence:** [CORE_READINESS_PACKET.md](CORE_READINESS_PACKET.md); bounded analyst certification was recorded in Phase 3 on 2026-07-18.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Local hardening and core readiness'
 
 > CHECKPOINT (2026-07-17): Phase 4 evidence and readiness packet were reviewed

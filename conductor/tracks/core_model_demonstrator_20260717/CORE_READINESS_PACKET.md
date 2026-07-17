@@ -1,7 +1,7 @@
 # Core Demonstrator Readiness Packet
 
-Status: core implementation ready for human demonstrator certification  
-Date: 2026-07-17  
+Status: bounded core demonstrator certified  
+Date: 2026-07-18  
 Track: `core_model_demonstrator_20260717`
 
 ## What is complete
@@ -31,13 +31,13 @@ The repository now provides a bounded, deterministic core model demonstrator:
 | Local hardening is qualified | [CORE_HARDENING_EVIDENCE.md](CORE_HARDENING_EVIDENCE.md) |
 | Deferred work and re-entry conditions are visible | [DEFERRED_ROADMAP.md](../../DEFERRED_ROADMAP.md) |
 
-## Remaining gates
+## Certification outcome
 
-### Human gate
-
-Dylan must review [FOI_DEMONSTRATOR_CERTIFICATION_PACKET.md](FOI_DEMONSTRATOR_CERTIFICATION_PACKET.md)
-and record one of `certified-bounded`, `rejected`, or `changes-requested`. This is the only
-remaining decision for the bounded demonstrator itself.
+Dylan approved the E1-E11 digest-pinned combined chain as
+`bounded-compatible` against merged commit `8343ad5`. The decision preserves
+the declared losses, non-claims, `equivalenceClaim: none`, inferred execution
+assertions, and unpromoted candidate status. No decision remains for the
+bounded demonstrator itself.
 
 ### External or deferred gates
 
@@ -49,6 +49,6 @@ upstream FOI-O publication/governance.
 
 ## Qualification boundary
 
-This packet establishes readiness to make the bounded demonstrator decision.
-It is not a v1.0 release authorization, a publication authorization, or an
-assertion that the model has been independently adopted or validated.
+This packet establishes the certified bounded demonstrator. It is not a v1.0
+release authorization, a publication authorization, or an assertion that the
+model has been independently adopted or validated.
