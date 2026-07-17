@@ -1,10 +1,10 @@
 {
   "schemaVersion": "rac-v1-rollback-rehearsal.v0.1.0",
-  "currentCommit": "8ef5faa1ea31b714470924e53cbbd41b56ae2db1",
+  "currentCommit": "e8da58fd94018191da7a5ad3ffde48ecc1cb990d",
   "fallbackTag": "v0.2.0",
   "fallbackCommit": "35fdebdd6ca3ad0a254ca0b3ec5b7466b7db3fe5",
   "artifacts": {
-    "currentSourceArchiveSha256": "221664b369eb0bd3434f0ffef7879183c219ed8790fcf7d4b3f8b7dd6a9c54f7",
+    "currentSourceArchiveSha256": "a2ff43209cb26c84787026c45c2d11b58ec9894f747efddb588bc7c47b104dbf",
     "fallbackSourceArchiveSha256": "417bbb4fba4f22ae758ae340c25c83ab76103c80077973b9fd3913c68ab3dcd3"
   },
   "restore": {
