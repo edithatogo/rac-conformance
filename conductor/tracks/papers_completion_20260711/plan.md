@@ -101,6 +101,12 @@ GitHub subissue: [#31](https://github.com/edithatogo/rac-conformance/issues/31).
 > until the FOI-O v2 update has been submitted to arXiv. Keep all three paper
 > packets prepared, but retain the submission gate pending that prerequisite.
 
+> CHECKPOINT (2026-07-17): The approved v0.3.0 preparation package, including
+> its hashed A4 PDFs and explicit FOI-O v2 submission prerequisite, has been
+> reconciled onto current `origin/main`. Deferred health-technology, Camunda,
+> process-mappings, and broad release-qualification branch stacks were not
+> merged because they remain outside the focused core demonstrator scope.
+
 ## Phase 4.8 - Programme citation and mirror reconciliation
 
 - [x] Task: Add or correct `CITATION.cff` metadata for every included FOI
