@@ -1,0 +1,1 @@
+Conductor review: added source-authority and PIC-schema hash assertions, enabled format validation, and preserved the exact upstream foi-process schema snapshot because refactoring it would invalidate provenance.
