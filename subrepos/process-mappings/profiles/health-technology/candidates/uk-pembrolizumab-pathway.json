@@ -1,0 +1,49 @@
+{
+  "conformsTo": "pic-process-profile/0.1.0",
+  "profileId": "health-technology/process.uk-pembrolizumab-adjuvant",
+  "profileVersion": "0.1.0",
+  "processDefinitionVersion": "0.1.0",
+  "jurisdiction": "UK",
+  "applicableAt": "2022-02-02T00:00:00Z",
+  "observedAt": "2026-07-17T06:14:29Z",
+  "sourceAssertions": [
+    {"id": "health/source/uk-mhra-authorisation", "authority": "guidance", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "MHRA publishes a public description of applying for a licence to market a medicine in the UK.", "sourceUri": "https://www.gov.uk/guidance/apply-for-a-licence-to-market-a-medicine-in-the-uk", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": null, "effectiveTo": null, "controlling": false},
+    {"id": "health/source/uk-nice-manual", "authority": "guidance", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "NICE publishes a technology-appraisal process manual.", "sourceUri": "https://www.nice.org.uk/process/pmg36", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": "2026-03-31", "effectiveTo": null, "controlling": false},
+    {"id": "health/source/uk-nice-ta766", "authority": "guidance", "sourceType": "official_primary", "reviewStatus": "agent-proposed", "assertion": "NICE publishes technology appraisal guidance relevant to the selected melanoma comparison boundary.", "sourceUri": "https://www.nice.org.uk/guidance/ta766", "retrievedAt": "2026-07-17T06:14:29Z", "effectiveFrom": "2022-02-02", "effectiveTo": null, "controlling": false}
+  ],
+  "actors": [
+    {"id": "health/uk/mhra", "kind": "organization", "name": "MHRA", "authoritySourceAssertionIds": ["health/source/uk-mhra-authorisation"]},
+    {"id": "health/uk/nice", "kind": "organization", "name": "NICE", "authoritySourceAssertionIds": ["health/source/uk-nice-manual", "health/source/uk-nice-ta766"]},
+    {"id": "health/uk/applicant", "kind": "role", "name": "Medicine applicant or sponsor", "authoritySourceAssertionIds": []}
+  ],
+  "states": [
+    {"id": "health/uk/state/submission", "kind": "initial", "label": "Submission or appraisal considered", "sourceAssertionIds": ["health/source/uk-mhra-authorisation", "health/source/uk-nice-manual"]},
+    {"id": "health/uk/state/regulatory-review", "kind": "intermediate", "label": "Regulatory authorisation pathway", "sourceAssertionIds": ["health/source/uk-mhra-authorisation"]},
+    {"id": "health/uk/state/hta-review", "kind": "intermediate", "label": "Technology appraisal pathway", "sourceAssertionIds": ["health/source/uk-nice-manual", "health/source/uk-nice-ta766"]},
+    {"id": "health/uk/state/held-source-review", "kind": "terminal", "label": "Held pending source adjudication", "sourceAssertionIds": ["health/source/uk-mhra-authorisation", "health/source/uk-nice-manual", "health/source/uk-nice-ta766"]}
+  ],
+  "events": [
+    {"id": "health/uk/event/submission", "kind": "proposed_action", "eventType": "SubmissionReceived", "occurredAt": "2022-02-02T00:00:00Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/uk/applicant", "sourceAssertionIds": ["health/source/uk-mhra-authorisation", "health/source/uk-nice-manual"], "evidenceReferenceIds": []},
+    {"id": "health/uk/event/regulatory-review", "kind": "proposed_action", "eventType": "RegulatoryEvaluation", "occurredAt": "2022-02-03T00:00:00Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/uk/mhra", "sourceAssertionIds": ["health/source/uk-mhra-authorisation"], "evidenceReferenceIds": []},
+    {"id": "health/uk/event/hta-review", "kind": "proposed_action", "eventType": "TechnologyAppraisal", "occurredAt": "2022-02-04T00:00:00Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/uk/nice", "sourceAssertionIds": ["health/source/uk-nice-manual", "health/source/uk-nice-ta766"], "evidenceReferenceIds": []},
+    {"id": "health/uk/event/held", "kind": "derived_state", "eventType": "SourceReviewRequired", "occurredAt": "2026-07-17T06:14:29Z", "observedAt": "2026-07-17T06:14:29Z", "actorId": "health/uk/nice", "sourceAssertionIds": ["health/source/uk-mhra-authorisation", "health/source/uk-nice-manual", "health/source/uk-nice-ta766"], "evidenceReferenceIds": []}
+  ],
+  "timers": [],
+  "transitions": [
+    {"id": "health/uk/transition/submission-regulatory", "fromStateId": "health/uk/state/submission", "toStateId": "health/uk/state/regulatory-review", "triggerEventId": "health/uk/event/regulatory-review", "sourceAssertionIds": ["health/source/uk-mhra-authorisation"]},
+    {"id": "health/uk/transition/submission-hta", "fromStateId": "health/uk/state/submission", "toStateId": "health/uk/state/hta-review", "triggerEventId": "health/uk/event/hta-review", "sourceAssertionIds": ["health/source/uk-nice-manual", "health/source/uk-nice-ta766"]},
+    {"id": "health/uk/transition/hta-held", "fromStateId": "health/uk/state/hta-review", "toStateId": "health/uk/state/held-source-review", "triggerEventId": "health/uk/event/held", "sourceAssertionIds": ["health/source/uk-nice-manual", "health/source/uk-nice-ta766"]}
+  ],
+  "tasks": [
+    {"id": "health/uk/task/source-review", "kind": "evidence_task", "name": "Review controlling source applicability", "actorRole": "human adjudicator", "sourceAssertionIds": ["health/source/uk-mhra-authorisation", "health/source/uk-nice-manual", "health/source/uk-nice-ta766"]}
+  ],
+  "ruleInvocations": [],
+  "evidenceReferences": [],
+  "traces": [
+    {"id": "health/uk/trace/candidate-path", "traceContract": "pic-traces/0.2.0", "artifactRef": "candidate://health-technology/uk-pembrolizumab-pathway", "eventIds": ["health/uk/event/submission", "health/uk/event/regulatory-review", "health/uk/event/hta-review", "health/uk/event/held"], "ruleInvocationIds": [], "equivalenceClaim": "none", "lossNotes": ["No clinical outcome, funding entitlement, access result, confidential commercial arrangement, or medicine-specific authorisation result is represented."]}
+  ],
+  "exceptions": [
+    {"id": "health/uk/exception/missing-effective-date", "kind": "missing_time", "description": "The public MHRA process source does not establish the medicine-specific effective date required for controlling comparison."},
+    {"id": "health/uk/exception/human-review", "kind": "human_adjudication_required", "description": "Human review is required before source assertions can control this candidate profile."}
+  ]
+}
