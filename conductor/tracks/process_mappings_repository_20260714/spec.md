@@ -8,7 +8,7 @@ Establish a domain-neutral home for source-backed process profiles, jurisdiction
 overlays, synthetic candidate scenarios, and optional platform adapters. The
 work begins as an ordinary tracked subtree at `subrepos/process-mappings/` so
 the boundary can be tested before a new remote is created. Extraction to
-`edithatogo/process-mappings` requires an explicit human cutover decision.
+`edithatogo/process-mappings` requires an explicit analyst cutover decision.
 
 Depends on: `v1_foundation_20260714` Phase 1. Establishes the implementation
 home used by `pic_process_profile_20260714` and its demonstrators.
@@ -31,7 +31,7 @@ home used by `pic_process_profile_20260714` and its demonstrators.
 3. Accept FOI-O semantic exports and foi-process execution evidence through
    versioned, documented adapters with provenance and explicit loss records.
 4. Keep all AI-drafted mappings and scenarios as `agent-proposed` candidates
-   until a human certifies controlling assertions and promotion.
+   until an analyst certifies controlling assertions and promotion.
 5. Preserve authority, jurisdiction, effective date, retrieval date, source
    status, rights, digest, interpretation state, and reviewer state.
 6. Rehearse extraction with history, license, CI, issue/project migration,
@@ -46,7 +46,8 @@ home used by `pic_process_profile_20260714` and its demonstrators.
 - The incubator is an ordinary tracked subtree, not a Git submodule or nested
   Git repository.
 - No remote repository is created and no canonical-home claim is made before
-  the `[HUMAN]` cutover gate.
+  the `[HUMAN]` cutover gate; `[HUMAN]` is retained as a legacy machine marker
+  while the protocol role is called analyst.
 - Extraction must preserve Apache-2.0 compatibility, provenance, and a
   reproducible verification path.
 
@@ -59,12 +60,12 @@ home used by `pic_process_profile_20260714` and its demonstrators.
   an implementation/evidence consumer.
 - A clean extraction rehearsal proves history, tests, links, issue migration,
   and rollback without creating a second writable source of truth.
-- The human cutover packet records the proposed owner, visibility, repository
+- The analyst cutover packet records the proposed owner, visibility, repository
   settings, branch protection, project linkage, migration commit, and rollback.
 
 ## Out of Scope
 
-- Creating the GitHub remote before human approval.
+- Creating the GitHub remote before analyst approval.
 - Moving PIC normative contracts out of `rac-conformance`.
 - Replacing FOI-O or foi-process.
 - Publishing source mappings as legal, clinical, regulatory, or funding advice.

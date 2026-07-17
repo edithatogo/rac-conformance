@@ -5,7 +5,7 @@ Status: Draft | Consumed-by: v1 users and maintainers
 ## Overview
 
 Release 1.0 only after every required technical, compatibility, security,
-independent-adoption, governance, external, and human gate has durable evidence.
+independent-adoption, governance, external, and analyst gate has durable evidence.
 If the gates are incomplete, continue supported 0.x releases rather than
 relabeling incomplete evidence as 1.0.
 
@@ -19,7 +19,7 @@ Depends on: all preceding v1 roadmap tracks.
 3. Publish exact supported-version, known-limit, security, provenance, consumer,
    and conformance matrices.
 4. Verify release notes and capability claims against executable evidence.
-5. Require human authorization for release candidate promotion, signing, package
+5. Require analyst authorization for release candidate promotion, signing, package
    publication, DOI actions, announcements, and final release.
 6. Monitor hosted checks and published artifacts, then exercise rollback if any
    integrity or compatibility check fails.
@@ -40,10 +40,10 @@ Depends on: all preceding v1 roadmap tracks.
 - All required local and GitHub Actions checks pass on the release commit/tag.
 - Published package/tag/archive metadata and checksums agree.
 - Known consumers pass the frozen compatibility suite.
-- Human release authorization and post-release verification are recorded.
+- Analyst release authorization and post-release verification are recorded.
 
 ## Out of Scope
 
-- Waiving external or human gates because a deadline is reached.
+- Waiving external or analyst gates because a deadline is reached.
 - New features after release-candidate freeze.
 - Publishing papers or DOI records without separate authorization.

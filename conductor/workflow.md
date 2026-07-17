@@ -1,6 +1,6 @@
 # Workflow
 
-This workflow governs all tracks in `conductor/tracks/`. It is written to be executable by different agents (ChatGPT, Codex, Claude, humans) at different capability levels.
+This workflow governs all tracks in `conductor/tracks/`. It is written to be executable by different agents (ChatGPT, Codex, Claude) and analysts at different capability levels. See `conductor/TERMINOLOGY.md` for governance vocabulary and compatibility markers.
 
 ## Task lifecycle
 
@@ -22,7 +22,7 @@ This workflow governs all tracks in `conductor/tracks/`. It is written to be exe
 - Target: >=80% line coverage for code under `contracts/tools/` and any runner/converter code in this repo. Schema-only changes require example-validation tests instead.
 - Every schema MUST have: at least 2 valid examples, at least 3 invalid examples (negative tests), all exercised in CI.
 - Every converter MUST have round-trip tests (`A -> B -> A` canonical equality) on its supported subset, and explicit rejection tests for unsupported constructs.
-- Golden fixtures: human-curated only (see product-guidelines). Agents may draft candidates into `*/candidates/` directories; promotion into `fixtures/` requires human review and is never done by an agent.
+- Golden fixtures: analyst-curated only (see product-guidelines). Agents may draft candidates into `*/candidates/` directories; promotion into `fixtures/` requires analyst review and is never done by an agent.
 
 ## Phase completion verification and checkpointing protocol
 
@@ -31,7 +31,7 @@ At the end of every phase, execute the phase's final meta-task:
 1. Run the full test suite and schema/example validation (`make check` once Track 1 creates it; until then, `pytest` + the validator commands in the plan).
 2. Re-read the phase's Acceptance criteria in `spec.md`; write a 3–8 line checkpoint note in `plan.md` under the phase heading (`> CHECKPOINT (date): …`), stating what is proven and what is deferred.
 3. Commit with `<track_shortname>: phase <n> checkpoint`.
-4. **Manual verification gate:** tasks marked `[HUMAN]` (fixture promotion, upstream issue/PR submission, emails) are for Dylan. Agents prepare the artifact (draft PR body, draft email, candidate fixtures) and stop.
+4. **Analyst verification gate:** tasks marked `[HUMAN]` (the legacy machine marker for fixture promotion, upstream issue/PR submission, and emails) are for Dylan or another explicitly authorized analyst. Agents prepare the artifact (draft PR body, draft email, candidate fixtures) and stop.
 
 ## Cross-repo work protocol (Tracks 2–6)
 
@@ -45,5 +45,5 @@ Before executing any cross-repo work or copying code/documentation to/from any r
 ## AI usage rules (binding on all agents)
 
 - Allowed: scaffolding, schema drafting, converter code, test *proposals*, documentation, red-teaming, divergence-report explanation.
-- Forbidden: generating golden fixtures without human approval; changing normative spec text without an explicit plan task; adding crosswalk targets without a consumer; any runtime decision logic that calls an LLM.
-- Every AI-drafted mapping (variable/parameter crosswalk row) gets `"method": "ai-proposed"` until a human flips it to `"human-approved"`.
+- Forbidden: generating golden fixtures without analyst approval; changing normative spec text without an explicit plan task; adding crosswalk targets without a consumer; any runtime decision logic that calls an LLM.
+- Every AI-drafted mapping (variable/parameter crosswalk row) gets `"method": "ai-proposed"` until an analyst flips it to `"human-approved"`.

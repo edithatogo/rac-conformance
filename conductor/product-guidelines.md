@@ -14,8 +14,8 @@
 
 ## Non-negotiable content rules
 
-1. **No runtime AI decisions.** AI drafts artifacts; deterministic code validates and executes; humans certify. This sentence appears in every externally facing README.
-2. **Oracle independence.** Golden fixtures are human-curated from legislation, agency worked examples, or an unrelated implementation. AI may *propose* boundary cases; a human approves each one; provenance is recorded per fixture (`curator`, `source`, `method: human|ai-proposed-human-approved`).
+1. **No runtime AI decisions.** AI drafts artifacts; deterministic code validates and executes; analysts certify. This sentence appears in every externally facing README.
+2. **Oracle independence.** Golden fixtures are analyst-curated from legislation, agency worked examples, or an unrelated implementation. AI may *propose* boundary cases; an analyst approves each one; provenance is recorded per fixture (`curator`, `source`, `method: human|ai-proposed-human-approved`). The machine-facing method values remain unchanged; see `conductor/TERMINOLOGY.md`.
 3. **Fixtures are interpretations, not law.** Every fixture file carries `interpreterOfRecord` and a disclaimer field.
 4. **No mapping without a consumer.** No crosswalk or export target is added without a working converter and a named user.
 5. **Upstream etiquette.** Contributions to other repos solve that repo's problem in that repo's idiom; the contracts are referenced in a "format" footnote, never as the headline. Never open more than one unresolved proposal per upstream repo at a time.
@@ -26,7 +26,7 @@
 
 - Contracts use semantic versioning independently of each other (`pic-fixtures/0.2.0` may ship while `pic-traces` stays at 0.1.x).
 - Breaking changes require: a CHANGELOG entry, a migration note, and confirmation that all known consumers have been notified (tracked in `contracts/CONSUMERS.md`).
-- Spec changes move at human-review speed regardless of how fast an agent can draft them.
+- Spec changes move at analyst-review speed regardless of how fast an agent can draft them.
 - Platform adapters such as Camunda version independently and remain optional; they cannot make BPMN, DMN, FEEL, Java, or a workflow runtime a PIC core dependency.
 
 ## Licensing
