@@ -40,7 +40,7 @@ Consumes completed work from [#39](https://github.com/edithatogo/rac-conformance
     - **Acceptance:** the demonstrator has a reproducible source-to-profile-to-trace evidence chain.
     - **Evidence:** `FOI_DEMONSTRATOR_CHAIN.json`, `FOI_DEMONSTRATOR_CERTIFICATION_PACKET.md`, `external/foi-process/SUBMISSION.md`; `make check` passed on 2026-07-17.
 - [ ] Task: [HUMAN] Certify the FOI-O demonstrator boundary
-    - [ ] Review only source assertions, mapping exceptions, and non-claims.
+    - [ ] Review only the combined execution evidence, shared-concept boundary, representational losses, and non-claims; the exact profile's prior compatibility certification is not reopened.
     - [ ] Record certification or required changes against immutable digests.
     - **Acceptance:** certification is explicit and does not claim legal authority or universal portability.
     > BLOCKED (2026-07-17): Dylan must review `FOI_DEMONSTRATOR_CERTIFICATION_PACKET.md` and record the bounded certification decision. The implementing agent cannot certify the chain or promote the candidate.

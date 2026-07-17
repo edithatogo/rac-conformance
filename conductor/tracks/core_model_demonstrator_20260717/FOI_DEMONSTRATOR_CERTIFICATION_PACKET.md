@@ -23,8 +23,8 @@ or a canonical process-mappings cutover.
    and human-review boundaries an adequate shared demonstrator slice?
 2. Are the explicit `none` equivalence claim and representational-loss notes
    sufficient to prevent false interoperability claims?
-3. Should the candidate remain compatibility-certified but unpromoted pending
-   process-mappings cutover #50?
+3. Does the combined execution/replay evidence remain within the bounded
+   shared-concept claim despite its explicit schema and case-identity losses?
 
 ## Human decision
 
