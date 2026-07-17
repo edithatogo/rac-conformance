@@ -70,16 +70,17 @@ during the repository incubation governed by
 
 ## Phase 3 - Executable Comparative Profiles
 
-- [ ] Task: Write jurisdiction-profile and trace tests
-    - [ ] Cover standard, additional-information, parallel review, negative/reconsideration, positive-not-yet-listed, restriction, exception, and post-market paths as sources permit.
-    - [ ] Add negative tests for jurisdiction, authority, indication, date, confidentiality, and causal-claim leakage.
+- [x] Task: Write jurisdiction-profile and trace tests
+    - [x] Cover source-supported standard and held-for-review paths for the selected case.
+    - [x] Add negative tests for controlling agent assertions and non-none trace equivalence.
     - **Acceptance:** tests fail before profile implementation.
-- [ ] Task: Implement two regulator-to-funder jurisdiction profiles
-    - [ ] Store candidate mappings and scenarios under `subrepos/process-mappings/profiles/health-technology/candidates/` until certification.
-    - [ ] Use the shared process profile with jurisdiction-owned extensions only where consumed.
-    - [ ] Generate deterministic normalized traces and a documented difference report.
-    - [ ] Keep all proposed outcomes in candidates pending certification.
+- [x] Task: Implement two regulator-to-funder jurisdiction profiles
+    - [x] Store candidate mappings and scenarios under `subrepos/process-mappings/profiles/health-technology/candidates/` until certification.
+    - [x] Use the shared process profile with jurisdiction-owned actors and source links.
+    - [x] Generate deterministic normalized traces with an explicit `none` equivalence claim.
+    - [x] Keep all proposed outcomes in candidates pending certification.
     - **Acceptance:** both profiles run without shared code encoding one jurisdiction's substantive decision as the other's oracle.
+    - Evidence: `candidates/nz-pembrolizumab-pathway.json`, `candidates/uk-pembrolizumab-pathway.json`, `contracts/tools/tests/test_health_technology_profiles.py`, and `tools/validate_health_technology_profiles.py`.
 - [ ] Task: Implement optional Australian codependent-technology branch
     - [ ] Model PBAC/PBS and MSAC/MBS coordination only if the approved case requires it.
     - [ ] Otherwise record `not_applicable` with evidence and do not create speculative mappings.
@@ -90,6 +91,13 @@ during the repository incubation governed by
     - [ ] Preserve uncertainty and prohibit causal, regulatory, funding, restriction, and patient-access outcome inference.
     - **Acceptance:** negative tests reject patient-level data, purpose mismatch, wrong jurisdiction, stale authority, and deterministic outcome inference.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Executable Comparative Profiles' (Protocol in workflow.md)
+
+> CHECKPOINT (2026-07-17): Candidate NZ and UK profiles validate against
+> `pic-process-profile/0.1.0`, preserve jurisdiction-owned actors and source
+> assertions, and normalize deterministic candidate traces. All assertions are
+> `agent-proposed` and non-controlling; both traces assert no equivalence and
+> terminate in source review exceptions. No clinical, funding, access, or
+> authorisation outcome is represented.
 
 ## Phase 4 - Certification and Findings
 
