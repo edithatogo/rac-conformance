@@ -1,6 +1,6 @@
 {
   "schemaVersion": "core-foi-demonstrator-chain.v0.1.0",
-  "status": "candidate-human-certification-required",
+  "status": "certified-bounded",
   "equivalenceClaim": "none",
   "nonClaims": [
     "No legal or clinical conclusion is certified.",
@@ -55,5 +55,13 @@
       "Is the bounded shared-concept comparison appropriate for a demonstrator?",
       "Are the listed losses and non-claims complete for the combined execution evidence?"
     ]
+  },
+  "certification": {
+    "decision": "bounded-compatible",
+    "analyst": "Dylan",
+    "date": "2026-07-18",
+    "reviewedCommit": "8343ad5f9dbc1d980ddf49018f2f6f4f6d181dde",
+    "evidencePins": ["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11"],
+    "rationale": "The digest-pinned chain supports the bounded shared-concept demonstrator with its declared representational losses and non-claims. This does not certify legal correctness, trace equivalence, production readiness, independent adoption, candidate promotion, or canonical cutover."
   }
 }

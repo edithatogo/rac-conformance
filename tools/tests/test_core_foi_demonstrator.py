@@ -19,10 +19,18 @@ def _load_json(path: Path) -> dict:
 
 def test_foi_demonstrator_chain_is_pinned_and_fail_closed() -> None:
     chain = _load_json(CHAIN)
-    assert chain["status"] == "candidate-human-certification-required"
+    assert chain["status"] == "certified-bounded"
     assert chain["equivalenceClaim"] == "none"
     assert chain["profile"]["promotionStatus"] == "not-promoted"
     assert chain["executionEvidence"]["assertionStatus"] == "inferred"
+    assert chain["certification"]["decision"] == "bounded-compatible"
+    assert chain["certification"]["analyst"] == "Dylan"
+    assert chain["certification"]["reviewedCommit"] == (
+        "8343ad5f9dbc1d980ddf49018f2f6f4f6d181dde"
+    )
+    assert chain["certification"]["evidencePins"] == [
+        f"E{index}" for index in range(1, 12)
+    ]
 
     source_authority = ROOT / chain["sourceAuthority"]["path"]
     assert _sha256(source_authority) == chain["sourceAuthority"]["sha256"]

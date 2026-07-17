@@ -39,11 +39,15 @@ Consumes completed work from [#39](https://github.com/edithatogo/rac-conformance
     - [x] Ensure no candidate fixture is promoted by the implementing agent.
     - **Acceptance:** the demonstrator has a reproducible source-to-profile-to-trace evidence chain.
     - **Evidence:** `FOI_DEMONSTRATOR_CHAIN.json`, `FOI_DEMONSTRATOR_CERTIFICATION_PACKET.md`, `external/foi-process/SUBMISSION.md`; `make check` passed on 2026-07-17.
-- [ ] Task: [HUMAN] Certify the FOI-O demonstrator boundary
-    - [ ] Review only the combined execution evidence, shared-concept boundary, representational losses, and non-claims; the exact profile's prior compatibility certification is not reopened.
-    - [ ] Record certification or required changes against immutable digests.
+- [x] Task: [HUMAN] Certify the FOI-O demonstrator boundary
+    - [x] Review only the combined execution evidence, shared-concept boundary, representational losses, and non-claims; the exact profile's prior compatibility certification is not reopened.
+    - [x] Record certification or required changes against immutable digests.
     - **Acceptance:** certification is explicit and does not claim legal authority or universal portability.
-    > BLOCKED (2026-07-17): Dylan must review `FOI_DEMONSTRATOR_CERTIFICATION_PACKET.md` and record the bounded certification decision. The implementing agent cannot certify the chain or promote the candidate.
+    > ANALYST DECISION (2026-07-18): Dylan approved the E1-E11 digest-pinned
+    > chain as `bounded-compatible` against merged commit `8343ad5`. The
+    > decision preserves `equivalenceClaim: none`, inferred execution
+    > assertions, all representational losses and non-claims, and the
+    > candidate's unpromoted status.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - FOI demonstrator certification'
 
 ## Phase 4 - Local hardening and core readiness
