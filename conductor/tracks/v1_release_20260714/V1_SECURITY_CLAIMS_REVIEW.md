@@ -25,6 +25,15 @@ unpublished candidate from commit `4206608baa37c4844cb4aee4a629797df9479ff9`.
   broad portability claims; candidate fixtures and AI-proposed mappings remain
   non-normative.
 
+## Automated hardening update (2026-07-17)
+
+The engineering-hardening track's contributor-controlled evidence is now
+complete for the current mainline: hosted cross-platform qualification,
+hostile-input and property tests, deterministic mutation testing, SBOM,
+reproducibility, and rollback rehearsal are recorded. This does not close the
+release gate: hosted artifact attestations, signing, live rollback evidence,
+external source rights, and human residual-risk approval remain open.
+
 ## Not locally certifiable
 
 - External source rights, protected release environments, commit signatures,

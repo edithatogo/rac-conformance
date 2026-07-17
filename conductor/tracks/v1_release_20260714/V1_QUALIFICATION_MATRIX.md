@@ -5,6 +5,7 @@ Candidate commit: `4206608baa37c4844cb4aee4a629797df9479ff9`
 | Surface | Local evidence | Status | Release interpretation |
 | --- | --- | --- | --- |
 | Core PIC schemas, validators, examples | Clean `make check` | pass | Repo-local evidence only |
+| Engineering hardening | Hosted qualification, hostile-input, property, mutation, SBOM, and reproducibility evidence | pass with limitations | Automated evidence is complete; signing, attestations, live rollback, and human residual-risk approval remain open |
 | Fixture converters | Clean converter lint/tests and corpus report | pass | Adapter evidence, not external adoption |
 | Axiom and PolicyEngine harnesses | Clean harness tests | pass | No maintainer certification |
 | SNAP divergence study | Clean runner tests | pass | Research profile; not a general consumer |
