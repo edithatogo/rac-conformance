@@ -1,8 +1,8 @@
 # v1 residual-risk and signing decision packet
 
-Status: **decision in progress; signing and attestation policies approved, with
-no tag signing, attestation execution, risk waiver, or publication yet
-performed**.
+Status: **decision in progress; signing, attestation, and v1.0 secret-scanning
+postures approved with conditions, with no final artifact scan, tag signing,
+attestation execution, risk waiver, or publication yet performed**.
 
 This packet records the remaining engineering-hardening decisions for issue
 #44. Automated qualification is complete; the listed limitations remain
@@ -24,7 +24,7 @@ deferred to a later release.
 | --- | --- | --- |
 | `RISK-SIGNATURES` | Required commit signatures are disabled on `main`; the current candidate is unsigned. | **Approved posture:** require a cryptographically signed v1.0 release tag and verified artifact attestations. Historical and ordinary commits need not be retroactively signed. Execution and verification remain release gates. |
 | `RISK-RELEASE-ATTESTATION` | The protected `release` environment and pinned artifact-attestation step are configured; execution remains pending the final reviewed candidate. | **Approved policy:** execute the protected pinned provenance-attestation workflow for the final reviewed v1.0 candidate and verify every attestation against the exact release artifacts before publication. |
-| `RISK-SECRET-ENHANCEMENTS` | Secret scanning and push protection pass; validity checks and non-provider patterns remain disabled. | Enable after operational review, or record why the current controls are sufficient for this release. |
+| `RISK-SECRET-ENHANCEMENTS` | Secret scanning and push protection pass; validity checks and non-provider patterns remain disabled. | **Approved posture:** current controls are sufficient for v1.0 only if the final source, archive, package, and release-artifact scan is clean. Defer validity checks and custom non-provider patterns to a dated post-v1 review. Any detected secret blocks release without waiver. |
 | `RISK-EXTERNAL-QUALIFICATION` | Local and hosted matrices pass, but they do not establish an independent implementation. | Keep the independent-validation gate open; do not treat CI as adoption evidence. |
 | `RISK-CANDIDATE-SCOPE` | The exact PIC process profile is compatibility-certified but remains unpromoted. The later combined FOI demonstrator chain and health-technology mappings remain candidate-only and analyst-uncertified. | Preserve the candidate boundary, or certify the relevant mappings through their dedicated packets. |
 
@@ -85,3 +85,30 @@ residual risk, or authorize publication.
 
 This approval does not make the current candidate final, execute the workflow,
 verify an attestation, accept another residual risk, or authorize publication.
+
+### RISK-SECRET-ENHANCEMENTS
+
+- Decision: `defer` the enhancements and `approve` the bounded v1.0 posture
+- Decision-maker: Dylan
+- Date: 2026-07-18
+- Reviewed commit: `5183c2e06aec7138030760ba8f570017d2bdea6b`
+- Scope: v1.0 secret-detection controls and final release artifacts only
+- Owner: Dylan as release owner
+- Review deadline: 2026-10-18 or before v1.1, whichever occurs first
+- Approved posture: existing secret scanning and push protection are sufficient
+  for v1.0 only when a final scan of the source tree, source archive, packages,
+  and exact release artifacts reports no secrets
+- Deferred enhancements: secret validity checks and custom or non-provider
+  patterns, subject to the dated post-v1 security review
+- Non-waivable condition: any detected secret blocks release until it is
+  removed, affected credentials are rotated where applicable, artifacts are
+  rebuilt, and the complete final scan passes
+- Required follow-up: scan the frozen release candidate and every exact release
+  artifact, preserve the results in the release evidence, then review the
+  deferred enhancements by the deadline
+- Current disposition: `approved-with-conditions-pending-final-scan`; v1
+  remains blocked
+
+This approval does not change repository scanning settings, perform the final
+scan, accept a detected secret, accept another residual risk, or authorize
+publication.

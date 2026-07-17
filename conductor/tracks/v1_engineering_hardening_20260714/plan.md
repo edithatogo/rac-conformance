@@ -110,5 +110,13 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     > publication. The decision is recorded against `df16d05`. No final
     > candidate, protected execution, attestation verification, or publication
     > is implied; this task stays unchecked.
+    > ANALYST DECISION (2026-07-18): Dylan approved the current secret scanning
+    > and push-protection controls as sufficient for v1.0 only if the frozen
+    > source, archive, package, and exact release artifacts pass a final scan.
+    > Validity checks and custom/non-provider patterns are deferred until
+    > 2026-10-18 or before v1.1, whichever comes first. Any detected secret is
+    > non-waivable and blocks release. The decision is recorded against
+    > `5183c2e`; no setting change, final scan, or publication is implied, and
+    > this task stays unchecked.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
     - **REVIEW:** Automated qualification is complete. Package attestations, live rollback evidence, signing posture, and human residual-risk approval remain separate release gates.
