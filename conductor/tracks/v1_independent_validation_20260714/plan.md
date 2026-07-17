@@ -27,17 +27,23 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
 ## Phase 2 - Candidate Engagement
 
 - [x] Task: Identify candidate consumers and bounded integration surfaces
-    - [ ] Prioritise maintainers already facing fixture, trace, process, or conformance pain.
-    - [ ] Respect the one-unresolved-proposal-per-upstream rule.
-    - [ ] Record target problem, expected effort, owner, source repository, and no-response exit condition.
+    - [x] Prioritise maintainers already facing fixture, trace, process, or conformance pain.
+    - [x] Respect the one-unresolved-proposal-per-upstream rule.
+    - [x] Record target problem, expected effort, owner, source repository, and no-response exit condition.
     - **Acceptance:** each candidate has a real consumer problem rather than a generic standards pitch.
     - **Evidence:** `external/independent-validation/CANDIDATE_REGISTRY.json` records three concrete upstream problem surfaces plus a preferred unaffiliated implementer route, with ownership, effort, independence risks, and no-response exits. No candidate is treated as adoption.
 - [x] Task: Prepare implementation and feedback packets
-    - [ ] Draft upstream-native issue/PR or workshop material under `external/<repo>/`.
-    - [ ] Include scope, reproduction, minimal artifact, maintenance burden, and exit path.
-    - [ ] Do not submit without authorization.
+    - [x] Draft upstream-native issue/PR or workshop material under `external/<repo>/`.
+    - [x] Include scope, reproduction, minimal artifact, maintenance burden, and exit path.
+    - [x] Do not submit without authorization.
     - **Acceptance:** packets are reviewable and do not overstate current adoption.
     - **Evidence:** draft packets are staged under `external/policyengine/`, `external/openfisca/`, `external/independent-validation/openfisca-aotearoa/`, and `external/independent-validation/UNAFFILIATED_IMPLEMENTER_INVITATION.md`; each names a bounded problem, reproduction contract, maintenance burden, exit path, and human submission boundary.
+
+> CHECKPOINT (2026-07-17): Candidate selection and packet preparation are
+> complete. The registry documents concrete consumer pain, ownership, effort,
+> independence risks, and no-response exits. Four bounded packets are staged
+> under `external/` and remain unsent. Only target selection and authorization
+> are human-gated; no local rehearsal is counted as adoption.
 - [ ] Task: [HUMAN] Approve external outreach and submissions
     - [ ] Dylan selects targets and authorizes each communication or submission.
     - **Packet:** `OUTREACH_AUTHORIZATION_PACKET.md` provides per-target choices, scope, response limits, and the no-adoption-without-verification boundary.
