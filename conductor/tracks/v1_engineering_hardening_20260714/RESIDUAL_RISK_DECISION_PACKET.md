@@ -1,8 +1,9 @@
 # v1 residual-risk and signing decision packet
 
-Status: **decision in progress; signing, attestation, and v1.0 secret-scanning
-postures approved with conditions, with no final artifact scan, tag signing,
-attestation execution, risk waiver, or publication yet performed**.
+Status: **decision in progress; signing, attestation, v1.0 secret-scanning, and
+independent-qualification postures approved with conditions, with no final
+artifact scan, tag signing, attestation execution, external qualification,
+risk waiver, or publication yet performed**.
 
 This packet records the remaining engineering-hardening decisions for issue
 #44. Automated qualification is complete; the listed limitations remain
@@ -25,7 +26,7 @@ deferred to a later release.
 | `RISK-SIGNATURES` | Required commit signatures are disabled on `main`; the current candidate is unsigned. | **Approved posture:** require a cryptographically signed v1.0 release tag and verified artifact attestations. Historical and ordinary commits need not be retroactively signed. Execution and verification remain release gates. |
 | `RISK-RELEASE-ATTESTATION` | The protected `release` environment and pinned artifact-attestation step are configured; execution remains pending the final reviewed candidate. | **Approved policy:** execute the protected pinned provenance-attestation workflow for the final reviewed v1.0 candidate and verify every attestation against the exact release artifacts before publication. |
 | `RISK-SECRET-ENHANCEMENTS` | Secret scanning and push protection pass; validity checks and non-provider patterns remain disabled. | **Approved posture:** current controls are sufficient for v1.0 only if the final source, archive, package, and release-artifact scan is clean. Defer validity checks and custom non-provider patterns to a dated post-v1 review. Any detected secret blocks release without waiver. |
-| `RISK-EXTERNAL-QUALIFICATION` | Local and hosted matrices pass, but they do not establish an independent implementation. | Keep the independent-validation gate open; do not treat CI as adoption evidence. |
+| `RISK-EXTERNAL-QUALIFICATION` | Local and hosted matrices pass, but they do not establish an independent implementation. | **Approved policy:** keep independent validation release-blocking for v1.0. Hosted CI, maintainer-controlled rehearsals, and internal demonstrators are not adoption evidence. Continue 0.x candidates until qualifying external evidence is accepted. |
 | `RISK-CANDIDATE-SCOPE` | The exact PIC process profile is compatibility-certified but remains unpromoted. The later combined FOI demonstrator chain and health-technology mappings remain candidate-only and analyst-uncertified. | Preserve the candidate boundary, or certify the relevant mappings through their dedicated packets. |
 
 ## Human response
@@ -112,3 +113,32 @@ verify an attestation, accept another residual risk, or authorize publication.
 This approval does not change repository scanning settings, perform the final
 scan, accept a detected secret, accept another residual risk, or authorize
 publication.
+
+### RISK-EXTERNAL-QUALIFICATION
+
+- Decision: `approve` retaining the independent-validation gate
+- Decision-maker: Dylan
+- Date: 2026-07-18
+- Reviewed commit: `132dcbe305dcc544f0700085968d213d013258e1`
+- Scope: qualification of the v1.0 release candidate; not ordinary 0.x
+  development or bounded internal demonstrations
+- Owner: Dylan for evidence acceptance; an independently controlled
+  implementation owner for evidence production
+- Review trigger: receipt of a candidate independent report, or immediately
+  before any v1.0 release authorization decision
+- Approved policy: local checks, hosted CI, maintainer-controlled rehearsals,
+  forks under maintainer control, and narrative acknowledgements do not satisfy
+  independent implementation or external adoption
+- Qualifying evidence: an independently owned implementation report satisfying
+  `INDEPENDENCE_CRITERIA.json`, including implementation identity, source and
+  contract digests, runtime and clean-environment results, result artifacts,
+  limitations, and independent owner attestation
+- Permitted interim disposition: continue publishing no v1.0 release; bounded
+  internal demonstrators and 0.x candidates may continue when labelled
+  accurately and when their own gates pass
+- Required follow-up: obtain and validate a qualifying external report, record
+  its immutable evidence and freshness, and rerun the v1 release audit
+- Current disposition: `approved-gate-retained`; v1 remains blocked
+
+This approval does not claim adoption, qualify existing CI or maintainer-owned
+evidence, accept another residual risk, or authorize publication.

@@ -118,5 +118,12 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     > non-waivable and blocks release. The decision is recorded against
     > `5183c2e`; no setting change, final scan, or publication is implied, and
     > this task stays unchecked.
+    > ANALYST DECISION (2026-07-18): Dylan retained independent validation as a
+    > v1.0 release gate. Hosted CI, maintainer-controlled rehearsals, internal
+    > demonstrators, and narrative acknowledgements do not count as independent
+    > adoption. A qualifying external report must satisfy the machine-readable
+    > independence criteria; accurately labelled 0.x candidates may continue in
+    > the interim. The decision is recorded against `132dcbe`; no external
+    > qualification or publication is implied, and this task stays unchecked.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
     - **REVIEW:** Automated qualification is complete. Package attestations, live rollback evidence, signing posture, and human residual-risk approval remain separate release gates.
