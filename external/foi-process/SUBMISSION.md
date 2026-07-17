@@ -21,6 +21,11 @@ The generated trace declares `assertion_status: inferred` and an indicative
 deadline. It is execution/evidence input, not a legal conclusion or a PIC
 fixture promotion.
 
+The portable conformance-trace schema is retained byte-for-byte from the
+source revision. It is not refactored in this repository because changing an
+upstream snapshot would invalidate its provenance hash; schema maintenance
+belongs in `edithatogo/foi-process`.
+
 ## Boundary
 
 `foi-process` remains implementation-authoritative for its event, replay, and
