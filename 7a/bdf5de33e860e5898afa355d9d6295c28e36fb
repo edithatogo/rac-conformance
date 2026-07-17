@@ -1,0 +1,1 @@
+RISK-SECRET-ENHANCEMENTS approved for v1.0 with conditions: current secret scanning and push protection require a clean final source/archive/package/artifact scan; validity checks and custom patterns deferred to 2026-10-18 or before v1.1; detected secrets remain non-waivable release blockers. make check passed.
