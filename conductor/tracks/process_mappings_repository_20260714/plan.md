@@ -1,5 +1,10 @@
 # Implementation Plan
 
+> ANALYST AUDIT (2026-07-17): The Phase 1-3 checkpoints below describe dated
+> repository-local work and a local extraction rehearsal. They do not establish
+> a current remote, Project 19, hosted-control, or canonical-cutover state. The
+> remaining analyst decisions are recorded in `GITHUB_MIGRATION_PACKET.md`.
+
 GitHub issue: [#50](https://github.com/edithatogo/rac-conformance/issues/50).
 Depends on [#39](https://github.com/edithatogo/rac-conformance/issues/39)
 Phase 1 and establishes the implementation home required by

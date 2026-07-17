@@ -1,5 +1,11 @@
 # Plan: Freedom of Information programme governance
 
+> ANALYST AUDIT (2026-07-17): Existing Project 14 checkpoints and approval
+> notes are retained as dated historical records. This audit performed no live
+> Project verification and does not refresh, archive, or mark the governance
+> track complete. Use `HUMAN_VERIFICATION_PACKET.md` to record current evidence
+> and analyst decisions before relying on hosted status.
+
 ## Phase 1: Umbrella definition
 
 - [x] Task: Update Project 14 title documentation, description, repository roles,

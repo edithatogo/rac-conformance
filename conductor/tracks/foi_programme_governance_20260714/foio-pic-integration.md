@@ -57,3 +57,20 @@ repository. The gates should produce a compatibility matrix and a signed or
 content-addressed evidence bundle suitable for the deferred papers refresh.
 Checkout-relative integration paths may be used for development but cannot be
 the only release proof.
+
+## Analyst review checklist
+
+Before treating a compatibility result as evidence, the analyst should record:
+
+- the exact FOI-O and PIC revisions, artifact paths, and content digests;
+- the jurisdiction, legislative period, calendar, applicable time, and
+  observation time used by the comparison;
+- the source assertion and independent oracle for each candidate mapping or
+  fixture, including reviewer and promotion state;
+- the validator version and command, plus the complete compatibility result; and
+- any missing published artifact as `blocked`, with the owner and next evidence
+  required.
+
+`schema-valid`, `locally-tested`, `human-approved`, `published-artifact-tested`,
+and `promoted` are distinct analyst outcomes. Do not shorten them to "verified"
+or "complete" in a report.
