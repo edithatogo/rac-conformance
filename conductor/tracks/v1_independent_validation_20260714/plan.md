@@ -42,8 +42,8 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
 > CHECKPOINT (2026-07-17): Candidate selection and packet preparation are
 > complete. The registry documents concrete consumer pain, ownership, effort,
 > independence risks, and no-response exits. Four bounded packets are staged
-> under `external/` and remain unsent. Only target selection and authorization
-> are human-gated; no local rehearsal is counted as adoption.
+> under `external/`; authorized OpenFisca and PolicyEngine requests are now
+> recorded, while no local rehearsal is counted as adoption.
 - [ ] Task: [HUMAN] Approve external outreach and submissions
     - [ ] Dylan selects targets and authorizes each communication or submission.
     - **Packet:** `OUTREACH_AUTHORIZATION_PACKET.md` provides per-target choices, scope, response limits, and the no-adoption-without-verification boundary.
@@ -52,6 +52,11 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     > OUTREACH RECORDED (2026-07-17): Dylan authorized one bounded OpenFisca
     > core request. The comment is recorded at
     > https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-4998515274
+    > with a 14-day response window and one-follow-up limit. The target remains
+    > pending maintainer response; no adoption or independent result is claimed.
+    > OUTREACH UPDATE (2026-07-17): Dylan authorized one bounded PolicyEngine
+    > request. The comment is recorded at
+    > https://github.com/PolicyEngine/policyengine-core/issues/512#issuecomment-4998530912
     > with a 14-day response window and one-follow-up limit. The target remains
     > pending maintainer response; no adoption or independent result is claimed.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Candidate Engagement' (Protocol in workflow.md)
