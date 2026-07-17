@@ -104,5 +104,11 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     > `RESIDUAL_RISK_DECISION_PACKET.md`. Signing identity selection, final-tree
     > rebuild, protected attestation execution, verification, all other risk
     > decisions, and publication remain pending; this task stays unchecked.
+    > ANALYST DECISION (2026-07-18): Dylan approved mandatory execution of the
+    > pinned protected provenance-attestation workflow for the final reviewed
+    > v1.0 candidate, with subject/digest verification required before
+    > publication. The decision is recorded against `df16d05`. No final
+    > candidate, protected execution, attestation verification, or publication
+    > is implied; this task stays unchecked.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
     - **REVIEW:** Automated qualification is complete. Package attestations, live rollback evidence, signing posture, and human residual-risk approval remain separate release gates.

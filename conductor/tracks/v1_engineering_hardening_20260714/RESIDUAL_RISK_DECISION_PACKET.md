@@ -1,7 +1,8 @@
 # v1 residual-risk and signing decision packet
 
-Status: **decision in progress; signing posture approved, with no tag signing,
-attestation execution, risk waiver, or publication yet performed**.
+Status: **decision in progress; signing and attestation policies approved, with
+no tag signing, attestation execution, risk waiver, or publication yet
+performed**.
 
 This packet records the remaining engineering-hardening decisions for issue
 #44. Automated qualification is complete; the listed limitations remain
@@ -22,7 +23,7 @@ deferred to a later release.
 | ID | Current evidence | Decision required |
 | --- | --- | --- |
 | `RISK-SIGNATURES` | Required commit signatures are disabled on `main`; the current candidate is unsigned. | **Approved posture:** require a cryptographically signed v1.0 release tag and verified artifact attestations. Historical and ordinary commits need not be retroactively signed. Execution and verification remain release gates. |
-| `RISK-RELEASE-ATTESTATION` | The protected `release` environment and pinned artifact-attestation step are configured; execution remains pending protected approval. | Approve and execute the workflow, then verify attestations, or explicitly defer v1 and record the accepted limitation. |
+| `RISK-RELEASE-ATTESTATION` | The protected `release` environment and pinned artifact-attestation step are configured; execution remains pending the final reviewed candidate. | **Approved policy:** execute the protected pinned provenance-attestation workflow for the final reviewed v1.0 candidate and verify every attestation against the exact release artifacts before publication. |
 | `RISK-SECRET-ENHANCEMENTS` | Secret scanning and push protection pass; validity checks and non-provider patterns remain disabled. | Enable after operational review, or record why the current controls are sufficient for this release. |
 | `RISK-EXTERNAL-QUALIFICATION` | Local and hosted matrices pass, but they do not establish an independent implementation. | Keep the independent-validation gate open; do not treat CI as adoption evidence. |
 | `RISK-CANDIDATE-SCOPE` | The exact PIC process profile is compatibility-certified but remains unpromoted. The later combined FOI demonstrator chain and health-technology mappings remain candidate-only and analyst-uncertified. | Preserve the candidate boundary, or certify the relevant mappings through their dedicated packets. |
@@ -61,3 +62,26 @@ release disposition is `blocked`, not an implicit waiver.
 
 This approval does not sign a tag, execute an attestation, accept another
 residual risk, or authorize publication.
+
+### RISK-RELEASE-ATTESTATION
+
+- Decision: `approve`
+- Decision-maker: Dylan
+- Date: 2026-07-18
+- Reviewed commit: `df16d0582bc9eae82c73b08f25f9995a0ba879a3`
+- Scope: provenance attestations for final v1.0 release artifacts
+- Owner: Dylan as release owner
+- Review trigger: final release-candidate qualification and any change to the
+  candidate commit, artifact set, protected environment, or attestation action
+- Approved policy: execute the pinned protected provenance-attestation
+  workflow against the final reviewed commit and verify each attestation
+  against the exact artifact digest before publication
+- Required follow-up: freeze the final candidate, rebuild its artifacts,
+  authorize the protected environment run, preserve workflow and attestation
+  identifiers, verify subjects and digests, and attach the evidence to the
+  release ledger
+- Current disposition: `approved-pending-final-candidate-and-execution`; v1
+  remains blocked
+
+This approval does not make the current candidate final, execute the workflow,
+verify an attestation, accept another residual risk, or authorize publication.
