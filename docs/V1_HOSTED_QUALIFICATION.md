@@ -5,6 +5,21 @@ certification remain open.
 
 ## Qualification run
 
+Most recent hosted v1 matrix run:
+
+- Workflow: [v1 Qualification run 29578650877](https://github.com/edithatogo/rac-conformance/actions/runs/29578650877)
+- Tested source commit: `0442ffdfda2b204e6d88dbdebcf8da5f1c97f273`
+- Event: `pull_request` for the paper-preparation PR subsequently merged as
+  `680dbd7b99fb3409d67244638ff045c24edaed59`
+- Result: `success`
+- Artifacts: Ubuntu/Python 3.12 `8406078979`, Ubuntu/Python 3.13
+  `8406079349`, macOS/Python 3.12 `8406086410`, macOS/Python 3.13
+  `8406083394`
+
+The current `main` tree is the merged form of this tested content. The run
+proves automated qualification for the pull-request tree; it does not close
+the external evidence, signing, publication, or human certification gates.
+
 - Workflow: [v1 Qualification run 29476769764](https://github.com/edithatogo/rac-conformance/actions/runs/29476769764)
 - Pull request: [#91](https://github.com/edithatogo/rac-conformance/pull/91)
 - Tested source commit: `04ef0f918f8d356309fc453ddb4cf204af0319a0`

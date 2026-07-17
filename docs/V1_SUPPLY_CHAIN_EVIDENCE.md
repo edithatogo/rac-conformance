@@ -1,6 +1,6 @@
 # v1 Supply-Chain Evidence
 
-Observed: 2026-07-16 from the RaC v1 integration worktree.
+Observed: 2026-07-17 from current `origin/main`.
 
 ## Local evidence
 
@@ -13,8 +13,8 @@ Observed: 2026-07-16 from the RaC v1 integration worktree.
 | Dependency locking | pass | `contracts/tools/uv.lock` and `converters/fixtures/uv.lock` are tracked. |
 | SBOM | pass | `docs/V1_SBOM.json` is a CycloneDX JSON inventory generated with reproducible output. |
 | Secret scanning | hosted pass | GitHub API verification on 2026-07-16 reports secret scanning and push protection enabled; validity checks and non-provider patterns remain disabled. |
-| Branch protection | hosted pass | Main requires one code-owner approval and all recorded CI/security/v1 matrix checks; admin enforcement, linear history, conversation resolution, no force-push, and no deletion are enabled. |
-| Release environment protection | pass with limitation | `release` requires the sole code owner, prevents self-review and administrator bypass, and permits protected branches only; artifact-attestation execution remains pending protected workflow approval and commit signatures remain disabled. |
+| Branch protection | hosted pass with limitation | Main requires all recorded CI/security/v1 matrix checks and conversation resolution; no approving review or code-owner review is currently required. Admin enforcement, linear history, no force-push, and no deletion are enabled. |
+| Release environment protection | not reverified | Release-environment reviewers, bypass, and protected-branch deployment settings require a live release-time check; artifact-attestation execution and commit signatures remain open. |
 
 ## Release disposition
 

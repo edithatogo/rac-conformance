@@ -1,7 +1,8 @@
 # v1 Security, Licensing, and Claims Review
 
-Review scope: current `codex/rac-v1-integration` working branch and the
-unpublished candidate from commit `4206608baa37c4844cb4aee4a629797df9479ff9`.
+Review scope: current `main` and the latest hosted qualification candidate
+from commit `0442ffdfda2b204e6d88dbdebcf8da5f1c97f273`, merged as
+`680dbd7b99fb3409d67244638ff045c24edaed59`.
 
 ## Verified locally
 

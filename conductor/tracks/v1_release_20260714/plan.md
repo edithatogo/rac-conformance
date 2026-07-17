@@ -20,9 +20,15 @@ GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46). De
     - [x] Produce packages, source archives, SBOMs, checksums, provenance, and compatibility reports.
     - [x] Compare reproducible builds and run all supported-platform matrices.
     - **Acceptance:** all release artifacts derive from the reviewed release commit.
-    - **Evidence:** `release-candidate/current/` contains the current package/source artifacts, SBOM, checksums, provenance, compatibility report, and candidate manifest generated from clean commit `4206608`; two clean source/package builds had identical SHA-256 digests, local `make check` passed, and hosted qualification passed. The candidate remains unpublished and unsigned.
+    - **Evidence:** `release-candidate/current/` contains the prior unpublished package/source artifacts, SBOM, checksums, provenance, compatibility report, and candidate manifest generated from clean commit `4206608`. The latest hosted qualification ran against `0442ffd` and was merged to current `main` as `680dbd7`; two clean source/package builds had identical SHA-256 digests, local `make check` passed, and hosted qualification passed. The candidate remains unpublished and unsigned; rebuild from the final reviewed tree is required before promotion.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Release Candidate Freeze' (Protocol in workflow.md)
     - **CHECKPOINT:** Gate audit is deterministic and blocked for four declared external/human gates. Normative scope is frozen, package metadata is buildable, and a reproducible `v1.0.0-rc.1` candidate has passed clean `make check`. Qualification, human certification, publication, and final release remain deferred.
+
+> EVIDENCE RECONCILIATION (2026-07-17): Hosted v1 qualification run
+> `29578650877` passed all four Ubuntu/macOS and Python 3.12/3.13 jobs for
+> commit `0442ffdf`, now represented on `main` by merge commit `680dbd7`.
+> The packet records the distinction between tested PR content and a future
+> release-candidate rebuild; no stale candidate is treated as current.
 
 ## Phase 2 - Qualification
 

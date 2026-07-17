@@ -1,6 +1,6 @@
 # v1 Hosted Governance Verification
 
-Observed: 2026-07-16 via the authenticated GitHub API for
+Observed: 2026-07-17 via the authenticated GitHub API for
 `edithatogo/rac-conformance`.
 
 ## Repository security settings
@@ -14,7 +14,8 @@ Observed: 2026-07-16 via the authenticated GitHub API for
 ## Main branch protection
 
 - Strict required checks are enabled.
-- One approving review is required and code-owner review is required.
+- No approving review or code-owner review is currently required; conversation
+  resolution remains required.
 - Required checks are `check`, `full-check`, `analyze`, `CodeQL`,
   `dependency-review`, `workflow-lint`, `workflow-security`, and all four
   v1 matrix jobs for Ubuntu/macOS and Python 3.12/3.13.
@@ -24,10 +25,11 @@ Observed: 2026-07-16 via the authenticated GitHub API for
 
 ## Release environment
 
-- The `release` environment is configured with `edithatogo` as its sole
-  required reviewer.
-- Self-review is prevented, administrator bypass is disabled, and deployments
-  are limited to protected branches.
+- The `release` environment and its deployment-review settings require live
+  verification at release time; this repository packet does not infer them
+  from branch protection.
+- Protected-branch deployment and administrator-bypass settings must be
+  rechecked before any release action.
 - The manual `v1 Release Qualification` workflow references this environment
   and performs qualification plus checksum verification only. It does not tag,
   publish, or announce a release.

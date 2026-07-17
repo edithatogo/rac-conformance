@@ -1,6 +1,7 @@
 # v1.0.0-rc.1 Qualification Matrix
 
-Candidate commit: `4206608baa37c4844cb4aee4a629797df9479ff9`
+Latest hosted qualification commit: `0442ffdfda2b204e6d88dbdebcf8da5f1c97f273`.
+It was merged into current `main` as `680dbd7b99fb3409d67244638ff045c24edaed59`.
 
 | Surface | Local evidence | Status | Release interpretation |
 | --- | --- | --- | --- |

@@ -2,12 +2,14 @@
 
 ## Candidate status
 
-- A current, unpublished `v1.0.0-rc.1` candidate has been rebuilt from
+- An unpublished `v1.0.0-rc.1` candidate was rebuilt from
   `4206608baa37c4844cb4aee4a629797df9479ff9`. The candidate manifest,
   provenance, packages, source archive, checksums, compatibility report, and
   hosted qualification evidence are under `release-candidate/current/`. The
   prior `0c4a83b` candidate is historical evidence only and must not be
-  promoted.
+  promoted. Current `main` is `680dbd7b99fb3409d67244638ff045c24edaed59`;
+  a release candidate must be rebuilt from that exact reviewed tree after all
+  remaining gates are resolved.
 - Current gate manifest: `conductor/v1-release-gates.json`
 - Current hardening evidence: `docs/V1_THREAT_MODEL.md`,
   `docs/V1_RISK_REGISTER.json`, `docs/V1_VALIDATION_BASELINE.json`,
