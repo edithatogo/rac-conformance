@@ -1,6 +1,6 @@
 # PolicyEngine upstream implementation status
 
-Date: 2026-07-09  
+Date: 2026-07-17
 Agent work against open issues on `PolicyEngine/policyengine-core`.  
 Fork: `edithatogo/policyengine-core` (push OK). Org repo push: not available.
 
@@ -44,6 +44,19 @@ Fork: `edithatogo/policyengine-core` (push OK). Org repo push: not available.
 2. CI status depends on PolicyEngine GitHub Actions running against fork PRs (may need maintainer approval for first-time contributors).
 3. Maintainers may want a longer discussion on #513 before accepting any behavior that *changes* defaulting; this PR deliberately only adds queries.
 4. Local dirty history on checkout `master` still contains an older combined conductor+prototype commit; the three PR branches above are clean rebased implementations from current `upstream/master`.
+
+## Independent-validation outreach
+
+On 2026-07-17, following explicit human authorization, the RaC Conformance
+project posted one bounded validation request on PolicyEngine issue #512:
+
+https://github.com/PolicyEngine/policyengine-core/issues/512#issuecomment-4998530912
+
+The request asks maintainers to select one small trace, missingness, or fixture
+conversion validation surface. It does not request PIC adoption, a code merge,
+or a change to PolicyEngine calculation semantics. The response window is 14
+days with at most one follow-up. Silence will be recorded as `unresponsive`
+and will not count toward v1 independent adoption.
 
 ## Patches
 
