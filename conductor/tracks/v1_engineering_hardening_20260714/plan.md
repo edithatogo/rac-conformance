@@ -94,22 +94,22 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     > package attestations, live rollback evidence, and human residual-risk /
     > signing approval. Clean-build and mutation evidence are complete; they
     > are no longer blockers.
-- [ ] Task: [HUMAN] Approve residual risk and signing posture
-    - [ ] Present open risks, waivers, unsupported platforms, and signing/provenance evidence.
-    - [ ] Dylan approves, rejects, or defers release-candidate qualification.
+- [x] Task: [HUMAN] Approve residual risk and signing posture
+    - [x] Present open risks, waivers, unsupported platforms, and signing/provenance evidence.
+    - [x] Dylan approves, rejects, or defers release-candidate qualification.
     - **Acceptance:** no risk is accepted implicitly by merging code.
     > ANALYST DECISION (2026-07-18): Dylan approved a signed v1.0 release tag
     > plus verified artifact attestations, without retroactively requiring all
     > commits to be signed. The decision is recorded against `73aff57` in
     > `RESIDUAL_RISK_DECISION_PACKET.md`. Signing identity selection, final-tree
     > rebuild, protected attestation execution, verification, all other risk
-    > decisions, and publication remain pending; this task stays unchecked.
+    > decisions, and publication remained pending at that checkpoint.
     > ANALYST DECISION (2026-07-18): Dylan approved mandatory execution of the
     > pinned protected provenance-attestation workflow for the final reviewed
     > v1.0 candidate, with subject/digest verification required before
     > publication. The decision is recorded against `df16d05`. No final
     > candidate, protected execution, attestation verification, or publication
-    > is implied; this task stays unchecked.
+    > was implied at that checkpoint.
     > ANALYST DECISION (2026-07-18): Dylan approved the current secret scanning
     > and push-protection controls as sufficient for v1.0 only if the frozen
     > source, archive, package, and exact release artifacts pass a final scan.
@@ -117,13 +117,22 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     > 2026-10-18 or before v1.1, whichever comes first. Any detected secret is
     > non-waivable and blocks release. The decision is recorded against
     > `5183c2e`; no setting change, final scan, or publication is implied, and
-    > this task stays unchecked.
+    > the residual-risk task remained open at that checkpoint.
     > ANALYST DECISION (2026-07-18): Dylan retained independent validation as a
     > v1.0 release gate. Hosted CI, maintainer-controlled rehearsals, internal
     > demonstrators, and narrative acknowledgements do not count as independent
     > adoption. A qualifying external report must satisfy the machine-readable
     > independence criteria; accurately labelled 0.x candidates may continue in
     > the interim. The decision is recorded against `132dcbe`; no external
-    > qualification or publication is implied, and this task stays unchecked.
+    > qualification or publication was implied at that checkpoint.
+    > ANALYST DECISION (2026-07-18): Dylan preserved the existing candidate
+    > boundaries. The PIC profile remains compatibility-certified but
+    > unpromoted; the combined FOI chain remains `bounded-compatible` with no
+    > equivalence or promotion claim; and the health-technology profiles remain
+    > agent-proposed candidates pending triangulation and controlling-source
+    > certification. The decision is recorded against `d066ef4`. All five
+    > residual-risk decisions are now explicit; final scanning, signing,
+    > attestation, independent qualification, promotion, and publication remain
+    > separate gates.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
-    - **REVIEW:** Automated qualification is complete. Package attestations, live rollback evidence, signing posture, and human residual-risk approval remain separate release gates.
+    - **REVIEW:** Automated qualification and residual-risk policy decisions are complete. Final artifact scanning, package attestations, live rollback evidence, release-tag signing, independent qualification, and release authorization remain separate gates.

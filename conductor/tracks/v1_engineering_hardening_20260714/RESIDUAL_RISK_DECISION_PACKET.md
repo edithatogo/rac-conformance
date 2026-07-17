@@ -1,9 +1,9 @@
 # v1 residual-risk and signing decision packet
 
-Status: **decision in progress; signing, attestation, v1.0 secret-scanning, and
-independent-qualification postures approved with conditions, with no final
-artifact scan, tag signing, attestation execution, external qualification,
-risk waiver, or publication yet performed**.
+Status: **decision complete; all five residual-risk policies are recorded,
+with no final artifact scan, tag signing, attestation execution, external
+qualification, candidate promotion, risk waiver, or publication yet
+performed**.
 
 This packet records the remaining engineering-hardening decisions for issue
 #44. Automated qualification is complete; the listed limitations remain
@@ -27,7 +27,7 @@ deferred to a later release.
 | `RISK-RELEASE-ATTESTATION` | The protected `release` environment and pinned artifact-attestation step are configured; execution remains pending the final reviewed candidate. | **Approved policy:** execute the protected pinned provenance-attestation workflow for the final reviewed v1.0 candidate and verify every attestation against the exact release artifacts before publication. |
 | `RISK-SECRET-ENHANCEMENTS` | Secret scanning and push protection pass; validity checks and non-provider patterns remain disabled. | **Approved posture:** current controls are sufficient for v1.0 only if the final source, archive, package, and release-artifact scan is clean. Defer validity checks and custom non-provider patterns to a dated post-v1 review. Any detected secret blocks release without waiver. |
 | `RISK-EXTERNAL-QUALIFICATION` | Local and hosted matrices pass, but they do not establish an independent implementation. | **Approved policy:** keep independent validation release-blocking for v1.0. Hosted CI, maintainer-controlled rehearsals, and internal demonstrators are not adoption evidence. Continue 0.x candidates until qualifying external evidence is accepted. |
-| `RISK-CANDIDATE-SCOPE` | The exact PIC process profile is compatibility-certified but remains unpromoted. The later combined FOI demonstrator chain and health-technology mappings remain candidate-only and analyst-uncertified. | Preserve the candidate boundary, or certify the relevant mappings through their dedicated packets. |
+| `RISK-CANDIDATE-SCOPE` | The exact PIC process profile is compatibility-certified but unpromoted; the combined FOI chain is certified only as a bounded demonstrator; health-technology mappings remain agent-proposed candidates. | **Approved policy:** preserve each existing boundary. Neither compatibility nor bounded-demonstrator certification promotes a canonical profile, and health-technology mappings require their dedicated triangulation and controlling-source certification before promotion. |
 
 ## Human response
 
@@ -142,3 +142,32 @@ publication.
 
 This approval does not claim adoption, qualify existing CI or maintainer-owned
 evidence, accept another residual risk, or authorize publication.
+
+### RISK-CANDIDATE-SCOPE
+
+- Decision: `approve` preserving the existing certification and promotion
+  boundaries
+- Decision-maker: Dylan
+- Date: 2026-07-18
+- Reviewed commit: `d066ef4362eae227431921216cf19533e3bdc070`
+- Scope: PIC process profile, combined FOI demonstrator, and health-technology
+  pathway artifacts considered by the v1 hardening review
+- Owner: Dylan for promotion decisions; the relevant profile and source owners
+  for candidate evidence
+- Review trigger: any candidate digest or source assertion changes, canonical
+  process-mappings cutover, profile promotion request, or v1 release freeze
+- PIC disposition: retain the NZ OIA process profile as compatibility-certified
+  but unpromoted pending the separately governed process-mappings cutover
+- FOI disposition: retain the E1-E11 chain as `bounded-compatible` only, with
+  `equivalenceClaim: none`, all recorded losses and non-claims, and no fixture
+  or canonical-profile promotion
+- Health-technology disposition: retain NZ and UK pathway artifacts as
+  agent-proposed, non-controlling candidates pending deterministic
+  triangulation, exception review, and certification of controlling assertions
+- Required follow-up: use each dedicated promotion packet and preserve immutable
+  candidate and contract digests; rerun affected validation after any change
+- Current disposition: `approved-boundaries-preserved`; no promotion is implied
+
+This approval does not certify legal, clinical, funding, or access outcomes;
+promote a fixture or profile; complete process-mappings cutover; accept another
+residual risk; or authorize publication.
