@@ -37,15 +37,17 @@ Consumes completed work from [#39](https://github.com/edithatogo/rac-conformance
     - [ ] Review only source assertions, mapping exceptions, and non-claims.
     - [ ] Record certification or required changes against immutable digests.
     - **Acceptance:** certification is explicit and does not claim legal authority or universal portability.
+    > BLOCKED (2026-07-17): Dylan must review `FOI_DEMONSTRATOR_CERTIFICATION_PACKET.md` and record the bounded certification decision. The implementing agent cannot certify the chain or promote the candidate.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - FOI demonstrator certification'
 
 ## Phase 4 - Local hardening and core readiness
 
-- [ ] Task: Run local hardening and reproducibility qualification
-    - [ ] Run hostile-input, property, mutation, SBOM, reproducibility, and rollback-tabletop evidence.
-    - [ ] Re-run `make check` from a clean worktree and record exact commit/digests.
-    - [ ] Keep hosted attestations, signing, live rollback, and external evidence explicitly deferred.
+- [x] Task: Run local hardening and reproducibility qualification
+    - [x] Run hostile-input, property, mutation, SBOM, reproducibility, and rollback-tabletop evidence.
+    - [x] Re-run `make check` from a clean worktree and record exact commit/digests.
+    - [x] Keep hosted attestations, signing, live rollback, and external evidence explicitly deferred.
     - **Acceptance:** local core evidence is reproducible and residual external gates are named rather than hidden.
+    - **Evidence:** `CORE_HARDENING_EVIDENCE.md`; existing `security/`, `docs/V1_REPRODUCIBILITY.json`, `docs/V1_MUTATION_GATE.json`; `make check` passed on 2026-07-17.
 - [ ] Task: Prepare core demonstrator readiness packet
     - [ ] State the core claims supported by each evidence level.
     - [ ] Link the FOI-O certification, normalized trace, validator corpus, and hardening evidence.
