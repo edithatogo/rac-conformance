@@ -59,3 +59,25 @@ def test_source_manifest_rejects_malformed_source_entry(tmp_path: Path) -> None:
     (root / "sources/manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
 
     assert any("missing 'id'" in error for error in validate(root))
+
+
+def test_selected_source_spine_has_direct_capture_and_explicit_date_gaps() -> None:
+    spine = json.loads(
+        (ROOT / "candidates/SOURCE_SPINE.json").read_text(encoding="utf-8")
+    )
+    sources = {source["id"]: source for source in spine["sources"]}
+    for source_id in (
+        "nz-medsafe-evaluation",
+        "nz-pharmac-funding-journey",
+        "nz-pharmac-melanoma-2025",
+        "uk-mhra-market-authorisation",
+        "uk-nice-process-manual",
+        "uk-nice-ta766",
+    ):
+        source = sources[source_id]
+        assert source["sourceStatus"].startswith("official-")
+        assert source["retrievalDigest"].startswith("sha256:")
+        assert source["url"].startswith("https://")
+    assert sources["nz-medsafe-evaluation"]["effectiveDateStatus"] == "missing-on-source-page"
+    assert sources["uk-mhra-market-authorisation"]["effectiveDateStatus"] == "missing-on-source-page"
+    assert "Human review" in spine["promotionBoundary"]

@@ -35,6 +35,10 @@ during the repository incubation governed by
 > before any candidate mapping can be controlling or promoted.
 > REVIEW (2026-07-16): Phase diff reviewed; `make check` passed, including the
 > health-technology validator. No high-confidence correctness findings remain.
+> SOURCE REFRESH (2026-07-17): Direct HTTPS captures verified the selected
+> Medsafe, Pharmac, MHRA, and NICE process sources. `candidates/SOURCE_SPINE.json`
+> now records retrieval digests, explicit missing-effective-date gaps, and the
+> boundary that direct capture does not certify authority or comparability.
 
 ## Phase 2 - Comparison Case Selection
 
