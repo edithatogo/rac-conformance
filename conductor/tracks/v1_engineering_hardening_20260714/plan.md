@@ -36,11 +36,11 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     - [ ] Enforce explicit size, depth, time, and memory limits where appropriate.
     - **Acceptance:** failures are controlled and do not expose secrets or write outside allowed paths.
     - Evidence: `contracts/tools/tests/test_safety.py` and `pic_contracts.safety.load_bounded_json`.
-- [ ] Task: Add mutation testing to high-value deterministic modules
+- [x] Task: Add mutation testing to high-value deterministic modules
     - [ ] Select validators/converters with stable oracles.
     - [ ] Set justified thresholds and document equivalent/surviving mutations.
     - **Acceptance:** threshold failures block the release candidate unless explicitly waived with evidence.
-    > BLOCKED (2026-07-16): No mutation runner is configured or pinned in this repository; adding one requires selecting and reviewing a tool and its reproducibility contract.
+    - **Evidence:** `tools/v1_mutation.py`, `docs/V1_MUTATION_GATE.json`, and the `v1-qualification` workflow. The runner is deterministic, uses committed validator examples as its oracle, requires every declared mutation to be killed, and treats equivalent mutants as zero-tolerance unless explicitly recorded.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Adversarial and Semantic Testing' (Protocol in workflow.md)
 
 ## Phase 3 - Supply Chain and Release Reproducibility
@@ -68,6 +68,10 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
 > CHECKPOINT (2026-07-16): Local workflow pins, SPDX inventory, lockfile digest,
 > reproducibility procedure, and rollback tabletop packet are present. Hosted
 > attestations, clean-build comparison, and live rollback remain open.
+
+> REVIEW (2026-07-17): Mutation testing is implemented and exercised by the
+> release qualification workflow. The prior blocker was stale plan state; no
+> new external mutation engine is required for the deterministic local gate.
 
 ## Phase 4 - Full Qualification
 
