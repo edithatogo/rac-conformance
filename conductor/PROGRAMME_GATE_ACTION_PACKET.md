@@ -1,6 +1,6 @@
 # Outstanding Programme Gate Action Packet
 
-Prepared: 2026-07-15
+Prepared: 2026-07-17
 
 This packet is an operational handoff for the remaining external and human
 gates. It does not claim that any gate is complete. The local Conductor plans
@@ -15,15 +15,21 @@ are consolidated in `conductor/V1_REMAINING_GATES_PACKET.md`.
 Local preparation is complete in `external/MAINTAINER_FOLLOWUPS.md` and
 `external/ADOPTION_STATUS.md`.
 
-Required external outcomes for each open proposal:
+Required external outcomes for each still-open proposal:
 
 - maintainer workflow approval and hosted checks for PolicyEngine #515-#517;
 - maintainer review and terminal disposition for OpenFisca #1382/#1381;
-- Axiom signing and maintainer disposition for RuleSpec NZ #80; and
 - BetterRules review and terminal disposition for OpenFisca Aotearoa #200.
 
-Record only a URL-backed `merged`, `declined`, or `blocked` outcome. Do not
-convert silence, a local fork, or a passing local rehearsal into adoption.
+RuleSpec NZ #79/#80 is no longer an outstanding gate. The maintainer confirmed
+that canonical migration #83 reproduced the semantic fix on upstream `main`,
+reported clean compilation and 3/3 companion tests, and closed the issue and PR
+with credit. Do not describe PR #80 as merged; describe the fix as adopted
+upstream through canonical migration.
+
+Record only URL-backed `merged`, `declined`, `adopted through a documented
+replacement`, or `blocked` outcomes. Do not convert silence, a local fork, or a
+passing local rehearsal into adoption.
 
 ## 2. FOI-O evidence: #27 and paper trigger #31
 

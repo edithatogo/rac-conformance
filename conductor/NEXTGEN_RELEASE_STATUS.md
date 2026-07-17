@@ -1,6 +1,6 @@
 # Next-generation Roadmap Release Status
 
-Last updated: 2026-07-14.
+Last updated: 2026-07-17.
 
 This file records the GitHub execution ledger for the next-generation roadmap. Local Conductor specs and plans remain the source of truth for requirements and acceptance.
 
@@ -14,8 +14,8 @@ after that release and submit only with Dylan's explicit authorization.
 
 - **Repo-local roadmap work:** complete (`make check` green; non-final tracks archived with evidence).
 - **External adoption:** every staged GitHub target has a durable URL in `external/ADOPTION_STATUS.md`.
-- **Maintainer replies:** none yet on open proposals (see `external/MAINTAINER_MONITORING.md`).
-- **Do not claim** broad external merge/adoption beyond the single merged `foi-o` PR and local fork archives.
+- **Maintainer replies:** RuleSpec NZ #79/#80 reached a terminal credited-adoption outcome; other replies and unresolved proposals are tracked in `external/MAINTAINER_MONITORING.md`.
+- **Do not claim** broad external merge/adoption beyond the merged `foi-o` work and the RuleSpec NZ fix adopted through canonical migration #83. PR #80 was closed with credit, not merged.
 
 Interpreter of record: Dylan (session authorization to address remaining human gates).
 
@@ -48,9 +48,9 @@ Completed prior-track issues [#1](https://github.com/edithatogo/rac-conformance/
 |---|---:|---|---|---|---|---|
 | `roadmap_release_20260706` | [#7](https://github.com/edithatogo/rac-conformance/issues/7) | Done (monitor) | All child tracks | `make check` green 2026-07-09 | Release decision recorded: keep external monitoring open | Monitor upstream issue replies; optional follow-up tracks |
 | `repo_boundaries_20260706` | [#8](https://github.com/edithatogo/rac-conformance/issues/8) | Done | None | Docs / `make check` | None | Archived |
-| `adoption_closure_20260706` | [#9](https://github.com/edithatogo/rac-conformance/issues/9) | Done | Repo boundaries; roadmap phase 1 | N/A for drafts | Submitted/merged URLs in ledger; replies pending | Monitor `MAINTAINER_MONITORING.md` |
+| `adoption_closure_20260706` | [#9](https://github.com/edithatogo/rac-conformance/issues/9) | Done | Repo boundaries; roadmap phase 1 | N/A for drafts | URL-backed terminal or externally blocked outcomes recorded in ledger | Monitor unresolved targets in `MAINTAINER_MONITORING.md` |
 | `pic_v02_20260706` | [#10](https://github.com/edithatogo/rac-conformance/issues/10) | Done | Adoption evidence | `make check` | Consumer evidence | Archived |
-| `axiom_validation_20260706` | [#11](https://github.com/edithatogo/rac-conformance/issues/11) | Done | Axiom artifacts | Harness + Actions | [rulespec-nz#79](https://github.com/TheAxiomFoundation/rulespec-nz/issues/79) open | Monitor #79 |
+| `axiom_validation_20260706` | [#11](https://github.com/edithatogo/rac-conformance/issues/11) | Done | Axiom artifacts | Harness + Actions | RuleSpec NZ #79/#80 resolved on upstream `main` through canonical migration #83 | None for #79/#80; retain evidence |
 | `service_demos_20260706` | [#12](https://github.com/edithatogo/rac-conformance/issues/12) | Done | Boundaries / PIC / Axiom | Demo tests | None blocking | Archived |
 | `comparative_studies_20260706` | [#13](https://github.com/edithatogo/rac-conformance/issues/13) | Done | Adoption / validation evidence | Study draft validation | Study selection approved | Archived; spawned NZ recon track |
 | `nz_reconciliation_20260707` | [#14](https://github.com/edithatogo/rac-conformance/issues/14) | Done | Comparative study selection | `make nz-recon-*` | Certified engine-gap; [openfisca-aotearoa#199](https://github.com/BetterRules/openfisca-aotearoa/issues/199) | Monitor #199; optional future dual-engine track |
@@ -66,7 +66,11 @@ Certification levels used by this matrix:
 - `superseded`: later approved plan makes the item unnecessary.
 - `engine_gap`: comparative study completed with documented non-overlap (not numeric agreement).
 
-## External adoption snapshot (2026-07-09)
+## Historical external adoption snapshot (2026-07-09)
+
+The counts below are the recorded 2026-07-09 snapshot, not the current ledger.
+RuleSpec NZ #79/#80 subsequently reached credited upstream adoption through
+canonical migration #83 on 2026-07-17.
 
 | Outcome | Count | Notes |
 |---|---:|---|

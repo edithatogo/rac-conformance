@@ -4,6 +4,13 @@
 **Local checkouts:** `.external-repos/rulespec-nz`, `.external-repos/openfisca-aotearoa`  
 **Policy:** work only on Dylan’s edithatogo forks; no force-push to upstream `main`.
 
+> **Historical snapshot:** The branch, PR, blocker, and source-of-truth
+> statements below record the local state on 2026-07-09. On 2026-07-17, the
+> maintainer confirmed that the RuleSpec NZ fix had been reproduced on upstream
+> `main` through supervised-encoder migration #83, with clean compilation and
+> 3/3 companion tests, and closed #79/#80 with credit. The local fork remains a
+> reproducibility artifact, not the current canonical source.
+
 ---
 
 ## Task A — `edithatogo/rulespec-nz` (KiwiSaver solidify)
@@ -57,7 +64,7 @@ yaml parse error: rules[1].versions[0].values: invalid type: sequence, expected 
 
 ### Upstream PR #80 note
 
-CI quality/roadmap-coverage pass; **validate fails** on `axiom-encode guard-generated` (manual RuleSpec change without signed encoding manifest). Requires `AXIOM_ENCODE_APPLY_SIGNING_KEY` / maintainer re-sign. Until merge, **use this fork’s `fix/kiwisaver-elective-rates-map` (or `local/main`) as the local compile source of truth.** Upstream `origin/main` was not force-pushed.
+CI quality/roadmap-coverage pass; **validate fails** on `axiom-encode guard-generated` (manual RuleSpec change without signed encoding manifest). Requires `AXIOM_ENCODE_APPLY_SIGNING_KEY` / maintainer re-sign. At this snapshot date, the fork's `fix/kiwisaver-elective-rates-map` (or `local/main`) was the local compile source of truth. This guidance was superseded on 2026-07-17 when canonical migration #83 placed the semantic fix on upstream `main`. Upstream `origin/main` was not force-pushed.
 
 ### Pushes this session
 
@@ -117,12 +124,12 @@ openfisca test --country-package openfisca_aotearoa \
 
 | Consumer need | Pin |
 |---|---|
-| RuleSpec NZ KiwiSaver compile | `edithatogo/rulespec-nz` @ `fix/kiwisaver-elective-rates-map` **or** `local/main` @ **`c11ab65`** |
+| RuleSpec NZ KiwiSaver compile | Current canonical source: `TheAxiomFoundation/rulespec-nz@main` after migration #83. Historical reproduction pin: `edithatogo/rulespec-nz` @ `c11ab65`. |
 | OpenFisca Aotearoa tax/ACC/KS | `edithatogo/openfisca-aotearoa-br` @ `feat/199-income-tax-acc-kiwisaver` @ **`d89a078`** |
 | Axiom engine binary | `.external-repos/axiom-rules-engine` @ **`732ad89`** |
 
 ## Gaps / human follow-ups
 
-1. **rulespec-nz #80:** maintainer must sign encoding manifest (or re-apply via encode pipeline) before upstream merge.  
-2. **openfisca-aotearoa #200:** await BetterRules review; local fork already complete for recon surfaces.  
-3. Do not treat upstream `TheAxiomFoundation/rulespec-nz@main` as KiwiSaver-compile-ready until #80 lands.
+1. **rulespec-nz #80:** Resolved 2026-07-17. The maintainer reproduced the semantic fix through supervised-encoder migration #83 and closed #79/#80 with credit.
+2. **openfisca-aotearoa #200:** await BetterRules review; local fork already complete for recon surfaces.
+3. The former RuleSpec signing-key blocker is historical. Organisation-wide manifest provisioning remains separately tracked at `axiom-encode#1147`.
