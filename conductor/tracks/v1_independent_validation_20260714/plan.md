@@ -44,8 +44,8 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
 > independence risks, and no-response exits. Four bounded packets are staged
 > under `external/`; authorized OpenFisca and PolicyEngine requests are now
 > recorded, while no local rehearsal is counted as adoption.
-- [ ] Task: [HUMAN] Approve external outreach and submissions
-    - [ ] Dylan selects targets and authorizes each communication or submission.
+- [x] Task: [HUMAN] Approve external outreach and submissions
+    - [x] Dylan selects targets and authorizes each communication or submission.
     - **Packet:** `OUTREACH_AUTHORIZATION_PACKET.md` provides per-target choices, scope, response limits, and the no-adoption-without-verification boundary.
     - [x] Record submitted URL or deferred/declined disposition.
     - **Acceptance:** every external action has explicit authorization and durable evidence.
@@ -63,7 +63,8 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     > research/public-sector route until a named organisation, repository,
     > owner, and communication channel are identified. No generic invitation
     > will be sent and no internal rehearsal will satisfy the v1 gate.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Candidate Engagement' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Candidate Engagement' (Protocol in workflow.md)
+    - **REVIEW:** Authorized bounded requests are recorded; maintainer responses and qualifying evidence remain external dependencies.
 
 ## Phase 3 - Result Verification and Feedback
 

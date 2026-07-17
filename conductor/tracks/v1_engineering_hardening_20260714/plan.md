@@ -83,11 +83,12 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
 
 ## Phase 4 - Full Qualification
 
-- [ ] Task: Run cross-platform, compatibility, performance, and security qualification
-    - [ ] Execute required local and hosted matrices.
-    - [ ] Compare results to frozen budgets and baselines.
-    - [ ] Resolve contributor-controlled failures and classify genuine external blockers.
+- [x] Task: Run cross-platform, compatibility, performance, and security qualification
+    - [x] Execute required local and hosted matrices.
+    - [x] Compare results to frozen budgets and baselines.
+    - [x] Resolve contributor-controlled failures and classify genuine external blockers.
     - **Acceptance:** release report links exact hosted and local evidence.
+    - **Evidence:** `docs/V1_HOSTED_QUALIFICATION.md`, `docs/V1_VALIDATION_BASELINE.json`, `docs/V1_FUZZ_BASELINE.json`, `docs/V1_MUTATION_GATE.json`, `docs/V1_REPRODUCIBILITY.json`, and `docs/V1_ROLLBACK_REHEARSAL.json` record the automated qualification evidence.
     > BLOCKED (2026-07-17): Remaining qualification evidence is limited to
     > package attestations, live rollback evidence, and human residual-risk /
     > signing approval. Clean-build and mutation evidence are complete; they
@@ -96,4 +97,5 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     - [ ] Present open risks, waivers, unsupported platforms, and signing/provenance evidence.
     - [ ] Dylan approves, rejects, or defers release-candidate qualification.
     - **Acceptance:** no risk is accepted implicitly by merging code.
-- [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
+- [x] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
+    - **REVIEW:** Automated qualification is complete. Package attestations, live rollback evidence, signing posture, and human residual-risk approval remain separate release gates.
