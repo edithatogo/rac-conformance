@@ -47,8 +47,13 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
 - [ ] Task: [HUMAN] Approve external outreach and submissions
     - [ ] Dylan selects targets and authorizes each communication or submission.
     - **Packet:** `OUTREACH_AUTHORIZATION_PACKET.md` provides per-target choices, scope, response limits, and the no-adoption-without-verification boundary.
-    - [ ] Record submitted URL or deferred/declined disposition.
+    - [x] Record submitted URL or deferred/declined disposition.
     - **Acceptance:** every external action has explicit authorization and durable evidence.
+    > OUTREACH RECORDED (2026-07-17): Dylan authorized one bounded OpenFisca
+    > core request. The comment is recorded at
+    > https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-4998515274
+    > with a 14-day response window and one-follow-up limit. The target remains
+    > pending maintainer response; no adoption or independent result is claimed.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Candidate Engagement' (Protocol in workflow.md)
 
 ## Phase 3 - Result Verification and Feedback
