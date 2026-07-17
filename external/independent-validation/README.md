@@ -10,7 +10,7 @@ outreach channel, an adoption ledger, or an evidence result.
   [`independent/kit/`](../../independent/kit/).
 - The canonical local adoption ledger is
   [`independent/STATUS_LEDGER.json`](../../independent/STATUS_LEDGER.json).
-- The active track and human gates are in
+- The active track and analyst gates are in
   [`conductor/tracks/v1_independent_validation_20260714/`](../../conductor/tracks/v1_independent_validation_20260714/).
 - The dated upstream snapshot is [`UPSTREAM_STATUS_20260717.md`](UPSTREAM_STATUS_20260717.md).
 
@@ -37,8 +37,8 @@ not permission to continue. Record the exception and stop the adoption claim.
 Do not infer FOI-O facts from a release tag, DOI, issue comment, local
 candidate, or paper draft.
 
-## Human boundary
+## Analyst boundary
 
 This packet does not authorize contacting maintainers, submitting issues or
 PRs, promoting fixtures, publishing a paper, or certifying v1. Those actions
-remain human-gated in the active track.
+remain analyst-gated in the active track.

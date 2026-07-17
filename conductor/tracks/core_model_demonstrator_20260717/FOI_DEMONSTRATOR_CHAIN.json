@@ -11,7 +11,7 @@
     "repository": "edithatogo/foi-o",
     "role": "semantic-authority-input",
     "path": "external/foi-o/rules/SOURCES.md",
-    "sha256": "0d565fecaed0d26beefac4a5574fd54a71db383be609e464389dbddbdb1a874f",
+    "sha256": "57f64e2f02d225302f048584cb600ba89bf67d1e80012ebfc03f304a3f314c95",
     "sourceStatus": "staged-candidate-not-live-release"
   },
   "profile": {

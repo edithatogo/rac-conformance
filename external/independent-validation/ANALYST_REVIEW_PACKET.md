@@ -2,7 +2,7 @@
 
 **Snapshot date:** 2026-07-17
 **Track:** `v1_independent_validation_20260714`
-**Disposition:** blocked pending external evidence and human authorization
+**Disposition:** blocked pending external evidence and analyst authorization
 
 ## Review worksheet
 
@@ -12,7 +12,7 @@ an evidence failure, not permission to continue.
 | Field | Required review entry |
 |---|---|
 | Target and upstream URL | Exact repository, issue/PR, or named organisation |
-| Owner and communication authority | Named human owner; authorization reference, if any |
+| Owner and communication authority | Named analyst/maintainer owner; authorization reference, if any |
 | Implementation revision | Immutable commit/tag, not a branch name alone |
 | Repository control | External to maintainer; explain fork or shared ownership |
 | Fixture/oracle control | Who generated the corpus and how the oracle is independent |
