@@ -1,0 +1,1 @@
+RISK-EXTERNAL-QUALIFICATION approved: independent validation remains release-blocking for v1.0; hosted CI and maintainer-controlled evidence do not count as adoption; bounded 0.x candidates may continue. make check passed.
