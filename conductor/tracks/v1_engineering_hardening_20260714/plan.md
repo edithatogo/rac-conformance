@@ -57,10 +57,13 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     - Evidence: immutable action pins, least-privilege workflow permissions, Dependabot, dependency review, CodeQL, and zizmor checks.
 - [x] Task: Produce SBOM, provenance, and reproducible artifacts
     - [ ] Generate machine-readable SBOMs and checksums for release artifacts.
-    - [ ] Compare two clean builds and document permitted nondeterminism.
+    - [x] Compare two clean builds and document permitted nondeterminism.
     - [ ] Generate platform provenance/attestations where supported.
     - **Acceptance:** consumers can verify artifact identity and build origin.
-    - Evidence: `security/SBOM.spdx.json` and `security/PROVENANCE.md`; hosted attestations and clean-build comparison remain release-blocking.
+    - Evidence: `security/SBOM.spdx.json`, `security/PROVENANCE.md`, and
+      `docs/V1_REPRODUCIBILITY.json`; two clean source-archive builds are
+      byte-identical for the current release commit. Hosted attestations and
+      package signing remain release-blocking.
 - [x] Task: Rehearse rollback, restore, and vulnerability patch
     - [ ] Test yanking/deprecation guidance without deleting historical evidence.
     - [ ] Restore compatibility metadata and release artifacts from documented sources.
@@ -70,8 +73,9 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Supply Chain and Release Reproducibility' (Protocol in workflow.md)
 
 > CHECKPOINT (2026-07-16): Local workflow pins, SPDX inventory, lockfile digest,
-> reproducibility procedure, and rollback tabletop packet are present. Hosted
-> attestations, clean-build comparison, and live rollback remain open.
+> reproducibility procedure, clean-build comparison, and rollback tabletop
+> packet are present. Hosted attestations, package signing, and live rollback
+> remain open.
 
 > REVIEW (2026-07-17): Mutation testing is implemented and exercised by the
 > release qualification workflow. The prior blocker was stale plan state; no
@@ -85,9 +89,9 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     - [ ] Resolve contributor-controlled failures and classify genuine external blockers.
     - **Acceptance:** release report links exact hosted and local evidence.
     > BLOCKED (2026-07-17): Remaining qualification evidence is limited to
-    > clean-build comparison, package attestations, live rollback evidence,
-    > and human residual-risk/signing approval. Mutation evidence is complete;
-    > it is no longer a blocker.
+    > package attestations, live rollback evidence, and human residual-risk /
+    > signing approval. Clean-build and mutation evidence are complete; they
+    > are no longer blockers.
 - [ ] Task: [HUMAN] Approve residual risk and signing posture
     - [ ] Present open risks, waivers, unsupported platforms, and signing/provenance evidence.
     - [ ] Dylan approves, rejects, or defers release-candidate qualification.
