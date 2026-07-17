@@ -9,6 +9,7 @@ from pathlib import Path
 
 
 DECISIONS = {"pending", "certified", "rejected", "changes-requested"}
+TRACK_ID = "pic_process_profile_20260714"
 
 
 def _sha256(path: Path) -> str:
@@ -39,8 +40,24 @@ def validate_document(root: Path, document: dict[str, object]) -> list[str]:
     return errors
 
 
+def certification_record_path(root: Path) -> Path:
+    candidates = [
+        root / "conductor" / location / TRACK_ID / "CERTIFICATION_RECORD.json"
+        for location in ("tracks", "archive")
+    ]
+    existing = [path for path in candidates if path.is_file()]
+    if not existing:
+        raise FileNotFoundError("PIC process-profile certification record is missing")
+    if len(existing) > 1:
+        raise ValueError("PIC process-profile certification record is ambiguous")
+    return existing[0]
+
+
 def validate(root: Path) -> list[str]:
-    record_path = root / "conductor/tracks/pic_process_profile_20260714/CERTIFICATION_RECORD.json"
+    try:
+        record_path = certification_record_path(root)
+    except (FileNotFoundError, ValueError) as error:
+        return [str(error)]
     return validate_document(root, json.loads(record_path.read_text(encoding="utf-8")))
 
 
