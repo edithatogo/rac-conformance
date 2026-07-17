@@ -49,5 +49,5 @@
     }
   ],
   "noSelectionOutcome": "If no candidate satisfies the human-approved indication, date, authority, and source-rights boundaries, record no-selection and do not generate executable fixtures.",
-  "promotionBoundary": "No candidate is selected, certified, or promoted by this file. Human approval is required before executable comparative profiles are created."
+  "promotionBoundary": "The selected candidate is not certified or promoted by this file. Human source-spine review is required before executable comparative profiles or fixtures are created."
 }

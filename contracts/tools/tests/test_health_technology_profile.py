@@ -76,20 +76,25 @@ def test_lifecycle_model_preserves_variation_and_loss_boundaries() -> None:
     assert "msac are not medicine regulators" in model
 
 
-def test_comparison_candidates_are_ranked_without_selection_or_fixture_promotion() -> None:
+def test_comparison_candidates_record_selection_without_fixture_promotion() -> None:
     candidates = json.loads(
         (PROFILE / "candidates/COMPARISON_CASE_CANDIDATES.json").read_text()
     )
     spine = json.loads((PROFILE / "candidates/SOURCE_SPINE.json").read_text())
     source_ids = {item["id"] for item in spine["sources"]}
     assert len(candidates["candidates"]) >= 2
-    assert all(
-        item["status"] == "candidate-needs-human-selection"
-        for item in candidates["candidates"]
+    assert candidates["selectionStatus"] == "human-selected"
+    assert candidates["humanDecision"]["candidateId"] == (
+        "pembrolizumab-adjuvant-stage-iii-melanoma"
     )
+    assert candidates["humanDecision"]["jurisdictions"] == ["NZ", "UK"]
+    assert sum(item["status"] == "selected-human-approved" for item in candidates["candidates"]) == 1
+    assert sum(item["status"] == "not-selected" for item in candidates["candidates"]) == 2
     assert all(set(item["sourceIds"]) <= source_ids for item in candidates["candidates"])
     assert all("clinicalRecommendation" not in item for item in candidates["candidates"])
     assert all("rights" in item["scores"] for item in candidates["candidates"])
+    assert "not" in candidates["promotionBoundary"].lower()
+    assert "fixture" in candidates["promotionBoundary"].lower()
 
 
 def test_adjudication_protocol_is_data_driven_and_preserves_human_boundary() -> None:
