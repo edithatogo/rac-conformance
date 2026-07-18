@@ -1,0 +1,1 @@
+Review fix: made workflow structure assertions null-safe and diagnostic. Verification: targeted hardening tests and full make check pass.
