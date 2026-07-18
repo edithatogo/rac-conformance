@@ -25,7 +25,14 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     - [x] Validate implementation identity, versions, environment, artifact digests, result signatures/checksums, and test outcomes.
     - [x] Reject stale, incomplete, self-certified, or unverifiable submissions.
     - **Acceptance:** verifier emits deterministic evidence status and precise exceptions.
-    - **Evidence:** `SUBMISSION_SCHEMA.json`, `tools/independent_evidence.py`, and `tools/tests/test_independent_evidence.py` provide a network-free packet contract, deterministic classification, and coverage for qualifying, partial, conflicting, withdrawn, declined, unresponsive, rejected, stale, and internal-rehearsal cases.
+    - **Evidence:** `SUBMISSION_SCHEMA.json`, `tools/independent_evidence.py`, and `tools/tests/test_independent_evidence.py` provide a network-free artifact-backed packet contract, deterministic classification, and fail-closed coverage for qualifying, partial, conflicting, withdrawn, declined, unresponsive, rejected, stale, tampered, incomplete, and internally controlled cases.
+    > REMEDIATION CHECKPOINT (2026-07-18): Replaced self-declared v1 evidence
+    > qualification with the v2 artifact-backed contract. Qualification now
+    > requires all eight independence dimensions, exact canonical-kit and
+    > evidence digests, complete unique passing corpus results, distinct local
+    > acknowledgement and attestation artifacts, explicit limitations and
+    > mismatches, and the policy-defined 90-day release-candidate window. The
+    > legacy verifier delegates to this fail-closed path.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Independence Contract and Implementer Kit' (Protocol in workflow.md)
     - **CHECKPOINT:** Policy, self-contained kit, deterministic verifier, and clean-room agent rehearsal are complete. Local tests and the clean evaluator run pass; semantic integrity, external implementation, external acknowledgement, and v1 adoption remain deferred to later phases.
 

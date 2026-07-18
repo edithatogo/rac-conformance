@@ -13,6 +13,17 @@ reference runner verifies those digests before executing all valid and invalid
 cases. Its output is a structural rehearsal only and cannot satisfy the v1
 independence gate.
 
+`result.schema.json` is the v2 evidence contract. Verify a returned packet and
+its local artifact bundle from the repository checkout with:
+
+```text
+PYTHONPATH=. uv run --with jsonschema python -m tools.independent_evidence \
+  packet.json --evidence-root /path/to/evidence-bundle
+```
+
+`example-nonqualifying-result.json` is deliberately a legacy, schema-invalid
+example retained to prove that the compatibility verifier fails closed.
+
 An external implementer must use independently controlled code, fixtures,
 oracle, repository, and execution infrastructure. Submit evidence against the
 schema and policy identified in the parent `independent/` directory.

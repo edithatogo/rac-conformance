@@ -4,12 +4,24 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "implementationId", "organisation", "repository", "sourceRevision",
-    "sourceDigest", "contractVersions", "kitDigestSha256", "environment",
-    "command", "inputDigest", "resultDigest", "testOutcome",
-    "independenceStatus", "acknowledgement", "attestation", "maintenance", "evidenceUrls"
+    "schemaVersion", "implementationId", "organisation", "repository",
+    "sourceRevision", "contractVersions", "kitDigestSha256", "independence",
+    "execution", "artifacts", "tests", "outcome", "maintenance",
+    "limitations", "unresolvedMismatches"
   ],
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    }
+  },
   "properties": {
+    "schemaVersion": {"const": "rac-independent-submission.v2"},
     "implementationId": {"type": "string", "minLength": 1},
     "organisation": {
       "type": "object", "additionalProperties": false,
@@ -23,45 +35,62 @@
       "type": "object", "additionalProperties": false,
       "required": ["url", "accessControl"],
       "properties": {
-        "url": {"type": "string", "format": "uri"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://"},
         "accessControl": {"enum": ["external", "internal", "maintainer-fork"]}
       }
     },
-    "sourceRevision": {"type": "string", "pattern": "^[0-9a-fA-F]{7,64}$"},
-    "sourceDigest": {"type": "string", "pattern": "^sha256:[0-9a-fA-F]{64}$"},
-    "contractVersions": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
-    "kitDigestSha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
-    "environment": {
+    "sourceRevision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "contractVersions": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "kitDigestSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "independence": {
       "type": "object", "additionalProperties": false,
-      "required": ["runtime", "platform", "cleanCheckout"],
+      "required": ["codebase", "oracle", "fixtureCuration"],
+      "properties": {
+        "codebase": {"enum": ["external", "internal"]},
+        "oracle": {"enum": ["external", "internal"]},
+        "fixtureCuration": {"enum": ["external", "internal"]}
+      }
+    },
+    "execution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["runtime", "platform", "cleanCheckout", "executedAt", "command"],
       "properties": {
         "runtime": {"type": "string", "minLength": 1},
         "platform": {"type": "string", "minLength": 1},
-        "cleanCheckout": {"type": "boolean"}
+        "cleanCheckout": {"type": "boolean"},
+        "executedAt": {"type": "string", "format": "date"},
+        "command": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
       }
     },
-    "command": {"type": "string", "minLength": 1},
-    "inputDigest": {"type": "string", "pattern": "^sha256:[0-9a-fA-F]{64}$"},
-    "resultDigest": {"type": "string", "pattern": "^sha256:[0-9a-fA-F]{64}$"},
-    "testOutcome": {"enum": ["pass", "fail", "inconclusive"]},
-    "independenceStatus": {"enum": ["qualifying", "partial", "conflicting", "withdrawn", "declined", "unresponsive", "internal-rehearsal", "unacknowledged", "maintainer-fork", "narrative-only"]},
-    "acknowledgement": {
+    "artifacts": {
       "type": "object", "additionalProperties": false,
-      "required": ["status"],
+      "required": ["source", "input", "result", "acknowledgement", "attestation"],
       "properties": {
-        "status": {"enum": ["confirmed", "pending", "withdrawn", "none"]},
-        "url": {"type": "string", "format": "uri"}
+        "source": {"$ref": "#/$defs/artifact"},
+        "input": {"$ref": "#/$defs/artifact"},
+        "result": {"$ref": "#/$defs/artifact"},
+        "acknowledgement": {"$ref": "#/$defs/artifact"},
+        "attestation": {"$ref": "#/$defs/artifact"}
       }
     },
-    "attestation": {
-      "type": "object", "additionalProperties": false,
-      "required": ["issuerControl", "evidenceType", "url"],
-      "properties": {
-        "issuerControl": {"enum": ["external", "internal"]},
-        "evidenceType": {"enum": ["external-publication", "owner-confirmation"]},
-        "url": {"type": "string", "format": "uri"}
+    "tests": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["caseId", "status"],
+        "properties": {
+          "caseId": {"type": "string", "minLength": 1},
+          "status": {"enum": ["pass", "fail", "skipped"]}
+        }
       }
     },
+    "outcome": {"enum": ["qualifying", "partial", "conflicting", "withdrawn", "declined", "unresponsive"]},
     "maintenance": {
       "type": "object", "additionalProperties": false,
       "required": ["owner", "freshnessDate"],
@@ -70,6 +99,7 @@
         "freshnessDate": {"type": "string", "format": "date"}
       }
     },
-    "evidenceUrls": {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1}
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "unresolvedMismatches": {"type": "array", "items": {"type": "string", "minLength": 1}}
   }
 }
