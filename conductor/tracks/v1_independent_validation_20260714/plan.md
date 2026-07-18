@@ -45,6 +45,10 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     > Qualifying consumers are now counted only after their repository-contained
     > v2 packet passes the evidence verifier and analyst trust gate. Outreach
     > packets are constrained to the five supported `pic-semantics/0.1.0` cases.
+    > FINAL REVIEW (2026-07-19): The authorization packet, candidate registry,
+    > candidate summary, and target packets now share that same five-case scope.
+    > Unsupported trace, profile, converter, jurisdiction fixture, and synthetic
+    > case surfaces are explicit future work rather than active options.
 
 ## Phase 2 - Candidate Engagement
 

@@ -14,9 +14,13 @@ are candidate surfaces, not adoption evidence.
 
 | Candidate | Consumer problem | Proposed bounded surface | Independence risk | Disposition |
 | --- | --- | --- | --- | --- |
-| PolicyEngine maintainers | Reproducible cross-engine trace and fixture comparison | Consume `pic-semantics/0.1.0` or `pic-traces/0.2.0` in a clean test job | Existing upstream proposal may be a maintainer-controlled fork; only a fresh independently-owned implementation qualifies | Authorized outreach submitted; awaiting maintainer response |
-| OpenFisca maintainers | Process/trace representation around rules-heavy jurisdiction models | Validate a read-only profile or trace projection without changing engine semantics | Existing contribution path may not establish organizational or oracle independence | Authorized outreach submitted; awaiting maintainer response |
-| An unaffiliated public-sector or research implementer | Need for source-backed process profile and deterministic conformance evidence | Run the self-contained PIC implementer kit against an independently curated synthetic case | Candidate must be identified and must curate its own oracle | Preferred qualifying route; candidate not yet identified |
+| PolicyEngine maintainers | Reproducible missingness semantics | Run the five manifested `pic-semantics/0.1.0` cases in a clean test job | Existing upstream proposal may be a maintainer-controlled fork; only a fresh independently-owned implementation qualifies | Authorized outreach submitted; awaiting maintainer response |
+| OpenFisca maintainers | Missingness representation in rules-heavy models | Run the same five semantics cases without changing engine semantics | Existing contribution path may not establish organizational or oracle independence | Authorized outreach submitted; awaiting maintainer response |
+| An unaffiliated public-sector or research implementer | Need for deterministic conformance evidence | Run the same five semantics cases with independently controlled code and oracle | Candidate must be identified and must curate its own oracle | Preferred qualifying route; candidate not yet identified |
+
+Trace, profile, fixture-converter, NZ-specific fixture, and synthetic-case
+surfaces are excluded until a separately versioned kit and verifier support
+them.
 
 ## Required submission contents
 
