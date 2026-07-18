@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/edithatogo/rac-conformance/contracts/pic-semantics/0.1.0/schema.json",
+  "$id": "https://github.com/edithatogo/rulesandprocesses/contracts/pic-semantics/0.1.0/schema.json",
   "title": "PIC semantics reusable definitions",
   "$defs": {
     "valueState": {

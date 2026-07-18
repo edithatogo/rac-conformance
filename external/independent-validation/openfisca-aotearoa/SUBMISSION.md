@@ -7,25 +7,29 @@ Target: `BetterRules/openfisca-aotearoa`, associated with issue #199 and PR
 
 ## Consumer problem
 
-The existing NZ reconciliation work identifies a concrete coverage and
-missingness surface around the Aotearoa package. The external maintainer must
-choose the smallest useful PIC fixture or trace projection that helps verify
-that problem without accepting the local fork as independent evidence.
+The existing NZ reconciliation work identifies a concrete missingness surface
+around the Aotearoa package. The external maintainer must independently run the
+currently supported semantics corpus without accepting the local fork as
+independent evidence.
 
 ## Bounded proposal
 
-Run one NZ-specific PIC fixture and read-only trace projection against a clean
-package checkout. Preserve the package's own rules, tests, and oracle. Do not
-promote any fixture from this repository into a golden corpus without human
-review.
+Run the five manifested `pic-semantics/0.1.0` valid and invalid `valueState`
+examples against a clean package checkout. Preserve the package's own rules,
+tests, and oracle. NZ-specific fixtures and trace projection remain future
+surfaces until a separately versioned kit and verifier explicitly support
+them. Do not promote any fixture from this repository into a golden corpus
+without analyst review.
 
 ## Reproduction and evidence
 
 Use the self-contained kit from
-`conductor/tracks/v1_independent_validation_20260714/kit/` and provide a
-submission matching `SUBMISSION_SCHEMA.json`, including source revision,
-repository and artifact digests, clean environment, command, output checksums,
-maintainer acknowledgement, and freshness date.
+`independent/kit/` and provide a
+submission matching `independent/kit/result.schema.json`, including source revision,
+contract and kit versions, independent codebase/oracle/fixture controls,
+clean-checkout argv and date, complete case outcomes, limitations, unresolved
+mismatches, and distinct digest-pinned source, input, result, acknowledgement,
+and external-owner attestation artifacts.
 
 ## Maintenance and exit path
 

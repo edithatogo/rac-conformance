@@ -1,11 +1,21 @@
 {
-  "schemaVersion": "pic-independent-kit.v0.1.0",
-  "kitVersion": "0.1.0",
-  "contracts": ["pic-process-profile/0.1.0", "pic-fixtures/0.1.0", "pic-traces/0.1.0"],
-  "corpus": {
-    "validExamples": ["contracts/process-profile/0.1.0/examples/valid/foi-o-baseline.json"],
-    "negativePolicy": ["schema-invalid", "stale-source", "confidential-inference", "jurisdiction-leakage"]
-  },
-  "expectedResultPolicy": "Pass only when every valid example validates, every negative example is rejected for the expected class, and no controlling result is derived from secondary-only or blocked evidence.",
-  "requiredResultFields": ["implementation", "environment", "corpus", "oracle", "outcome", "evidence"]
+  "schemaVersion": "rac-independent-kit-manifest.v1",
+  "kitVersion": "independent-kit/0.2.0",
+  "contract": "pic-semantics/0.1.0",
+  "artifacts": [
+    {"path": "bundle/pic-semantics-0.1.0/schema.json", "sha256": "0d85e1a403fb54ef945fe5dc96770e0bbd60e742ba1063abf4b78f076e5ec8e2", "role": "schema"},
+    {"path": "bundle/pic-semantics-0.1.0/examples/valid/money-known.json", "sha256": "e822529d79ef48a2218f71dc6545a3a0336f2f49d497674bb86ce73e9c4b6b75", "role": "valid"},
+    {"path": "bundle/pic-semantics-0.1.0/examples/valid/not-provided.json", "sha256": "c19b26d9af8ae8b00cd390d15a34c2d12174934b3144080768bade95405d109a", "role": "valid"},
+    {"path": "bundle/pic-semantics-0.1.0/examples/invalid/bad-value-state.json", "sha256": "52a96eb54edc8be5c512fa5c2ea4c42cde31612154defc073834c109149fed3e", "role": "invalid"},
+    {"path": "bundle/pic-semantics-0.1.0/examples/invalid/float-money.json", "sha256": "09df531885c4cd68c14ca2e6b191f2caf9f596de4ea89b6e95c2f9753159c139", "role": "invalid"},
+    {"path": "bundle/pic-semantics-0.1.0/examples/invalid/lowercase-currency.json", "sha256": "484550dd4b85410f963f978b82ea89d4da9b0e985dc0d3fff6ac673b5d33b2c2", "role": "invalid"},
+    {"path": "result.schema.json", "sha256": "8d8ce4d97deab5f7a7e4bdbefcbd8f608e5db727f4713a16ae871d10bf39f412", "role": "submission-schema"},
+    {"path": "EXPECTED_RESULTS_POLICY.md", "sha256": "10fd4b29c117f3976a9ffac8b327f8db7e734f9b1bb33f2051ed6e66b83f2bc8", "role": "policy"},
+    {"path": "run_reference.py", "sha256": "9b592e1d56757abd5d75e4a3ef08d9468f2e93441447817a3dcdc0671b286c94", "role": "runner"},
+    {"path": "submission-template.json", "sha256": "ec48e6734460dd64ba3c7fc112d1194e152cb369c77b1ee211deb639456bb1a3", "role": "template"}
+  ],
+  "referenceCommand": ["python", "run_reference.py", "--output", "results.json"],
+  "privateServicesRequired": false,
+  "repositoryCheckoutRequired": false,
+  "independenceStatus": "reference-kit-only"
 }

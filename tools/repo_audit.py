@@ -16,6 +16,7 @@ LEGACY_ID_PATHS = {
     Path("contracts/pic-parameters/0.1.0/schema.json"),
     Path("contracts/pic-parameters/0.2.0/schema.json"),
     Path("contracts/pic-semantics/0.1.0/schema.json"),
+    Path("independent/kit/bundle/pic-semantics-0.1.0/schema.json"),
     Path("contracts/pic-traces/0.1.0/schema.json"),
     Path("contracts/pic-traces/0.2.0/schema.json"),
     Path("conductor/archive/contracts_20260704/plan.md"),

@@ -1,15 +1,105 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://rac.example.org/schemas/pic-independent-result.v0.1.0.json",
+  "$id": "https://github.com/edithatogo/rac-conformance/blob/main/conductor/tracks/v1_independent_validation_20260714/SUBMISSION_SCHEMA.json",
   "type": "object",
-  "required": ["schemaVersion", "implementation", "environment", "corpus", "oracle", "outcome", "evidence"],
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "implementationId", "organisation", "repository",
+    "sourceRevision", "contractVersions", "kitDigestSha256", "independence",
+    "execution", "artifacts", "tests", "outcome", "maintenance",
+    "limitations", "unresolvedMismatches"
+  ],
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    }
+  },
   "properties": {
-    "schemaVersion": {"const": "pic-independent-result.v0.1.0"},
-    "implementation": {"type": "object", "required": ["name", "revision", "repository", "maintainerControlled"], "properties": {"name": {"type": "string", "minLength": 1}, "revision": {"type": "string", "minLength": 7}, "repository": {"type": "string", "minLength": 1}, "maintainerControlled": {"type": "boolean"}}},
-    "environment": {"type": "object", "required": ["os", "runtime"], "properties": {"os": {"type": "string"}, "runtime": {"type": "string"}}},
-    "corpus": {"type": "object", "required": ["digest", "generatedBy"], "properties": {"digest": {"pattern": "^[0-9a-f]{64}$"}, "generatedBy": {"type": "string"}}},
-    "oracle": {"type": "object", "required": ["method", "independent"], "properties": {"method": {"type": "string"}, "independent": {"type": "boolean"}}},
-    "outcome": {"enum": ["qualifying", "partial", "conflicting", "withdrawn", "declined", "unresponsive", "not-submitted"]},
-    "evidence": {"type": "object", "required": ["resultDigest", "tests", "acknowledged"], "properties": {"resultDigest": {"pattern": "^[0-9a-f]{64}$"}, "tests": {"type": "array"}, "acknowledged": {"type": "boolean"}}}
+    "schemaVersion": {"const": "rac-independent-submission.v2"},
+    "implementationId": {"type": "string", "minLength": 1},
+    "organisation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "controlRelationship"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "controlRelationship": {"enum": ["external", "internal", "maintainer-fork"]}
+      }
+    },
+    "repository": {
+      "type": "object", "additionalProperties": false,
+      "required": ["url", "accessControl"],
+      "properties": {
+        "url": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "accessControl": {"enum": ["external", "internal", "maintainer-fork"]}
+      }
+    },
+    "sourceRevision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "contractVersions": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "kitDigestSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "independence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["codebase", "oracle", "fixtureCuration"],
+      "properties": {
+        "codebase": {"enum": ["external", "internal"]},
+        "oracle": {"enum": ["external", "internal"]},
+        "fixtureCuration": {"enum": ["external", "internal"]}
+      }
+    },
+    "execution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["runtime", "platform", "cleanCheckout", "executedAt", "command"],
+      "properties": {
+        "runtime": {"type": "string", "minLength": 1},
+        "platform": {"type": "string", "minLength": 1},
+        "cleanCheckout": {"type": "boolean"},
+        "executedAt": {"type": "string", "format": "date"},
+        "command": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source", "input", "result", "acknowledgement", "attestation"],
+      "properties": {
+        "source": {"$ref": "#/$defs/artifact"},
+        "input": {"$ref": "#/$defs/artifact"},
+        "result": {"$ref": "#/$defs/artifact"},
+        "acknowledgement": {"$ref": "#/$defs/artifact"},
+        "attestation": {"$ref": "#/$defs/artifact"}
+      }
+    },
+    "tests": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["caseId", "status"],
+        "properties": {
+          "caseId": {"type": "string", "minLength": 1},
+          "status": {"enum": ["pass", "fail", "skipped"]}
+        }
+      }
+    },
+    "outcome": {"enum": ["qualifying", "partial", "conflicting", "withdrawn", "declined", "unresponsive"]},
+    "maintenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["owner", "freshnessDate"],
+      "properties": {
+        "owner": {"type": "string", "minLength": 1},
+        "freshnessDate": {"type": "string", "format": "date"}
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "unresolvedMismatches": {"type": "array", "items": {"type": "string", "minLength": 1}}
   }
 }

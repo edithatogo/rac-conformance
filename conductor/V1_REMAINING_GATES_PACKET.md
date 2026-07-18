@@ -59,7 +59,7 @@ with a real consumer problem, beginning with the prepared candidates in
 agent rehearsals, and maintainer forks are explicitly non-qualifying.
 
 Each submission must use the self-contained kit under
-`conductor/tracks/v1_independent_validation_20260714/kit/`, retain the
+`independent/kit/`, retain the
 external implementer's identity and oracle provenance, and return a signed or
 durably attributable evidence packet. Silence is not adoption.
 

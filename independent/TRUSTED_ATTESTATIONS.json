@@ -1,0 +1,5 @@
+{
+  "schemaVersion": "rac-trusted-attestations.v1",
+  "approvedSha256": [],
+  "governance": "An analyst must add the digest of an externally attributable attestation after verifying issuer control. An empty registry keeps qualification fail closed."
+}

@@ -15,14 +15,40 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     - [x] Remove assumptions about local paths, private services, or unpublished source material.
     - [x] Add a clean-environment rehearsal runner.
     - **Acceptance:** an uninvolved reviewer can reproduce the kit's reference run.
-    - **Evidence:** `conductor/tracks/v1_independent_validation_20260714/kit/` is self-contained for `pic-semantics/0.1.0`; `run_reference.py` imports only `jsonschema`, computes a kit digest, and labels its output `reference-runner-only`.
+    - **Evidence:** `independent/kit/` is the sole self-contained kit for `pic-semantics/0.1.0`; `run_reference.py` imports only `jsonschema`, verifies manifest-pinned artifact digests, computes a kit digest, and labels its output `reference-runner-only`.
+    > REMEDIATION CHECKPOINT (2026-07-18): Consolidated the divergent public
+    > and track-local kits into `independent/kit/`. The canonical kit now
+    > bundles the current contract byte-for-byte, pins every artifact digest,
+    > verifies those digests before execution, and is protected by uniqueness,
+    > source-drift, and clean-environment regression tests.
 - [x] Task: Build conformance evidence verifier
     - [x] Validate implementation identity, versions, environment, artifact digests, result signatures/checksums, and test outcomes.
     - [x] Reject stale, incomplete, self-certified, or unverifiable submissions.
     - **Acceptance:** verifier emits deterministic evidence status and precise exceptions.
-    - **Evidence:** `SUBMISSION_SCHEMA.json`, `tools/independent_evidence.py`, and `tools/tests/test_independent_evidence.py` provide a network-free packet contract, deterministic classification, and coverage for qualifying, partial, conflicting, withdrawn, declined, unresponsive, rejected, stale, and internal-rehearsal cases.
+    - **Evidence:** `SUBMISSION_SCHEMA.json`, `tools/independent_evidence.py`, and `tools/tests/test_independent_evidence.py` provide a network-free artifact-backed packet contract, deterministic classification, and fail-closed coverage for qualifying, partial, conflicting, withdrawn, declined, unresponsive, rejected, stale, tampered, incomplete, and internally controlled cases.
+    > REMEDIATION CHECKPOINT (2026-07-18): Replaced self-declared v1 evidence
+    > qualification with the v2 artifact-backed contract. Qualification now
+    > requires all eight independence dimensions, exact canonical-kit and
+    > evidence digests, complete unique passing corpus results, distinct local
+    > acknowledgement and attestation artifacts, explicit limitations and
+    > mismatches, and the policy-defined 90-day release-candidate window. The
+    > legacy verifier delegates to this fail-closed path.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 1 - Independence Contract and Implementer Kit' (Protocol in workflow.md)
     - **CHECKPOINT:** Policy, self-contained kit, deterministic verifier, and clean-room agent rehearsal are complete. Local tests and the clean evaluator run pass; semantic integrity, external implementation, external acknowledgement, and v1 adoption remain deferred to later phases.
+    > AUTOMATED REVIEW (2026-07-19): Three independent review lanes found and
+    > remediated contract-version, kit-integrity, path-boundary, result-binding,
+    > attestation-trust, status-transition, and documentation defects. The
+    > canonical kit now hashes all normative and executable files and executes
+    > only manifested cases. External attestation requires an analyst-trusted
+    > digest; the trust registry remains empty, so no qualification is claimed.
+    > SECOND REVIEW (2026-07-19): Closed the remaining status and scope gaps.
+    > Qualifying consumers are now counted only after their repository-contained
+    > v2 packet passes the evidence verifier and analyst trust gate. Outreach
+    > packets are constrained to the five supported `pic-semantics/0.1.0` cases.
+    > FINAL REVIEW (2026-07-19): The authorization packet, candidate registry,
+    > candidate summary, and target packets now share that same five-case scope.
+    > Unsupported trace, profile, converter, jurisdiction fixture, and synthetic
+    > case surfaces are explicit future work rather than active options.
 
 ## Phase 2 - Candidate Engagement
 
@@ -90,6 +116,14 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     - [ ] Link qualifying, partial, declined, unresponsive, and blocked outcomes.
     - [ ] Keep Project 19 and the machine-readable gate manifest synchronized.
     - **Acceptance:** public status is no stronger than external evidence.
+    > CONTRIBUTOR CHECKPOINT (2026-07-18): The candidate registry and dated
+    > status snapshot now deterministically generate
+    > `independent/STATUS_LEDGER.json`; CI rejects candidate, date, governing
+    > issue, gate-status, or qualifying-consumer drift. The release gate now
+    > points to issue #45 and the v2 evidence contract. This task remains open
+    > for future external outcomes and Project 19 reconciliation, which is not
+    > covered without a pinned project snapshot; no qualifying adoption is
+    > claimed.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Result Verification and Feedback' (Protocol in workflow.md)
 
 ## Phase 4 - v1 Independence Certification

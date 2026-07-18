@@ -1,14 +1,17 @@
-.PHONY: check audit audit-test release-gates-check paper-artifacts paper-artifacts-write lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test v1-baseline v1-fuzz v1-mutation v1-reproducibility v1-rollback
+.PHONY: check audit audit-test independent-status-check release-gates-check paper-artifacts paper-artifacts-write lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test v1-baseline v1-fuzz v1-mutation v1-reproducibility v1-rollback
 
 AS_OF ?= $(shell date -u +%Y-%m-%d)
 
-check: audit audit-test release-gates-check paper-artifacts lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
+check: audit audit-test independent-status-check release-gates-check paper-artifacts lint test validate-examples converter-lint converter-test corpus-report-check harness-lint harness-test snap-runner-lint snap-runner-test nz-recon-lint nz-recon-test service-boundaries-lint service-boundaries-test docassemble-oia-clock-lint docassemble-oia-clock-test
 
 audit:
 	PYTHONPATH=. uv run python -m tools.repo_audit
 
 audit-test:
 	PYTHONPATH=. uv run --with pytest --with pyyaml --with jsonschema pytest tools/tests
+
+independent-status-check:
+	PYTHONPATH=. uv run --with jsonschema python -m tools.independent_status
 
 release-gates-check:
 	PYTHONPATH=. uv run python -m tools.release_gates conductor/v1-release-gates.json --as-of $(AS_OF)

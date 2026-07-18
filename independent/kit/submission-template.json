@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "rac-independent-submission.v2",
+  "implementationId": "replace-with-external-implementation-id",
+  "organisation": {"name": "replace-with-external-organisation", "controlRelationship": "external"},
+  "repository": {"url": "https://example.org/replace-with-repository", "accessControl": "external"},
+  "sourceRevision": "0000000000000000000000000000000000000000",
+  "contractVersions": ["pic-semantics/0.1.0"],
+  "kitDigestSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "independence": {"codebase": "external", "oracle": "external", "fixtureCuration": "external"},
+  "execution": {"runtime": "replace", "platform": "replace", "cleanCheckout": true, "executedAt": "2026-01-01", "command": ["replace-with-executable"]},
+  "artifacts": {
+    "source": {"path": "evidence/source.tar", "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"},
+    "input": {"path": "evidence/input.json", "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"},
+    "result": {"path": "evidence/result.json", "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"},
+    "acknowledgement": {"path": "evidence/acknowledgement.json", "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"},
+    "attestation": {"path": "evidence/attestation.json", "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"}
+  },
+  "tests": [
+    {"caseId": "bundle/pic-semantics-0.1.0/examples/valid/money-known.json", "status": "pass"},
+    {"caseId": "bundle/pic-semantics-0.1.0/examples/valid/not-provided.json", "status": "pass"},
+    {"caseId": "bundle/pic-semantics-0.1.0/examples/invalid/bad-value-state.json", "status": "pass"},
+    {"caseId": "bundle/pic-semantics-0.1.0/examples/invalid/float-money.json", "status": "pass"},
+    {"caseId": "bundle/pic-semantics-0.1.0/examples/invalid/lowercase-currency.json", "status": "pass"}
+  ],
+  "outcome": "partial",
+  "maintenance": {"owner": "replace", "freshnessDate": "2026-01-01"},
+  "limitations": ["Replace every placeholder and digest before submission."],
+  "unresolvedMismatches": []
+}

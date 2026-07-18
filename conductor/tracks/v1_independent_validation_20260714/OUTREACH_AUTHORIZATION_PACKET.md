@@ -12,15 +12,19 @@ The authoritative candidate registry is
 `external/independent-validation/CANDIDATE_REGISTRY.json`. The available
 choices are:
 
-1. PolicyEngine: validate a read-only PIC trace, missingness, or fixture-
-   converter surface in a clean upstream test job.
-2. OpenFisca: validate a read-only PIC trace or missingness projection using
-   OpenFisca's own calculation and test conventions.
-3. OpenFisca Aotearoa: run the bounded NZ fixture/trace projection against the
-   existing rules package without promoting agent-generated fixtures.
-4. An unaffiliated research or public-sector implementer: run the self-
-   contained kit with an independently curated synthetic case. This is the
+1. PolicyEngine: run the five manifested `pic-semantics/0.1.0` valid and
+   invalid `valueState` cases in a clean upstream test job.
+2. OpenFisca: run those same five semantics cases using OpenFisca's own
+   calculation and test conventions.
+3. OpenFisca Aotearoa: run those same five semantics cases against a clean
+   package checkout without promoting agent-generated fixtures.
+4. An unaffiliated research or public-sector implementer: run those same five
+   semantics cases with independently controlled code and oracle. This is the
    strongest independence route but requires identifying an organisation.
+
+Trace, fixture-converter, NZ-specific fixture, profile, and synthetic-case
+surfaces require a separately versioned kit and verifier and are not authorized
+by this packet.
 
 ## Required authorization
 

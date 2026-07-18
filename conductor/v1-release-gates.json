@@ -38,10 +38,10 @@
       "category": "adoption",
       "status": "blocked",
       "dependencies": ["independent-consumer"],
-      "source": "https://github.com/edithatogo/rac-conformance/issues/23",
+      "source": "https://github.com/edithatogo/rac-conformance/issues/45",
       "reason_code": "independent_adoption_not_verified",
-      "next_action": "Obtain an independent consumer report or maintainer-certified external adoption evidence.",
-      "observed_at": "2026-07-15"
+      "next_action": "Obtain and verify an artifact-backed rac-independent-submission.v2 bundle from an independently controlled implementation.",
+      "observed_at": "2026-07-17"
     },
     {
       "id": "papers-refresh",

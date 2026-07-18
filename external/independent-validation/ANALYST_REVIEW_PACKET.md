@@ -49,18 +49,20 @@ an evidence failure, not permission to continue.
 4. Run the local verifier:
 
    ```sh
-   PYTHONPATH=. uv run python tools/independent_validation.py \
-     --kit independent/kit \
-     --result /path/to/external-result.json
+   PYTHONPATH=. uv run --with jsonschema python -m tools.independent_evidence \
+     /path/to/external-result.json \
+     --evidence-root /path/to/evidence-bundle
    ```
 
 5. Classify failures as contract, implementation, source/fixture, environment,
    or unresolved. Preserve the original result and authorship.
 6. Require explicit acknowledgement before changing the canonical ledger.
 
-The example result in `independent/kit/` is intentionally not submitted and
-must remain rejected. A local run, maintainer-owned fork, staged patch, or
-paper draft cannot satisfy this sequence.
+`independent/kit/example-nonqualifying-result.json` is intentionally a legacy,
+schema-invalid example and must remain rejected. A local run,
+maintainer-owned fork, staged patch, or paper draft cannot satisfy this
+sequence. An analyst must separately verify issuer control before adding an
+attestation digest to `independent/TRUSTED_ATTESTATIONS.json`.
 
 ## Paper and FOI handoff boundary
 
