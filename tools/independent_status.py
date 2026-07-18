@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import json
 from pathlib import Path
+
+from tools.independent_evidence import classify
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "external/independent-validation/CANDIDATE_REGISTRY.json"
@@ -21,7 +24,53 @@ def _load(path: Path) -> dict:
     return value
 
 
-def build_ledger(registry: dict, snapshot: dict) -> dict:
+def _safe_path(root: Path, value: str) -> Path:
+    resolved_root = root.resolve()
+    path = (resolved_root / value).resolve()
+    if path == resolved_root or resolved_root not in path.parents:
+        raise ValueError(f"status evidence path escapes repository: {value}")
+    return path
+
+
+def verified_consumers(snapshot: dict, *, root: Path = ROOT) -> tuple[list[dict], list[str]]:
+    verified = []
+    errors = []
+    for claim in snapshot.get("qualifyingConsumers", []):
+        claim_id = claim.get("id", "<missing-id>")
+        try:
+            packet_path = _safe_path(root, claim["packetPath"])
+            evidence_root = _safe_path(root, claim["evidenceRoot"])
+            packet = _load(packet_path)
+            report = classify(
+                packet,
+                evidence_root=evidence_root,
+                today=date.fromisoformat(snapshot["asOf"]),
+            )
+        except (KeyError, OSError, TypeError, ValueError) as exc:
+            errors.append(f"{claim_id}: independent evidence cannot be loaded: {exc}")
+            continue
+        if not report["qualifiesForV1"]:
+            errors.append(f"{claim_id}: independent evidence is not qualifying")
+            continue
+        verified.append(
+            {
+                "id": claim["id"],
+                "maintained": claim["maintained"],
+                "domainClass": claim["domainClass"],
+                "externalOrganisation": claim["externalOrganisation"],
+                "packetPath": claim["packetPath"],
+                "evidenceRoot": claim["evidenceRoot"],
+            }
+        )
+    return verified, errors
+
+
+def build_ledger(
+    registry: dict,
+    snapshot: dict,
+    *,
+    qualifying_consumers: list[dict] | None = None,
+) -> dict:
     candidates = [
         {
             "id": candidate["id"],
@@ -36,7 +85,7 @@ def build_ledger(registry: dict, snapshot: dict) -> dict:
         "domainClasses": 2,
         "externalImplementation": 1,
     }
-    qualifying = snapshot.get("qualifyingConsumers", [])
+    qualifying = qualifying_consumers or []
     maintained = [consumer for consumer in qualifying if consumer.get("maintained") is True]
     domains = {consumer.get("domainClass") for consumer in maintained if consumer.get("domainClass")}
     external = [consumer for consumer in maintained if consumer.get("externalOrganisation") is True]
@@ -67,8 +116,8 @@ def validate() -> list[str]:
     snapshot = _load(SNAPSHOT)
     ledger = _load(LEDGER)
     release = _load(RELEASE_GATES)
-    errors = []
-    expected = build_ledger(registry, snapshot)
+    qualifying, errors = verified_consumers(snapshot)
+    expected = build_ledger(registry, snapshot, qualifying_consumers=qualifying)
     if ledger != expected:
         errors.append("independent/STATUS_LEDGER.json is not synchronized")
     adoption = next(
@@ -95,8 +144,21 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)
     if args.write:
+        snapshot = _load(SNAPSHOT)
+        qualifying, errors = verified_consumers(snapshot)
+        if errors:
+            print("\n".join(errors))
+            return 1
         LEDGER.write_text(
-            json.dumps(build_ledger(_load(REGISTRY), _load(SNAPSHOT)), indent=2) + "\n",
+            json.dumps(
+                build_ledger(
+                    _load(REGISTRY),
+                    snapshot,
+                    qualifying_consumers=qualifying,
+                ),
+                indent=2,
+            )
+            + "\n",
             encoding="utf-8",
         )
     errors = validate()

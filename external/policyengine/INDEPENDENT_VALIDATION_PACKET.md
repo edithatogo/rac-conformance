@@ -15,11 +15,10 @@ generic standards request.
 
 ## Bounded proposal
 
-Ask maintainers to select one small surface:
-
-1. Consume the PIC trace projection in a clean test job; or
-2. run the missingness/`valueState` examples; or
-3. run the deterministic fixture conversion corpus.
+Ask maintainers to run the five manifested `pic-semantics/0.1.0` valid and
+invalid `valueState` examples from `independent/kit/` in a clean test job.
+Trace projection and fixture conversion remain future surfaces until a
+separately versioned kit and verifier explicitly support them.
 
 The external implementation must remain PolicyEngine-owned, use its own
 oracle, and report its own source revision, environment, input/result

@@ -7,17 +7,19 @@ Target: `BetterRules/openfisca-aotearoa`, associated with issue #199 and PR
 
 ## Consumer problem
 
-The existing NZ reconciliation work identifies a concrete coverage and
-missingness surface around the Aotearoa package. The external maintainer must
-choose the smallest useful PIC fixture or trace projection that helps verify
-that problem without accepting the local fork as independent evidence.
+The existing NZ reconciliation work identifies a concrete missingness surface
+around the Aotearoa package. The external maintainer must independently run the
+currently supported semantics corpus without accepting the local fork as
+independent evidence.
 
 ## Bounded proposal
 
-Run one NZ-specific PIC fixture and read-only trace projection against a clean
-package checkout. Preserve the package's own rules, tests, and oracle. Do not
-promote any fixture from this repository into a golden corpus without human
-review.
+Run the five manifested `pic-semantics/0.1.0` valid and invalid `valueState`
+examples against a clean package checkout. Preserve the package's own rules,
+tests, and oracle. NZ-specific fixtures and trace projection remain future
+surfaces until a separately versioned kit and verifier explicitly support
+them. Do not promote any fixture from this repository into a golden corpus
+without analyst review.
 
 ## Reproduction and evidence
 

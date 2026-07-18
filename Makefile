@@ -11,7 +11,7 @@ audit-test:
 	PYTHONPATH=. uv run --with pytest --with pyyaml --with jsonschema pytest tools/tests
 
 independent-status-check:
-	PYTHONPATH=. uv run python -m tools.independent_status
+	PYTHONPATH=. uv run --with jsonschema python -m tools.independent_status
 
 release-gates-check:
 	PYTHONPATH=. uv run python -m tools.release_gates conductor/v1-release-gates.json --as-of $(AS_OF)

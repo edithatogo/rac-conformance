@@ -8,18 +8,16 @@ not adoption evidence.
 
 ## Consumer problem
 
-OpenFisca has an existing missingness discussion and PR #1382. A conformance
-experiment should address that concrete problem or a maintainer-selected
-read-only trace projection, while preserving OpenFisca's native semantics and
-test format.
+OpenFisca has an existing missingness discussion and PR #1382. The conformance
+experiment addresses that concrete problem while preserving OpenFisca's native
+semantics and test format.
 
 ## Bounded proposal
 
-Ask maintainers to select one small surface:
-
-1. run the missingness cases and report the result under the PIC value-state
-   vocabulary; or
-2. validate a read-only trace projection against an existing OpenFisca test.
+Ask maintainers to run the five manifested `pic-semantics/0.1.0` valid and
+invalid missingness cases and report each result under the PIC value-state
+vocabulary. Read-only trace projection remains a future surface until a
+separately versioned kit and verifier explicitly support it.
 
 The external implementation and oracle remain OpenFisca-owned. The RaC
 repository supplies only the versioned kit, explicit rejection policy, and

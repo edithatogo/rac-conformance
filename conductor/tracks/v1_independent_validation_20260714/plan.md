@@ -41,6 +41,10 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     > canonical kit now hashes all normative and executable files and executes
     > only manifested cases. External attestation requires an analyst-trusted
     > digest; the trust registry remains empty, so no qualification is claimed.
+    > SECOND REVIEW (2026-07-19): Closed the remaining status and scope gaps.
+    > Qualifying consumers are now counted only after their repository-contained
+    > v2 packet passes the evidence verifier and analyst trust gate. Outreach
+    > packets are constrained to the five supported `pic-semantics/0.1.0` cases.
 
 ## Phase 2 - Candidate Engagement
 
