@@ -38,9 +38,15 @@ jobs:
       - name: Run complete repository gate
         run: make check
 
-      - name: Verify release gate and candidate integrity
+      - name: Require ready release audit
         run: |
-          uv run python -m tools.release_gates conductor/v1-release-gates.json --as-of "$(date -u +%Y-%m-%d)"
+          PYTHONPATH=. uv run python -m tools.v1_release_audit \
+            conductor/v1-release-gates.json \
+            --as-of "$(date -u +%Y-%m-%d)" \
+            --output conductor/tracks/v1_release_20260714/V1_RELEASE_GATE_AUDIT.json
+
+      - name: Verify candidate integrity
+        run: |
           test "$(shasum -a 256 conductor/tracks/v1_release_20260714/release-candidate/current/SHA256SUMS | cut -d ' ' -f 1)" != ""
           shasum -a 256 -c conductor/tracks/v1_release_20260714/release-candidate/current/SHA256SUMS
 
@@ -60,6 +66,7 @@ jobs:
             conductor/tracks/v1_release_20260714/release-candidate/current/CANDIDATE_MANIFEST.json
             conductor/tracks/v1_release_20260714/release-candidate/current/PROVENANCE.json
             conductor/tracks/v1_release_20260714/release-candidate/current/SHA256SUMS
+            conductor/tracks/v1_release_20260714/V1_RELEASE_GATE_AUDIT.json
             conductor/v1-release-gates.json
           if-no-files-found: error
           retention-days: 90
