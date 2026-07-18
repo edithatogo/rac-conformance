@@ -1,0 +1,1 @@
+Release hardening: protected attestation workflow now exits before attestation unless v1_release_audit reports ready; report is uploaded as evidence; regression ordering test and make check pass.
