@@ -1,0 +1,1 @@
+Second automated review: fixed unverified snapshot promotion and unsupported outreach surfaces. Verification: 27 focused tests and full make check passed, including 94 tool tests and all downstream suites.
