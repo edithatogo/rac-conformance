@@ -136,3 +136,9 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44). De
     > separate gates.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - Full Qualification' (Protocol in workflow.md)
     - **REVIEW:** Automated qualification and residual-risk policy decisions are complete. Final artifact scanning, package attestations, live rollback evidence, release-tag signing, independent qualification, and release authorization remain separate gates.
+    > HARDENING CHECKPOINT (2026-07-18): The protected release workflow now
+    > runs the deterministic v1 release audit before candidate integrity checks
+    > or provenance attestation. A blocked or invalid gate manifest exits
+    > non-zero, so manual dispatch cannot attest the stale candidate while
+    > external, analyst, or publication gates remain open. Structural regression
+    > coverage preserves the audit-before-attestation ordering.
