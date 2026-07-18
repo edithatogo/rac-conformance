@@ -1,0 +1,1 @@
+Conductor task: harden independent evidence qualification. Verification: 17 focused verifier tests and full make check passed. Qualification requires v2 schema, artifact hashes, complete cases, all independence dimensions, and 90-day freshness.
