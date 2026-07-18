@@ -1,0 +1,1 @@
+Conductor task: consolidate the independent implementer kit. Verification: 10 targeted tests and full make check passed; canonical schema and bundled copy are byte-identical and digest-pinned.
