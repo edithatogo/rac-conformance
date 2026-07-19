@@ -1,13 +1,14 @@
-# v1 Independent Validation and Adoption
+# Post-v1 Independent Validation and Adoption
 
-Status: Draft | Consumed-by: v1 release gate
+Status: Draft | Consumed-by: post-v1 ecosystem maturity roadmap
 
 ## Overview
 
-Demonstrate that the release candidate can be implemented and verified outside
-the maintainer's own repositories. Existing submitted issues and PRs remain
-governed by `external_adoption_20260711`; this track adds the stronger v1
-requirement for independent implementation evidence.
+Measure whether released contracts can be implemented and verified outside the
+maintainer's own repositories. Existing submitted issues and PRs remain
+historical provenance. Independent evidence is desirable after v1 but is not a
+release prerequisite because its production and acceptance are not controlled
+by this repository.
 
 Depends on: stable release-candidate artifacts from the process-profile,
 demonstrator, Camunda, and hardening tracks.
@@ -23,8 +24,8 @@ demonstrator, Camunda, and hardening tracks.
 4. Validate submitted results reproducibly and classify profile defects,
    implementation defects, ambiguous requirements, and environment failures.
 5. Feed contract defects through normal change control and rerun all consumers.
-6. Require at least three maintained consumers across two domain classes, with at
-   least one outside maintainer-controlled repositories, for v1 general release.
+6. Use three maintained consumers across two domain classes, with at least one
+   outside maintainer-controlled repositories, as post-v1 maturity targets.
 7. Maintain a public status ledger with explicit external and human gates.
 
 ## Non-Functional Requirements
@@ -40,10 +41,10 @@ demonstrator, Camunda, and hardening tracks.
 
 - The implementer kit can be used from a clean environment without private
   knowledge or maintainer-controlled services.
-- At least one external implementation produces independently generated results
+- Any claimed external implementation produces independently generated results
   that the local harness can verify.
-- Three maintained consumers and two domain classes meet the published criteria,
-  or the v1 gate remains explicitly blocked.
+- Three maintained consumers and two domain classes remain visible post-v1
+  maturity targets without blocking a repository-controlled release.
 - All public adoption claims resolve to durable evidence URLs.
 
 ## Out of Scope

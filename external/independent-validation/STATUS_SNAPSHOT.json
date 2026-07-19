@@ -3,7 +3,8 @@
   "asOf": "2026-07-17",
   "source": "live GitHub CLI read by Codex; see UPSTREAM_STATUS_20260717.md",
   "track": "v1_independent_validation_20260714",
-  "gate": "blocked_pending_external_evidence",
+  "programme": "post_v1_ecosystem_maturity",
+  "maturityStatus": "evidence_programme_open",
   "externalEvidence": "absent",
   "adoptionClaim": "not_claimed",
   "outreach": "authorized_and_submitted_for_selected_targets_awaiting_response",
@@ -14,5 +15,5 @@
     "foiO": {"state": "open_pending_release_evidence_bundle", "independentResult": false},
     "unaffiliated": {"state": "deferred_no_named_owner_or_channel", "independentResult": false}
   },
-  "recheckRequiredBefore": ["selected-target maintainer response or response-window expiry", "additional outreach authorization", "paper handoff", "ledger update", "v1 certification"]
+  "recheckRequiredBefore": ["selected-target maintainer response or response-window expiry", "additional outreach authorization", "paper handoff", "maturity ledger update"]
 }

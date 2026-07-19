@@ -1,12 +1,17 @@
 {
-  "schemaVersion": "rac-independent-adoption-ledger.v0.2.0",
+  "schemaVersion": "rac-independent-adoption-ledger.v0.3.0",
   "updatedAt": "2026-07-17",
   "governingIssue": "https://github.com/edithatogo/rac-conformance/issues/45",
   "evidenceContract": "rac-independent-submission.v2",
-  "requiredForV1": {
-    "maintainedConsumers": 3,
-    "domainClasses": 2,
-    "externalImplementation": 1
+  "programme": "post_v1_ecosystem_maturity",
+  "releaseBlocking": false,
+  "postV1Targets": {
+    "minimumConsumers": 3,
+    "minimumDomainClasses": 2,
+    "minimumExternalOrganisationConsumers": 1,
+    "silenceCountsAsAdoption": false,
+    "maintainerForkCountsAsIndependent": false,
+    "agentRehearsalCountsAsIndependent": false
   },
   "qualifyingConsumers": [],
   "candidates": [
@@ -33,6 +38,6 @@
       "status": "deferred-until-named-organisation"
     }
   ],
-  "gate": "blocked_pending_external_evidence",
-  "reason": "No sufficient set of independently controlled v2 evidence bundles has been verified and acknowledged."
+  "maturityStatus": "evidence_programme_open",
+  "reason": "Independent v2 evidence remains desirable post-v1 but is not a release prerequisite."
 }

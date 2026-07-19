@@ -12,5 +12,6 @@ Automated evidence: local `make check`; hosted Ubuntu/macOS and Python
 security/lint, and CodeQL; and the valid/invalid example and converter corpora.
 
 This report does not certify FOI-O source authority, health-technology
-mappings, independent adoption, human fixture promotion, signing, publication,
-or legal/clinical/funding correctness. Those remain release gates.
+mappings, human fixture promotion, signing, publication, or
+legal/clinical/funding correctness. Those remain controlled release gates.
+Independent adoption is absent and disclosed as a post-v1 limitation.

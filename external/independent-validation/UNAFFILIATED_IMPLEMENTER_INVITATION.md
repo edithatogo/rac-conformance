@@ -22,4 +22,4 @@ the exact communication.
 On 2026-07-17, Dylan approved deferring this route until a specific external
 research or public-sector organisation, repository, owner, and communication
 channel are identified. No generic invitation will be sent and no internal
-rehearsal will satisfy the v1 gate.
+rehearsal will satisfy the post-v1 maturity targets.

@@ -20,17 +20,16 @@
 ## Current decision
 
 `DO NOT AUTHORIZE v1.0`: the current candidate must remain unpublished until
-the FOI-O
-release-evidence bundle, independent adoption, paper refresh, paper-programme
-submission authorization, Zenodo deposit, and
-engineering-hardening gates change state.
+the FOI-O release-evidence bundle, paper refresh, paper-programme submission
+authorization, Zenodo deposit, and engineering-hardening gates change state.
+Independent adoption remains an explicit post-v1 limitation.
 
 ## Human decision checklist
 
 Before authorization, Dylan must confirm the exact candidate commit and decide:
 
-1. external evidence and independent-adoption gates are satisfied or the
-   release remains a 0.x candidate;
+1. repository-controlled evidence gates are satisfied and the absence of
+   independent adoption is accurately disclosed;
 2. residual security, licensing, rights, and platform risks are accepted with
    named owners and expiry dates;
 3. signed tag and package publication destinations are authorized;

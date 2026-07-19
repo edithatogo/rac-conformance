@@ -11,7 +11,7 @@ GitHub programme issue: [#38](https://github.com/edithatogo/rac-conformance/issu
 
 ## Objective
 
-Release RaC Conformance 1.0 only after its contracts are stable, independently
+Release RaC Conformance 1.0 only after its contracts are stable, reproducibly
 implementable, secure to consume, and proven across materially different rules
 and process domains. More examples alone do not establish maturity.
 
@@ -29,8 +29,9 @@ the first process-heavy consumer. The next evidence programme adds:
 5. a Camunda adapter proving that the process profile is portable to an
    enterprise orchestration platform;
 6. engineering, security, compatibility, and release hardening; and
-7. validation by at least one implementation outside repositories controlled by
-   the project maintainer.
+7. post-v1 validation by at least one implementation outside repositories
+   controlled by the project maintainer, retained as an ecosystem-maturity
+   objective rather than a release prerequisite.
 
 ## Repository architecture
 
@@ -151,13 +152,13 @@ state, source authority, applicable jurisdiction, and human review status.
 - Threat model, hostile-input tests, property/fuzz/mutation testing, performance
   budgets, compatibility matrix, SBOM, reproducible build evidence, and migration
   rehearsals.
-- At least three maintained consumers across at least two domain classes, with
-  at least one consumer outside maintainer-controlled repositories.
+- Post-v1 maturity target: at least three maintained consumers across at least
+  two domain classes, with one outside maintainer-controlled repositories.
 
 ### v1.0 - Stable release
 
 - Normative contract freeze and documented support/deprecation policy.
-- All release-candidate gates independently evidenced.
+- All repository-controlled release-candidate gates reproducibly evidenced.
 - Human release certification, signed release artifacts where available, green
   required GitHub Actions, and publication of the compatibility matrix.
 
@@ -170,9 +171,8 @@ state, source authority, applicable jurisdiction, and human review status.
 5. `health_technology_pathways_20260714` ([#42](https://github.com/edithatogo/rac-conformance/issues/42)) depends on 3
 6. `camunda_portability_20260714` ([#43](https://github.com/edithatogo/rac-conformance/issues/43)) depends on 3 and one certified demonstrator
 7. `v1_engineering_hardening_20260714` ([#44](https://github.com/edithatogo/rac-conformance/issues/44)) depends on 3 and may run alongside 4-6
-8. `v1_independent_validation_20260714` ([#45](https://github.com/edithatogo/rac-conformance/issues/45)) depends on stable release-candidate
-   artifacts from 4-7 and complements `external_adoption_20260711`
-9. `v1_release_20260714` ([#46](https://github.com/edithatogo/rac-conformance/issues/46)) depends on 1-8 and all applicable human/external gates
+8. `v1_release_20260714` ([#46](https://github.com/edithatogo/rac-conformance/issues/46)) depends on repository-controlled work in 1-7 and applicable analyst gates
+9. `v1_independent_validation_20260714` ([#45](https://github.com/edithatogo/rac-conformance/issues/45)) follows v1 as a non-blocking ecosystem-maturity programme
 
 ## Evidence and publication posture
 

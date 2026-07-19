@@ -1,15 +1,6 @@
 {
-  "asOf": "2026-07-17",
+  "asOf": "2026-07-19",
   "blockers": [
-    {
-      "dependencies": [
-        "independent-consumer"
-      ],
-      "id": "external-independent-adoption",
-      "nextAction": "Obtain an independent consumer report or maintainer-certified external adoption evidence.",
-      "reasonCode": "independent_adoption_not_verified",
-      "status": "blocked"
-    },
     {
       "dependencies": [
         "foi-o-27"
@@ -47,15 +38,8 @@
       "status": "blocked"
     }
   ],
-  "gateCount": 9,
+  "gateCount": 8,
   "gates": [
-    {
-      "category": "adoption",
-      "id": "external-independent-adoption",
-      "observedAt": "2026-07-15",
-      "owner": "dylan",
-      "status": "blocked"
-    },
     {
       "category": "human",
       "id": "foi-governance-manual-verification",
@@ -114,6 +98,7 @@
     }
   ],
   "manifestValid": true,
+  "missingRequiredGates": [],
   "networkChecks": "not-performed",
   "release": "v1.0.0-rc.1",
   "releaseDecision": "blocked",
@@ -122,5 +107,6 @@
     "blocked",
     "pass"
   ],
+  "undeclaredGates": [],
   "validationErrors": []
 }

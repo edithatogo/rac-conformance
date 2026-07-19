@@ -4,8 +4,8 @@ Status: Draft | Consumed-by: v1 users and maintainers
 
 ## Overview
 
-Release 1.0 only after every required technical, compatibility, security,
-independent-adoption, governance, external, and analyst gate has durable evidence.
+Release 1.0 only after every repository-controlled technical, compatibility,
+security, governance, and analyst gate has durable evidence.
 If the gates are incomplete, continue supported 0.x releases rather than
 relabeling incomplete evidence as 1.0.
 
@@ -30,7 +30,7 @@ Depends on: all preceding v1 roadmap tracks.
 
 - No manual editing of generated release manifests after validation.
 - No weakening branch protection or required checks to publish.
-- No publication claim before the external destination confirms the artifact.
+- No claim about an external destination before that destination confirms the artifact.
 - Release artifacts must be immutable, checksummed, provenance-linked, and
   reproducible within documented limits.
 
@@ -44,6 +44,6 @@ Depends on: all preceding v1 roadmap tracks.
 
 ## Out of Scope
 
-- Waiving external or analyst gates because a deadline is reached.
+- Waiving repository-controlled or analyst gates because a deadline is reached.
 - New features after release-candidate freeze.
 - Publishing papers or DOI records without separate authorization.

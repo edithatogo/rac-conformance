@@ -13,7 +13,7 @@ It was merged into current `main` as `680dbd7b99fb3409d67244638ff045c24edaed59`.
 | NZ reconciliation | Clean runner tests | pass | Study evidence; not independent adoption |
 | Service and Docassemble demos | Clean demo tests | pass | Experimental; no v1 compatibility promise |
 | FOI-O release evidence bundle | `foi-o#27` dependency | blocked | Cannot verify capabilities, migrations, fixtures, or empirical results |
-| Independent consumer | Track #45 evidence policy | blocked | Agent rehearsal is explicitly non-qualifying |
+| Independent consumer | Track #45 evidence policy | post-v1 | No qualifying evidence exists; this remains an explicit limitation and maturity target, not a v1 release gate |
 | FOI programme governance | Approved `rac-conformance#30` packet and validated 2026-07-17 live Project 14 export | pass | Scope, membership, required fields, navigation, and FOI-O/PIC boundary are verified |
 | Paper programme and submission | `rac-conformance#24/#31` packets | blocked | Refresh waits for FOI-O evidence; submission requires Dylan's authorization |
 | RaC Zenodo deposit | `rac-conformance#33` packet | blocked | Deposit and DOI verification remain human-gated |
@@ -26,5 +26,6 @@ jurisdiction mapping, external maintainer, or independent implementation.
 
 Automated cross-platform and hosted security evidence for the current candidate
 is recorded in `docs/V1_HOSTED_QUALIFICATION.md` and
-`docs/V1_HOSTED_GOVERNANCE.md`. Human source certification, independent
-adoption, publication, signing, and external evidence gates remain blocked.
+`docs/V1_HOSTED_GOVERNANCE.md`. Human source certification, publication,
+signing, and controlled evidence gates remain blocked. Independent adoption is
+absent and tracked post-v1 without weakening its evidence criteria.

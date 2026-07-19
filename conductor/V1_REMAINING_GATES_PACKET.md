@@ -51,7 +51,7 @@ HTA advice as a payer decision. The candidate ledger is
 **Human decision required:** approve this candidate and jurisdiction pair, or
 select another candidate before executable fixtures are created.
 
-## Decision 4: independent validation/adoption (#45)
+## Post-v1 programme: independent validation/adoption (#45)
 
 **Recommendation:** authorize bounded outreach to one independent organization
 with a real consumer problem, beginning with the prepared candidates in
@@ -68,15 +68,15 @@ The current machine-readable target registry is
 are staged under `external/policyengine/`, `external/openfisca/`, and
 `external/independent-validation/`.
 
-**Human decision required:** select target(s) and authorize each outreach or
-submission separately.
+**Post-v1 boundary:** select target(s) and authorize each outreach separately.
+No response, rejection, or delayed maintainer action blocks v1.
 
 ## Decision 5: v1.0 qualification and release (#46)
 
-**Recommendation:** keep `v1.0.0-rc.1` blocked until the hardening,
-FOI-O evidence, human certification, independent-adoption, Project 14,
-publication, and citation gates are either proven or explicitly deferred to a
-later 0.x release. The existing packet is
+**Recommendation:** keep `v1.0.0-rc.1` blocked until repository-controlled
+hardening, FOI-O evidence, analyst certification, publication, and citation
+gates are proven or explicitly deferred. Independent adoption remains post-v1.
+The existing packet is
 `conductor/tracks/v1_release_20260714/V1_RELEASE_AUTHORIZATION_PACKET.md`.
 
 The release candidate must be rebuilt from the final reviewed commit after
@@ -88,7 +88,7 @@ The hosted qualification matrix is implemented in
 from `docs/V1_HOSTED_QUALIFICATION.md` and cover Ubuntu/macOS with Python 3.12
 and 3.13. Those runs prove automated qualification of the candidate branch;
 they do not prove human certification, independent adoption, signing, or
-release authorization.
+release authorization. Independent adoption is disclosed but is not required.
 
 ## Current gate rule
 

@@ -52,5 +52,5 @@ implementation and oracle provenance, and be independently verifiable by
 `tools/independent_evidence.py`. Do not edit a returned packet to repair a
 failure; record the failure and request a corrected submission from its owner.
 
-The v1 adoption gate remains blocked until a qualifying external result is
+The post-v1 evidence programme remains open until a qualifying external result is
 received, verified, and certified through the later human task.

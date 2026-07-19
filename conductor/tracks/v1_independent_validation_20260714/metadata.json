@@ -1,8 +1,8 @@
 {
   "track_id": "v1_independent_validation_20260714",
   "type": "feature",
-  "status": "blocked",
+  "status": "deferred",
   "created_at": "2026-07-14T13:26:13Z",
-  "updated_at": "2026-07-18T23:51:00Z",
-  "description": "Obtain and verify independent implementations, conformance results, and adoption evidence needed for a credible v1 release."
+  "updated_at": "2026-07-19T00:30:00Z",
+  "description": "Obtain and verify strict independent implementation and adoption evidence as a post-v1 ecosystem-maturity programme."
 }
