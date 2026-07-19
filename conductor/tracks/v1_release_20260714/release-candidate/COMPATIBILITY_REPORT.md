@@ -12,6 +12,7 @@ Package compatibility is versioned independently from the programme release:
 `V1_NORMATIVE_FREEZE.md`. The two clean package builds produced identical
 SHA-256 digests for both the wheel and source distribution.
 
-This is a release candidate only. The gate audit remains blocked by external
-FOI-O evidence, independent adoption, paper refresh, and Zenodo deposit. No
-public package, tag, DOI, or final v1.0 release is claimed.
+This is a release candidate only. The gate audit remains blocked by controlled
+FOI-O evidence, paper refresh, and Zenodo deposit. Independent adoption is
+absent and tracked as a post-v1 limitation. No public package, tag, DOI, or
+final v1.0 release is claimed.

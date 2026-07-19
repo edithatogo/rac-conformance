@@ -15,7 +15,7 @@ This repository began as a ChatGPT-produced review pack for **RaCX** (a proposed
 3. [`conductor/product.md`](conductor/product.md) — product definition
 4. [`conductor/tracks.md`](conductor/tracks.md) — tracks (mostly archived; see active closeout if any)
 5. [`conductor/NEXTGEN_RELEASE_STATUS.md`](conductor/NEXTGEN_RELEASE_STATUS.md) — release matrix and external gates
-6. [`conductor/V1_ROADMAP.md`](conductor/V1_ROADMAP.md) — evidence, process-domain, portability, hardening, and independent-adoption gates for 1.0
+6. [`conductor/V1_ROADMAP.md`](conductor/V1_ROADMAP.md) — evidence, process-domain, portability, and hardening gates for 1.0, with independent adoption tracked post-v1
 7. [`AGENTS.md`](AGENTS.md) — instructions for AI agents implementing this repo
 
 ## Repository map

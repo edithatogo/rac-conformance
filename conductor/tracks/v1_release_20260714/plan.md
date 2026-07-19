@@ -1,6 +1,6 @@
 # Implementation Plan
 
-GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46). Depends on [#39](https://github.com/edithatogo/rac-conformance/issues/39)-[#45](https://github.com/edithatogo/rac-conformance/issues/45) and all applicable existing external, publication, citation, and human gates.
+GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46). Depends on repository-controlled work in [#39](https://github.com/edithatogo/rac-conformance/issues/39)-[#44](https://github.com/edithatogo/rac-conformance/issues/44) and applicable analyst authorization gates. Issue #45 is post-v1 maturity work.
 
 ## Phase 1 - Release Candidate Freeze
 
@@ -33,12 +33,12 @@ GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46). De
 ## Phase 2 - Qualification
 
 - [ ] Task: Run full consumer and domain qualification
-    - [ ] Run FOI-O, rules-heavy, adverse-incident, health-technology, Camunda, and independent-consumer suites.
+    - [ ] Run FOI-O, rules-heavy, adverse-incident, health-technology, and Camunda suites; record any independent-consumer evidence as optional post-v1 evidence.
     - [ ] Verify no candidate or uncertified fixture is counted as golden evidence.
     - [ ] Resolve contributor-controlled defects through regression-first fixes.
     - **Acceptance:** the frozen compatibility matrix is green or release remains blocked.
-    - **Evidence:** `V1_QUALIFICATION_MATRIX.md` records all local suites as passing where runnable and preserves external, candidate-only, and independent-adoption blockers.
-    - **BLOCKED (2026-07-15):** FOI-O release evidence, independent consumer evidence, and human selection/certification for pending profiles are unavailable; v1 remains blocked.
+    - **Evidence:** `V1_QUALIFICATION_MATRIX.md` records all local suites as passing where runnable and preserves controlled blockers and post-v1 limitations separately.
+    - **BLOCKED (2026-07-19):** FOI-O release evidence and analyst selection/certification for pending profiles remain unavailable. Independent consumer evidence is a post-v1 limitation, not a blocker.
 - [ ] Task: Review security, licensing, documentation, and claims
     - [ ] Recheck threat-model disposition, dependency advisories, licenses, source rights, and sensitive-data scans.
     - [ ] Match every README/release-note capability claim to evidence and scope limits.
@@ -52,7 +52,7 @@ GitHub issue: [#46](https://github.com/edithatogo/rac-conformance/issues/46). De
     - **Acceptance:** authorization is explicit and tied to an exact commit/artifact set.
     - **Packet:** `V1_RELEASE_AUTHORIZATION_PACKET.md` is prepared; no release authorization or publication action has been taken.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Qualification' (Protocol in workflow.md)
-    - **BLOCKED (2026-07-17):** The qualification matrix and security review preserve unresolved FOI-O evidence, independent adoption, live checks, paper submission, Zenodo, signing, and analyst-certification gates. Project 14 verification is complete and is no longer a release blocker. Do not promote, sign, publish, or archive v1.0 until the remaining gates change state.
+    - **BLOCKED (2026-07-19):** The qualification matrix and security review preserve unresolved controlled FOI-O evidence, live checks, paper submission, Zenodo, signing, and analyst-certification gates. Independent adoption remains an explicit post-v1 limitation. Do not promote, sign, publish, or archive v1.0 until the controlled gates change state.
 
 ## Phase 3 - Publication and Verification
 

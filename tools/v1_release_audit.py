@@ -27,15 +27,35 @@ def audit(manifest: dict, *, as_of: date) -> dict:
         for gate in gates
         if gate.get("status") in {"blocked", "fail", "exception"}
     ]
+    gate_ids = [gate.get("id") for gate in gates]
+    required_gate_ids = manifest.get("required_gate_ids")
+    inventory_errors = []
+    if not isinstance(required_gate_ids, list) or not required_gate_ids:
+        inventory_errors.append("required_gate_ids must be a non-empty list")
+        required_gate_ids = []
+    elif any(not isinstance(gate_id, str) or not gate_id for gate_id in required_gate_ids):
+        inventory_errors.append("required_gate_ids entries must be non-empty strings")
+    elif len(required_gate_ids) != len(set(required_gate_ids)):
+        inventory_errors.append("required_gate_ids entries must be unique")
+
+    missing_required_gates = sorted(set(required_gate_ids) - set(gate_ids))
+    undeclared_gates = sorted(set(gate_ids) - set(required_gate_ids))
+    if missing_required_gates:
+        inventory_errors.append("required gates are missing from the manifest")
+    if undeclared_gates:
+        inventory_errors.append("manifest gates are absent from required_gate_ids")
+    audit_valid = validation.ok and not inventory_errors
     return {
         "schemaVersion": "rac-v1-release-audit.v1",
         "asOf": as_of.isoformat(),
         "release": manifest.get("release"),
-        "manifestValid": validation.ok,
-        "releaseDecision": "ready" if validation.ok and not blockers else "blocked",
+        "manifestValid": audit_valid,
+        "releaseDecision": "ready" if audit_valid and not blockers else "blocked",
         "networkChecks": "not-performed",
         "statuses": sorted(validation.statuses),
-        "validationErrors": list(validation.errors),
+        "validationErrors": [*validation.errors, *inventory_errors],
+        "missingRequiredGates": missing_required_gates,
+        "undeclaredGates": undeclared_gates,
         "gateCount": len(gates),
         "blockers": blockers,
         "gates": [

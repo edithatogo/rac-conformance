@@ -33,4 +33,4 @@ them.
 7. Maintainer acknowledgement and freshness date.
 
 No screenshot, narrative endorsement, local fork, self-owned branch, or agent
-rehearsal satisfies the v1 gate.
+rehearsal satisfies the post-v1 maturity targets.

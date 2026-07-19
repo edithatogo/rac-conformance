@@ -19,22 +19,24 @@ def test_generated_ledger_preserves_candidates_without_claiming_adoption() -> No
             }
         ]
     }
-    snapshot = {"asOf": "2026-07-18", "gate": "blocked_pending_external_evidence"}
+    snapshot = {"asOf": "2026-07-18", "maturityStatus": "evidence_programme_open"}
     ledger = build_ledger(registry, snapshot)
     assert ledger["governingIssue"] == GOVERNING_ISSUE
     assert ledger["qualifyingConsumers"] == []
     assert ledger["candidates"][0]["id"] == "candidate"
+    assert ledger["releaseBlocking"] is False
+    assert ledger["programme"] == "post_v1_ecosystem_maturity"
 
 
 def test_ledger_generation_is_deterministic() -> None:
     registry = {"candidates": []}
-    snapshot = {"asOf": "2026-07-18", "gate": "blocked_pending_external_evidence"}
+    snapshot = {"asOf": "2026-07-18", "maturityStatus": "evidence_programme_open"}
     first = build_ledger(copy.deepcopy(registry), copy.deepcopy(snapshot))
     second = build_ledger(copy.deepcopy(registry), copy.deepcopy(snapshot))
     assert json.dumps(first, sort_keys=True) == json.dumps(second, sort_keys=True)
 
 
-def test_generated_ledger_can_represent_evidence_backed_success() -> None:
+def test_generated_ledger_can_represent_post_v1_maturity_success() -> None:
     registry = {"candidates": []}
     snapshot = {
         "asOf": "2026-07-18",
@@ -51,8 +53,19 @@ def test_generated_ledger_can_represent_evidence_backed_success() -> None:
         snapshot,
         qualifying_consumers=snapshot["qualifyingConsumers"],
     )
-    assert ledger["gate"] == "satisfied"
+    assert ledger["maturityStatus"] == "targets_satisfied"
     assert len(ledger["qualifyingConsumers"]) == 3
+
+
+def test_empty_independent_ledger_does_not_require_a_release_gate() -> None:
+    registry = {"candidates": []}
+    snapshot = {"asOf": "2026-07-18", "externalEvidence": "absent"}
+
+    ledger = build_ledger(registry, snapshot)
+
+    assert ledger["qualifyingConsumers"] == []
+    assert ledger["releaseBlocking"] is False
+    assert ledger["maturityStatus"] == "evidence_programme_open"
 
 
 def test_unbacked_snapshot_claim_cannot_be_counted(tmp_path) -> None:

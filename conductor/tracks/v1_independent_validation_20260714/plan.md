@@ -1,6 +1,11 @@
 # Implementation Plan
 
-GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). Depends on release-candidate artifacts from [#41](https://github.com/edithatogo/rac-conformance/issues/41)-[#44](https://github.com/edithatogo/rac-conformance/issues/44) and complements existing adoption issue [#23](https://github.com/edithatogo/rac-conformance/issues/23).
+GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). Post-v1 ecosystem-maturity work; it does not block issue [#46](https://github.com/edithatogo/rac-conformance/issues/46).
+
+> SCOPE DECISION (2026-07-19): Dylan directed that outcomes outside repository
+> control must not be mandatory release gates. The strict evidence contract and
+> outreach history are preserved, but Phases 3-4 are post-v1 work. Controlled
+> forks may be recorded as ordinary adoption and cannot be called independent.
 
 ## Phase 1 - Independence Contract and Implementer Kit
 
@@ -88,7 +93,8 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     > HUMAN DECISION (2026-07-17): Dylan approved deferring the unaffiliated
     > research/public-sector route until a named organisation, repository,
     > owner, and communication channel are identified. No generic invitation
-    > will be sent and no internal rehearsal will satisfy the v1 gate.
+    > will be sent and no internal rehearsal will satisfy the post-v1 maturity
+    > targets.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Candidate Engagement' (Protocol in workflow.md)
     - **REVIEW:** Authorized bounded requests are recorded; maintainer responses and qualifying evidence remain external dependencies.
 
@@ -97,10 +103,10 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
 > bounded outreach was submitted to PolicyEngine and OpenFisca core and is
 > awaiting maintainer response within the recorded 14-day windows. No
 > independent result, qualifying consumer, or FOI-O evidence bundle was added;
-> the gate remains blocked. Additional targets remain subject to separate
+> the post-v1 evidence programme remains open. Additional targets remain subject to separate
 > human authorization.
 
-## Phase 3 - Result Verification and Feedback
+## Phase 3 - Post-v1 Result Verification and Feedback
 
 - [ ] Task: Verify independent results
     - [ ] Reproduce qualifying submissions from pinned artifacts.
@@ -112,28 +118,28 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). De
     - [ ] Apply normal compatibility and migration rules.
     - [ ] Notify known consumers and rerun compatibility matrices.
     - **Acceptance:** fixes do not special-case an implementer or weaken prior consumers silently.
-- [ ] Task: Update public adoption and release-gate ledgers
+- [ ] Task: Update public adoption and maturity ledgers
     - [ ] Link qualifying, partial, declined, unresponsive, and blocked outcomes.
-    - [ ] Keep Project 19 and the machine-readable gate manifest synchronized.
+    - [ ] Keep Project 19 and the machine-readable maturity ledger synchronized.
     - **Acceptance:** public status is no stronger than external evidence.
     > CONTRIBUTOR CHECKPOINT (2026-07-18): The candidate registry and dated
     > status snapshot now deterministically generate
     > `independent/STATUS_LEDGER.json`; CI rejects candidate, date, governing
-    > issue, gate-status, or qualifying-consumer drift. The release gate now
+    > issue, maturity-status, or qualifying-consumer drift. The post-v1 ledger
     > points to issue #45 and the v2 evidence contract. This task remains open
     > for future external outcomes and Project 19 reconciliation, which is not
     > covered without a pinned project snapshot; no qualifying adoption is
     > claimed.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Result Verification and Feedback' (Protocol in workflow.md)
 
-## Phase 4 - v1 Independence Certification
+## Phase 4 - Post-v1 Independence Maturity Review
 
 - [ ] Task: Generate independent-validation packet
     - [ ] Summarize consumers, domain classes, ownership, versions, results, defects, maintenance signals, and unresolved risks.
     - [ ] Demonstrate that fixture and implementation independence criteria hold.
     - **Acceptance:** each release claim links to a reproducible evidence chain.
-- [ ] Task: [HUMAN] Certify v1 independent-adoption gate
-    - [ ] Dylan approves pass, fail, or defer based on the published criteria.
-    - [ ] A failed or incomplete gate blocks v1 but not continued 0.x releases.
-    - **Acceptance:** gate status and reasons are recorded explicitly.
+- [ ] Task: [HUMAN] Review post-v1 independent-adoption maturity
+    - [ ] Dylan approves the public maturity characterization based on published criteria.
+    - [ ] Missing evidence remains a limitation without invalidating the v1 release.
+    - **Acceptance:** maturity status and reasons are recorded explicitly without release-gate language.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 4 - v1 Independence Certification' (Protocol in workflow.md)

@@ -166,7 +166,7 @@ GitHub issue: [#44](https://github.com/edithatogo/rac-conformance/issues/44)
 
 ---
 
-- [ ] **Track: Obtain independent v1 validation and adoption evidence (deferred)**
+- [ ] **Track: Obtain post-v1 independent validation and adoption evidence (deferred, non-blocking)**
 Track ID: `v1_independent_validation_20260714`
 GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45)
 *Link: [./tracks/v1_independent_validation_20260714/](./tracks/v1_independent_validation_20260714/)*
@@ -190,7 +190,7 @@ their completed local phases are recorded in each plan, while human, hosted,
 upstream, and publication gates remain explicitly unchecked until proven.
 
 The active implementation priority is now the core model and FOI demonstrator
-track. Remaining health-technology breadth and certification, remaining Camunda portability evidence, independent adoption,
+track. Remaining health-technology breadth and certification, remaining Camunda portability evidence, post-v1 independent adoption,
 process-mappings cutover, publication, Zenodo, and v1.0 release work are
 deferred under [DEFERRED_ROADMAP.md](./DEFERRED_ROADMAP.md) until their stated
 re-entry conditions are met.

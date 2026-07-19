@@ -18,9 +18,12 @@ def test_independence_criteria_are_explicit_and_fail_closed() -> None:
         "unacknowledged",
         "maintainer-fork",
     }
-    assert criteria["v1Gate"]["silenceCountsAsAdoption"] is False
-    assert criteria["v1Gate"]["maintainerForkCountsAsIndependent"] is False
-    assert criteria["v1Gate"]["agentRehearsalCountsAsIndependent"] is False
+    assert criteria["releaseBlocking"] is False
+    assert criteria["programme"] == "post_v1_ecosystem_maturity"
+    targets = criteria["postV1MaturityTargets"]
+    assert targets["silenceCountsAsAdoption"] is False
+    assert targets["maintainerForkCountsAsIndependent"] is False
+    assert targets["agentRehearsalCountsAsIndependent"] is False
 
 
 def test_policy_names_the_external_evidence_boundary() -> None:

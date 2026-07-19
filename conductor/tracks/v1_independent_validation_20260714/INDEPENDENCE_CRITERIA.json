@@ -23,7 +23,9 @@
     "maintenance owner and freshness date",
     "limitations and unresolved mismatches"
   ],
-  "v1Gate": {
+  "programme": "post_v1_ecosystem_maturity",
+  "releaseBlocking": false,
+  "postV1MaturityTargets": {
     "minimumConsumers": 3,
     "minimumDomainClasses": 2,
     "minimumExternalOrganisationConsumers": 1,

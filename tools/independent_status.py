@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "external/independent-validation/CANDIDATE_REGISTRY.json"
 SNAPSHOT = ROOT / "external/independent-validation/STATUS_SNAPSHOT.json"
 LEDGER = ROOT / "independent/STATUS_LEDGER.json"
-RELEASE_GATES = ROOT / "conductor/v1-release-gates.json"
+CRITERIA = ROOT / "conductor/tracks/v1_independent_validation_20260714/INDEPENDENCE_CRITERIA.json"
 GOVERNING_ISSUE = "https://github.com/edithatogo/rac-conformance/issues/45"
 
 
@@ -80,33 +80,31 @@ def build_ledger(
         }
         for candidate in registry["candidates"]
     ]
-    requirements = {
-        "maintainedConsumers": 3,
-        "domainClasses": 2,
-        "externalImplementation": 1,
-    }
+    targets = _load(CRITERIA)["postV1MaturityTargets"]
     qualifying = qualifying_consumers or []
     maintained = [consumer for consumer in qualifying if consumer.get("maintained") is True]
     domains = {consumer.get("domainClass") for consumer in maintained if consumer.get("domainClass")}
     external = [consumer for consumer in maintained if consumer.get("externalOrganisation") is True]
     satisfied = (
-        len(maintained) >= requirements["maintainedConsumers"]
-        and len(domains) >= requirements["domainClasses"]
-        and len(external) >= requirements["externalImplementation"]
+        len(maintained) >= targets["minimumConsumers"]
+        and len(domains) >= targets["minimumDomainClasses"]
+        and len(external) >= targets["minimumExternalOrganisationConsumers"]
     )
     return {
-        "schemaVersion": "rac-independent-adoption-ledger.v0.2.0",
+        "schemaVersion": "rac-independent-adoption-ledger.v0.3.0",
         "updatedAt": snapshot["asOf"],
         "governingIssue": GOVERNING_ISSUE,
         "evidenceContract": "rac-independent-submission.v2",
-        "requiredForV1": requirements,
+        "programme": "post_v1_ecosystem_maturity",
+        "releaseBlocking": False,
+        "postV1Targets": targets,
         "qualifyingConsumers": qualifying,
         "candidates": candidates,
-        "gate": "satisfied" if satisfied else "blocked_pending_external_evidence",
+        "maturityStatus": "targets_satisfied" if satisfied else "evidence_programme_open",
         "reason": (
-            "Published v2 evidence satisfies the independent-adoption thresholds."
+            "Published v2 evidence satisfies the post-v1 ecosystem-maturity targets."
             if satisfied
-            else "No sufficient set of independently controlled v2 evidence bundles has been verified and acknowledged."
+            else "Independent v2 evidence remains desirable post-v1 but is not a release prerequisite."
         ),
     }
 
@@ -115,25 +113,10 @@ def validate() -> list[str]:
     registry = _load(REGISTRY)
     snapshot = _load(SNAPSHOT)
     ledger = _load(LEDGER)
-    release = _load(RELEASE_GATES)
     qualifying, errors = verified_consumers(snapshot)
     expected = build_ledger(registry, snapshot, qualifying_consumers=qualifying)
     if ledger != expected:
         errors.append("independent/STATUS_LEDGER.json is not synchronized")
-    adoption = next(
-        (gate for gate in release.get("gates", []) if gate.get("id") == "external-independent-adoption"),
-        None,
-    )
-    if adoption is None:
-        errors.append("release manifest lacks external-independent-adoption gate")
-    else:
-        if adoption.get("source") != GOVERNING_ISSUE:
-            errors.append("independent-adoption gate does not point to issue 45")
-        expected_status = "pass" if ledger.get("gate") == "satisfied" else "blocked"
-        if adoption.get("status") != expected_status:
-            errors.append("independent-adoption gate status does not match the evidence ledger")
-        if adoption.get("observed_at") != snapshot.get("asOf"):
-            errors.append("independent-adoption gate observation date is not synchronized")
     if snapshot.get("externalEvidence") == "absent" and ledger.get("qualifyingConsumers"):
         errors.append("ledger claims qualifying consumers without external evidence")
     return errors

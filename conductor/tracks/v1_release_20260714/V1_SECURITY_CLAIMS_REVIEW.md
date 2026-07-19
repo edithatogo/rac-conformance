@@ -39,8 +39,9 @@ external source rights, and human residual-risk approval remain open.
 
 - External source rights, protected release environments, commit signatures,
   and artifact attestations remain open.
-- FOI-O evidence, independent adoption, human mapping certification, health
-  case selection, and publication authorization remain open.
+- FOI-O evidence, human mapping certification, health case selection, and
+  publication authorization remain open. Independent adoption is absent and
+  disclosed as a post-v1 limitation rather than a release blocker.
 - Human approval is still required for release promotion, signing, package
   publication, DOI deposition, and announcements.
 
