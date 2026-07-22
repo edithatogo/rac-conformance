@@ -1,6 +1,6 @@
 {
   "schemaVersion": "rac-independent-adoption-ledger.v0.3.0",
-  "updatedAt": "2026-07-17",
+  "updatedAt": "2026-07-22",
   "governingIssue": "https://github.com/edithatogo/rac-conformance/issues/45",
   "evidenceContract": "rac-independent-submission.v2",
   "programme": "post_v1_ecosystem_maturity",
@@ -24,7 +24,7 @@
     {
       "id": "openfisca-core",
       "organisation": "OpenFisca",
-      "status": "outreach-submitted-awaiting-maintainer-response",
+      "status": "declined",
       "outreachUrl": "https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-4998515274"
     },
     {

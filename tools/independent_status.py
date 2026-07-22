@@ -109,11 +109,32 @@ def build_ledger(
     }
 
 
+def validate_candidate_states(registry: dict) -> list[str]:
+    """Reject candidate dispositions that retain contradictory outreach state."""
+    errors = []
+    for candidate in registry.get("candidates", []):
+        candidate_id = candidate.get("id", "<missing-id>")
+        if candidate.get("status") != "declined":
+            continue
+        if not candidate.get("responseUrl"):
+            errors.append(f"{candidate_id}: declined candidate requires responseUrl")
+        if not candidate.get("respondedAt"):
+            errors.append(f"{candidate_id}: declined candidate requires respondedAt")
+        if candidate.get("followUpAllowed") is not False:
+            errors.append(f"{candidate_id}: declined candidate must set followUpAllowed false")
+        if "responseWindowDays" in candidate:
+            errors.append(f"{candidate_id}: declined candidate cannot retain responseWindowDays")
+        if candidate.get("followUpLimit", 0) != 0:
+            errors.append(f"{candidate_id}: declined candidate cannot retain a follow-up limit")
+    return errors
+
+
 def validate() -> list[str]:
     registry = _load(REGISTRY)
     snapshot = _load(SNAPSHOT)
     ledger = _load(LEDGER)
     qualifying, errors = verified_consumers(snapshot)
+    errors.extend(validate_candidate_states(registry))
     expected = build_ledger(registry, snapshot, qualifying_consumers=qualifying)
     if ledger != expected:
         errors.append("independent/STATUS_LEDGER.json is not synchronized")

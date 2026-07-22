@@ -1,7 +1,13 @@
 import copy
 import json
 
-from tools.independent_status import GOVERNING_ISSUE, build_ledger, validate, verified_consumers
+from tools.independent_status import (
+    GOVERNING_ISSUE,
+    build_ledger,
+    validate,
+    validate_candidate_states,
+    verified_consumers,
+)
 
 
 def test_committed_independent_status_is_synchronized() -> None:
@@ -34,6 +40,43 @@ def test_ledger_generation_is_deterministic() -> None:
     first = build_ledger(copy.deepcopy(registry), copy.deepcopy(snapshot))
     second = build_ledger(copy.deepcopy(registry), copy.deepcopy(snapshot))
     assert json.dumps(first, sort_keys=True) == json.dumps(second, sort_keys=True)
+
+
+def test_declined_candidate_requires_response_evidence_and_closed_outreach() -> None:
+    registry = {
+        "candidates": [
+            {
+                "id": "declined-target",
+                "status": "declined",
+                "responseUrl": "https://example.org/response",
+                "respondedAt": "2026-07-22",
+                "followUpAllowed": False,
+            }
+        ]
+    }
+
+    assert validate_candidate_states(registry) == []
+
+
+def test_declined_candidate_rejects_pending_outreach_fields() -> None:
+    registry = {
+        "candidates": [
+            {
+                "id": "declined-target",
+                "status": "declined",
+                "responseWindowDays": 14,
+                "followUpLimit": 1,
+            }
+        ]
+    }
+
+    errors = validate_candidate_states(registry)
+
+    assert any("requires responseUrl" in error for error in errors)
+    assert any("requires respondedAt" in error for error in errors)
+    assert any("followUpAllowed false" in error for error in errors)
+    assert any("cannot retain responseWindowDays" in error for error in errors)
+    assert any("cannot retain a follow-up limit" in error for error in errors)
 
 
 def test_generated_ledger_can_represent_post_v1_maturity_success() -> None:

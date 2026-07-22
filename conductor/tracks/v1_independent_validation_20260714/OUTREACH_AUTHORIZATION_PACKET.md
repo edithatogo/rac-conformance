@@ -1,6 +1,8 @@
 # Independent-validation outreach authorization packet
 
-Status: **PolicyEngine and OpenFisca core outreach authorized and submitted; awaiting response. Other targets require separate authorization. No adoption is claimed.**
+Status: **PolicyEngine outreach is awaiting response. OpenFisca core declined
+on 2026-07-22 and no follow-up is authorized. Other targets require separate
+authorization. No adoption is claimed.**
 
 This packet turns issue #45's human gate into a bounded authorization decision.
 It does not claim adoption, authorize contact by itself, or permit the RaC
@@ -14,8 +16,7 @@ choices are:
 
 1. PolicyEngine: run the five manifested `pic-semantics/0.1.0` valid and
    invalid `valueState` cases in a clean upstream test job.
-2. OpenFisca: run those same five semantics cases using OpenFisca's own
-   calculation and test conventions.
+2. OpenFisca: declined; retained only as historical outreach evidence.
 3. OpenFisca Aotearoa: run those same five semantics cases against a clean
    package checkout without promoting agent-generated fixtures.
 4. An unaffiliated research or public-sector implementer: run those same five
@@ -39,6 +40,12 @@ For each selected target, record:
   oracle-curation decision;
 - reviewer, date, and authorization scope.
 
+Before outreach, the approver must also confirm recipient interest, the plain
+language introduction, recipient benefit and burden, methodology, funding or
+sponsorship disclosure, and whether the request changes the purpose of an
+existing conversation. A deadline may be included only after the recipient has
+agreed to participate. Candidate approval never authorizes contact by itself.
+
 Authorization must be per target. A target may be declined, withdrawn, stale,
 conflicting, or unresponsive without counting toward v1 adoption. Silence,
 screenshots, self-owned forks, local rehearsals, and agent-generated fixtures
@@ -54,3 +61,11 @@ failure; record the failure and request a corrected submission from its owner.
 
 The post-v1 evidence programme remains open until a qualifying external result is
 received, verified, and certified through the later human task.
+
+## Recorded OpenFisca disposition
+
+OpenFisca declined at
+https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-5043413144.
+This supersedes the former response window and follow-up limit. The disposition
+is `declined`; silence is not being characterized, and no further request is
+authorized.

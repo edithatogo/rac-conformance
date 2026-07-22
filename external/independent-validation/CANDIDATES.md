@@ -1,6 +1,8 @@
 # Independent Validation Candidates
 
-Status: bounded PolicyEngine and OpenFisca core outreach submitted and awaiting response; other targets remain uncontacted or deferred. No adoption is claimed.
+Status: bounded PolicyEngine outreach is awaiting response; OpenFisca core
+declined participation on 2026-07-22; other targets remain uncontacted or
+deferred. No adoption is claimed.
 
 The machine-readable candidate registry is
 `CANDIDATE_REGISTRY.json`. It is the review surface for target ownership,
@@ -15,7 +17,7 @@ are candidate surfaces, not adoption evidence.
 | Candidate | Consumer problem | Proposed bounded surface | Independence risk | Disposition |
 | --- | --- | --- | --- | --- |
 | PolicyEngine maintainers | Reproducible missingness semantics | Run the five manifested `pic-semantics/0.1.0` cases in a clean test job | Existing upstream proposal may be a maintainer-controlled fork; only a fresh independently-owned implementation qualifies | Authorized outreach submitted; awaiting maintainer response |
-| OpenFisca maintainers | Missingness representation in rules-heavy models | Run the same five semantics cases without changing engine semantics | Existing contribution path may not establish organizational or oracle independence | Authorized outreach submitted; awaiting maintainer response |
+| OpenFisca maintainers | Missingness representation in rules-heavy models | Run the same five semantics cases without changing engine semantics | Existing contribution path may not establish organizational or oracle independence | Declined 2026-07-22; no follow-up permitted and no adoption claimed |
 | An unaffiliated public-sector or research implementer | Need for deterministic conformance evidence | Run the same five semantics cases with independently controlled code and oracle | Candidate must be identified and must curate its own oracle | Preferred qualifying route; candidate not yet identified |
 
 Trace, profile, fixture-converter, NZ-specific fixture, and synthetic-case

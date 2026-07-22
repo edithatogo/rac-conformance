@@ -95,6 +95,11 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). Po
     > owner, and communication channel are identified. No generic invitation
     > will be sent and no internal rehearsal will satisfy the post-v1 maturity
     > targets.
+    > OUTREACH DISPOSITION (2026-07-22): OpenFisca explicitly declined the
+    > request in issue #1380. The response supersedes the prior response window
+    > and follow-up allowance. The candidate is recorded as `declined`, cannot
+    > count as adoption or conformance evidence, and must not receive further
+    > participation requests unless OpenFisca later initiates contact.
 - [x] Task: Conductor - Automated Review and Checkpoint 'Phase 2 - Candidate Engagement' (Protocol in workflow.md)
     - **REVIEW:** Authorized bounded requests are recorded; maintainer responses and qualifying evidence remain external dependencies.
 
@@ -130,6 +135,13 @@ GitHub issue: [#45](https://github.com/edithatogo/rac-conformance/issues/45). Po
     > for future external outcomes and Project 19 reconciliation, which is not
     > covered without a pinned project snapshot; no qualifying adoption is
     > claimed.
+    > CORRECTIVE CHECKPOINT (2026-07-22): The OpenFisca response is linked as
+    > durable evidence, the public candidate surfaces and generated ledger are
+    > synchronized to `declined`, and validation rejects a declined candidate
+    > that retains a response window or follow-up permission. Outreach policy
+    > now requires recipient interest, plain context, burden and funding
+    > disclosure, and exact-action human approval. The broader task remains
+    > open for future external outcomes and Project 19 reconciliation.
 - [ ] Task: Conductor - Automated Review and Checkpoint 'Phase 3 - Result Verification and Feedback' (Protocol in workflow.md)
 
 ## Phase 4 - Post-v1 Independence Maturity Review
