@@ -74,6 +74,14 @@ GitHub roadmap parent: [#6](https://github.com/edithatogo/rac-conformance/issues
 - **License:** [Apache License 2.0](LICENSE)
 - **Cite this repository:** see [`CITATION.cff`](CITATION.cff) (GitHub “Cite this repository” sidebar)
 
+## Funding and human responsibility
+
+RaC Conformance is currently unfunded independent research. AI and automation
+are used to make research and implementation work more accessible, but they do
+not make external decisions or replace human responsibility. The maintainer is
+responsible for understanding and verifying submitted work, reviewing its full
+scope, and approving each outreach and publication action.
+
 ## Provenance
 
 - `racx_fable_review_pack.zip` (not committed): the original ChatGPT deliverable this repo was extracted from.

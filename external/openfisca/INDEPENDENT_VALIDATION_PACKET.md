@@ -1,6 +1,7 @@
 # Independent Validation Packet: OpenFisca
 
-Status: draft; do not submit without Dylan's explicit authorization.
+Status: closed — OpenFisca declined participation on 2026-07-22; no follow-up
+is authorized.
 
 Target: `openfisca/openfisca-core`, with a separate Aotearoa option recorded
 in the independent candidate registry. This packet is an adoption proposal,
@@ -36,11 +37,14 @@ screenshot is not qualifying evidence.
 
 ## Maintenance and exit path
 
-The smallest acceptable result is one maintainer-reviewed test or adapter with
-a reproducible hosted run. If maintainers decline or remain unresponsive
-after the authorized follow-up window, record that outcome and do not count it
-toward v1 adoption.
+The smallest acceptable result would have been one maintainer-reviewed test or
+adapter with a reproducible hosted run. OpenFisca explicitly declined the
+request at
+https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-5043413144.
+The candidate is therefore `declined`, is not counted toward adoption or
+conformance evidence, and must not receive further participation requests.
 
 ## Human boundary
 
-No issue, PR, or external communication is authorized by this file.
+No issue, PR, follow-up, or other external communication is authorized by this
+file. Any later contact initiated by OpenFisca would require a new human gate.

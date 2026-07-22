@@ -1,6 +1,6 @@
 {
   "schemaVersion": "rac-independent-candidate-registry.v0.1.0",
-  "status": "active-outreach-pending-response-and-unaffiliated-route-deferred",
+  "status": "policyengine-response-pending-openfisca-declined-and-unaffiliated-route-deferred",
   "selectionRule": "A candidate is eligible only when an external organisation owns the implementation and oracle, the surface addresses a documented consumer problem, and results are attributable and reproducible.",
   "candidates": [
     {
@@ -29,13 +29,14 @@
       "expectedEffort": "One semantics adapter and a reproducible upstream CI invocation for the five manifested cases.",
       "owner": "OpenFisca maintainer selected by Dylan",
       "independenceRisk": "The RaC maintainer cannot curate the OpenFisca oracle or treat an unreviewed local fork as independent evidence.",
-      "noResponseExit": "After one authorized follow-up and the documented response window, record unresponsive and do not count the candidate toward post-v1 maturity targets.",
-      "status": "outreach-submitted-awaiting-maintainer-response",
+      "noResponseExit": "Historical authorization allowed a bounded response window, but the explicit maintainer refusal superseded it.",
+      "status": "declined",
       "outreachUrl": "https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-4998515274",
+      "responseUrl": "https://github.com/openfisca/openfisca-core/issues/1380#issuecomment-5043413144",
+      "respondedAt": "2026-07-22",
+      "followUpAllowed": false,
       "authorizedBy": "Dylan",
-      "authorizedAt": "2026-07-17",
-      "responseWindowDays": 14,
-      "followUpLimit": 1
+      "authorizedAt": "2026-07-17"
     },
     {
       "id": "openfisca-aotearoa",
@@ -62,6 +63,6 @@
       "status": "deferred-until-named-organisation"
     }
   ],
-  "humanBoundary": "PolicyEngine and OpenFisca core outreach was individually authorized and submitted. Other external communications still require separate human authorization. No outreach, response, issue comment, or candidate is counted as adoption without qualifying independently verified evidence.",
+  "humanBoundary": "PolicyEngine and OpenFisca core outreach was individually authorized and submitted. OpenFisca core declined and no follow-up is authorized. Other external communications still require separate human authorization. No outreach, response, issue comment, or candidate is counted as adoption without qualifying independently verified evidence.",
   "sourceOfTruth": "This registry supplements CANDIDATES.md; external acknowledgements and immutable result packets must be added before any candidate can satisfy the post-v1 maturity targets."
 }

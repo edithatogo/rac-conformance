@@ -30,3 +30,15 @@ def test_policy_names_the_external_evidence_boundary() -> None:
     policy = (ROOT / "docs" / "INDEPENDENT_VALIDATION_POLICY.md").read_text()
     for phrase in ("separately controlled", "silence is not acceptance", "internal-rehearsal", "Screenshots"):
         assert phrase in policy
+
+
+def test_policy_requires_consent_and_closes_declined_outreach() -> None:
+    policy = (ROOT / "docs" / "INDEPENDENT_VALIDATION_POLICY.md").read_text()
+    for phrase in (
+        "Candidate selection does not authorize contact",
+        "recipient interest",
+        "must not impose a response deadline",
+        "ends outreach",
+        "funding or sponsorship",
+    ):
+        assert phrase in policy
