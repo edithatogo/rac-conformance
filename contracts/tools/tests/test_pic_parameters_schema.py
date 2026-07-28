@@ -1,9 +1,24 @@
+from datetime import date
 from pathlib import Path
 
-from pic_contracts.parameters import validate_parameter_periods
+import pytest
+from pic_contracts.parameters import _parse_date, validate_parameter_periods
 from pic_contracts.schema_utils import CONTRACTS_ROOT, load_json, validator_for
 
 BASE = CONTRACTS_ROOT / "pic-parameters" / "0.1.0" / "examples"
+
+
+def test_parse_date_none() -> None:
+    assert _parse_date(None) is None
+
+
+def test_parse_date_valid() -> None:
+    assert _parse_date("2023-01-01") == date(2023, 1, 1)
+
+
+def test_parse_date_invalid() -> None:
+    with pytest.raises(ValueError):
+        _parse_date("invalid-date")
 
 
 def test_valid_parameters_validate_and_have_consistent_periods() -> None:
