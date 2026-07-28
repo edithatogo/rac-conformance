@@ -91,11 +91,12 @@ def run_prd_cases(
             str(input_path),
             str(output_path),
         ]
-        completed = subprocess.run(command, check=False, capture_output=True, text=True)
-        if completed.returncode != 0:
+        try:
+            subprocess.run(command, check=True, capture_output=True, text=True)
+        except subprocess.CalledProcessError as e:
             raise PRDRunnerError(
-                f"PRD runner failed with exit {completed.returncode}: {completed.stderr.strip()}",
-            )
+                f"PRD runner failed with exit {e.returncode}: {e.stderr.strip()}",
+            ) from e
         return [json.loads(line) for line in output_path.read_text().splitlines()]
 
 
