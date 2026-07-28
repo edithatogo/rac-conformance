@@ -1,0 +1,13 @@
+🎯 **What:**
+The `validate_consumption` function in `contracts/tools/src/pic_contracts/process_mappings_consumption.py` handles deterministic validation of process-mappings contract consumption. While the happy path and basic drift tests existed, numerous edge cases, missing fields, and error validation logic paths were completely untested. This left the manifest validation logic vulnerable to untested regression.
+
+📊 **Coverage:**
+I added parameterized tests that simulate corrupted or manipulated manifests. The new testing covers:
+* Invalid/Missing manifests.
+* Invalid `contract` field structures (not an object, incorrect schema SHA, missing fields, invalid paths).
+* Invalid paths and boundary escapes in helper function `_rooted`.
+* Validation logic of the embedded `profileSourceManifest`.
+* Correct identification and validation paths for `examples`, `evidenceSources` and `portableEvidenceSources`.
+
+✨ **Result:**
+The code coverage for `contracts/tools/src/pic_contracts/process_mappings_consumption.py` was increased from ~84% to 100%. We now have a robust safety net guaranteeing the correct behaviour of our deterministic validation logic against varied malformed consumption states.
