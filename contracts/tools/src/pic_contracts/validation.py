@@ -508,48 +508,60 @@ def _referential_integrity(paths: list[Path]) -> list[ValidationIssue]:
     parameter_ids: set[str] = set()
     for _, contract, doc in docs:
         if contract == "pic-crosswalk":
-            for row in doc.get("rows", []):
-                crosswalk_types[row.get("id", "")] = row.get("dataType", "")
+            rows = doc.get("rows")
+            if rows:
+                for row in rows:
+                    crosswalk_types[row.get("id", "")] = row.get("dataType", "")
         elif contract == "pic-parameters":
-            for parameter in doc.get("parameters", []):
-                parameter_ids.add(parameter.get("id", ""))
+            parameters = doc.get("parameters")
+            if parameters:
+                for parameter in parameters:
+                    parameter_ids.add(parameter.get("id", ""))
 
     for path, contract, doc in docs:
         if contract == "pic-fixtures":
-            for case_index, case in enumerate(doc.get("cases", [])):
-                for pic_id, value_object in case.get("inputs", {}).items():
-                    if pic_id not in crosswalk_types:
-                        issues.append(
-                            ValidationIssue(
-                                f"{path}:cases/{case_index}/inputs/{pic_id}",
-                                "fixture references unknown crosswalk ID",
-                                "reference",
-                            )
-                        )
-                        continue
-                    expected_type = crosswalk_types[pic_id]
-                    actual_type = _infer_value_data_type(value_object)
-                    if actual_type is not None and expected_type != actual_type:
-                        issues.append(
-                            ValidationIssue(
-                                f"{path}:cases/{case_index}/inputs/{pic_id}",
-                                "type mismatch: "
-                                f"crosswalk={expected_type} fixture={actual_type}",
-                                "type",
-                            )
-                        )
+            cases = doc.get("cases")
+            if cases:
+                for case_index, case in enumerate(cases):
+                    inputs = case.get("inputs")
+                    if inputs:
+                        for pic_id, value_object in inputs.items():
+                            if pic_id not in crosswalk_types:
+                                issues.append(
+                                    ValidationIssue(
+                                        f"{path}:cases/{case_index}/inputs/{pic_id}",
+                                        "fixture references unknown crosswalk ID",
+                                        "reference",
+                                    )
+                                )
+                                continue
+                            expected_type = crosswalk_types[pic_id]
+                            actual_type = _infer_value_data_type(value_object)
+                            if actual_type is not None and expected_type != actual_type:
+                                issues.append(
+                                    ValidationIssue(
+                                        f"{path}:cases/{case_index}/inputs/{pic_id}",
+                                        "type mismatch: "
+                                        f"crosswalk={expected_type} fixture={actual_type}",
+                                        "type",
+                                    )
+                                )
         elif contract == "pic-traces":
-            for step_index, step in enumerate(doc.get("steps", [])):
-                for version_index, parameter in enumerate(step.get("parameterVersions", [])):
-                    parameter_id = parameter.get("id")
-                    if parameter_id not in parameter_ids:
-                        issues.append(
-                            ValidationIssue(
-                                f"{path}:steps/{step_index}/parameterVersions/{version_index}",
-                                "trace references unknown parameter ID",
-                                "reference",
-                            )
-                        )
+            steps = doc.get("steps")
+            if steps:
+                for step_index, step in enumerate(steps):
+                    parameter_versions = step.get("parameterVersions")
+                    if parameter_versions:
+                        for version_index, parameter in enumerate(parameter_versions):
+                            parameter_id = parameter.get("id")
+                            if parameter_id not in parameter_ids:
+                                issues.append(
+                                    ValidationIssue(
+                                        f"{path}:steps/{step_index}/parameterVersions/{version_index}",
+                                        "trace references unknown parameter ID",
+                                        "reference",
+                                    )
+                                )
     return issues
 
 
