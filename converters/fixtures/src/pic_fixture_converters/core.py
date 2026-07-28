@@ -350,7 +350,7 @@ def _pic_id(native_name: str, *, dialect: Dialect, crosswalk: Crosswalk | None) 
 def _unique_id(pic_id: str, path: tuple[str, ...], id_map: dict[str, str]) -> str:
     if pic_id not in id_map:
         return pic_id
-    digest = hashlib.sha1("/".join(path).encode("utf-8")).hexdigest()[:8]
+    digest = hashlib.sha256("/".join(path).encode("utf-8")).hexdigest()[:8]
     base, suffix = pic_id.rsplit(".", 1)
     return f"{base}_{digest}.{suffix}"
 
