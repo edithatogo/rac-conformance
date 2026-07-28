@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from pic_contracts.diff import changes_to_markdown, diff_parameters
+from pic_contracts.diff import _period_key, changes_to_markdown, diff_parameters
 
 
 def _doc(value: int = 20) -> dict:
@@ -52,3 +52,19 @@ def test_diff_reports_removed_parameter() -> None:
     after = {"conformsTo": "pic-parameters/0.1.0", "parameters": []}
     changes = diff_parameters(before, after)
     assert [change.kind for change in changes] == ["removed_parameter"]
+
+
+def test_period_key_both_present() -> None:
+    assert _period_key({"from": "2026-01-01", "to": "2026-12-31"}) == ("2026-01-01", "2026-12-31")
+
+def test_period_key_only_from_present() -> None:
+    assert _period_key({"from": "2026-01-01"}) == ("2026-01-01", None)
+
+def test_period_key_only_to_present() -> None:
+    assert _period_key({"to": "2026-12-31"}) == ("", "2026-12-31")
+
+def test_period_key_neither_present() -> None:
+    assert _period_key({}) == ("", None)
+
+def test_period_key_to_is_none() -> None:
+    assert _period_key({"from": "2026-01-01", "to": None}) == ("2026-01-01", None)
