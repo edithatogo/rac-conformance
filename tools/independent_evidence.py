@@ -18,7 +18,13 @@ SCHEMA = TRACK / "SUBMISSION_SCHEMA.json"
 CRITERIA = TRACK / "INDEPENDENCE_CRITERIA.json"
 KIT = ROOT / "independent/kit"
 TRUSTED_ATTESTATIONS = ROOT / "independent/TRUSTED_ATTESTATIONS.json"
-NONQUALIFYING_OUTCOMES = {"partial", "conflicting", "withdrawn", "declined", "unresponsive"}
+NONQUALIFYING_OUTCOMES = {
+    "partial",
+    "conflicting",
+    "withdrawn",
+    "declined",
+    "unresponsive",
+}
 
 
 def _unique_object(pairs: list[tuple[str, object]]) -> dict:
@@ -76,6 +82,76 @@ def _verify_artifact(name: str, artifact: dict, evidence_root: Path) -> str | No
     return None
 
 
+def _verify_result_document(evidence_root, packet):
+    exceptions = []
+    result_path = (
+        evidence_root.resolve() / packet["artifacts"]["result"]["path"]
+    ).resolve()
+    if not result_path.is_file():
+        return exceptions
+    try:
+        result_document = _load_json(result_path)
+    except (UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        exceptions.append("result artifact is not valid JSON")
+        return exceptions
+
+    expected_result = {
+        "schemaVersion": "rac-independent-execution-result.v1",
+        "implementationId": packet["implementationId"],
+        "sourceRevision": packet["sourceRevision"],
+        "kitDigestSha256": packet["kitDigestSha256"],
+        "status": "pass",
+        "tests": packet["tests"],
+    }
+    if not isinstance(result_document, dict):
+        exceptions.append("result artifact root is not an object")
+    elif result_document != expected_result:
+        exceptions.append(
+            "result artifact does not match the submitted execution result"
+        )
+    return exceptions
+
+
+def _verify_bindings(evidence_root, packet, trusted_attestations):
+    verification_exceptions = []
+    qualification_exceptions = []
+    result_digest = packet["artifacts"]["result"]["sha256"]
+    bindings = {
+        "acknowledgement": {
+            "schemaVersion": "rac-independent-acknowledgement.v1",
+            "implementationId": packet["implementationId"],
+            "sourceRevision": packet["sourceRevision"],
+            "resultSha256": result_digest,
+            "status": "confirmed",
+        },
+        "attestation": {
+            "schemaVersion": "rac-independent-attestation.v1",
+            "implementationId": packet["implementationId"],
+            "sourceRevision": packet["sourceRevision"],
+            "resultSha256": result_digest,
+            "issuerControl": "external",
+        },
+    }
+    for role, expected in bindings.items():
+        path = (evidence_root.resolve() / packet["artifacts"][role]["path"]).resolve()
+        if not path.is_file():
+            continue
+        try:
+            document = _load_json(path)
+        except (UnicodeDecodeError, json.JSONDecodeError, ValueError):
+            verification_exceptions.append(f"{role} artifact is not valid JSON")
+            continue
+        if not isinstance(document, dict) or any(
+            document.get(key) != value for key, value in expected.items()
+        ):
+            verification_exceptions.append(
+                f"{role} artifact is not bound to the submission"
+            )
+    if packet["artifacts"]["attestation"]["sha256"] not in trusted_attestations:
+        qualification_exceptions.append("attestation is not analyst-trusted")
+    return verification_exceptions, qualification_exceptions
+
+
 def classify(
     packet: dict,
     *,
@@ -86,7 +162,9 @@ def classify(
     """Return structural, evidence, and release-qualification status."""
     schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
     errors = sorted(
-        Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(packet),
+        Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(
+            packet
+        ),
         key=lambda error: list(error.path),
     )
     schema_diagnostics = [
@@ -117,7 +195,9 @@ def classify(
     if packet["kitDigestSha256"] != expected_kit_digest:
         verification_exceptions.append("kit digest mismatch")
     if packet["contractVersions"] != [manifest["contract"]]:
-        verification_exceptions.append("contract versions do not match the canonical kit")
+        verification_exceptions.append(
+            "contract versions do not match the canonical kit"
+        )
 
     result_artifact_verified = False
     if evidence_root is None:
@@ -125,7 +205,9 @@ def classify(
     else:
         artifact_paths = [artifact["path"] for artifact in packet["artifacts"].values()]
         if len(artifact_paths) != len(set(artifact_paths)):
-            verification_exceptions.append("artifact roles do not reference distinct paths")
+            verification_exceptions.append(
+                "artifact roles do not reference distinct paths"
+            )
         for name, artifact in packet["artifacts"].items():
             diagnostic = _verify_artifact(name, artifact, evidence_root)
             if diagnostic:
@@ -146,62 +228,20 @@ def classify(
     if missing:
         verification_exceptions.append("test cases are missing: " + ", ".join(missing))
     if unexpected:
-        verification_exceptions.append("test cases are unexpected: " + ", ".join(unexpected))
+        verification_exceptions.append(
+            "test cases are unexpected: " + ", ".join(unexpected)
+        )
     if any(result["status"] != "pass" for result in packet["tests"]):
         verification_exceptions.append("one or more test cases did not pass")
     if evidence_root is not None and result_artifact_verified:
-        result_path = (evidence_root.resolve() / packet["artifacts"]["result"]["path"]).resolve()
-        if result_path.is_file():
-            try:
-                result_document = _load_json(result_path)
-            except (UnicodeDecodeError, json.JSONDecodeError, ValueError):
-                verification_exceptions.append("result artifact is not valid JSON")
-            else:
-                expected_result = {
-                    "schemaVersion": "rac-independent-execution-result.v1",
-                    "implementationId": packet["implementationId"],
-                    "sourceRevision": packet["sourceRevision"],
-                    "kitDigestSha256": packet["kitDigestSha256"],
-                    "status": "pass",
-                    "tests": packet["tests"],
-                }
-                if not isinstance(result_document, dict):
-                    verification_exceptions.append("result artifact root is not an object")
-                elif result_document != expected_result:
-                    verification_exceptions.append("result artifact does not match the submitted execution result")
+        verification_exceptions.extend(_verify_result_document(evidence_root, packet))
 
     if evidence_root is not None:
-        result_digest = packet["artifacts"]["result"]["sha256"]
-        bindings = {
-            "acknowledgement": {
-                "schemaVersion": "rac-independent-acknowledgement.v1",
-                "implementationId": packet["implementationId"],
-                "sourceRevision": packet["sourceRevision"],
-                "resultSha256": result_digest,
-                "status": "confirmed",
-            },
-            "attestation": {
-                "schemaVersion": "rac-independent-attestation.v1",
-                "implementationId": packet["implementationId"],
-                "sourceRevision": packet["sourceRevision"],
-                "resultSha256": result_digest,
-                "issuerControl": "external",
-            },
-        }
-        for role, expected in bindings.items():
-            path = (evidence_root.resolve() / packet["artifacts"][role]["path"]).resolve()
-            if path.is_file():
-                try:
-                    document = _load_json(path)
-                except (UnicodeDecodeError, json.JSONDecodeError, ValueError):
-                    verification_exceptions.append(f"{role} artifact is not valid JSON")
-                    continue
-                if not isinstance(document, dict) or any(
-                    document.get(key) != value for key, value in expected.items()
-                ):
-                    verification_exceptions.append(f"{role} artifact is not bound to the submission")
-        if packet["artifacts"]["attestation"]["sha256"] not in trusted_attestations:
-            qualification_exceptions.append("attestation is not analyst-trusted")
+        ver_ext, qual_ext = _verify_bindings(
+            evidence_root, packet, trusted_attestations
+        )
+        verification_exceptions.extend(ver_ext)
+        qualification_exceptions.extend(qual_ext)
 
     if packet["organisation"]["controlRelationship"] != "external":
         qualification_exceptions.append("organisation is not independently controlled")
@@ -209,7 +249,9 @@ def classify(
         qualification_exceptions.append("repository is not independently controlled")
     for dimension, control in packet["independence"].items():
         if control != "external":
-            qualification_exceptions.append(f"{dimension} is not independently controlled")
+            qualification_exceptions.append(
+                f"{dimension} is not independently controlled"
+            )
     if packet["execution"]["cleanCheckout"] is not True:
         qualification_exceptions.append("execution was not from a clean checkout")
     if packet["unresolvedMismatches"]:
