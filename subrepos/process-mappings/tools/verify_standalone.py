@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 import re
 from pathlib import Path
-
 
 IMMUTABLE = re.compile(r"^(?:v[0-9]+\.[0-9]+\.[0-9]+|[0-9a-f]{40})$")
 LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
@@ -35,13 +33,18 @@ def validate(root: Path) -> list[str]:
             if not isinstance(manifest, dict):
                 errors.append("contract manifest is not a JSON object")
             else:
-                if manifest.get("schemaVersion") != "process-mappings-contract-consumption.v0.1.0":
+                if (
+                    manifest.get("schemaVersion")
+                    != "process-mappings-contract-consumption.v0.1.0"
+                ):
                     errors.append("contract manifest has an unsupported schemaVersion")
                 repository = manifest.get("repository")
                 if not isinstance(repository, dict):
                     errors.append("contract manifest repository is not an object")
                 elif not IMMUTABLE.fullmatch(repository.get("revision", "")):
-                    errors.append("contract manifest repository revision is not immutable")
+                    errors.append(
+                        "contract manifest repository revision is not immutable"
+                    )
                 inputs = manifest.get("inputs")
                 if not isinstance(inputs, list):
                     errors.append("contract manifest inputs is not a list")
@@ -51,15 +54,25 @@ def validate(root: Path) -> list[str]:
                             errors.append("contract manifest input is not an object")
                             continue
                         if not IMMUTABLE.fullmatch(source.get("revision", "")):
-                            errors.append(f"source revision is not immutable: {source.get('id')}")
+                            errors.append(
+                                f"source revision is not immutable: {source.get('id')}"
+                            )
                         if not re.fullmatch(r"[0-9a-f]{64}", source.get("sha256", "")):
-                            errors.append(f"source digest is invalid: {source.get('id')}")
+                            errors.append(
+                                f"source digest is invalid: {source.get('id')}"
+                            )
 
     contracts_root = root / "contracts"
     if contracts_root.exists():
-        unexpected = [path for path in contracts_root.rglob("*") if path.is_file() and path.name != "consumption.json"]
+        unexpected = [
+            path
+            for path in contracts_root.rglob("*")
+            if path.is_file() and path.name != "consumption.json"
+        ]
         if unexpected:
-            errors.append("normative PIC contracts were copied into the extracted repository")
+            errors.append(
+                "normative PIC contracts were copied into the extracted repository"
+            )
     nested_git = [path for path in root.rglob(".git") if path != root / ".git"]
     if nested_git:
         errors.append("nested Git repository detected")
@@ -70,7 +83,9 @@ def validate(root: Path) -> list[str]:
                 continue
             path = (markdown.parent / target.split("#", 1)[0]).resolve()
             if not path.exists() or (path != root and root not in path.parents):
-                errors.append(f"broken relative link: {markdown.relative_to(root)} -> {target}")
+                errors.append(
+                    f"broken relative link: {markdown.relative_to(root)} -> {target}"
+                )
 
     return errors
 
