@@ -1,5 +1,4 @@
 import json
-import os
 import sys
 from datetime import date, datetime, UTC
 from pathlib import Path
