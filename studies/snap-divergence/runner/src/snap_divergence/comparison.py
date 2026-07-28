@@ -29,8 +29,8 @@ def compare_result_sets(
 ) -> list[dict[str, Any]]:
     policyengine_by_case = {result["caseId"]: result for result in policyengine_results}
     prd_by_case = {result["caseId"]: result for result in prd_results}
-    missing_policyengine = sorted(set(prd_by_case) - set(policyengine_by_case))
-    missing_prd = sorted(set(policyengine_by_case) - set(prd_by_case))
+    missing_policyengine = sorted(prd_by_case.keys() - policyengine_by_case.keys())
+    missing_prd = sorted(policyengine_by_case.keys() - prd_by_case.keys())
     if missing_policyengine or missing_prd:
         raise ValueError(
             f"case id mismatch: missing_policyengine={missing_policyengine} missing_prd={missing_prd}",
