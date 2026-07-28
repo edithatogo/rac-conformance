@@ -1,6 +1,10 @@
+import json
 from copy import deepcopy
 
-from pic_contracts.diff import changes_to_markdown, diff_parameters
+import pytest
+
+from pic_contracts.diff import changes_to_markdown, diff_files, diff_parameters
+from pic_contracts.safety import SafetyLimitError
 
 
 def _doc(value: int = 20) -> dict:
@@ -52,3 +56,44 @@ def test_diff_reports_removed_parameter() -> None:
     after = {"conformsTo": "pic-parameters/0.1.0", "parameters": []}
     changes = diff_parameters(before, after)
     assert [change.kind for change in changes] == ["removed_parameter"]
+
+
+def test_diff_files(tmp_path) -> None:
+    before_file = tmp_path / "before.json"
+    after_file = tmp_path / "after.json"
+
+    before_file.write_text(json.dumps(_doc(20)))
+    after_file.write_text(json.dumps(_doc(21)))
+
+    changes = diff_files(before_file, after_file)
+    assert [change.kind for change in changes] == ["value_change"]
+    assert "20 -> 21" in changes[0].detail
+
+def test_diff_files_file_not_found(tmp_path) -> None:
+    before_file = tmp_path / "before.json"
+    after_file = tmp_path / "after.json"
+
+    before_file.write_text(json.dumps(_doc(20)))
+
+    with pytest.raises(FileNotFoundError):
+        diff_files(before_file, after_file)
+
+def test_diff_files_malformed_json(tmp_path) -> None:
+    before_file = tmp_path / "before.json"
+    after_file = tmp_path / "after.json"
+
+    before_file.write_text(json.dumps(_doc(20)))
+    after_file.write_text("invalid json")
+
+    with pytest.raises(json.JSONDecodeError):
+        diff_files(before_file, after_file)
+
+def test_diff_files_not_dict_safety_limit(tmp_path) -> None:
+    before_file = tmp_path / "before.json"
+    after_file = tmp_path / "after.json"
+
+    before_file.write_text(json.dumps(_doc(20)))
+    after_file.write_text(json.dumps([]))
+
+    with pytest.raises(SafetyLimitError):
+        diff_files(before_file, after_file)
