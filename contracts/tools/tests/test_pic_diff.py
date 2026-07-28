@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from pic_contracts.diff import changes_to_markdown, diff_parameters
+from pic_contracts.diff import ParameterChange, changes_to_markdown, diff_parameters
 
 
 def _doc(value: int = 20) -> dict:
@@ -52,3 +52,22 @@ def test_diff_reports_removed_parameter() -> None:
     after = {"conformsTo": "pic-parameters/0.1.0", "parameters": []}
     changes = diff_parameters(before, after)
     assert [change.kind for change in changes] == ["removed_parameter"]
+
+
+def test_changes_to_markdown_with_changes() -> None:
+    changes = [
+        ParameterChange(
+            kind="value_change",
+            parameter_id="nz-oia/parameter.limit",
+            detail="2026-01-01 to None: 20 -> 21",
+        ),
+        ParameterChange(
+            kind="removed_parameter",
+            parameter_id="nz-oia/parameter.obsolete",
+            detail="parameter removed",
+        ),
+    ]
+    markdown = changes_to_markdown(changes)
+    assert "| Kind | Parameter | Detail |" in markdown
+    expected_row = "| `value_change` | `nz-oia/parameter.limit` | 2026-01-01 to None: 20 -> 21 |"
+    assert expected_row in markdown
