@@ -1,6 +1,9 @@
+from datetime import date
 from pathlib import Path
 
-from pic_contracts.parameters import validate_parameter_periods
+import pytest
+
+from pic_contracts.parameters import _parse_date, validate_parameter_periods
 from pic_contracts.schema_utils import CONTRACTS_ROOT, load_json, validator_for
 
 BASE = CONTRACTS_ROOT / "pic-parameters" / "0.1.0" / "examples"
@@ -45,3 +48,22 @@ def test_period_validator_rejects_unordered_after_open_ended_period() -> None:
     assert errors
     assert errors[0].path == "parameters/0/values/1"
     assert "open-ended" in errors[0].message
+
+
+
+
+def test_parse_date_with_none() -> None:
+    assert _parse_date(None) is None
+
+def test_parse_date_with_valid_string() -> None:
+    assert _parse_date("2023-10-27") == date(2023, 10, 27)
+
+def test_parse_date_with_invalid_string() -> None:
+    with pytest.raises(ValueError):
+        _parse_date("invalid-date")
+
+    with pytest.raises(ValueError):
+        _parse_date("2023/10/27")
+
+    with pytest.raises(ValueError):
+        _parse_date("2023-13-40")
