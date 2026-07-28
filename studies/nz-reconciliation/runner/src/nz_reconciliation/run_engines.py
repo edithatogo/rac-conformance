@@ -11,7 +11,10 @@ from pathlib import Path
 from typing import Any
 
 from nz_reconciliation.inventory import DEFAULT_INVENTORY, load_inventory, select_cases
-from nz_reconciliation.mapping import annotate_inventory_case, openfisca_mapping_for_case
+from nz_reconciliation.mapping import (
+    annotate_inventory_case,
+    openfisca_mapping_for_case,
+)
 from nz_reconciliation.pic_cases import inventory_case_to_pic_case
 
 DEFAULT_RULESPEC_RESULTS = Path(
@@ -174,15 +177,19 @@ def run_rulespec_cases(
         outputs = (run.get("axiom") or {}).get("outputs") or {}
         # Prefer durable RuleSpec IDs in the reconciliation JSONL.
         durable_outputs: dict[str, Any] = {}
-        for pic_id, payload in outputs.items():
-            # Reverse through expected map when possible.
-            durable_id = None
-            for rulespec_id in (case.get("expectedRulespec") or {}):
-                from nz_reconciliation.pic_cases import _short_id
+        expected_rulespec = case.get("expectedRulespec") or {}
 
-                if _short_id(rulespec_id, kind="output") == pic_id:
-                    durable_id = rulespec_id
-                    break
+        reverse_expected = {}
+        if expected_rulespec:
+            from nz_reconciliation.pic_cases import _short_id
+
+            reverse_expected = {
+                _short_id(rulespec_id, kind="output"): rulespec_id
+                for rulespec_id in expected_rulespec
+            }
+
+        for pic_id, payload in outputs.items():
+            durable_id = reverse_expected.get(pic_id)
             durable_outputs[durable_id or pic_id] = payload
 
         # If the harness returned nothing (adapter failure), fall back to expected
@@ -233,13 +240,19 @@ def run_openfisca_cases(cases: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def main(argv: list[str] | None = None) -> int:
     """CLI: run both engines for the inventory and write candidate JSONL files."""
-    parser = argparse.ArgumentParser(description="NZ reconciliation Phase 2 engine runner.")
+    parser = argparse.ArgumentParser(
+        description="NZ reconciliation Phase 2 engine runner."
+    )
     parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
     parser.add_argument("--engine-binary", type=Path, default=DEFAULT_ENGINE_BINARY)
     parser.add_argument("--rulespec-root", type=Path, default=DEFAULT_RULESPEC_ROOT)
     parser.add_argument("--artifact-dir", type=Path, default=DEFAULT_ARTIFACT_DIR)
-    parser.add_argument("--rulespec-output", type=Path, default=DEFAULT_RULESPEC_RESULTS)
-    parser.add_argument("--openfisca-output", type=Path, default=DEFAULT_OPENFISCA_RESULTS)
+    parser.add_argument(
+        "--rulespec-output", type=Path, default=DEFAULT_RULESPEC_RESULTS
+    )
+    parser.add_argument(
+        "--openfisca-output", type=Path, default=DEFAULT_OPENFISCA_RESULTS
+    )
     parser.add_argument(
         "--exclude-blocked",
         action="store_true",
@@ -266,7 +279,9 @@ def main(argv: list[str] | None = None) -> int:
     cases = select_cases(inventory, include_blocked=not args.exclude_blocked)
 
     if args.update_inventory_mapping:
-        inventory["cases"] = [annotate_inventory_case(case) for case in inventory["cases"]]
+        inventory["cases"] = [
+            annotate_inventory_case(case) for case in inventory["cases"]
+        ]
         args.inventory.write_text(
             json.dumps(inventory, indent=2, sort_keys=False) + "\n",
             encoding="utf-8",
@@ -298,8 +313,12 @@ def main(argv: list[str] | None = None) -> int:
         write_jsonl(args.rulespec_output, rulespec_rows)
         summary["rulespec"] = {
             "output": str(args.rulespec_output),
-            "ok": sum(1 for row in rulespec_rows if row["status"] in {"exact_match", "ok"}),
-            "blocked": sum(1 for row in rulespec_rows if row["status"] == "blocked_compile"),
+            "ok": sum(
+                1 for row in rulespec_rows if row["status"] in {"exact_match", "ok"}
+            ),
+            "blocked": sum(
+                1 for row in rulespec_rows if row["status"] == "blocked_compile"
+            ),
             "failed": sum(
                 1
                 for row in rulespec_rows
@@ -312,7 +331,9 @@ def main(argv: list[str] | None = None) -> int:
         write_jsonl(args.openfisca_output, openfisca_rows)
         summary["openfiscaAotearoa"] = {
             "output": str(args.openfisca_output),
-            "engine_gap": sum(1 for row in openfisca_rows if row["status"] == "engine_gap"),
+            "engine_gap": sum(
+                1 for row in openfisca_rows if row["status"] == "engine_gap"
+            ),
         }
 
     print(json.dumps({"ok": True, **summary}, indent=2))
