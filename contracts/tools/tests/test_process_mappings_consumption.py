@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from pic_contracts.process_mappings_consumption import validate_consumption
+from pic_contracts.process_mappings_consumption import _rooted, validate_consumption
 
 ROOT = Path(__file__).parents[3]
 MANIFEST = ROOT / "subrepos" / "process-mappings" / "contracts" / "consumption.json"
@@ -51,3 +51,42 @@ def test_portable_evidence_sources_are_immutable() -> None:
         "/447920b9bb72830f2c8490ee40bdcd73c5eedb4a/" in source
         for source in document["portableEvidenceSources"]
     )
+
+
+def test_rooted_happy_path(tmp_path: Path) -> None:
+    test_file = tmp_path / "test.txt"
+    test_file.touch()
+    errors = []
+    result = _rooted(tmp_path, "test.txt", errors, "test_label")
+    assert result == test_file.resolve()
+    assert not errors
+
+def test_rooted_not_a_string(tmp_path: Path) -> None:
+    errors = []
+    result = _rooted(tmp_path, None, errors, "test_label")
+    assert result is None
+    assert errors == ["test_label path must be relative"]
+
+def test_rooted_empty_string(tmp_path: Path) -> None:
+    errors = []
+    result = _rooted(tmp_path, "", errors, "test_label")
+    assert result is None
+    assert errors == ["test_label path must be relative"]
+
+def test_rooted_absolute_path(tmp_path: Path) -> None:
+    errors = []
+    result = _rooted(tmp_path, "/absolute/path", errors, "test_label")
+    assert result is None
+    assert errors == ["test_label path must be relative"]
+
+def test_rooted_escapes_repository(tmp_path: Path) -> None:
+    errors = []
+    result = _rooted(tmp_path, "../outside.txt", errors, "test_label")
+    assert result is None
+    assert errors == ["test_label path escapes repository: ../outside.txt"]
+
+def test_rooted_file_not_found(tmp_path: Path) -> None:
+    errors = []
+    result = _rooted(tmp_path, "does_not_exist.txt", errors, "test_label")
+    assert result is None
+    assert errors == ["test_label not found: does_not_exist.txt"]
