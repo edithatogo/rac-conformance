@@ -93,13 +93,10 @@ def inventory_case_to_pic_case(
     if derived_only:
         allowed = DERIVED_OUTPUT_LOCAL_NAMES.get(str(case.get("domain")), frozenset())
         expected_items = [
-            (key, value)
-            for key, value in expected_items
-            if key.rsplit("#", 1)[-1] in allowed
+            (key, value) for key, value in expected_items if key.rsplit("#", 1)[-1] in allowed
         ]
     expected = {
-        _short_id(key, kind="output"): _value_object(value)
-        for key, value in expected_items
+        _short_id(key, kind="output"): _value_object(value) for key, value in expected_items
     }
     return {
         "caseId": case["caseId"],

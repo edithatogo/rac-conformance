@@ -14,11 +14,17 @@ def test_annotate_inventory_case_updates_openfisca_block() -> None:
     case = {
         "caseId": "nz-recon/income_tax.x",
         "domain": "income_tax",
-        "openfiscaAotearoa": {"repo": "ServiceInnovationLab/openfisca-aotearoa", "status": "pending_mapping"},
+        "openfiscaAotearoa": {
+            "repo": "ServiceInnovationLab/openfisca-aotearoa",
+            "status": "pending_mapping",
+        },
     }
     annotated = annotate_inventory_case(case)
     assert annotated["openfiscaAotearoa"]["status"] == "engine_gap"
-    assert "progressive" in annotated["openfiscaAotearoa"]["notes"].lower() or "tax" in annotated["openfiscaAotearoa"]["notes"].lower()
+    assert (
+        "progressive" in annotated["openfiscaAotearoa"]["notes"].lower()
+        or "tax" in annotated["openfiscaAotearoa"]["notes"].lower()
+    )
 
 
 def test_inventory_case_to_pic_case_maps_income_tax_ids() -> None:
@@ -35,11 +41,16 @@ def test_inventory_case_to_pic_case_maps_income_tax_ids() -> None:
             "nz:statutes/income_tax/schedule_1/individual_income_tax#individual_income_tax_before_credits": 1638,
         },
         "sourceRefs": ["https://example.test"],
-        "rulespec": {"testPath": "nz/statutes/income_tax/schedule_1/individual_income_tax.test.yaml"},
+        "rulespec": {
+            "testPath": "nz/statutes/income_tax/schedule_1/individual_income_tax.test.yaml"
+        },
     }
     pic = inventory_case_to_pic_case(case)
     assert "nz-income-tax/variable.taxable_income" in pic["inputs"]
     assert pic["inputs"]["nz-income-tax/variable.taxable_income"]["value"] == "15600"
     assert "nz-income-tax/decision.individual_income_tax_before_credits" in pic["expected"]
     assert "nz-income-tax/decision.individual_income_tax_bracket_thresholds" not in pic["expected"]
-    assert pic["expected"]["nz-income-tax/decision.individual_income_tax_before_credits"]["value"] == "1638"
+    assert (
+        pic["expected"]["nz-income-tax/decision.individual_income_tax_before_credits"]["value"]
+        == "1638"
+    )

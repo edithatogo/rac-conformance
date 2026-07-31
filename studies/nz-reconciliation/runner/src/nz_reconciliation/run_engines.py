@@ -107,9 +107,7 @@ def _import_axiom():
         "build_rulespec_nz_individual_income_tax_adapter": (
             build_rulespec_nz_individual_income_tax_adapter
         ),
-        "build_rulespec_nz_acc_earners_levy_adapter": (
-            build_rulespec_nz_acc_earners_levy_adapter
-        ),
+        "build_rulespec_nz_acc_earners_levy_adapter": (build_rulespec_nz_acc_earners_levy_adapter),
         "build_rulespec_nz_kiwisaver_contributions_adapter": (
             build_rulespec_nz_kiwisaver_contributions_adapter
         ),
@@ -177,7 +175,7 @@ def run_rulespec_cases(
         for pic_id, payload in outputs.items():
             # Reverse through expected map when possible.
             durable_id = None
-            for rulespec_id in (case.get("expectedRulespec") or {}):
+            for rulespec_id in case.get("expectedRulespec") or {}:
                 from nz_reconciliation.pic_cases import _short_id
 
                 if _short_id(rulespec_id, kind="output") == pic_id:

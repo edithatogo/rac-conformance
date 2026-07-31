@@ -67,7 +67,9 @@ def build_divergence_report(
             klass = "engine_gap_no_earners_levy_surface"
         else:
             klass = "engine_gap_no_kiwisaver_surface_plus_rulespec_compile_block"
-        lines.append(f"| `{domain}` | {rs_status} ({len(rs)}) | {of_status} ({len(of)}) | `{klass}` |")
+        lines.append(
+            f"| `{domain}` | {rs_status} ({len(rs)}) | {of_status} ({len(of)}) | `{klass}` |"
+        )
 
     lines.extend(
         [
@@ -75,12 +77,12 @@ def build_divergence_report(
             "## Case rollup",
             "",
             f"- RuleSpec oracle rows: {len(rulespec_rows)} "
-            f"(ok={sum(1 for r in rulespec_rows if r.get('status')=='ok')}, "
-            f"compile_blocked={sum(1 for r in rulespec_rows if r.get('status')=='compile_blocked')})",
+            f"(ok={len([1 for r in rulespec_rows if r.get('status') == 'ok'])}, "
+            f"compile_blocked={len([1 for r in rulespec_rows if r.get('status') == 'compile_blocked'])})",
             f"- OpenFisca gap rows: {len(openfisca_rows)} "
-            f"(engine_gap={sum(1 for r in openfisca_rows if r.get('status')=='engine_gap')})",
+            f"(engine_gap={len([1 for r in openfisca_rows if r.get('status') == 'engine_gap'])})",
             f"- Comparison agreements (numeric): "
-            f"{sum(1 for c in comparison_rows if c.get('agreement'))} / {len(comparison_rows)}",
+            f"{len([1 for c in comparison_rows if c.get('agreement')])} / {len(comparison_rows)}",
             "",
             "Numeric agreements are expected to be **zero** while OpenFisca outputs remain empty gaps.",
             "",
@@ -137,10 +139,10 @@ def main(argv: list[str] | None = None) -> int:
     summary = {
         "ok": True,
         "cases": len(comparison_rows),
-        "rulespec_ok": sum(1 for r in rulespec_rows if r["status"] == "ok"),
-        "rulespec_blocked": sum(1 for r in rulespec_rows if r["status"] == "compile_blocked"),
-        "openfisca_gaps": sum(1 for r in openfisca_rows if r["status"] == "engine_gap"),
-        "numeric_agreements": sum(1 for c in comparison_rows if c.get("agreement")),
+        "rulespec_ok": len([1 for r in rulespec_rows if r["status"] == "ok"]),
+        "rulespec_blocked": len([1 for r in rulespec_rows if r["status"] == "compile_blocked"]),
+        "openfisca_gaps": len([1 for r in openfisca_rows if r["status"] == "engine_gap"]),
+        "numeric_agreements": len([1 for c in comparison_rows if c.get("agreement")]),
         "report": str(results_dir / "DIVERGENCE_REPORT.md"),
     }
     print(json.dumps(summary, indent=2))

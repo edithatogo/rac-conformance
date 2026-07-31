@@ -52,9 +52,7 @@ def compare_live(
                 "primary": rs.get("outputs", {}).get("individual_income_tax_before_credits")
                 or next(iter(rs.get("outputs", {}).values()), None)
             }
-            of_out = {
-                "primary": of.get("outputs", {}).get("individual_income_tax_before_credits")
-            }
+            of_out = {"primary": of.get("outputs", {}).get("individual_income_tax_before_credits")}
             pair = compare_pair(
                 {**rs, "outputs": {k: v for k, v in rs_out.items() if v}},
                 {**of, "outputs": {k: v for k, v in of_out.items() if v}},
@@ -94,8 +92,8 @@ def build_report(
         "",
         f"Cases: **{len(comparison_rows)}**",
         f"Numeric agreements (≤$0.02): **{len(agreed)}**",
-        f"RuleSpec oracle ok: **{sum(1 for r in rulespec_rows if r.get('status')=='ok')}**",
-        f"OpenFisca live ok: **{sum(1 for r in openfisca_rows if r.get('status')=='ok')}**",
+        f"RuleSpec oracle ok: **{len([1 for r in rulespec_rows if r.get('status') == 'ok'])}**",
+        f"OpenFisca live ok: **{len([1 for r in openfisca_rows if r.get('status') == 'ok'])}**",
         "",
         "## Agreements",
         "",
@@ -161,9 +159,9 @@ def main(argv: list[str] | None = None) -> int:
     summary = {
         "ok": True,
         "cases": len(comparison_rows),
-        "agreements": sum(1 for r in comparison_rows if r.get("agreement")),
-        "rulespec_ok": sum(1 for r in rulespec_rows if r.get("status") == "ok"),
-        "openfisca_live_ok": sum(1 for r in openfisca_rows if r.get("status") == "ok"),
+        "agreements": len([1 for r in comparison_rows if r.get("agreement")]),
+        "rulespec_ok": len([1 for r in rulespec_rows if r.get("status") == "ok"]),
+        "openfisca_live_ok": len([1 for r in openfisca_rows if r.get("status") == "ok"]),
         "report": str(results_dir / "LIVE_DUAL_ENGINE_REPORT.md"),
     }
     print(json.dumps(summary, indent=2))
