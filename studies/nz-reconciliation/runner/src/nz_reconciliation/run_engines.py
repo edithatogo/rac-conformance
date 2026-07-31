@@ -11,7 +11,10 @@ from pathlib import Path
 from typing import Any
 
 from nz_reconciliation.inventory import DEFAULT_INVENTORY, load_inventory, select_cases
-from nz_reconciliation.mapping import annotate_inventory_case, openfisca_mapping_for_case
+from nz_reconciliation.mapping import (
+    annotate_inventory_case,
+    openfisca_mapping_for_case,
+)
 from nz_reconciliation.pic_cases import inventory_case_to_pic_case
 
 DEFAULT_RULESPEC_RESULTS = Path(
@@ -117,6 +120,103 @@ def _import_axiom():
     return builders, AxiomCompiledArtifactExecutor, AxiomHarnessRunner
 
 
+def _resolve_durable_outputs(
+    outputs: dict[str, Any], case: dict[str, Any]
+) -> dict[str, Any]:
+    from nz_reconciliation.pic_cases import _short_id
+
+    durable_outputs: dict[str, Any] = {}
+    expected_rulespec = case.get("expectedRulespec") or {}
+
+    for pic_id, payload in outputs.items():
+        # Reverse through expected map when possible.
+        durable_id = None
+        for rulespec_id in expected_rulespec:
+            if _short_id(rulespec_id, kind="output") == pic_id:
+                durable_id = rulespec_id
+                break
+        durable_outputs[durable_id or pic_id] = payload
+    return durable_outputs
+
+
+def _run_single_rulespec_case(
+    case: dict[str, Any],
+    builders: Any,
+    executor_cls: Any,
+    runner_cls: Any,
+    engine_binary: Path,
+    rulespec_root: Path,
+    artifact_dir: Path,
+    compiled: dict[str, Path],
+) -> dict[str, Any]:
+    case_id = case["caseId"]
+    domain = case.get("domain")
+
+    compile_status = (case.get("rulespec") or {}).get("compileStatus")
+    if compile_status != "ok":
+        return {
+            "caseId": case_id,
+            "domain": domain,
+            "status": "blocked_compile",
+            "outputs": {},
+            "expected": case.get("expectedRulespec") or {},
+            "evidence": [
+                f"rulespec.compileStatus={compile_status}",
+                "https://github.com/TheAxiomFoundation/rulespec-nz/issues/79",
+            ],
+        }
+
+    module_relpath = DOMAIN_MODULE_PATHS[str(domain)]
+    if domain not in compiled:
+        artifact_path = artifact_dir / f"{domain}.compiled.json"
+        compile_module(
+            engine_binary=engine_binary,
+            rulespec_root=rulespec_root,
+            module_relpath=module_relpath,
+            artifact_path=artifact_path,
+        )
+        compiled[str(domain)] = artifact_path
+
+    builder_name = DOMAIN_ADAPTER_BUILDERS[str(domain)]
+    adapter = builders[builder_name]()
+    runner = runner_cls(
+        adapter=adapter,
+        executor=executor_cls(
+            binary_path=engine_binary,
+            artifact_path=compiled[str(domain)],
+        ),
+    )
+    pic_case = inventory_case_to_pic_case(case)
+    run = runner.run_case(pic_case)
+    outputs = (run.get("axiom") or {}).get("outputs") or {}
+
+    # Prefer durable RuleSpec IDs in the reconciliation JSONL.
+    durable_outputs = _resolve_durable_outputs(outputs, case)
+
+    # If the harness returned nothing (adapter failure), fall back to expected
+    # only when status is exact_match; otherwise record failure honestly.
+    status = run.get("status")
+    if status == "exact_match" and not durable_outputs:
+        durable_outputs = {
+            key: {"value": _decimalish(value), "valueState": "known"}
+            for key, value in (case.get("expectedRulespec") or {}).items()
+        }
+
+    return {
+        "caseId": case_id,
+        "domain": domain,
+        "status": status or "ok",
+        "outputs": durable_outputs,
+        "expected": case.get("expectedRulespec") or {},
+        "mismatches": run.get("mismatches") or [],
+        "axiom_error": run.get("axiom_error"),
+        "evidence": [
+            f"axiom-rules-engine compile+run {module_relpath}",
+            str((case.get("rulespec") or {}).get("testPath")),
+        ],
+    }
+
+
 def run_rulespec_cases(
     cases: list[dict[str, Any]],
     *,
@@ -127,89 +227,19 @@ def run_rulespec_cases(
     """Execute inventory cases against RuleSpec via the Axiom harness."""
     builders, executor_cls, runner_cls = _import_axiom()
     compiled: dict[str, Path] = {}
-    results: list[dict[str, Any]] = []
-
-    for case in cases:
-        case_id = case["caseId"]
-        domain = case.get("domain")
-        compile_status = (case.get("rulespec") or {}).get("compileStatus")
-        if compile_status != "ok":
-            results.append(
-                {
-                    "caseId": case_id,
-                    "domain": domain,
-                    "status": "blocked_compile",
-                    "outputs": {},
-                    "expected": case.get("expectedRulespec") or {},
-                    "evidence": [
-                        f"rulespec.compileStatus={compile_status}",
-                        "https://github.com/TheAxiomFoundation/rulespec-nz/issues/79",
-                    ],
-                }
-            )
-            continue
-
-        module_relpath = DOMAIN_MODULE_PATHS[str(domain)]
-        if domain not in compiled:
-            artifact_path = artifact_dir / f"{domain}.compiled.json"
-            compile_module(
-                engine_binary=engine_binary,
-                rulespec_root=rulespec_root,
-                module_relpath=module_relpath,
-                artifact_path=artifact_path,
-            )
-            compiled[str(domain)] = artifact_path
-
-        builder_name = DOMAIN_ADAPTER_BUILDERS[str(domain)]
-        adapter = builders[builder_name]()
-        runner = runner_cls(
-            adapter=adapter,
-            executor=executor_cls(
-                binary_path=engine_binary,
-                artifact_path=compiled[str(domain)],
-            ),
+    return [
+        _run_single_rulespec_case(
+            case,
+            builders,
+            executor_cls,
+            runner_cls,
+            engine_binary,
+            rulespec_root,
+            artifact_dir,
+            compiled,
         )
-        pic_case = inventory_case_to_pic_case(case)
-        run = runner.run_case(pic_case)
-        outputs = (run.get("axiom") or {}).get("outputs") or {}
-        # Prefer durable RuleSpec IDs in the reconciliation JSONL.
-        durable_outputs: dict[str, Any] = {}
-        for pic_id, payload in outputs.items():
-            # Reverse through expected map when possible.
-            durable_id = None
-            for rulespec_id in (case.get("expectedRulespec") or {}):
-                from nz_reconciliation.pic_cases import _short_id
-
-                if _short_id(rulespec_id, kind="output") == pic_id:
-                    durable_id = rulespec_id
-                    break
-            durable_outputs[durable_id or pic_id] = payload
-
-        # If the harness returned nothing (adapter failure), fall back to expected
-        # only when status is exact_match; otherwise record failure honestly.
-        status = run.get("status")
-        if status == "exact_match" and not durable_outputs:
-            durable_outputs = {
-                key: {"value": _decimalish(value), "valueState": "known"}
-                for key, value in (case.get("expectedRulespec") or {}).items()
-            }
-
-        results.append(
-            {
-                "caseId": case_id,
-                "domain": domain,
-                "status": status or "ok",
-                "outputs": durable_outputs,
-                "expected": case.get("expectedRulespec") or {},
-                "mismatches": run.get("mismatches") or [],
-                "axiom_error": run.get("axiom_error"),
-                "evidence": [
-                    f"axiom-rules-engine compile+run {module_relpath}",
-                    str((case.get("rulespec") or {}).get("testPath")),
-                ],
-            }
-        )
-    return results
+        for case in cases
+    ]
 
 
 def run_openfisca_cases(cases: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -233,13 +263,19 @@ def run_openfisca_cases(cases: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def main(argv: list[str] | None = None) -> int:
     """CLI: run both engines for the inventory and write candidate JSONL files."""
-    parser = argparse.ArgumentParser(description="NZ reconciliation Phase 2 engine runner.")
+    parser = argparse.ArgumentParser(
+        description="NZ reconciliation Phase 2 engine runner."
+    )
     parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
     parser.add_argument("--engine-binary", type=Path, default=DEFAULT_ENGINE_BINARY)
     parser.add_argument("--rulespec-root", type=Path, default=DEFAULT_RULESPEC_ROOT)
     parser.add_argument("--artifact-dir", type=Path, default=DEFAULT_ARTIFACT_DIR)
-    parser.add_argument("--rulespec-output", type=Path, default=DEFAULT_RULESPEC_RESULTS)
-    parser.add_argument("--openfisca-output", type=Path, default=DEFAULT_OPENFISCA_RESULTS)
+    parser.add_argument(
+        "--rulespec-output", type=Path, default=DEFAULT_RULESPEC_RESULTS
+    )
+    parser.add_argument(
+        "--openfisca-output", type=Path, default=DEFAULT_OPENFISCA_RESULTS
+    )
     parser.add_argument(
         "--exclude-blocked",
         action="store_true",
@@ -266,7 +302,9 @@ def main(argv: list[str] | None = None) -> int:
     cases = select_cases(inventory, include_blocked=not args.exclude_blocked)
 
     if args.update_inventory_mapping:
-        inventory["cases"] = [annotate_inventory_case(case) for case in inventory["cases"]]
+        inventory["cases"] = [
+            annotate_inventory_case(case) for case in inventory["cases"]
+        ]
         args.inventory.write_text(
             json.dumps(inventory, indent=2, sort_keys=False) + "\n",
             encoding="utf-8",
@@ -298,8 +336,12 @@ def main(argv: list[str] | None = None) -> int:
         write_jsonl(args.rulespec_output, rulespec_rows)
         summary["rulespec"] = {
             "output": str(args.rulespec_output),
-            "ok": sum(1 for row in rulespec_rows if row["status"] in {"exact_match", "ok"}),
-            "blocked": sum(1 for row in rulespec_rows if row["status"] == "blocked_compile"),
+            "ok": sum(
+                1 for row in rulespec_rows if row["status"] in {"exact_match", "ok"}
+            ),
+            "blocked": sum(
+                1 for row in rulespec_rows if row["status"] == "blocked_compile"
+            ),
             "failed": sum(
                 1
                 for row in rulespec_rows
@@ -312,7 +354,9 @@ def main(argv: list[str] | None = None) -> int:
         write_jsonl(args.openfisca_output, openfisca_rows)
         summary["openfiscaAotearoa"] = {
             "output": str(args.openfisca_output),
-            "engine_gap": sum(1 for row in openfisca_rows if row["status"] == "engine_gap"),
+            "engine_gap": sum(
+                1 for row in openfisca_rows if row["status"] == "engine_gap"
+            ),
         }
 
     print(json.dumps({"ok": True, **summary}, indent=2))
