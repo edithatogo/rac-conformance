@@ -27,8 +27,6 @@ def select_cases(
         cases = [case for case in cases if case.get("domain") in domains]
     if not include_blocked:
         cases = [
-            case
-            for case in cases
-            if (case.get("rulespec") or {}).get("compileStatus") == "ok"
+            case for case in cases if (case.get("rulespec") or {}).get("compileStatus") == "ok"
         ]
     return cases

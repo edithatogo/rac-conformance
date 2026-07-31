@@ -137,7 +137,11 @@ def main(argv: list[str] | None = None) -> int:
     summary = {key: value for key, value in report.items() if key != "rows"}
     summary["rowCount"] = len(report["rows"])
     args.json_out.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(json.dumps({"ok": True, "markdown": str(args.markdown), "json": str(args.json_out)}, indent=2))
+    print(
+        json.dumps(
+            {"ok": True, "markdown": str(args.markdown), "json": str(args.json_out)}, indent=2
+        )
+    )
     return 0
 
 

@@ -27,7 +27,10 @@ def test_inventory_covers_required_domains() -> None:
 def test_select_cases_can_exclude_blocked_kiwisaver() -> None:
     inventory = load_inventory(INVENTORY)
     runnable = select_cases(inventory, include_blocked=False)
-    assert all(case["domain"] != "kiwisaver" or case["rulespec"]["compileStatus"] == "ok" for case in runnable)
+    assert all(
+        case["domain"] != "kiwisaver" or case["rulespec"]["compileStatus"] == "ok"
+        for case in runnable
+    )
     assert all(case["rulespec"]["compileStatus"] == "ok" for case in runnable)
     assert len(runnable) >= 14  # 5 income tax + 9 ACC
 

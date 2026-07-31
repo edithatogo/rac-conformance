@@ -3,7 +3,6 @@ from __future__ import annotations
 from decimal import Decimal
 
 import pytest
-
 from nz_reconciliation.comparison import compare_pair, compare_result_sets
 
 

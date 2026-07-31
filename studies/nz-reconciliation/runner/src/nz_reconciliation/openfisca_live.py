@@ -107,7 +107,9 @@ def run_openfisca_live_case(case: dict[str, Any], system: Any) -> dict[str, Any]
             earnings = _acc_earnings(case)
             if earnings is None:
                 # self-employed cases may need different vars — mark partial
-                return _gap_row(case, "no standard acc earnings input (self-employed path not mapped)")
+                return _gap_row(
+                    case, "no standard acc earnings input (self-employed path not mapped)"
+                )
             person["acc__earnings_for_earners_levy"] = {year: float(earnings)}
             sim = SimulationBuilder().build_from_entities(
                 system,

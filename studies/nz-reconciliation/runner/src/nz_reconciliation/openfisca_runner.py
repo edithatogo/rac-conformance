@@ -53,7 +53,9 @@ def probe_openfisca_tree(repo_root: Path) -> dict[str, Any]:
         if path.is_file()
     )
     income_tax_vars = [path for path in variable_files if "income_tax" in path]
-    acc_vars = [path for path in variable_files if "/acc/" in path or path.startswith("variables/acts/acc")]
+    acc_vars = [
+        path for path in variable_files if "/acc/" in path or path.startswith("variables/acts/acc")
+    ]
     kiwisaver_vars = [path for path in variable_files if "kiwi" in path.lower()]
 
     has_progressive_tax_formula = any(
@@ -75,7 +77,9 @@ def probe_openfisca_tree(repo_root: Path) -> dict[str, Any]:
         "rateInstantCount": len(latest_rate_instants),
         "rateInstants": latest_rate_instants,
         "latestRateInstant": latest_rate_instants[-1] if latest_rate_instants else None,
-        "coversTaxYear2026": any(instant.startswith("202") and instant >= "2024" for instant in latest_rate_instants),
+        "coversTaxYear2026": any(
+            instant.startswith("202") and instant >= "2024" for instant in latest_rate_instants
+        ),
         "incomeTaxVariableFiles": income_tax_vars,
         "accVariableFiles": acc_vars,
         "kiwisaverVariableFiles": kiwisaver_vars,
@@ -105,9 +109,7 @@ def materialise_openfisca_result(case: dict[str, Any], probe: dict[str, Any]) ->
                 "individual_income_tax_before_credits."
             )
         elif not probe.get("coversTaxYear2026"):
-            gap_reason = (
-                "parameter scale does not include 2026 tax-year instants required by inventory cases."
-            )
+            gap_reason = "parameter scale does not include 2026 tax-year instants required by inventory cases."
         else:
             gap_reason = "mapping incomplete"
         status = "engine_gap"
