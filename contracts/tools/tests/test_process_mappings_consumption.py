@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from pic_contracts.process_mappings_consumption import validate_consumption
+from pic_contracts.process_mappings_consumption import _load_object, validate_consumption
 
 ROOT = Path(__file__).parents[3]
 MANIFEST = ROOT / "subrepos" / "process-mappings" / "contracts" / "consumption.json"
@@ -50,4 +50,30 @@ def test_portable_evidence_sources_are_immutable() -> None:
     assert all(
         "/447920b9bb72830f2c8490ee40bdcd73c5eedb4a/" in source
         for source in document["portableEvidenceSources"]
-    )
+
+
+def test_load_object_success(tmp_path: Path) -> None:
+    manifest_path = tmp_path / "valid.json"
+    manifest_path.write_text('{"key": "value"}', encoding="utf-8")
+    result = _load_object(manifest_path)
+    assert result == {"key": "value"}
+
+
+def test_load_object_file_not_found(tmp_path: Path) -> None:
+    missing_path = tmp_path / "missing.json"
+    with pytest.raises(ValueError, match="manifest not found:"):
+        _load_object(missing_path)
+
+
+def test_load_object_invalid_json(tmp_path: Path) -> None:
+    invalid_path = tmp_path / "invalid.json"
+    invalid_path.write_text('{invalid_json: true}', encoding="utf-8")
+    with pytest.raises(ValueError, match="invalid JSON in"):
+        _load_object(invalid_path)
+
+
+def test_load_object_not_a_dict(tmp_path: Path) -> None:
+    array_path = tmp_path / "array.json"
+    array_path.write_text('["not", "a", "dict"]', encoding="utf-8")
+    with pytest.raises(ValueError, match="manifest must be a JSON object:"):
+        _load_object(array_path)
