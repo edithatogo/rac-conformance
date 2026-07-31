@@ -73,7 +73,7 @@ output:
   agirc_salarie: 0
   apec_salarie: 0
   arrco_salarie: 0
-  # chomage_salarie: -17.14 # TODO: devrait être 0
+  chomage_salarie: 0
   cotisation_exceptionnelle_temporaire_salarie: 0
   vieillesse_deplafonnee_salarie: -1.9
   vieillesse_plafonnee_salarie: -126.35
