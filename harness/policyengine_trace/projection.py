@@ -120,22 +120,27 @@ def _project_step(
     parsed = parse_trace_key(key)
     node = flat_trace[key]
     result_id = _variable_id(namespace, parsed.name, category="decision")
-    parameter_versions = [
-        {
-            "id": _variable_id(namespace, parse_trace_key(parameter_key).name, category="parameter"),
-            "effectiveFrom": _effective_from(parse_trace_key(parameter_key).period),
-        }
-        for parameter_key in sorted(node.get("parameters", {}))
-    ]
+
+    parameters = node.get("parameters", {})
+    parameter_versions = []
+    for parameter_key in sorted(parameters):
+        parsed_param = parse_trace_key(parameter_key)
+        parameter_versions.append({
+            "id": _variable_id(namespace, parsed_param.name, category="parameter"),
+            "effectiveFrom": _effective_from(parsed_param.period),
+        })
+
+    dependencies = node.get("dependencies", [])
+    inputs_used = []
+    for dependency in dependencies:
+        parsed_dep = parse_trace_key(dependency)
+        inputs_used.append(_variable_id(namespace, parsed_dep.name, category="decision"))
 
     return {
         "stepId": _step_id(parsed),
         "kind": "decision",
         "refs": {"decision": result_id},
-        "inputsUsed": [
-            _variable_id(namespace, parse_trace_key(dependency).name, category="decision")
-            for dependency in node.get("dependencies", [])
-        ],
+        "inputsUsed": inputs_used,
         "parameterVersions": parameter_versions,
         "result": _value_object(
             node.get("value"),
