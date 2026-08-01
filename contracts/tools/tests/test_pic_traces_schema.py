@@ -2,7 +2,7 @@ from copy import deepcopy
 from pathlib import Path
 
 from pic_contracts.schema_utils import CONTRACTS_ROOT, load_json, validator_for
-from pic_contracts.traces import trace_equivalence
+from pic_contracts.traces import _step_sources, trace_equivalence
 
 BASE = CONTRACTS_ROOT / "pic-traces" / "0.1.0" / "examples"
 
@@ -58,3 +58,37 @@ def test_trace_equivalence_levels() -> None:
     assert result["output"] is True
     assert result["path"] is True
     assert result["semantic"] is False
+
+
+def test_step_sources() -> None:
+    # Happy path: valid stepId and sourceRefs
+    trace = {
+        "steps": [
+            {"stepId": "step1", "sourceRefs": ["ref1", "ref2"]},
+            {"stepId": "step2", "sourceRefs": ["ref3"]},
+        ]
+    }
+    assert _step_sources(trace) == [
+        ("step1", ("ref1", "ref2")),
+        ("step2", ("ref3",)),
+    ]
+
+    # Edge case: empty trace
+    assert _step_sources({}) == []
+
+    # Edge case: trace missing steps key
+    assert _step_sources({"otherKey": "value"}) == []
+
+    # Edge case: step missing stepId or sourceRefs
+    trace_missing = {
+        "steps": [
+            {"sourceRefs": ["ref1"]},  # missing stepId
+            {"stepId": "step2"},  # missing sourceRefs
+            {},  # missing both
+        ]
+    }
+    assert _step_sources(trace_missing) == [
+        ("", ("ref1",)),
+        ("step2", ()),
+        ("", ()),
+    ]
