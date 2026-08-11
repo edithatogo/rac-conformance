@@ -11,7 +11,6 @@ from typing import Any
 
 from axiom.adapter import AxiomRuleSpecAdapter
 
-
 ExecutionCallback = Callable[[dict[str, Any]], dict[str, Any]]
 
 
@@ -41,7 +40,7 @@ class AxiomHarnessRunner:
         try:
             response = active_executor(request)
             axiom = self.adapter.normalize_response(response)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - adapters may raise arbitrary failures
             return {
                 "caseId": pic_case["caseId"],
                 "status": "adapter_failure",
