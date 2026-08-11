@@ -3,7 +3,6 @@ from __future__ import annotations
 from decimal import Decimal
 
 import pytest
-
 from snap_divergence.policyengine_runner import (
     PolicyEngineUnavailable,
     build_policyengine_situation,
