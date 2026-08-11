@@ -99,9 +99,9 @@ def run_prd_cases(
         return [json.loads(line) for line in output_path.read_text().splitlines()]
 
 
-def format_prd_result(case_id: str, period: str, *, annual_snap_value: float | int | str) -> dict[str, Any]:
+def format_prd_result(case_id: str, period: str, *, annual_snap_value: float | str) -> dict[str, Any]:
     annual = Decimal(str(annual_snap_value))
-    monthly = annual / Decimal("12")
+    monthly = annual / Decimal(12)
     return {
         "caseId": case_id,
         "period": period,
@@ -149,7 +149,7 @@ def _parse_ages(value: Any) -> list[int]:
 
 
 def _annualize(monthly: Decimal) -> Decimal:
-    return monthly * Decimal("12")
+    return monthly * Decimal(12)
 
 
 def _decimal_string(value: Decimal) -> str:

@@ -377,13 +377,13 @@ def _expected_eligibility(fixture: dict[str, Any], assertions: list[SourceAssert
             return False
         gross_limit = _decimal(values.get("bbce_gross_limit_percent_fpl"))
         if gross_limit is not None:
-            return gross_limit >= Decimal("165")
+            return gross_limit >= Decimal(165)
     if fixture_class == "gross_130_above":
         if values.get("bbce_status") is False:
             return False
         gross_limit = _decimal(values.get("bbce_gross_limit_percent_fpl"))
         if gross_limit is not None:
-            return gross_limit > Decimal("130")
+            return gross_limit > Decimal(130)
     if fixture_class == "gross_130_below":
         return True
     return None
