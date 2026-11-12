@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 import subprocess
 import tempfile
-from typing import Callable
+from collections.abc import Callable
+from pathlib import Path
 
 from pic_fixture_converters import openfisca_to_pic, policyengine_to_pic
 
