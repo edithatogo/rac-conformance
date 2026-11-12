@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from decimal import Decimal, InvalidOperation
 import hashlib
 import json
-from pathlib import Path
 import re
+from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
 from typing import Any, Literal
 
 import yaml
@@ -275,7 +275,7 @@ def _expected_value(value: Any, *, source: str | None) -> dict[str, Any]:
     return {"value": _pic_value(value), "valueState": "known", "epistemicStatus": "asserted"}
 
 
-def _pic_value(value: bool | int | float | str) -> bool | int | str:
+def _pic_value(value: bool | float | str) -> bool | int | str:
     if isinstance(value, bool):
         return value
     if isinstance(value, int):
