@@ -4,7 +4,6 @@ from pic_contracts.schema_utils import validator_for
 from policyengine_trace import project_flat_trace
 from policyengine_trace.projection import parse_trace_key
 
-
 SNAP_FLAT_TRACE = {
     "snap<2024-01, (default)>": {
         "dependencies": [

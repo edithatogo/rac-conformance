@@ -64,9 +64,9 @@ def build_policyengine_situation(case: dict[str, Any]) -> dict[str, Any]:
             "is_tax_unit_dependent": {period_year: is_child},
             "is_disabled": {period_year: has_elderly_disabled and index == 1},
             "immigration_status_str": {period_year: "CITIZEN"},
-            "employment_income": {period_year: float(_annualize(earned_income if index == 0 else Decimal("0")))},
+            "employment_income": {period_year: float(_annualize(earned_income if index == 0 else Decimal(0)))},
             "snap_allowable_medical_expenses": {
-                period_year: float(_annualize(medical if index == 0 else Decimal("0"))),
+                period_year: float(_annualize(medical if index == 0 else Decimal(0))),
             },
         }
 
@@ -251,7 +251,7 @@ def _marital_units(members: list[str], ages: list[int]) -> dict[str, Any]:
 
 
 def _annualize(monthly: Decimal) -> Decimal:
-    return monthly * Decimal("12")
+    return monthly * Decimal(12)
 
 
 def _scalar(value: Any) -> Any:
