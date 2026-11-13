@@ -5,14 +5,12 @@ from typing import Any
 
 import pytest
 
-from pic_contracts.schema_utils import validator_for
-
 from axiom import (
     AxiomRuleSpecAdapter,
     RuleSpecTarget,
     build_rulespec_nz_acc_earners_levy_adapter,
-    build_rulespec_nz_kiwisaver_contributions_adapter,
     build_rulespec_nz_gst_adapter,
+    build_rulespec_nz_kiwisaver_contributions_adapter,
     build_rulespec_nz_individual_income_tax_adapter,
     build_rulespec_nz_new_zealand_superannuation_core_adapter,
     build_rulespec_nz_new_zealand_superannuation_special_rates_adapter,
@@ -20,6 +18,7 @@ from axiom import (
     write_reports,
 )
 from axiom.runner import AxiomHarnessRunner
+from pic_contracts.schema_utils import validator_for
 
 
 GST_CASE = {
