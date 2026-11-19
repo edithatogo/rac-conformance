@@ -1,0 +1,50 @@
+name: PIC input property campaign
+
+on:
+  pull_request:
+    paths:
+      - "contracts/tools/src/pic_contracts/safety.py"
+      - "contracts/tools/tests/test_safety_generated.py"
+      - "contracts/tools/pyproject.toml"
+      - "contracts/tools/uv.lock"
+      - ".github/workflows/input-properties.yml"
+  schedule:
+    - cron: "11 5 * * 2"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pic-input-properties-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  bounded-json:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12.14"
+      - name: Install repository tooling
+        run: python -m pip install --disable-pip-version-check uv==0.11.8
+      - name: Execute generated input boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p property-evidence
+          python --version | tee property-evidence/python.log
+          git rev-parse HEAD | tee property-evidence/commit.log
+          timeout 300s uv run --locked --directory contracts/tools --with pytest==9.2.0 python -m pytest -v tests/test_safety_generated.py 2>&1 | tee property-evidence/tests.log
+      - name: Preserve cases and execution evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: bounded-json-properties-python-3.12.14
+          path: property-evidence/*.log
+          if-no-files-found: warn
+          retention-days: 14
