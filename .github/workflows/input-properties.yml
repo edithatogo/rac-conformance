@@ -1,6 +1,13 @@
 name: PIC input property campaign
 
 on:
+  pull_request:
+    paths:
+      - "contracts/tools/src/pic_contracts/safety.py"
+      - "contracts/tools/tests/test_safety_generated.py"
+      - "contracts/tools/pyproject.toml"
+      - "contracts/tools/uv.lock"
+      - ".github/workflows/input-properties.yml"
   schedule:
     - cron: "11 5 * * 2"
   workflow_dispatch:

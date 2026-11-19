@@ -15,7 +15,7 @@ at depth 32 or below and truncated JSON stays below 128 bytes. No external input
 engine, statute interpretation, promoted fixture or runtime AI is involved.
 
 The existing `make check` gate already executes this test file on pull requests.
-The separate weekly/manual workflow uses Python 3.12.14, the repository's locked
+The separate path-scoped PR/weekly/manual workflow uses Python 3.12.14, the repository's locked
 PIC dependencies, uv 0.11.8 and pytest 9.2.0. A five-minute command budget and an
 eight-minute job budget bound execution; parameter-labelled test output and the
 interpreter revision and commit are retained for 14 days.
